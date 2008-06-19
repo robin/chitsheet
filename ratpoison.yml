@@ -1,0 +1,41 @@
+--- 
+ratpoison: "C-t c\r\n\
+  \topen xterm\r\n\
+  \r\n\
+  C-t !\r\n\
+  \trun shell command\r\n\
+  \r\n\
+  C-t w\r\n\
+  \twindows being managed\r\n\
+  \t\r\n\
+  C-t n, C-t space, C-t enter\r\n\
+  \tnext window\r\n\
+  C-t p\r\n\
+  \tprevious window\r\n\
+  C-t d\r\n\
+  \tdelete window\r\n\
+  \t\r\n\
+  C-t s\r\n\
+  \tsplit window horizontally\r\n\
+  C-t S\r\n\
+  \tsplit window vertically\r\n\
+  C-t tab\r\n\
+  \tcycle through frames\r\n\
+  C-t R\r\n\
+  \tremove frame\r\n\
+  \t\r\n\
+  C-t r\r\n\
+  \tresize frame\r\n\
+  C-p\r\n\
+  \tgrow frame vertically\r\n\
+  C-n\r\n\
+  \tshrink frame vertically\r\n\
+  C-f\r\n\
+  \tgrow frame horizontally\r\n\
+  C-b\r\n\
+  \tshrink frame horizontally\r\n\
+  return\r\n\
+  \taccept new frame size\r\n\
+  C-g\r\n\
+  \tabort and restore frame to is original size\r\n\
+  \t"

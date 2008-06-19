@@ -1,0 +1,36 @@
+--- 
+rails_request_object: |-
+  Methods
+    - accepts
+    - content_type
+    - delete?
+    - domain
+    - env
+    - formatted_post?
+    - get?
+    - head?
+    - host
+    - host_with_port
+    - method
+    - parameters
+    - path
+    - path_parameters
+    - port
+    - port_string
+    - post?
+    - post_format
+    - protocol
+    - put?
+    - raw_post
+    - relative_url_root
+    - remote_ip
+    - request_uri
+    - server_software
+    - ssl?
+    - standard_port
+    - subdomains
+    - symbolized_path_parameters
+    - xhr?
+    - xml_http_request?
+    - xml_post?
+    - yaml_post?

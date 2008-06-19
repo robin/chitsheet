@@ -1,0 +1,16 @@
+--- 
+sed_delete: " # print all of file EXCEPT section between 2 regular expressions\r\n sed '/Iowa/,/Montana/d'\r\n\
+  \r\n # delete duplicate, consecutive lines from a file (emulates \"uniq\").\r\n # First line in a set of duplicate lines is kept, rest are deleted.\r\n sed '$!N; /^\\(.*\\)\\n\\1$/!P; D'\r\n\
+  \r\n # delete duplicate, nonconsecutive lines from a file. Beware not to\r\n # overflow the buffer size of the hold space, or else use GNU sed.\r\n sed -n 'G; s/\\n/&&/; /^\\([ -~]*\\n\\).*\\n\\1/d; s/\\n//; h; P'\r\n\
+  \r\n # delete all lines except duplicate lines (emulates \"uniq -d\").\r\n sed '$!N; s/^\\(.*\\)\\n\\1$/\\1/; t; D'\r\n\
+  \r\n # delete the first 10 lines of a file\r\n sed '1,10d'\r\n\
+  \r\n # delete the last line of a file\r\n sed '$d'\r\n\
+  \r\n # delete the last 2 lines of a file\r\n sed 'N;$!P;$!D;$d'\r\n\
+  \r\n # delete the last 10 lines of a file\r\n sed -e :a -e '$d;N;2,10ba' -e 'P;D'   # method 1\r\n sed -n -e :a -e '1,10!{P;N;D;};N;ba'  # method 2\r\n\
+  \r\n # delete every 8th line\r\n gsed '0~8d'                           # GNU sed only\r\n sed 'n;n;n;n;n;n;n;d;'                # other seds\r\n\
+  \r\n # delete ALL blank lines from a file (same as \"grep '.' \")\r\n sed '/^$/d'                           # method 1\r\n sed '/./!d'                           # method 2\r\n\
+  \r\n # delete all CONSECUTIVE blank lines from file except the first; also\r\n # deletes all blank lines from top and end of file (emulates \"cat -s\")\r\n sed '/./,/^$/!d'          # method 1, allows 0 blanks at top, 1 at EOF\r\n sed '/^$/N;/\\n$/D'        # method 2, allows 1 blank at top, 0 at EOF\r\n\
+  \r\n # delete all CONSECUTIVE blank lines from file except the first 2:\r\n sed '/^$/N;/\\n$/N;//D'\r\n\
+  \r\n # delete all leading blank lines at top of file\r\n sed '/./,$!d'\r\n\
+  \r\n # delete all trailing blank lines at end of file\r\n sed -e :a -e '/^\\n*$/{$d;N;ba' -e '}'  # works on all seds\r\n sed -e :a -e '/^\\n*$/N;/\\n$/ba'        # ditto, except for gsed 3.02*\r\n\
+  \r\n # delete the last line of each paragraph\r\n sed -n '/^$/{p;h;};/./{x;/./p;}'"

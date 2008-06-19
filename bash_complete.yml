@@ -1,0 +1,19 @@
+--- 
+bash_complete: |-
+  A bash snippet to have auto-complete for
+  the 'cheat' gem.
+  
+  Use by typing :
+    $ cheat str<tab>
+  and get:
+    strftime       string         string_unpack
+  
+  -------- bash script --------
+  sheets=`cheat sheets | grep '^  '`
+  function complete_cheat {
+    COMPREPLY=()
+    if [ $COMP_CWORD = 1 ]; then
+      COMPREPLY=(`compgen -W "$sheets" -- $2`)
+    fi
+  }
+  complete -F complete_cheat cheat

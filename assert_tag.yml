@@ -1,0 +1,22 @@
+--- 
+assert_tag: "# 'cheat assertions' for the rest\r\n\
+  \r\n\
+  assert_tag(*opts)\r\n\
+  \r\n\
+  Asserts that there is a tag/node/element in the body of the response that meets all of the given conditions. The conditions parameter must be a hash of any of the following keys (all are optional):\r\n\
+  \r\n    * :tag: the node type must match the corresponding value\r\n    * :attributes: a hash. The node\xE2\x80\x98s attributes must match the corresponding values in the hash.\r\n    * :parent: a hash. The node\xE2\x80\x98s parent must match the corresponding hash.\r\n    * :child: a hash. At least one of the node\xE2\x80\x98s immediate children must meet the criteria described by the hash.\r\n    * :ancestor: a hash. At least one of the node\xE2\x80\x98s ancestors must meet the criteria described by the hash.\r\n    * :descendant: a hash. At least one of the node\xE2\x80\x98s descendants must meet the criteria described by the hash.\r\n    * :sibling: a hash. At least one of the node\xE2\x80\x98s siblings must meet the criteria described by the hash.\r\n    * :after: a hash. The node must be after any sibling meeting the criteria described by the hash, and at least one sibling must match.\r\n    * :before: a hash. The node must be before any sibling meeting the criteria described by the hash, and at least one sibling must match.\r\n    * :children: a hash, for counting children of a node. Accepts the keys:\r\n          o :count: either a number or a range which must equal (or include) the number of children that match.\r\n          o :less_than: the number of matching children must be less than this number.\r\n          o :greater_than: the number of matching children must be greater than this number.\r\n          o :only: another hash consisting of the keys to use to match on the children, and only matching children will be counted.\r\n    * :content: the textual content of the node must match the given value. This will not match HTML tags in the body of a tag\xE2\x80\x94only text.\r\n\
+  \r\n\
+  Conditions are matched using the following algorithm:\r\n\
+  \r\n    * if the condition is a string, it must be a substring of the value.\r\n    * if the condition is a regexp, it must match the value.\r\n    * if the condition is a number, the value must match number.to_s.\r\n    * if the condition is true, the value must not be nil.\r\n    * if the condition is false or nil, the value must be nil.\r\n\
+  \r\n\
+  Examples\r\n\
+  \r\n  # Assert that there is a \"span\" tag\r\n  assert_tag :tag => \"span\"\r\n\
+  \r\n  # Assert that there is a \"span\" tag with id=\"x\"\r\n  assert_tag :tag => \"span\", :attributes => { :id => \"x\" }\r\n\
+  \r\n  # Assert that there is a \"span\" tag using the short-hand\r\n  assert_tag :span\r\n\
+  \r\n  # Assert that there is a \"span\" tag with id=\"x\" using the short-hand\r\n  assert_tag :span, :attributes => { :id => \"x\" }\r\n\
+  \r\n  # Assert that there is a \"span\" inside of a \"div\"\r\n  assert_tag :tag => \"span\", :parent => { :tag => \"div\" }\r\n\
+  \r\n  # Assert that there is a \"span\" somewhere inside a table\r\n  assert_tag :tag => \"span\", :ancestor => { :tag => \"table\" }\r\n\
+  \r\n  # Assert that there is a \"span\" with at least one \"em\" child\r\n  assert_tag :tag => \"span\", :child => { :tag => \"em\" }\r\n\
+  \r\n  # Assert that there is a \"span\" containing a (possibly nested)\r\n  # \"strong\" tag.\r\n  assert_tag :tag => \"span\", :descendant => { :tag => \"strong\" }\r\n\
+  \r\n  # Assert that there is a \"span\" containing between 2 and 4 \"em\" tags\r\n  # as immediate children\r\n  assert_tag :tag => \"span\",\r\n             :children => { :count => 2..4, :only => { :tag => \"em\" } }\r\n\
+  \r\n  # Get funky: assert that there is a \"div\", with an \"ul\" ancestor\r\n  # and an \"li\" parent (with \"class\" = \"enum\"), and containing a\r\n  # \"span\" descendant that contains text matching /hello world/\r\n  assert_tag :tag => \"div\",\r\n             :ancestor => { :tag => \"ul\" },\r\n             :parent => { :tag => \"li\",\r\n                          :attributes => { :class => \"enum\" } },\r\n             :descendant => { :tag => \"span\",\r\n                              :child => /hello world/ }\r\n"

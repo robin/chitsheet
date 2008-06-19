@@ -1,0 +1,17 @@
+--- 
+unix_text: |
+  One of Unix's most useful features is its large number of text/data manipulations programs. Some of the more propular include:
+  
+  cat - concatenate and display files
+  cut - remove selected fields from each line of a file
+  sort - sort and collate lines
+  uniq - remove or report adjacent duplicate lines
+  awk - pattern scanning and processing language
+  sed - stream editor
+  tr - translate characters
+  diff - display line-by-line differences between pairs of text files
+  grep, egrep, fgrep - search a file for a string or regular expression
+  paste - join corresponding lines of several files, or subsequent lines of one file
+  colrm - remove characters from specified columns within each line
+  expand, unexpand - expand TAB characters to SPACE characters, and vice versa
+

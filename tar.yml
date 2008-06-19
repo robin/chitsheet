@@ -1,0 +1,29 @@
+--- 
+tar: |-
+  To tar the current directory into one file and save the new file in the parent directory, and then zip the file:
+  $ tar cf - . | gzip > ../filename.tgz
+  
+  To extract, first change to the location you want the files (ie. create the outermost directory of the archive and then cd to it) and then:
+  $ zcat /some/path/filename.tgz | tar xvf -
+  
+  Create an Archive (long tags)
+  $ tar --create --verbose --preserve \
+        --ignore-failed-read --file=<file to write to> <files to tar>
+  
+  Create an archive (with compression)
+  $ tar -cjvf test.tar.bz home/
+  
+  Extract an archive (with decompression)
+  $ tar -xvvzf myfile.tar.gz
+  
+  Some common arguments
+  $ tar -j (--bzip)
+  $ tar -v (--verbose)
+  $ tar -z (--gzip)
+  $ tar -x (--extract)
+  $ tar -c (--create)
+  $ tar -t (--list)
+  $ tar -f (--file)
+  $ tar -p (--preserve)
+  $ tar --ignore-failed-read
+  $ tar --totals (prints total bytes written with --create.

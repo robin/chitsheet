@@ -1,0 +1,187 @@
+--- 
+rdebug: |
+  general Informations and Key shortcuts for Kent Sibilev's great ruby-debug gem.
+  http://www.datanoise.com/ruby-debug/, http://rubyforge.org/projects/ruby-debug/
+  
+  A reference manual for version 0.10.0 is at http://bashdb.sf.net/ruby-debug.html
+  
+  Installation
+  gem install ruby-debug
+  
+  Usage
+  rdebug [options] <script.rb> -- <script.rb parameters>
+  
+  startup settings:
+  rdebug reads its configuration file at startup. 
+  create a file ~/.rdebugrc with this content:
+  
+  set autolist
+  set autoeval
+  set autoreload
+  
+  after starting rdebug like: rdebug script/server
+  enter 'c' and 'return' for starting up rdebug finally.
+  
+  Most important commands:
+  r[eload], n[ext], c[ont]
+  
+  ###################################################################
+  Commands (available as 'help <command-name>' in active debug mode)
+  
+  backtrace (alias for where)
+  (rdb:1) bt|backtrace
+  
+  break
+  (rdb:1) b[reak] file:line [if expr]
+  (rdb:1) b[reak] class(.|#)method [if expr]
+            set breakpoint to some position, (optionally) if expr == true
+  
+  Before version 0.10.0:
+  (rdb:1) b[reak]    list breakpoints 
+  0.10.0 or later:
+  (rdb:1) info b[reak]
+  
+  catch
+  (rdb:1) cat[ch]                 (show catchpoint)
+  (rdb:1) cat[ch] <an Exception>  (set catchpoint to an exception)
+  
+  cont
+  (rdb:1) c[ont][ nnn] (run until program ends or hits breakpoint or reaches line nnn)
+  
+  delete
+  (rdb:1) del[ete][ nnn] (delete some or all breakpoints)
+  
+  disable
+  (rdb:1) disable BPT-NUM - disable given breakpoint number
+  
+  display
+  (rdb:1) disp[lay] <expression> (add expression into display expression list)
+  (rdb:1) disp[lay]              (display expression list)
+  
+  down
+  (rdb:1) down[count] (move to lower frame)
+  
+  enable
+  (rdb:1) enable BPT-NUM - enable given breakpoint number
+  
+  eval
+  (rdb:1) e[val] expression evaluate expression and print its value, alias for p.
+                      * NOTE - to turn on autoeval, use 'set autoeval'
+  
+  exit
+  (rdb:1) q[uit]  exit from debugger,
+  (rdb:1) exit    alias to quit
+  
+  finish
+  (rdb:1) fin[ish] return to outer frame
+  
+  frame
+  (rdb:1) f[rame] frame-number
+    Move the current frame to the specified frame number.
+    A negative number indicates position from the other end.  
+    So 'frame -1' moves to the oldest frame, and 'frame 0' moves to
+    the newest frame.
+  
+  help
+  (rdb:1) h[elp]          print help
+  (rdb:1) h[elp] command  print help on command
+  
+  irb
+  (rdb:1) irb starts an IRB session. (EXPERIMENTAL)
+  
+  list
+  (rdb:1) l[ist]          list forward
+  (rdb:1) l[ist] -        list backward
+  (rdb:1) l[ist] =        list current line
+  (rdb:1) l[ist] nn-mm    list given lines
+  
+  method
+  (rdb:1) m[ethod] i[nstance] <obj>       show methods of object
+  (rdb:1) m[ethod] <class|module>         show instance methods of class or module
+  
+  next
+  (rdb:1) n[ext][+][ nnn] step over once or nnn times,
+                    '+' forces to move to another line
+  
+  p
+  (rdb:1)  p expression    evaluate expression and print its value
+  
+  pp
+  (rdb:1) pp expression   evaluate expression and pretty-print its value
+  
+  ps
+  (rdb: 1) ps array - print array in columnized sorted order (e.g. "ps Kernel.methods")
+  
+  putl
+  (rdb: 1) putl array - print array in columnized order
+  
+  quit
+  (rdb:1) q[uit]  exit from debugger,
+  (rdb:1) exit    alias to quit
+  
+  reload
+  (rdb:1) r[eload]        forces source code reloading
+  
+  restart
+  (rdb:1) restart|R [args]
+  Restart the program. This is is a re-exec - all debugger state
+  is lost. If command arguments are passed those are used.
+  
+  save
+  (rdb:1) save [FILE]      saves current breakpoints and catchpoint as a script file
+  
+  Before 0.10.0:
+  (rdb:1) script FILE     executes a script file
+  After 0.10.0 (to be gdb compatible):
+  (rdb:1) source FILE     executes a script file
+  
+  set
+  (rdb:1) set <setting>
+  where <setting>:
+    args           - argument list to give program being debugged when restarted
+    autolist       - execute 'list' command on every breakpoint
+    autoeval       - evaluate every unrecognized command
+    autoreload     - enables automatic source code reloading
+    autoirb        - debugger invokes IRB on every stop
+    listsize       - number of source lines to list by default
+    trace          - display stack trace when 'eval' raises exception
+    framefullpath  - frame will display full file names
+    frameclassname - frame will display class names
+    forcestep      - make sure 'next/step' commands always move to a new line
+    width          - number of characters the debugger things are in aline
+  
+  To disable setting, use 'no' prefix, like 'noautolist' or "off" as in
+  "autolist off"
+  
+  step
+  (rdb:1) s[tep][ nnn]    step (into methods) once or nnn times
+  
+  thread
+  (rdb:1) th[read] l[ist]                 list all threads
+  (rdb:1) th[read] [sw[itch]] <nnn>       switch thread context to nnn
+  (rdb:1) th[read] stop <nnn>             stop thread nnn
+  (rdb:1) th[read] c[ur[rent]]            show current thread
+  (rdb:1) th[read] resume <nnn>           resume thread nnn
+  
+  trace
+  (rdb:1) tr[ace] (on|off)        set trace mode of current thread
+  (rdb:1) tr[ace] (on|off) all    set trace mode of all threads
+  
+  undisplay
+  (rdb:1) undisp[lay][ nnn]       delete one particular or all display expressions
+  
+  up
+  (rdb:1) up[count]       move to higher frame
+  
+  var
+  (rdb:1) v[ar] const <object>            show constants of object
+  (rdb:1) v[ar] g[lobal]                  show global variables
+  (rdb:1) v[ar] i[nstance] <object>       show instance variables of object
+  (rdb:1) v[ar] l[ocal]                   show local variables
+  
+  Before 10.0 const can be abbreviated "c", after 10.0 or later you need
+  "co" because there is also "var class <object>".
+  
+  where
+  (rdb:1) w[here] display frames
+

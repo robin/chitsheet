@@ -1,0 +1,73 @@
+--- 
+nonsense: |-
+  What's the way to edit a cheat sheet?  Oh sheet.
+  
+  edit edit edit. java roolz - can your ruby do this?
+  
+  # Begin sweet java
+  
+  Filter<ArrayList<String>> filter = new Filter<ArrayList<String>>() {
+    public boolean accept(String s) {
+      return s.startsWith("foo");
+    }
+  }
+  
+  ArrayList<String> list = new ArrayList<String>();
+  list.add("fooBar");
+  list.add("barFoo");
+  
+  return filter.run(list);
+  
+  # end sweet java - haha
+  
+  # begin response to java nonsense
+  
+  Is that a joke?  Why can't I just:
+  
+  list.select! {|x| x[0..2] == 'foo'}
+  
+  # end   -- Bug
+  
+  edit edit edit yourself. Java, however cool, cannot do this:
+  
+  # begin sweet ruby
+  # i mean -- begin sweet haskell
+  
+  =begin
+  
+  > puts = return ()
+  > main = do let (.) = flip ($)
+  
+  =end
+  eval <<HERE.gsub(/^>/, '')
+  
+  >           print([1,2,3].length)
+  >           puts
+  
+  HERE
+  
+  #end sweet ruby. i mean haskell. i mean .. wait ..
+  # pack that in your java pipe (c/o http://meta-meta.blogspot.com/)
+  
+  
+  The nonsense cheat sheet has been edited
+  
+  Feel free to use this cheat sheet as a sandbox.  Play with --edit.
+  
+  Please.
+  
+  This is sweet!
+  
+  great! it works fine with vim.
+  
+  <a href="spam sucks">link test</a>
+  
+  Hello, world.
+  
+  Doom!
+  
+  Great stuff
+  
+  ..and that's why cheat also is an anagram for teach!
+  
+  Man, I thought we'd never get to the end of this...

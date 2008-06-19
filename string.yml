@@ -1,0 +1,47 @@
+--- 
+string: |-
+  Ruby 1.8 String Literal
+  
+  Delimiters:
+    'singlequote'    "doublequote" 
+    %q/single/       %Q!double!    
+    %q<single>       %Q(double)    
+                     %{double}     
+  
+  Escapes (double-quote):
+  
+  |----+-----+---------------------+------+-----|
+  | E  | ASC | Name(s)             |  Hex | Dec |
+  |----+-----+---------------------+------+-----|
+  | \a | BEL | bell, alert         | 0x07 |   7 |
+  | \b | BS  | backspace           | 0x08 |   8 |
+  | \e | ESC | escape              | 0x1b |  27 |
+  | \f | NP  | formfeed, newpage   | 0x0c |  12 |
+  | \n | NL  | linefeed, newline   | 0x0a |  10 |
+  | \r | CR  | carriage return     | 0x0d |  13 |
+  | \s | SP  | space               | 0x20 |  32 |
+  | \t | HT  | tab, horizontal tab | 0x09 |   9 |
+  | \v | VT  | vertical tab        | 0x0b |  11 |
+  |----+-----+---------------------+------+-----|
+  
+  |---------+------------------|
+  | Format  | Translation      |
+  |---------+------------------|
+  | \nnn    | Octal nnn        |
+  | \xnn    | Hexadecimal 0xnn |
+  | \cx     | Control-x        |   Control-x == (?x & 0b10011111)
+  | \C-x    | Control-x        |
+  | \M-x    | Meta-x           |   Meta-x == (?x | 0b10000000)
+  | \M-\C-x | Meta-control-x   | 
+  | \x      | x                |
+  | #{expr} | Value of expr    |
+  |---------+------------------|
+  
+  Escapes (single-quote)
+  
+  |----+-----+--------------+------+-----|
+  | E  | ASC | Name         |  Hex | Dec |
+  |----+-----+--------------+------+-----|
+  | \' | '   | single-quote | 0x27 |  39 |
+  | \\ | \   | backslash    | 0x5c |  92 |
+  |----+-----+--------------+------+-----|

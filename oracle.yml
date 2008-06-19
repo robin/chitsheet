@@ -1,0 +1,7 @@
+--- 
+oracle: |-
+  Switch on execution plan: SET AUTOTRACE ON
+  
+  See current time:
+  
+  SELECT SYSDATE FROM DUAL;

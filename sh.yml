@@ -1,0 +1,60 @@
+--- 
+sh: |-
+  Help - use these commands to get more information about the commands below
+    man <cmd> - get usage information about command <cmd>
+    info <cmd> - get usage information about command <cmd>
+  
+  Directories
+    ls - list directory contents
+    pwd - report current directory
+    cd <dir> - change current directory to <dir>
+    pushd <dir> - change directory and store previous directory on stack
+    popd - return to directory on top of stack
+    find - list directory contents recursively
+    mkdir <dir> - make new directory
+    rmdir <dir> - remove empty directory
+  
+  Text files
+    cat <files> - show file contents
+    grep <pattern> <files> - find pattern in files
+    vi (or vim) <file> - edit file
+    diff <old> <new> - report changes between files
+    patch - apply changes to a file
+    less or more - page through a text file
+  
+  Files
+    cp <src> <dest> - copy file
+    mv <src> <dest> - move file
+    rm <files> - delete file
+    chmod <permissions> <files> - change file permissions
+    ln - create link between files (give a file multiple names)
+    gzip/gunzip - compress/decompress files
+    bzip/bunzip - compress/decompress files
+    tar - package/unpackage multiple files into archive file (usually used in conjunction with gzip or bzip compression). See man pages
+    zip/unzip - compress/decompress windows zip archives
+  
+  Processes
+    ps - list running processes
+    pstree - list running processes as tree
+    kill - kill running process
+    uptime - get information about running kernel, machine load
+    top - keep track of processes using the most resources
+  
+  Other
+    date - show current date
+    uname - show info about OS
+    which <executable> - find out where in path <executable> lives
+    hostname - get host name of current machine
+    ifconfig - get information about network interfaces (including IP addresses)
+    ssh - secure shell. Used to login to remote machines
+    links or lynx - text-only browser
+    wget or curl - download remote file (http, ftp, etc)
+  
+  Users
+    useradd - create user
+    whoami - report your username
+    last - list recent logins
+    su - login as another user
+    sudo - run a command as another user
+    who - report who is currently logged in
+    passwd - change password

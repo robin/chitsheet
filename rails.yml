@@ -1,0 +1,26 @@
+--- 
+rails: |-
+  cheat offers the following Rails-related pages:
+  
+    radrails_rhtml
+    radrails_ruby
+    rails_console
+    rails_edge
+    rails_environment
+    rails_request_object
+    rails_reserved_words
+    rails_routes
+    rails_svn
+    rails_tips
+    rails_tasks
+    rails_to_s
+    rails_vim
+    test_spec_rails
+    textmate_rails
+  
+  Common args:
+    -c, --svn     Modify files with subversion. (Note: svn must be in path)
+    -d, --database-name (mysql/oracle/postgresql/sqlite2/sqlite3)
+        --force   Overwrite files that already exist.
+    -p, --pretend Run but do not make any changes.
+    -s, --skip    Skip files that already exist.

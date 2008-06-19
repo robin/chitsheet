@@ -1,0 +1,13 @@
+--- 
+mercurial: |
+  Create a new repository:
+  hg init
+  
+  Add new files and delete all old files to repository:
+  hg addremove
+  
+  Committ with message
+  hg commit -m "the commit message"
+  
+  
+

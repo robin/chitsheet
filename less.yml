@@ -1,0 +1,4 @@
+--- 
+less: |-
+  to make apple-specific control characters 
+   show up instead of their octal sequence use:  less -r

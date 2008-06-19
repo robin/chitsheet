@@ -1,0 +1,54 @@
+--- 
+bzr: |
+  Bazaar -- a free distributed version-control tool
+  http://bazaar-vcs.org/
+  
+  Setup:
+    $ bzr whoami "Frank Chu <fchu@example.com>"
+  
+  Creating a new branch:
+    $ bzr init ProjectDirectory
+    $ cd ProjectDirectory
+  
+  Creating a new branch for an existing project that's not in source control:
+    $ cd ExistingProject
+    $ bzr init
+    $ bzr add
+    $ bzr commit -m "Initial import of ExistingProject."
+  
+  Status of working copy:
+    $ bzr status
+  
+  Committing changes in working copy:
+    $ bzr commit
+  
+  Rollback:
+    $ bzr uncommit
+  
+  Making a new copy of an existing branch:
+    $ bzr branch ProjectDirectory RadicalRefactor
+    $ cd RadicalRefactor; # Go nuts!
+  Making a local copy of an external branch:
+    $ bzr branch http://bazaar-vcs.org/bzr/bzr.dev.
+    $ cd bzr.dev
+  
+  Exposing and updating a branch to the web
+  If the server does not have bzr installed:
+    $ bzr push sftp://user@example.com/your/web/directory/ProjectDirectory
+  Fast access, if server has bzr installed:
+    $ bzr push bzr+ssh://user@example.com/your/web/directory/ProjectDirectory
+  Now people can grab your repository with:.
+    $ bzr branch http://example.com/your/web/directory/ProjectDirectory
+  
+  Creating a merge request for an upstream bzr branch:
+  Send the maintainer an email:
+    $ bzr send http://project.example.com/upstream/branch
+  Create a merge bundle file (containing a readable diff):
+    $ bzr send http://project.example.com/upstream/branch -o my_feature.patch
+  
+  Get more help:
+    $ bzr help
+    $ bzr help topics
+    $ bzr help commands
+    $ bzr help merge #...etc
+

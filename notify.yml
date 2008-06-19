@@ -1,0 +1,27 @@
+--- 
+notify: |-
+  Some quick & dirty notifications:
+  
+  For more info: http://www.elctech.com/2007/12/21/notify-me-when-done
+  
+  $ cmd; say "Don't care how it finished, but it did"
+  $ cmd && say "Success!"
+  $ (cmd && say "Success") || say "Failed"
+  
+  Example:
+  $ mysql app_dev < dump.sql && say "Finished importing"
+  
+  
+  Quicksilver:
+  $ cmd; osascript -e 'tell application "Quicksilver" to show large type "Finished!"'
+  
+  Growl:
+  $ cmd; growlnotify -s -m "Done"
+  
+  Note: If you are using Leopard, there's a bug with growlnotify as of version 1.1.2 that prevents growlnotify from working consistently. However, there's an easy workaround.
+  
+      * Open up the Growl preference pane and select the Network tab.
+      * Click to enable "Listen for incoming notifications".
+      * Now when you run growlnotify, add the "-H localhost" option.
+  
+  $ cmd && growlnotify -s -H localhost -m "Success"

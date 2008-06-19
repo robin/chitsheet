@@ -1,0 +1,12 @@
+--- 
+nginx: |-
+  Signals
+  -------
+  
+  TERM (15), INT (1)  Terminate the server immediately
+  QUIT (3)            Stop the server
+  HUP (1)             Configuration changes, start new workers, graceful stop of
+                      old workers
+  USR1                Reopen log files
+  USR2                Upgrade the server executable
+  WINCH               Graceful Stop (parent process advise the children to exit)

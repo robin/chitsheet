@@ -1,0 +1,33 @@
+--- 
+grep: |-
+  Overview
+  ========
+  grep searches for lines matching a pattern.
+  
+  $ grep [OPTION]... PATTERN [FILE] ...
+  
+  PATTERN can be a normal string or a regular expression. For more on regular expressions see:
+  $ cheat regexp
+  
+  Get full help:
+  $ grep --help
+  
+  Basic Usage
+  ===========
+  $ grep index *.rb
+  admin_controller.rb:  def index
+  store_controller.rb:  def index
+  store_controller.rb:    redirect_to_index 'Invalid product'
+  store_controller.rb:      redirect_to_index "Your cart is currently empty."
+  
+  
+  Useful Options
+  ==============
+  -h:   suppress file names in output
+  -w:   restrict search to whole words only
+  -c:   displays count of matching lines in each file, not the lines themselves
+        (note this is not the same as $ grep index *.rb | wc -l)
+  -i:   ignore case
+  -l:   list only file names containing matching lines
+  -n:   precede each line with the line number where it was found
+  -v:   display all lines NOT matching pattern

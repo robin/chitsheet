@@ -1,0 +1,24 @@
+--- 
+gitsvn: |-
+  Tracking and contributing to the trunk of a Subversion-managed project:
+  
+  # Clone a repo (like git clone):
+          git-svn clone http://svn.foo.org/project/trunk
+  # Enter the newly cloned directory:
+          cd trunk
+  # You should be on master branch, double-check with git-branch
+          git branch
+  # Do some work and commit locally to git:
+          git commit ...
+  # Something is committed to SVN, rebase your local changes against the
+  # latest changes in SVN:
+          git-svn rebase
+  # Now commit your changes (that were committed previously using git) to SVN,
+  # as well as automatically updating your working HEAD:
+          git-svn dcommit
+  # Append svn:ignore settings to the default git exclude file:
+          git-svn show-ignore >> .git/info/exclude
+  
+  
+  
+  http://www.kernel.org/pub/software/scm/git/docs/git-svn.html

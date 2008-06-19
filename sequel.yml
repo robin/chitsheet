@@ -1,0 +1,174 @@
+--- 
+sequel: |
+  include Sequel
+  
+  # gem install sequel
+  
+  require 'sequel/mysql' 
+  require 'sequel/ado'
+  require 'sequel/sqlite'
+  
+  Open a database
+  
+  DB = Sequel('sqlite:///my_blog.db')
+  DB = Sequel('postgres://user:password@localhost/my_db')
+  DB = Sequel('mysql://user:password@localhost/my_db')
+  # or
+  DB = Sequel.open 'mysql://user:password@localhost/my_db'
+  DB = Sequel.mysql 'user@localhost/my_db', :password => 'password'
+  
+  DB = Sequel.ado 'mydb'
+  
+  SQLite memory DB
+  
+  DB = Sequel('sqlite:/')
+  DB = Sequel.sqlite
+  
+  Create a dataset
+  
+  dataset = DB[:items]
+  dataset = DB.dataset.from(:items)
+  
+  Datasets and chainability
+  
+  dataset = DB[:managers].where(:salary => 5000..10000).order(:name, :department)
+  
+  Retrieve rows
+  
+  dataset.each {|r| p r}
+  dataset.all #=> [...]
+  dataset.first
+  dataset.order(:name).last # works only for ordered datasets
+  
+  Dataset is Enumerable
+  
+  dataset.map {|r| r[:name]}
+  dataset.map(:name) # same effect as above
+  
+  dataset.inject {|sum, r| sum + r[:value]}
+  
+  Filtering
+  
+  dataset.filter(:name => 'abc')
+  dataset.filter('name = ?', 'abc')
+  dataset.filter {name = 'abc'}
+  
+  dataset.filter {value > 100}
+  dataset.exclude {value <= 100}
+  
+  dataset.filter(:value => 50..100)
+  dataset.where {value >= 50}.and {value <= 100}
+  
+  dataset.where('value IN (?)', [50,75,100])
+  
+  # Get the first record that matches a condition
+  dataset[:name => 'abc'] # Same as:
+  dataset.filter(:name => 'abc').first
+  
+  # Filter using a subquery
+  dataset.filter('price > ?', dataset.select('AVG(price) + 100'))
+  
+  Ordering
+  
+  dataset.order(:kind)
+  dataset.reverse_order(:kind)
+  dataset.order(:kind.DESC, :name)
+  
+  Row ranges
+  
+  dataset.limit(30)
+  dataset.limit(30).offset(10)
+  dataset.limit(30, 10) # Same effect as above
+  
+  Pagination
+  
+  paginated = dataset.paginate(1, 10) # first page, 10 rows per page
+  paginated.page_count #=> number of pages in dataset
+  paginated.current_page #=> 1
+  paginated.next_page #=> next page number or nil
+  paginated.prev_page #=> previous page number or nil
+  
+  Joins
+  
+  DB[:items].left_outer_join(:categories, :id => :category_id).sql #=>
+    "SELECT * FROM items LEFT OUTER JOIN categories ON categories.id = items.category_id"
+  
+  Summarizing
+  
+  dataset.count #=> record count
+  dataset.max(:price)
+  dataset.min(:price)
+  dataset.avg(:price)
+  dataset.sum(:stock)
+  
+  dataset.group(:category).select(:category, :price.AVG)
+  
+  Schema Manipulation
+  
+  DB.create_table :items do
+    integer :id, :primary_key => true, :auto_increment => true
+    text :name, :unique => true, :null => false
+    boolean :active, :default => true
+    integer :grade
+    
+    index :grade
+  end
+  
+  DB.drop_table :items
+  
+  Row manipulation
+  
+  dataset.filter(:active => false).delete
+  
+  dataset.filter('price < ?', 100).update(:active => true)
+  
+  dataset.insert(:name => 'Sharon', :grade=> 50)
+  dataset << {:name => 'Sharon', :grade => 50} # same effect as above
+  
+  Aliasing
+  
+  DB[:items].select(:name.AS(:item_name))
+  DB[:items].select(:name => :item_name)
+  DB[:items].select(:name___item_name)
+  DB['items items_table'].select(:items_table__name___item_name)
+  
+  Modeling
+  
+  class Item < Sequel::Model(:items)
+    set_schema do
+      primary_key :id
+      text :name, :unique => true, :null => false
+      boolean :active, :default => true
+      integer :grade
+  
+      index :grade
+    end
+  end
+  
+  Item.create_table unless Item.table_exists?
+  Item.recreate_table
+  
+  i = Item.create(:name => 'Shoes', :grade => 0)
+  
+  Item[1].grade #=> 0
+  
+  i.set(:grade => 2)
+  i.grade #=> 2
+  
+  Item[:name => 'Shoes'].grade #=> 2
+  
+  i.grade = 4
+  Item[1].grade #=> 2
+  i.save
+  Item[1].grade #=> 4
+  
+  Miscellaneous
+  
+  dataset.sql #=> "SELECT * FROM items"
+  dataset.delete_sql #=> "DELETE FROM items"
+  dataset.where(:name => 'sequel').exists #=> "EXISTS ( SELECT 1 FROM items WHERE name = 'sequel' )"
+  dataset.print #=> pretty table print
+  dataset.columns #=> array of columns in the result set
+  
+  
+

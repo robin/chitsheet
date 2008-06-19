@@ -1,0 +1,5 @@
+--- 
+sed_numbering: " # number each line of a file (simple left alignment). Using a tab (see\r\n # note on '\\t' at end of file) instead of space will preserve margins.\r\n sed = filename | sed 'N;s/\\n/\\t/'\r\n\
+  \r\n # number each line of a file (number on left, right-aligned)\r\n sed = filename | sed 'N; s/^/     /; s/ *\\(.\\{6,\\}\\)\\n/\\1  /'\r\n\
+  \r\n # number each line of file, but only print numbers if line is not blank\r\n sed '/./=' filename | sed '/./N; s/\\n/ /'\r\n\
+  \r\n # count lines (emulates \"wc -l\")\r\n sed -n '$='"

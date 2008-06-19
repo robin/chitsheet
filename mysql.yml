@@ -1,0 +1,67 @@
+--- 
+mysql: |-
+  To create a database:
+  $ mysqladmin -u root create <database_name>
+  
+  ----
+  To CREATE a database and assign rights to a NEW user.  Useful when starting a new Rails app, especially when you aren't using root:empty password.
+  
+  $ mysql --user=root
+  msql> CREATE DATABASE <database_name>;
+  msql> USE <database_name>;
+  msql> GRANT ALL PRIVILEGES ON *.* TO '<new_user>'@'localhost' IDENTIFIED BY '<new_user_password>' WITH GRANT OPTION;
+  msql> quit;
+  
+  ----
+  To DELETE a database:
+  msql> DROP DATABASE <database_name>;
+  
+  ----
+  Show databases, connect, show tables and table schema
+  msql> SHOW DATABASES;
+  msql> CONNECT <database_name>;
+  msql> SHOW TABLES;
+  msql> DESC <table_name>;
+  
+  ----
+  To SET a user password
+  mysql> use mysql;
+  mysql> update user set Password = PASSWORD('<password>') where host='<host_name>' and user='<user_name>';
+  mysql> flush privileges;
+  mysql> exit
+  $ mysqladmin -uroot -p<password> reload
+  
+  ----
+  To dump a database into an sql-text file
+  $ mysqldump --opt -u username -p database > database_backup.sql
+  
+  ---
+  To load a dump file into a database
+  $ mysql -u username -p database < dump_file.sql
+  
+  ----
+  To reset the root password to the original empty password:
+  
+  Use the commandline tool mysqladmin 
+    - the trick is to use 2 single-quotes (ticks) to specify an empty password:
+  
+  Linux:
+    Note: you probably need to run this from the mysql bin dir:
+  $ cd /usr/local/mysql/bin
+  $ ./mysqladmin -uroot -p<existing_password> password ''
+  
+  Windows: 
+    Note: Use 2 double-quotes (windows doesn't trim out the single-quotes).  
+    If you ran the Linux version ('') your password is now two single-quotes.
+  > mysqladmin -uroot -p<existing_password> password ""
+  
+  To be prompted for password:
+    omit <existing_password>, but include the -p arg.
+  
+  
+  Inspired by http://www.delphifaq.com/faq/databases/mysql/f750.shtml
+  
+  ----
+  /G Display as table  
+  mysql> select * from queries order by id desc limit 1 \G
+     (thx: http://rubyisawesome.com/2007/7/10/mysql-secrets-g-instead-of)

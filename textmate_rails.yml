@@ -1,0 +1,18 @@
+--- 
+textmate_rails: "TextMate Cheat Sheet for Rails Hackers\r\n\
+  Copyright \xC2\xA9 Mike Clark\r\n\
+  http://pragmaticstudio.com\r\n\
+  \r\n\
+  \xE2\x8C\x98 = command\r\n\
+  \xE2\x8C\x83 = control\r\n\
+  \xE2\x8C\xA5 = option\r\n\
+  \xE2\x87\xA7 = shift\r\n\
+  \r\n\
+  File Navigation\r\n  go to file                                  \xE2\x8C\x98 T\r\n  go to line                                  \xE2\x8C\x98 L\r\n  go to method                              \xE2\x87\xA7 \xE2\x8C\x98 T\r\n  find in project                           \xE2\x87\xA7 \xE2\x8C\x98 F\r\n  reveal in project                         \xE2\x8C\x83 \xE2\x8C\x98 R\r\n\
+  \r\n\
+  Editing\r\n  code completion                          Escape\r\n  fold / unfold                                F1\r\n  comment selection                           \xE2\x8C\x98 /\r\n  indent selection                   \xE2\x8C\x98 [  and \xE2\x8C\x98 ]\r\n  move selection                      \xE2\x8C\x83 \xE2\x8C\x98 (arrow)\r\n  edit selection                            \xE2\x8C\xA5 \xE2\x8C\x98 A\r\n  column selection                       \xE2\x8C\xA5 (drag)\r\n  insert tag                                \xE2\x8C\x83 \xE2\x87\xA7 <\r\n  wrap selection in tag                     \xE2\x8C\x83 \xE2\x87\xA7 W\r\n  close tag                                 \xE2\x8C\xA5 \xE2\x8C\x98 .\r\n  wrap selection as link                    \xE2\x8C\x83 \xE2\x87\xA7 L\r\n  subversion menu                           \xE2\x8C\x83 \xE2\x87\xA7 A\r\n  new method                             name \xE2\x87\xA7 \xE2\x86\xA9\r\n\
+  \r\n\
+  Commands                                  \xE2\x8C\x83 \xE2\x8C\xA5 \xE2\x8C\x98 C\r\n  run file as ruby                            \xE2\x8C\x98 R\r\n  start irb                                 \xE2\x8C\x83 \xE2\x87\xA7 I\r\n\
+  \r\n\
+  Snippets                                  \xE2\x8C\x83 \xE2\x8C\xA5 \xE2\x8C\x98 S\r\n                                      Tab Trigger\r\n  class class_name                          class\r\n  def method_name                             def\r\n  each { |element| ... }                     each\r\n  for element in collection                 forin\r\n  if condition                       if or ifelse\r\n  unless condition                         unless\r\n  :key => \"value\"                               :\r\n  flash[:notice] = \"...\"                    flash\r\n  logger.info \"...\"                          logi\r\n  assert_equal value, @o.attr                  ae\r\n  redirect_to options                     rec[ai]\r\n  render :action => \"action\"                   ra\r\n  render :partial => \"item\"               rp[loc]\r\n  create_table \"table\" ...                    mct\r\n  create several: table.column : , :         mccc\r\n  <%= link_to options ...                 lic[ai]\r\n  <% for item in @items ...                eforin\r\n  <%= form_tag options ...                     ft\r\n  has_many :objects ...                        hm\r\n  belongs_to :object ...                       bt\r\n  validates_presence_of :attr ...            vpif\r\n\
+  \r\n                                          Hot Key\r\n  =>                                          \xE2\x8C\x83 L\r\n  params[:id]                                 \xE2\x8C\x83 P\r\n  session[:user]                              \xE2\x8C\x83 J\r\n  <%  %>                                      \xE2\x8C\x83 \xE2\x87\xA7 > (twice)\r\n  <%=  %>                                     \xE2\x8C\x83 \xE2\x87\xA7 > (once)\r\n"

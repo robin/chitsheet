@@ -1,0 +1,335 @@
+--- 
+hobo: |-
+  Hobo Cheatsheet, version 0.1
+  ============================
+  from http://zylstra.wordpress.com/2008/03/28/hobo-cheatsheet-0_1/
+  
+  Rich Data Types
+  
+  html_string
+  markdown_string
+  textile_string
+  password_string
+  text
+  email_address
+  enum_string
+  percentage
+  Generators
+  
+  hobo
+  hobo_front_controller
+  hobo_model
+  hobo_model_controller
+  hobo_model_resource
+  hobo_rapid
+  hobo_user_controller
+  hobo_user_model
+  Extensions to Object
+  is_a?
+  
+  now takes multiple arguments
+       >> "foo".is_a?(String, Symbol)
+       => true
+       >> :foo.is_a?(String, Symbol)
+       => true
+       >> 1.is_a?(String, Symbol)
+       => false
+  ._?.
+  
+  only calls the method if the receiver is not nil.
+       >> "foo"._?.length
+       => 3
+       >> nil._?.length
+       => nil
+      
+  Object#try
+  
+  ".try" only calls the method if the receiver responds to that method.
+  
+       >> "foo".try.length
+       => 3
+       >> :foo.try.length
+       => nil
+  shorthand DryML
+  
+  <a:name/> is a shorthand for <a field="name"/>
+  <input:name/> is a shorthand (afaiu) for <input field="name"/>
+  Core Tag Library
+  
+  call-tag
+      attributes: tag
+  wrap
+      attributes: tag, when, parameter
+  partial
+      attributes: name, locals
+  repeat
+      attributes: even-odd, join
+  with
+      alias-of="do"/
+  if
+      attributes: test
+  else
+  
+  unless
+      attributes: test
+  Rapid Tag Library
+  
+  field-list
+      attributes: tag
+  item
+  nil-view
+  ul
+      attributes: empty
+  table
+      attributes: fields, field-tag, empty
+  image
+      attributes: src
+  spinner
+  hobo-rapid-javascripts
+      attributes: tiny-mce
+  type-name
+      attributes: type, plural, lowercase, dasherize
+  a
+      attributes: action, to, params, query-params, href, format, subsite
+  view
+      attributes: inline, block, if-blank, no-wrapper, truncate
+  belongs-to-view
+  has-many-view
+  view
+      for="Date"
+      attributes: format
+  view
+      for="Time"
+      attributes: format
+  view
+      for="Numeric"
+      attributes: format
+  view
+      for="Hobo"::Text"
+  view
+      for="html"
+  view
+      for="markdown"
+  view
+      for="textile"
+  view
+      for="password"
+  view
+      for="string"
+  view
+      for="boolean"
+  view
+      for="ActiveRecord"::Base"
+  count
+      attributes: label, prefix, if-any, lowercase
+  theme-stylesheet
+      attributes: name
+  has-many-table
+      attributes: part-id, delete-buttons, headings, id
+  add-by-name
+      attributes: action-name, add-text, update, part-id
+  you
+      attributes: have, are, do, titleize
+  You
+  your
+  Your
+  live-search
+  a-or-an
+      attributes: word
+  A-or-An
+      attributes: word
+  filter-menu
+      attributes: param-name, options, no-filter
+  comma-list
+      attributes: separator
+  Rapid Document Tag Library
+  
+  labelled-item-list
+  labelled-item
+  item-label
+  item-value
+  heading
+  sub-heading
+  nav
+  section
+       attributes: empty
+  aside
+       attributes: empty
+  header
+       attributes: empty
+  footer
+       attributes: empty
+  piece
+       attributes: empty
+  panel
+  Rapid Editing Tag Library
+  
+  editor
+  has-many-editor
+  belongs-to-editor
+  editor
+       for="string"
+  editor
+       for="text"
+  editor
+       for="html"
+  editor
+       for="datetime"
+  editor
+       for="date"
+  editor
+       for="integer"
+  editor
+       for="float"
+  editor
+       for="password"
+  editor
+       for="boolean"
+  editor
+       for="big_integer"
+  editor
+       for="Hobo::EnumString"
+  autocompleter
+       attributes: completer-model, completer-attr, id, filter, name, value
+  belongs-to-menu-editor
+  belongs-to-autocompleting-editor
+       attributes: update
+  string-select-editor
+       attributes: update, values
+  boolean-checkbox-editor
+       attributes: update, message
+  sti-type-editor
+       attributes: update
+  integer-select-editor
+       attributes: min, max, update, nil-option, message
+  has-many-checkbox-editor
+       attributes: model, update, message
+  has-many-checkbox-editors
+  Rapid Forms Tag Library
+  
+  hidden-fields
+       attributes: fields, skip, for-query-string
+  form
+       attributes: update, hidden-fields, action, method, web-method
+  submit
+       attributes: label, image
+  input
+  input
+       for="text" attributes: name
+  input
+       for="boolean" attributes: name
+  input
+       for="password" attributes: name
+  input
+       for="html" attributes: name
+  input
+       for="date" attributes: order
+  input
+       for="datetime" attributes: order
+  input
+       for="integer" attributes: name
+  input
+       for="float" attributes: name
+  input
+       for="string" attributes: name
+  input
+       for="big_integer" attributes: name
+  input
+       for="HoboFields::EnumString" attributes: labels,titleize
+  input
+       for="percentage" attributes: name
+  belongs-to-input
+  remote-method-button
+       attributes: method, update, label
+  update-button
+       attributes: label, update, fields, params
+  delete-button
+       attributes: label, update, in-place, image, confirm, fade, subsite
+  create-button
+       attributes: model, update, label, fields, message
+  belongs-to-menu-input
+       attributes: include-none, blank-message, options
+  belongs-to-autocompleting-input
+  sti-type-input
+  select-input
+  error-messages
+  select-many
+       attributes: options, targets, remove-label, prompt
+  after-submit
+       attributes: uri, stay-here, go-back
+  hidden-field
+       attributes: name, value
+  select-menu
+       attributes: options, selected, first-option, first-value
+  Rapid Generics Tag Library
+  
+  creation-details
+  primary-content
+  association-count
+  base-card
+  card
+  search-card
+  collection
+  collection-preview
+       attributes: limit
+  Rapid Navigation Tag Library
+  
+  navigation
+       attributes: current
+  nav-item
+  account-nav
+  page-nav
+       attributes: params
+  page-n-of-count
+  previous-page-link
+  next-page-link
+  first-page-link
+  last-page-link
+  magic-nav
+  Rapid Pages Tag Library
+  
+  base-page
+       attributes: title, doctype
+  simple-layout
+  aside-layout
+  page
+       attributes: layout
+  index-page
+  new-page
+  show-page
+       attributes: primary-collection
+  edit-page
+  new-in-collection-page
+  show-collection-page
+  permission-denied-page
+       attributes: message
+  not-found-page
+       attributes: message
+  doctype
+       attributes: version
+  stylesheet
+       attributes: name, media
+  javascript
+       attributes: name
+  flash-message
+       attributes: type
+  ajax-progress
+  default-page-title
+  Rapid Plus Tag Library
+  
+  table-plus
+       attributes: sort-field, sort-direction, sort-columns
+  change-password-form
+  Rapid Support Tag Library
+  
+  with-fields
+       attributes: fields, associations, skip, skip-associations, include-timestamps, force-all
+  with-field-names
+       attributes: fields, skip, skip-associations, include-timestamps
+  Rapid User Pages Tag Library
+  
+  signup-page
+  login-page
+       attributes: remember-me
+  account-disabled-page
+  account-page

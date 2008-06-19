@@ -1,0 +1,9 @@
+--- 
+vi: "u undo\r\n\
+  d delete line\r\n\
+  :q quit\r\n\
+  :q! force quit\r\n\
+  :wq write, quit\r\n\
+  :/<string>  Search for next occurrence of <string>\r\n\
+  :?<string> Search for previous occurrence of <string>\r\n\
+  :%s/<str_a>/<str_b>/g Replace all str_a with str_b in current buffer"

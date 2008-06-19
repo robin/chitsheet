@@ -1,0 +1,2 @@
+--- 
+datamapper: has_many :class => "ClassName"

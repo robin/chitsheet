@@ -1,0 +1,39 @@
+--- 
+gmail: |-
+  Keyboard navigation for Gmail
+  
+  c: Compose
+  /: Search
+  k: Move to newer conversation
+  j: Move to older conversation
+  n: Next message
+  p: Previous message
+  o / <Enter>: Open/Return to conversation list
+  
+  y: Archive*
+  From 'Inbox,' 'y' means Archive
+  From 'Starred,' 'y' means Unstar
+  From any label, 'y' means Remove the label
+  * 'y' has no effect if you're in 'Spam,' 'Sent,' or 'All Mail.'
+  
+  x: Select conversation
+  s: Star a message or conversation
+  !: Report spam
+  r: Reply
+  <Shift>+r:  Reply new window.
+  a: Reply all
+  <Shift>+a: Reply to all in a new window.
+  f: Forward 
+  <Shift>+f: Forward new window.
+  <Esc>: Escape from input field
+  <Ctrl>+s: Save
+  <Cmd>+s for Macs
+  
+  Combo-keys
+  <tab> then <Enter>: Send message
+  y then o: Archive and next
+  g then a: Go to 'All Mail'
+  g then s: Go to 'Starred'
+  g then c: Go to 'Contacts'
+  g then d: Go to 'Drafts'
+  g then i: Go to 'Inbox'

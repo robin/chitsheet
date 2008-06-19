@@ -1,0 +1,38 @@
+--- 
+validations: |-
+  Basic Validations
+  
+  def validate
+    unless name && name =~ /^\w+$/
+      errors.add(:name, "is missing or valid")
+    end
+  end
+  
+  def validate_on_create
+    if User.find_by_name(name)
+      errors.add(:name, "is already being used")
+    end
+  end
+  
+  
+  Validation Helpers
+  
+  validates_acceptance_of attr... [ options... ]
+  
+  Validates that the value of the attribute is the string "1" or the value of the :accept parameter. Useful for checkboxes.
+  
+  Options:
+  :accept     value     The value that signifies acceptance (defaults to 1)
+  :allow_nil  boolean
+  :if         code
+  :message    text      Default is "must be accepted"
+  :on                   :save, :create, or :update
+  
+  
+  validates_associated name... [ options... ]
+  
+  (details go here)
+  
+  validates_confirmation_of attr... [ options... ]
+  
+  (details go here)

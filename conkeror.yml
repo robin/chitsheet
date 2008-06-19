@@ -1,0 +1,8 @@
+--- 
+conkeror: "= starting =\r\n  firefox -chrome chrome://conkeror/content\r\n\
+  = meta =\r\n  C-h i: the introduction\r\n  C-h b: list of keybindings\r\n  C-x C-b: list all buffers\r\n  C-x r l: list all bookmarks\r\n\
+  = navigating =\r\n  1: follow link 1 (\"2\" for link 2, etc.)\r\n  g: goto a url\r\n  B: go back\r\n  F: go forward\r\n  R: reload\r\n  C-g: stop loading\r\n\
+  = buffers (like tabs) =\r\n  C-u g: open a url into a new buffer\r\n  C-u n 12: open link 12 into a buffer\r\n  A-p / A-n: prev / next buffer\r\n  C-x b: switch to a buffer <tab>\r\n\
+  = bookmarks =\r\n  C-x r m: bookmark this page\r\n  C-x r b: load a bookmark <tab>\r\n\
+  = movement =\r\n  A-v / C-v: page up / page down\r\n  C-p / C-n: line up / line down\r\n  A-b / A-f: prev / next letter\r\n\
+  = commands =\r\n  A-x: execute a command\r\n  "

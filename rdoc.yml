@@ -1,0 +1,17 @@
+--- 
+rdoc: |-
+  Lists:
+    * This is a list element
+    - This is one too.
+    1. This one will be numbered
+    [word] description
+    word:: description
+  
+  Styling:
+    _italic_::     \_word_ or \<em>text</em>
+    *bold*::       \*word* or \<b>text</b>
+    +typewriter+:: \+word+ or \<tt>text</tt>
+    = Level One Heading
+    == Level Two Heading
+  
+  :title:text  Sets the title for the document.

@@ -1,0 +1,46 @@
+--- 
+textile: |-
+  Quick block modifiers:
+    Header: hn.
+    Blockquote: bq.
+    Footnote: fnn.
+    Numeric list: #
+    Bulleted list: *
+  
+  Quick phrase modifiers:
+    _emphasis_
+    *strong*
+    ??citation??
+    -deleted text-
+    +inserted text+
+    ^superscript^
+    ~subscript~
+    %span%
+    
+  To apply attributes:
+    (class)
+    (#id)
+    {style}
+    [language]
+    
+  To align blocks:
+    < right
+    > left
+    = center
+    <> justify
+    
+  To insert a table:
+    |a|table|row|
+    |a|table|row|
+  
+  To insert a link:
+    "linktext":url
+  
+  To insert an image:
+    !imageurl!
+  
+  To define an acronym:
+    ABC(Always Be Closing)
+  
+  To reference a footnote:
+    [n]

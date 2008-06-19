@@ -1,0 +1,222 @@
+--- 
+bp: "PERFORMANCE TESTING\n\
+  =========================================\n\n\
+  //all-purpose lookup\n\
+  curl -w '\\nLookup time:\\t%{time_namelookup}\\nConnect time:\\t%{time_connect}\\nPreXfer time:\\t%{time_pretransfer}\\nStartXfer time:\\t%{time_starttransfer}\\n\\nTotal time:\\t%{time_total}\\n' -o /dev/null http://ethniodev.com/remotes/17436\n\n\
+  //Check the number of apache clients: \n\
+  pgrep -c httpd\n\n\
+  // Check memory: \n\
+  free -m\n\
+  (the cached amount should be at least 500, its measured in MB)\n\n\
+  // Benchmark (best done from the local machine)\n\
+  ab -n 5000 -c 50 http://ethnio.com/remotes/30090\n\
+  (reqs. per second should be like 800 or something big like that)\n\n\n\
+  MISC CLI\n\
+  =========================================\n\
+  // copy into every subdir\n\n\
+  find -type d -exec cp /robots.txt {} \\;\n\n\
+  find -name \"robots.txt\" -exec rm {} \\;\n\n\n\
+  STARTING MYSQL FORM CLI (ON OSX)\n\
+  =========================================\n\
+  sudo /usr/local/mysql/bin/mysqld_safe\n\n\n\
+  TEXTDRIVE\n\
+  =========================================\n\
+  https://webmin.alberni.textdrive.com/\n\
+  ethnio\n\
+  eT\n\n\
+  HURRICANE ELECTRIC\n\
+  =========================================\n\
+  https://admin.he.net/\n\n\n\
+  SUBVERSION\n\
+  =========================================\n\
+  svn co http://ethnio.textdriven.com/svn/ethnio/trunk .\n\n\
+  svn copy http://ethnio.textdriven.com/svn/ethnio/branches/filter-stable  http://ethnio.textdriven.com/svn/ethnio/tags/filters-stable-latest\n\n\
+  // creating a tag\n\
+  svn copy http://ethnio.textdriven.com/svn/ethnio/trunk  http://ethnio.textdriven.com/svn/ethnio/tags/latest-stable\n\n\
+  //Adding a new subversion user\n   1. cd to the domain\xE2\x80\x99s etc/ directory\n   2. with any text editor, edit \xE2\x80\x98svn-access.conf\xE2\x80\x99 by adding a \xE2\x80\x98permission line\xE2\x80\x99 for \xE2\x80\x98newuser\xE2\x80\x99 to an existing repository (repositories are created in webmin\n   3. add a password for \xE2\x80\x98newuser\xE2\x80\x99 to the svn.basic.passwd file with\n\n\
+  bash$ htpasswd svn.basic.passwd newuser\n\n\
+  // (it will prompt twice for the new password)\n\n\
+  // Editing an existing user\xE2\x80\x99s password\n\n\
+  1. cd to the domain\xE2\x80\x99s etc/ directory\n\
+  2. edit the user\xE2\x80\x99s password with\n\n\
+  bash$ htpasswd svn.basic.passwd existinguser\n\n\
+  (again, it will prompt twice)\n\n\
+  // Editing an existing user\xE2\x80\x99s permissions\n\n\
+  1. cd to the domain\xE2\x80\x99s etc/ directory\n\
+  2. edit the existing user\xE2\x80\x99s permission line in the correct repository in \xE2\x80\x98svn-access.conf\xE2\x80\x99 (with any text editor)\n\n\
+  // Removing a user\n\n\
+  1. cd to the domain\xE2\x80\x99s etc/ directory\n\
+  2. remove the user\xE2\x80\x99s permission line from the \xE2\x80\x98svn-access.conf\xE2\x80\x99 file (with any text editor)\n\
+  3. remove the user\xE2\x80\x99s password line from the \xE2\x80\x98svn.basic.passwd\xE2\x80\x99 file (with any text editor) \n\n\
+  TRAC\n\
+  =========================================\n\
+  #this aint right. I hate apache.\n\
+  #RewriteEngine On\n\
+  #RewriteRule ethnio(.*) http://ethnio.textdriven.com:9046/ethnio$1 [P]\n\n\
+  AuthType Basic\n\
+  AuthName \"Ethnio\" \n\
+  AuthUserFile /users/home/ethnio/trac.htpasswd\n\
+  Require valid-user\n\n\
+  [ethnio@alberni ~/etc]$ htdigest trac.digest.passwd ethnio.textdriven.com chris\n\
+  Adding user chris in realm ethnio.textdriven.com\n\
+  New password: \n\
+  Re-type new password: \n\
+  [ethnio@alberni ~/etc]$ pwd\n\
+  /users/home/ethnio/etc\n\n\
+  http://manuals.textdrive.com/read/chapter/54\n\n\n\n\n\
+  MOA\n\
+  =========================================\n\n\
+  moa\n\
+  192.168.0.21\n\n\n\
+  IMAGEMAGICK\n\
+  =========================================\n\n\
+  installing imagemagick\n\n\
+  uninstall and reinstall everything\n\n\
+  http://www.elctech.com/2007/2/24/installing-rmagick-properly-in-osx\n\n\n\
+  had to uninstall and CLEAN libiconv: \n\n\n\
+  sudo port -f uninstall libiconv && sudo port clean --all libiconv && sudo port install libiconv  \n\n\n\
+  RAILS\n\
+  =========================================\n\n\
+  // using the logger in a controller\n\n\
+  logger.debug(\" ------------ #{params[:screener]}\")\n\
+  if params[:screener] \n\
+  logger.debug(\" ------------ #{params[:screener][:active]}\")\t\n\
+  end\n\
+  logger.debug(\" ------------ #{@screener.active}\")\n\n\n\
+  SVN\n\
+  =========================================\n\n\
+  property seting\n\n\
+  $ svn propset svn:ignore \"*\" public/assets\n\
+  $ svn propset svn:ignore \"assets\" public\n\
+  $ svn ci public\n\n\n\
+  Compare two remote builds: \n\n\
+  svn diff http://ethnio.textdriven.com/svn/ethnio/tags/filters-stable-caching-fix2 http://ethnio.textdriven.com/svn/ethnio/branches/filters-stable\n\n\
+  Create a tag \n\n\
+  cd /working/dir\n\
+  svn copy . http://ethnio.textdriven.com/svn/ethnio/tags/TAGNAME\n\n\
+  Create a branch\n\n\
+  cd /working/dir\n\
+  svn copy . http://ethnio.textdriven.com/svn/ethnio/branches/BRANCHNAME\n\n\n\
+  (you can add -r right after copy to specify a revision.)\n\n\n\
+  CAP\n\
+  =========================================\n\n\
+  cap demo deploy -S head=true\n\n\
+  to run a command on the macghine \n\n\
+  cap demo invoke command=\"ls\" -S tag=whatever\n\n\n\
+  CERTS\n\
+  =========================================\n\n\
+  openssl genrsa -out www.mycompany.com.key 2048\n\
+  openssl req -new -x509 -key ethnio.textdriven.com.key -out ethnio.textdriven.com.cr\n\n\n\
+  DEPLOYING\n\
+  =========================================\n\n\
+  1978.......w!\n\
+  cap production deploy -S head=true\n\
+  https://72.249.12.124:10000/\n\n\n\
+  Dont use head! use tag=tagname\n\n\
+  SPECS\n\
+  =========================================\n\
+  Current specs:\n\
+  Apache 2.2\n\
+  4 instances of Mongrel 1.0 (but 1.3 is out and fixes mongrel_restart bug. we should upgrade soon)\n\
+  ruby 1.8.6\n\
+  rails 2.02\n\
+  mysql 5.0.22\n\n\
+  apache 2.2. installation configuration:\n\
+  ./configure --prefix=/usr/local/apache2 --enable-mods-shared=all \\\n --enable-deflate --enable-proxy --enable-proxy-balancer \\\n --enable-proxy-http --enable-ssl --with-axps2\n\n\n\n\n\n\n\
+  RESTARTING MONGREL\n\
+  ===============================\n\n\
+  sudo /etc/init.d/mongrel_cluster stop && sudo /etc/init.d/mongrel_cluster start\n\n\
+  or (not sure which is better)\n\n\
+  mongrel_rails cluster::start -C config/mongrel/production/mongrel_cluster.yml\n\n\
+  DEPLOYING\n\
+  ===============================\n\
+  #always deploy from a tag, look up the last (automatically created) tag in trac\n\n\
+  cap production deploy -S tag=********\n\n\
+  #Tags look like this: ethnio-20080105023744-ci and you can find them by clicking on browse source in trac\n\n\n\
+  Turning off Traffic Politely\n\
+  ===============================\n\
+  # => puts the maintenance page in place, apache sends it all traffic\n\
+  # note that head=true isnt used in this case, just needs to be there.\n\n\
+  cap production deploy:web:disable -S head=true\n\n\
+  #To turn it back on\n\n\
+  cap production deploy:web:enable -S head=true\n\n\
+  # => removes the banner\n\n\n\
+  Restarting the application.\n\
+  ================================\n\
+  # from your development machine\n\
+  cap production deploy:restart -S tag=*******\n\n\n\
+  Tailing the production log\n\
+  ===============================\n\
+  sudo tail -f /usr/local/apache2/logs/ethnio_production.log\n\n\n\n\n\n\
+  #always use the\n\n\
+  sudo /etc/init.d/apache2 stop && sudo /etc/init.d/apache2 start\n\n\
+  # for apache2.2, which is what were running.\n\
+  #DO NOT USE apache2ctl reload  (thats the wrong version)\n\n\n\
+  // editing the apache cong\n\
+  sudo vi /usr/local/apache2/conf/httpd.conf\n\n\n\
+  Public Private Keypairs\n\
+  ===============================\n\n\
+  #create a key and dont use a password\n\
+  ssh-keygen -t rsa\n\n\
+  #scp it to the machine\n\
+  scp .ssh/id_rsa.pub ethnio@ethniodev.com:.ssh/authorized_keys2\n\n\
+  #BUT IN THIS CASE actually that last line will overwrite my key, instead just cat\xC2\xA0ssh/id_rsa.pub and paste the output into\xC2\xA0.ssh/authorized_keys2 on ethniodev.com thanks.\xC2\xA0\n\n\
+  #add this to bash profile\n\
+  alias ethnio='ssh ethnio@ethniodev.com'\n\n\
+  LOGS\n\
+  ==============================\n\n\
+  the big ones are in \n\n\
+  /usr/local/apache2/logs\n\n and in \n\n\
+  /u/apps/ethnio/shared/log\n\n\
+  (though that one can be pretty skimpy if we have the log config set to warn)\n\n\
+  Also, some shortcuts:\n\
+  watchethnio gives you tail -f on the production log\n\
+  watchapache gives you the apache production log\n\
+  watcherrors gives you the apache errors log.\n\n\n\
+  SELENIUM\n\
+  ================================\n\
+  to run selenium tests locally\n\
+  ruby test/selenium/selenium_suite.rb\n\
+  if your server is not started rake selenium:start_servant\n\n\n\
+  When you are getting 500 errors\n\n\
+  run rake selenium:server \n\
+  (so that you can see the output)\n\n\
+  look at /log/test.log and log/selenum.log\n\n\
+  You might need to \n\n\
+  rake db:setup\n\n\
+  to apply migrations to the test db. \n\n\n\n\
+  PROFILER\n\
+  ================================\n\
+  script/performance/profiler 'Screener.find_by_id(1).filtered_recruits' \n\n\n\
+  BENCHMARKER\n\
+  ================================\n\n\
+  Make sure you first set the environment var. \n\
+  export RAILS_PERF_DATA=/path/to/ethnio's/log/directory\n\n\
+  railsbench perf_run 10 \n\
+  runs everything. \n\n\
+  railsbench perf_run 10 -bm=remotes.edit --log\n\n\
+  edit \n\
+  /config/benchmarks.rb\n\
+  /config/benchmarks.yml\n\n\
+  PISTON\n\
+  =================================\n\
+  creates a local modifiable/updateable copy of a plugin. \n\n\
+  piston import svn://adress /vendor/plugins/pluginname\n\n\
+  MYSQL USER SETUP\n\
+  =================================\n\
+  mysql -uroot -p\xE2\x80\xA8<enter_mysql_root_pass>\xE2\x80\xA8CREATE DATABASE <DB_NAME>;\xE2\x80\xA8GRANT ALL PRIVILEGES ON <DB_NAME>.* TO 'my_user'@'localhost' IDENTIFIED BY 'my_password' WITH GRANT OPTION;\n\
+  replace localhost with % for all domains. \n\n\
+  MYSQL CACHING\n\
+  ================================\n\
+  set query caching in my.cnf\n\
+  -- need to add instructions for that\n\
+  then see if it is working: \n\
+  show status like 'qc%'\n\n\
+  MISC SHELL HACKERY\n\
+  =================================\n\
+  kill all except grep:\n\
+  ps aux | grep selenium | sed /grep/d | awk {'print $2'} | xargs kill\n\n\
+  PORT FORWARDING\n\
+  =================================\n\
+  ssh -L 9999:127.0.0.1:5900 -L 9998:127.0.0.1:548 -p123 ethnio@pedro.redirectme.net\n\
+  just deduce it."
