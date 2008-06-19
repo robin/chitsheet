@@ -1,6 +1,6 @@
 --- 
 chit: |+
-  To get your cheat sheet:
+  To get a cheat sheet:
   $ chit [cheatsheet]
   
   To edit a cheat sheet, use the --edit switch.
@@ -20,7 +20,7 @@ chit: |+
   
   The cheat sheet can be in a path. For example:
   $ chit mysql/select
-  will get your the cheat sheet 'select' under mysql.
+  will get the cheat sheet 'select' under mysql.
   
   == CONFIGURATION:
   
