@@ -22,6 +22,14 @@ chit: |+
   $ chit mysql/select
   will get the cheat sheet 'select' under mysql.
   
+  To find cheat sheets begin with 'name', use the --find/-f switch
+  
+  $ chit name --find
+  
+  To search cheat sheets content with 'text', use the --search/-s switch
+  
+  $ chit text --search
+  
   == CONFIGURATION:
   
   Before run 'chit', you may want to config ~/.chitrc which is a YAML file.
