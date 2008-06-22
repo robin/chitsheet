@@ -1,5 +1,5 @@
 --- 
-zsh_keys: |-
+zsh::keys: |-
   Ctrl + a - Jump to the start of the line
   Ctrl + b - Move back a char
   Ctrl + c - Terminate the command
