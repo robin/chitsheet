@@ -1,5 +1,5 @@
 --- 
-rails_edge: "Riding the Edge with EdgeRails\r\n\
+rails::edge: "Riding the Edge with EdgeRails\r\n\
   \r\n\
   EdgeRails is a term which means you are running a local copy of a developmental version of Rails (i.e., you\xE2\x80\x99re on the bleeding edge).\r\n\
   \r\n\
