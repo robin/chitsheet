@@ -1,5 +1,5 @@
 --- 
-sed_delete: " # print all of file EXCEPT section between 2 regular expressions\r\n sed '/Iowa/,/Montana/d'\r\n\
+sed::delete: " # print all of file EXCEPT section between 2 regular expressions\r\n sed '/Iowa/,/Montana/d'\r\n\
   \r\n # delete duplicate, consecutive lines from a file (emulates \"uniq\").\r\n # First line in a set of duplicate lines is kept, rest are deleted.\r\n sed '$!N; /^\\(.*\\)\\n\\1$/!P; D'\r\n\
   \r\n # delete duplicate, nonconsecutive lines from a file. Beware not to\r\n # overflow the buffer size of the hold space, or else use GNU sed.\r\n sed -n 'G; s/\\n/&&/; /^\\([ -~]*\\n\\).*\\n\\1/d; s/\\n//; h; P'\r\n\
   \r\n # delete all lines except duplicate lines (emulates \"uniq -d\").\r\n sed '$!N; s/^\\(.*\\)\\n\\1$/\\1/; t; D'\r\n\
