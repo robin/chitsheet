@@ -1,5 +1,5 @@
 --- 
-rails_tasks: |-
+rails::tasks: |-
   rake cache:clear                      # Clears all cached pages
   rake db:bootstrap                     # Loads a schema.rb file into the database and then loads the initial database fixtures.
   rake db:bootstrap:copy_default_theme  # Copy default theme to site theme
