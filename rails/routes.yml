@@ -1,5 +1,5 @@
 --- 
-rails_routes: |-
+rails::routes: |-
   http://api.rubyonrails.com/classes/ActionController/Routing.html
   
   TEST/UNIT:
@@ -31,18 +31,18 @@ rails_routes: |-
      get login_url
      #...
    end
-   
+  
   ---- 
    RSPEC:
-   
+  
    it "index should be landing page for companies" do
       route_for(:controller => "companies", :action => "index").should == '/companies'
    end
-   
+  
    it "should be landing page for companies" do
       params_for('/companies').should == {:controller => "companies", :action => "index"}
    end
-   
+  
    specify "{:controller => 'sessions', :action => 'new'} from GET /login" do 
       params_from("/login", :method => :get).should == {:controller => "sessions", :action => "new"} 
    end
