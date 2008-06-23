@@ -1,0 +1,75 @@
+--- 
+http::header: |+
+  Requests
+  
+  Header  	Description	Example
+  ===============================================================================
+  Accept		Content-Types that are acceptable	Accept: text/plain
+  
+  Accept-Charset	Character sets that are acceptable	Accept-Charset: iso-8859-5
+  
+  Accept-Encoding	Acceptable encodings	Accept-Encoding: compress, gzip
+  
+  Accept-Language	Acceptable languages for response	Accept-Language: da [1]
+  
+  Accept-Ranges	Allows the server to indicate its acceptance of range requests for a resource	Accept-Ranges: bytes
+  
+  Authorization	Authentication credentials for HTTP authentication	Authorization: Basic QWxhZGRpbjpvcGVuIHNlc2FtZQ==
+  
+  Cache-Control	Used to specify directives that MUST be obeyed by all caching mechanisms along the request/response chain	Cache-Control: no-cache
+  
+  Connection	What type of connection the user-agent would prefer	Connection: close
+  
+  Cookie		an HTTP cookie previously sent by the server with Set-Cookie (below)	Cookie: $Version=1; UserId=JohnDoe
+  
+  Date		The date and time that the message was sent	Date: Tue, 15 Nov 1994 08:12:31 GMT
+  
+  Host		The domain name of the server (for virtual hosting), mandatory since HTTP/1.1	Host: en.wikipedia.org
+  
+  If-Modified-Since	Allows a 304 Not Modified to be returned if content is unchanged	If-Modified-Since: Sat, 29 Oct 1994 19:43:31 GMT
+  
+  If-None-Match	Allows a 304 Not Modified to be returned if content is unchanged, see HTTP_ETag	If-None-Match: 737060cd8c284d8af7ad3082f209582d
+  
+  User-Agent	The user agent string of the user agent	User-Agent: Mozilla/5.0 (Linux; X11; UTF-8)
+  
+  
+  Responses
+  
+  Header  	Description	Example
+  ===============================================================================
+  Accept-Ranges	What partial content range types this server supports	Accept-Ranges: bytes
+  
+  Age		The age the object has been in a proxy cache in seconds	Age: 12
+  
+  Allow		Valid actions for a specified resource. To be used for a 405 Method not allowed	Allow: GET, HEAD
+  
+  Cache-Control	Tells all caching mechanisms from server to client whether they may cache this object	Cache-Control: no-cache
+  
+  Content-Encoding	The type of encoding used on the data	Content-Encoding: gzip
+  
+  Content-Language	The language the content is in	Content-Language: da
+  
+  Content-Length	The length of the response body in bytes	Content-Length: 348
+  
+  Content-Location	An alternate location for the returned data	Content-Location: /index.htm
+  
+  Content-Disposition	An opportunity to raise a "File Download" dialog box for a known MIME type	Content-Disposition: attachment; filename=fname.ext
+  
+  Content-MD5	An MD5 sum of the content of the response	Content-MD5: 3167b9c13ad2b6d36946493fc47976c8
+  
+  Content-Range	Where in a full body message this partial message belongs	Content-Range: bytes 21010-47021/47022
+  
+  Content-Type	The mime type of this content	Content-Type: text/html; charset=utf-8
+  
+  Date		The date and time that the message was sent	Date: Tue, 15 Nov 1994 08:12:31 GMT
+  
+  ETag		An identifier for a specific version of a resource, often a Message Digest, see ETag	ETag: 737060cd8c284d8af7ad3082f209582d
+  
+  Last-Modified	The last modified date for the requested object	Last-Modified: Tue, 15 Nov 1994 12:45:26 GMT
+  
+  Location	Used in redirection	Location: http://www.w3.org/pub/WWW/People.html
+  
+  Server		A name for the server	Server: Apache/1.3.27 (Unix) (Red-Hat/Linux)
+  
+  Set-Cookie	an HTTP cookie	Set-Cookie: UserID=JohnDoe; Max-Age=3600; Version=1
+  
