@@ -1,0 +1,47 @@
+--- 
+git::treeish: |
+  Full SHA-1
+  	dae86e1950b1277e545cee180551750029cfe735
+  
+  Partial SHA-1
+  	dae86e
+  
+  Branch or Tag Name
+  	master
+  
+  Date spec
+  	{yesterday} 
+  	{1 month 2 weeks 3 days 1 hour 1 second ago} 
+  	{1979-02-26 18:30:00}
+  
+  Ordinal Spec
+  	master@{5}
+  
+  Carrot Parent and Tilt Spec
+  	G   H   I   J
+  	 \ /     \ /
+  	  D   E   F
+  	   \  |  / \
+  	    \ | /   |
+  	     \|/    |
+  	      B     C
+  	       \   /
+  		\ /
+  		 A
+  	A =      = A^0
+  	B = A^   = A^1     = A~1
+  	C = A^2  = A^2
+  	D = A^^  = A^1^1   = A~2
+  	E = B^2  = A^^2
+  	F = B^3  = A^^3
+  	G = A^^^ = A^1^1^1 = A~3
+  	H = D^2  = B^^2    = A^^^2  = A~2^2
+  	I = F^   = B^3^    = A^^3^
+  	J = F^2  = B^3^2   = A^^3^2
+  
+  Tree Pointer
+  	e65s46^{tree}
+  
+  Blob Spec
+  	master:/path/to/file
+
