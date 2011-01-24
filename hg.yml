@@ -1,0 +1,18 @@
+--- 
+hg: |-
+  Initialize project
+  
+    $ hg init project
+  
+  Add files and track them
+  
+    $ cd project
+    $ (add files)
+    $ hg add
+    $ hg commit
+  
+  
+  Update project from remote
+  
+    $ hg pull
+    $ hg update

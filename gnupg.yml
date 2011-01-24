@@ -1,0 +1,7 @@
+--- 
+gnupg: "Crypt files via key pair\n\n\
+  Create the key pair  \n    gpg --gen-key\n\n\
+  Listing:\n  List your key in simple format\n    gpg --list-keys\n\n  List private key\n    gpg --list-secret-keys\n\n  List your key in long format\n    gpg --list-keys --keyid-format long\n\n  List private key in long format \n    gpg --list-secret-keys --keyid-format long\n\n\
+  Export:\n  Export public key ASCII format\n    gpg --armor --output MyKeyPub.asc --export \"user_name\"\n\n  Export private key\n     gpg \xE2\x80\x93export-secret-key -a > MyPrivateKey.key\n\n\
+  Import: \n  Import a key\n    gpg --import --allow-secret-key-import MaPrivateKey.key\n\n\
+  Link:\n  Manuel Gnupg\n    http://www.gnupg.org/gph/en/manual.html\n\n  Manuel Gnupg in a french \n    http://www.gnupg.org/gph/fr/manual.html"

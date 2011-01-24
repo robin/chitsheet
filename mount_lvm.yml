@@ -1,0 +1,9 @@
+--- 
+mount_lvm: |-
+  #load device module
+  modprobe dm-mod
+  #change the volumes that exist to active
+  vgchange -ay
+  #mount the logical partition
+  mkdir -p /mnt/VolGroup00/LogVol00
+  mount /dev/VolGroup00/LogVol00 /mnt/VolGroup00/LogVol00

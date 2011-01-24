@@ -1,0 +1,12 @@
+--- 
+uri: "Parts of a ruby URI:\r\n\
+  \r\n\
+  fragment   The part of URI after \xE2\x80\x99#\xE2\x80\x99 sign ('#poignantcontent')\r\n\
+  host     Server host name ('whytheluckystiff.net')\r\n\
+  path    Path on server ('/incidents.html')\r\n\
+  port    Server port  ('80')\r\n\
+  query    Query string ( '?chunkybacon=true' )\r\n\
+  scheme    Protocol scheme ('http','ftp','mailto' and so on)\r\n\
+  userinfo    User name and password ('sdmitry:bla')\r\n\
+  \r\n\
+  Using with net/http:\r\n  Net::HTTP.start(uri.host, uri.port) do |http|\r\n    http.get(uri.path, header)\r\n  end"

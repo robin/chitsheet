@@ -1,0 +1,28 @@
+--- 
+boost_test: |-
+  Test Macros
+  =======
+  
+  <level> : WARN  (don't fail, only print a warning)
+            CHECK (generate error, but continue)
+            FAIL  (generate error and stop immediately)
+  
+  BOOST_<level>_BITWISE_EQUAL
+  BOOST_<level>_CLOSE
+  BOOST_<level>_CLOSE_FRACTION
+  BOOST_<level>_EQUAL
+  BOOST_<level>_EQUAL_COLLECTION
+  BOOST_<level>_EXCEPTION
+  BOOST_<level>_GE
+  BOOST_<level>_GT
+  BOOST_<level>_LE
+  BOOST_<level>_LT
+  BOOST_<level>_MESSAGE
+  BOOST_<level>_NE
+  BOOST_<level>_NO_THROW
+  BOOST_<level>_PREDICATE
+  BOOST_<level>_SMALL
+  BOOST_<level>_THROW
+  BOOST_ERROR
+  BOOST_FAIL
+  BOOST_IS_DEFINED

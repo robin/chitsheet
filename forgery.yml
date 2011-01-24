@@ -1,0 +1,268 @@
+--- 
+forgery: |-
+  Forgery
+  -------
+  
+  Forgery is a fake data generator. A typical use is as an extension to an object factory like Factory Girl to generate unique data for each object.
+  
+  
+  Installation
+  ------------
+  
+  $ sudo gem install forgery
+  
+  Rails 2:
+  
+  # in config/environment.rb
+  config.gem 'forgery'
+  
+  
+  Rails 3:
+  
+  # in Gemfile
+  gem 'forgery'
+  
+  
+  Customisation
+  -------------
+  
+  Forgery provides a generator to setup folders if you want to override or extend parts of it.
+  
+  Rails 2: 
+  
+  $ ruby script/generate forgery
+  
+  Rails 3:
+  
+  $ rails generate forgery   # not working at time of writing
+  
+  results in:
+  
+   create lib/forgery
+   create lib/forgery/dictionaries
+   create lib/forgery/extensions
+   create lib/forgery/forgeries
+   create lib/forgery/formats
+  
+  Files in these directories take precedence over Forgery's built in files. So you could override Forgery's builtin format for phone numbers, which produces e.g. "1-(123)456-7890", by creating a new format file, e.g. in bash:
+  
+  $ echo "(0#) #### ####
+  > +61# #### ####" > lib/forgery/formats/phone
+  
+  after which Forgery::Address.phone produces e.g. "(08) 3582 5122" or "+612 7027 4990".
+  
+  
+  Formats
+  -------
+  
+  Traditional:
+  
+  Forgery::<Type>.method
+  i.e. Forgery::Basic.password  # => 'nJMKlpERFf'
+  
+  Alternate:
+  
+  Forgery(:<type>).method
+  i.e. Forgery(:basic).password # => 'wYMYvq'
+  
+  
+  Forgeries
+  ---------
+  
+  A few comma-separated example outputs are given for each call. Where parameters are available they are (mostly) shown set to their defaults.
+  
+  Address:-
+  
+  Forgery::Address.street_name                       # => "Lukken", "Heath", "Jana"
+  Forgery::Address.street_number                     # => "3926", "3", "390"
+  Forgery::Address.street_suffix                     # => "Avenue", "Place"
+  Forgery::Address.street_address                    # => "856 Novick Pass", "0370 Westport Hill", "43 Ilene Hill"
+  Forgery::Address.city                              # => "Dana Point", "Agoura Hills", "Bell Gardens"
+  Forgery::Address.state                             # => "Minnesota", "Utah", "Idaho"
+  Forgery::Address.state_abbrev                      # => "AL", "TN", "AK"
+  Forgery::Address.province                          # => "British Columbia", "New Brunswick"
+  Forgery::Address.province_abbrev                   # => "BC", "YT", "NU"
+  Forgery::Address.zip                               # => "52474", "17606-0531", "55951-9920"
+  Forgery::Address.phone                             # => "8-(824)176-2699", "6-(960)921-9082", "1-(148)062-4183"
+  Forgery::Address.country                           # => "Korea, North", "Puerto Rico", "Guadeloupe"
+  Forgery::Address.continent                         # => "Asia", "Australia", "Europe"
+  
+  
+  Basic:-
+  
+  Forgery::Basic.password                            # => "2xHa8FVTB1pq", "3jcJEp", "abUYdEMHX"
+  Forgery::Basic.password(
+    :at_least => 6,
+    :at_most => 12,
+    :allow_lower => true,
+    :allow_upper => true,
+    :allow_numeric => true,
+    :allow_special => false
+  )                                                  # => "2xHa8FVTB1pq", "3jcJEp", "abUYdEMHX"
+  Forgery::Basic.encrypt                             # => "2e76fa01cc37c8feac559961dffce03a901bfe15"
+  Forgery::Basic.encrypt(
+    "password",
+    Time.now.to_s           # the salt
+  )                                                  # => "2e76fa01cc37c8feac559961dffce03a901bfe15"
+  Forgery::Basic.boolean                             # => false, true
+  Forgery::Basic.color                               # => "Pink", "Blue"
+  Forgery::Basic.hex_color                           # => "#48d0b1", "#795363", "#13097d"
+  Forgery::Basic.short_hex_color                     # => "#275", "#740", "#709"
+  Forgery::Basic.number                              # => 8, 10, 5
+  Forgery::Basic.number(
+    :at_least => 1,
+    :at_most => 10
+  )                                                  # => 8, 10, 5
+  Forgery::Basic.text                                # => "IzRI9hcizVkJewN", "P0VWlX1J2npQQ9", "9DmJXvIxQ7YYnDK"
+  Forgery::Basic.text(
+    :at_least => 10,
+    :at_most => 15,
+    :allow_lower => true,
+    :allow_upper => true,
+    :allow_numeric => true,
+    :allow_special => false
+  )                                                  # => "IzRI9hcizVkJewN", "P0VWlX1J2npQQ9", "9DmJXvIxQ7YYnDK"
+  Forgery::Basic.frequency                           # => "Never", "Seldom", "Monthly"
+  
+  
+  Date:-
+  
+  Forgery::Date.day_of_week                          # => "Thursday", "Tuesday"
+  Forgery::Date.day_of_week(:abbr => true)           # => "Sun", "Mon"
+  Forgery::Date.month                                # => "May", "November"
+  Forgery::Date.month(:abbr => true)                 # => "Jan", "Feb"
+  Forgery::Date.month(:numerical => true)            # => 1, 2, 12
+  Forgery::Date.year                                 # => 2010, 2030, 1998
+  Forgery::Date.year(
+    :future => false,     # force year to be in the future only
+    :min_delta => 0,      # min change from current year
+    :max_delta => 20
+  )                                                  # => 2010, 2030, 1998
+  Forgery::Date.day                                  # => 26, 28
+  Forgery::Date.date                                 # => #<Date: 1996-10-18 (4900749/2,0,2299161)>
+  Forgery::Date.date(
+    :future => false,
+    :min_delta => 0,
+    :max_delta => 7300
+  )                                                  # => #<Date: 1996-10-18 (4900749/2,0,2299161)>
+  
+  
+  Forgery::Internet:-
+  
+  Forgery::Internet.user_name                        # => "jrice", "erogers", "jpeters"
+  Forgery::Internet.top_level_domain                 # => "gov", "name"
+  Forgery::Internet.domain_name                      # => "lajo.mil", "kaymbo.info", "yabox.net"
+  Forgery::Internet.email_address                    # => "jweaver@geba.name", "cgrant@tavu.name", "jbryant@skinix.name"
+  Forgery::Internet.cctld                            # => "hu", "mg", "qa"
+  Forgery::Internet.ip_v4                            # => "155.217.234.189", "18.128.82.110", "14.247.237.15"
+  
+  
+  Forgery::LoremIpsum:-
+  
+  Forgery::LoremIpsum.text                           # => "Lorem ipsum dolor sit amet, consectetuer adipiscing elit."
+  Forgery::LoremIpsum.text(
+    :sentence,                # which other LoremIpsum method to call
+    2,                        # quantity
+    {}                        # options
+  )                                                  # => "Lorem ipsum dolor sit amet, consectetuer adipiscing elit."
+  Forgery::LoremIpsum.character                      # => "l"
+  Forgery::LoremIpsum.character(
+    :random => nil,
+    :random_limit => <max>        # if :random, start selecting chars from (0..:random_limit).random
+  )                                                  # => "l"
+  Forgery::LoremIpsum.characters                     # => "lorem ipsu"
+  Forgery::LoremIpsum.characters(
+    10,                           # quantity
+    :random => nil,
+    :random_limit => <max>
+  )                                                  # => "lorem ipsu"
+  Forgery::LoremIpsum.word                           # => "lorem"
+  Forgery::LoremIpsum.word(
+    :random => nil,
+    :random_limit => <max>
+  )                                                  # => "lorem"
+  Forgery::LoremIpsum.words                          # => "lorem ipsum dolor sit amet consectetuer adipiscing elit proin risus"
+  Forgery::LoremIpsum.words(
+    10                            # quantity
+    :random => nil,
+    :random_limit => <max>
+  )                                                  # => "lorem ipsum dolor sit amet consectetuer adipiscing elit proin risus"
+  Forgery::LoremIpsum.sentence                       # => "Lorem ipsum dolor sit amet, consectetuer adipiscing elit."
+  Forgery::LoremIpsum.sentence(
+    :random => nil,
+    :random_limit => <max>
+  )                                                  # => "Lorem ipsum dolor sit amet, consectetuer adipiscing elit."
+  Forgery::LoremIpsum.sentences                      # => "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Proin risus."
+  Forgery::LoremIpsum.sentences(
+    2                             # quantity
+    :random => nil,
+    :random_limit => <max>
+  )                                                  # => "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Proin risus."
+  Forgery::LoremIpsum.paragraph                      # => "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Proin risus. Praesent lectus...
+  Forgery::LoremIpsum.paragraph(
+    :separator => "\n\n",
+    :wrap => {
+      :start => "",
+      :end => ""
+    },
+    :html => false,               # equiv to :wrap => {:start => "<p>", :end => "</p>"}
+    :sentences => 3
+    :random => nil,
+    :random_limit => <max>
+  )                                                  # => "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Proin risus. Praesent lectus...
+  Forgery::LoremIpsum.paragraphs                     # => "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Proin risus. Praesent lectus.\n...
+  Forgery::LoremIpsum.paragraphs(
+    2                             # quantity
+    :separator => "\n\n",
+    :wrap => {
+      :start => "",
+      :end => ""
+    },
+    :html => false,               # equiv to :wrap => {:start => "<p>", :end => "</p>"}
+    :sentences => 3
+    :random => nil,
+    :random_limit => <max>
+  )                                                  # => "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Proin risus. Praesent lectus.\n...
+  
+  
+  Forgery::Monetary:-
+  
+  Forgery::Monetary.formatted_money                  # => "$9.92", "$6.25", "$9.96"
+  Forgery::Monetary.formatted_money(
+    :min => 0,
+    :max => 10
+  )                                                  # => "$9.92", "$6.25", "$9.96"
+  Forgery::Monetary.money                            # => "2.02", "7.99", "6.78"
+  Forgery::Monetary.money(
+    :min => 0,
+    :max => 10
+  )                                                  # => "2.02", "7.99", "6.78"
+  
+  
+  Forgery::Name:-
+  
+  Forgery::Name.last_name                            # => "Campbell", "Moore", "Diaz"
+  Forgery::Name.first_name                           # => "Cheryl", "Bruce", "Earl"
+  Forgery::Name.full_name                            # => "Roger Kelley", "Ryan Garza", "Ernest Cruz"
+  Forgery::Name.male_first_name                      # => "Aaron", "Carl", "Bruce"
+  Forgery::Name.female_first_name                    # => "Deborah", "Christine", "Jean"
+  Forgery::Name.company_name                         # => "Twitterlist", "Skiba", "Riffwire"
+  Forgery::Name.job_title                            # => "GIS Technical Architect", "Graphic Designer", "Staff Accountant III"
+  Forgery::Name.job_title_suffix                     # => "III", "IV", "I"
+  Forgery::Name.title                                # => "Mr", "Honorable", "Mrs"
+  Forgery::Name.suffix                               # => "Sr", "Jr"
+  Forgery::Name.location                             # => "The Frying Dutchman", "Alcatraz Island", "Cowboys Stadium"
+  
+  
+  Forgery::Personal:-
+  
+  Forgery::Personal.gender                           # => "Male", "Female"
+  Forgery::Personal.abbreviated_gender               # => "F", "M"
+  Forgery::Personal.shirt_size                       # => "3XL", "L"
+  Forgery::Personal.race                             # => "Kiowa", "Chippewa", "American Indian"
+  Forgery::Personal.language                         # => "Romanian", "Georgian", "Bulgarian"
+  
+  
+  Forgery::Time:-
+  
+  Forgery::Time.zone                                 # => "Azores", "Vienna", "Cape Verde Is."

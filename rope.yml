@@ -20,7 +20,7 @@ rope: |-
   
   Now when you run rake test, you'll see something like this:
   
-   
+  
     1) Failure:
   test_flunk(TestMyReport) [./test/test_my_report.rb:9]:
   Write your real tests here or in any test/test_* file.

@@ -1,0 +1,48 @@
+--- 
+named_scope: |-
+  class User < ActiveRecord::Base
+    named_scope :active, :conditions => {:active => true}
+    named_scope :inactive, :conditions => {:active => false}
+    named_scope :recent, lambda { { :conditions => ['created_at > ?', 1.week.ago] } }
+  end
+  
+  # Standard usage
+  User.active    # same as User.find(:all, :conditions => {:active => true})
+  User.inactive # same as User.find(:all, :conditions => {:active => false})
+  User.recent   # same as User.find(:all, :conditions => ['created_at > ?', 1.week.ago])
+  
+  # They're nest-able too!
+  User.active.recent
+    # same as:
+    # User.with_scope(:conditions => {:active => true}) do
+    #   User.find(:all, :conditions => ['created_at > ?', 1.week.ago])
+    # end
+  
+  # Passing Arguments
+  class User < ActiveRecord::Base
+    named_scope :registered, lambda { |time_ago| { :conditions => ['created_at > ?', time_ago] } }
+  end
+  
+  User.registered 7.days.ago # same as User.find(:all, :conditions => ['created_at > ?', 7.days.ago])
+  
+  # Named scope extensions
+  
+  class User < ActiveRecord::Base
+    named_scope :inactive, :conditions => {:active => false} do
+      def activate
+        each { |i| i.update_attribute(:active, true) }
+      end
+    end
+  end
+  
+  # Re-activate all inactive users
+  User.inactive.activate
+  
+  # Using a subquery..
+  named_scope :non_administrative, :conditions => [ "users.id NOT IN (SELECT admins.user_id from admins)" ]
+  named_scope :administrative, :conditions => [ "users.id IN (SELECT admins.user_id from admins)" ]
+  
+  User.administrative
+  User.non_administrative
+  
+  Based on a solution at http://railsforum.com/viewtopic.php?id=24563

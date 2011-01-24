@@ -1,0 +1,25 @@
+--- 
+queriac: |-
+  Overview
+  ========
+  
+  Queriac allows you to manage your quicksearches, shortcuts, and bookmarklets by taking them out of your browser profile and onto the web, making them portable, taggable, shareable, and generally easier to manage. Drawing from the concept of Yubnub and extending it in the spirit of del.icio.us, Queriac effectively turns your browser's address bar into a flexible command line.
+  
+  Sign up at http://queri.ac
+  
+  
+  Some Default Commands
+  =====================
+  
+  Perform a Google search
+  >> g marlon brando
+  
+  Perform a stealth Google search, i.e. it won't be saved to search history. (space after ! is optional)
+  >> !g michael bolton
+  >> ! g condi rice
+  
+  Edit your Google command
+  >> edit g
+  
+  Show your Google command
+  >> show g

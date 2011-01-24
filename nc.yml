@@ -1,0 +1,20 @@
+--- 
+nc: |-
+  netcat
+  
+  connect to tcp port 80:
+  
+   $ nc -v localhost 80
+   Connection to localhost 80 port [tcp/http] succeeded!
+   GET /
+   ..
+  
+  connect to udp port 9000:
+  
+   $ nc -v -u localhost 9000
+   Connection to localhost 9000 port [udp/cslistener] succeeded!
+  
+  
+  listen on port 4000:
+  
+    $ nc -l 4000

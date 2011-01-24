@@ -1,0 +1,6 @@
+--- 
+perl_replace: |-
+  Mass Find/replace in files
+  ==========================
+  
+  perl -pi -w -e 's/Test::Unit::TestCase/ActiveSupport::TestCase/g;' test/unit/*.rb

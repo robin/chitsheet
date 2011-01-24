@@ -1,0 +1,16 @@
+--- 
+gemfile: |-
+  gem "foobar", "2.0"
+  
+  # from git
+  gem "rails", :git => "git://github.com/rails/rails.git"
+  # gem name is different from require
+  gem "sqlite3-ruby", :require => "sqlite3"
+  
+  
+  # use group for different sets of dependencies
+  group :test do
+    gem "rspec-rails", ">=2.0.0.beta.2"
+    gem "machinist", ">=1.0.6"
+    gem "faker", '>=0.3.1'
+  end

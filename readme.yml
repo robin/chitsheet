@@ -1,2 +1,7 @@
 --- 
-readme: test
+readme: |-
+  This is some silly stuff I just added.
+  
+  But if you want to contribute something useful here, than just visit http://cheat.errtheblog.com/ and add it.
+  
+  Or use: cheat --edit readme

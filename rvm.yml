@@ -1,0 +1,128 @@
+--- 
+rvm: |-
+  RVM home page: http://rvm.beginrescueend.com
+  
+  Install RVM
+  ------------
+  
+  See http://rvm.beginrescueend.com/rvm/install/
+  
+    bash < <( curl http://rvm.beginrescueend.com/releases/rvm-install-head )
+  
+  Install rvm for all users
+  --------------------------
+  
+  Fairly complicated; make sure to read http://rvm.beginrescueend.com/deployment/system-wide/
+  
+  Upgrade to the latest version of rvm from github
+  -------------------------------------------------
+  
+    rvm update --head
+  
+  Install a given version of ruby
+  --------------------------------
+  
+    rvm install 1.9.2
+  
+  If this fails with compiler errors, you may need to install some packages.
+  
+    rvm package install openssl
+    rvm package install readline
+    rvm package install iconv
+    rvm install 1.9.2 --with-openssl-dir=$HOME/.rvm/usr \
+      --with-readline-dir=$HOME/.rvm/usr \
+      --with-iconv-dir=$HOME/.rvm/usr
+  
+  On Mac, you may need to install some libraries via MacPorts.
+  
+    sudo port install ncurses
+    sudo port install libyaml
+    sudo port install zlib  
+    rvm install 1.9.2 --with-libyaml-dir=/opt/local \
+      --with-openssl-dir=$HOME/.rvm/usr \
+      --with-readline-dir=$HOME/.rvm/usr \
+      --with-iconv-dir=$HOME/.rvm/usr
+  
+  More at http://rvm.beginrescueend.com/rubies/installing/
+  
+  Open a new shell and rvm!
+  -------------------------
+  
+    rvm use 1.9.1 
+    >> Switching to ruby 1.9.1 ... 
+  
+    ruby -v 
+    >> ruby 1.9.1p243 (2009-07-16 revision 24175) [x86_64-linux] 
+  
+    which ruby 
+    >> /home/wayne/.rvm/ruby-1.9.1-p243/bin/ruby
+  
+  Make 1.9.2 default for all new shells
+  --------------------------------------
+  
+    rvm --default 1.9.2
+  
+  Reverting to system default
+  ----------------------------
+  
+    rvm system
+    ruby -v 
+    >> ruby 1.8.7 (2008-08-11 patchlevel 72) [universal-darwin10.0] 
+    which ruby 
+    >> /usr/bin/ruby
+  
+  Installing gems in multiple ruby versions
+  ------------------------------------------
+  
+    rvm 1.8.6,1.9.1 gem install rspec json --no-rdoc --no-ri
+  
+  Starting a new project? Create a Gemset and rvmrc at the same time:
+  -------------------------------------------------------------------
+    rvm --create --rvmrc ree@project_name
+  
+  Working with gemsets
+  --------------------
+  
+    rvm 1.8.7                       # use the ruby to manage gemsets for
+    rvm gemset create project_name  # create a gemset
+    rvm gemset use project_name     # use a gemset in this ruby
+    rvm gemset list                 # list gemsets in this ruby
+    rvm gemset delete project_name  # delete a gemset
+    rvm 1.9.1@other_project_name    # use another ruby and gemset
+  
+  The global gemset
+  -----------------
+  
+    With every ruby, rvm creates the global gemset.  Gems installed into this
+    gemset are available to all gemsets in the ruby.
+  
+      rvm 1.8.7
+      rvm gemset create project_name
+      gem list # no gems :(
+  
+      rvm gemset use global
+      gem install rake
+      rvm gemset use project_name
+      gem list # rake :)
+  
+    Install a gem directly into the global gemset:
+  
+      rvm 1.8.7@global gem install shoulda
+  
+    Install cheat in the global gemset when you install a new ruby:
+  
+      echo "cheat" >> ~/.rvm/gemsets/global.gems
+  
+  .rvmrc
+  ------
+  
+    rvm can automatically use a ruby and gemset when you cd to a project
+    directory.
+  
+    echo "rvm 1.8.7@project_name" > ~/projects/project_name/.rvmrc
+  
+  Lots more help
+  ---------------
+  
+    rvm help
+    http://rvm.beginrescueend.com/

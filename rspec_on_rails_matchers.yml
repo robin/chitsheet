@@ -1,0 +1,42 @@
+--- 
+rspec_on_rails_matchers: |-
+  * Associations:
+      Verify that the association has been defined. 
+        (doesn't verify that the association works!)
+  
+      object.should have_many(:association)
+      object.should belong_to(:association)
+      object.should have_one(:association)
+      object.should have_and_belong_to_many(:association)
+      project.should have_and_belong_to_many(:categories)
+  
+    * Validations:
+      Verify that a validation has been defined.
+        (doesn't test the validation itself)
+  
+      object.should validate_presence_of(:attribute)
+      object.should validate_confirmation_of(:attribute)
+      object.should validate_uniqueness_of(:attribute)
+      object.should validate_length_of(:attribute, :within => 5..10)
+      object.should validate_length_of(:attribute, :is => 5)
+  
+    * Observers:
+      Verify that the observer is observing a class.
+        (doesn't verify that the observation works)
+      
+      Class.should observe(:model)
+      example: GroupObserver.should observe(Group)
+  
+    * Views:
+      Verifies that the views contains some tags.
+  
+      response.should have_form_posting_to(url_or_path)
+      response.should have_form_putting_to(url_or_path)
+      response.should have_text_field_for(:attribute)
+      response.should have_label_for(:attribute)
+      response.should have_password_field_for(:attribute)
+      response.should have_checkbox_for(:attribute)
+      response.should have_submit_button
+      response.should have_link_to(url_or_path, "optional_text")
+  
+      * have_form_*ing_to take a block so the rest can be nested

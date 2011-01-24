@@ -1,0 +1,8 @@
+--- 
+orgmode_completion: "================================================================================\n\
+  Completion\n\
+  ================================================================================\n\n\
+  In-buffer completion completes TODO keywords at headline start, TeX macros\n\
+  after `\\', option keywords after `#-\xC3\xA2', TAGS after `:', and dictionary words\n\
+  elsewhere.\n\n\
+  complete word at point                            M-TAB"

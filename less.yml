@@ -2,3 +2,13 @@
 less: |-
   to make apple-specific control characters 
    show up instead of their octal sequence use:  less -r
+  
+  v = to edit the current file using $VISUAL or $EDITOR
+  h = help
+  / = search forward
+  ? = Search backward
+  G = goto the end of the file
+  b = go backward
+  g = goto the beginning of the file
+  SPACE = page down
+  return = line down

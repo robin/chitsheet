@@ -19,9 +19,9 @@ xslt: |-
   
   string name(node-set?)
   
-  
   String Functions
   ----------------
+  
   
   # haystack = the string/nodeset/etc that the function is applied to
   # needle = something to be applied to the haystack (find, substring etc)
@@ -47,7 +47,6 @@ xslt: |-
   string translate(haystack, from, to) # note: only chars, not words
   
   
-  
   Boolean Functions
   -----------------
   
@@ -60,7 +59,6 @@ xslt: |-
   boolean false()
   
   boolean lang(string)
-  
   
   
   Number Functions

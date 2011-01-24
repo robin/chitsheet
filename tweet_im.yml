@@ -1,0 +1,34 @@
+--- 
+tweet_im: "How do I control my Twitter through tweet.IM?\r\n\
+  Just type your Twitter message to twitter.tweet.im or your-username.tweet.im and it will appear in your timeline. Type a single keyword help to see more commands. Current commands include:\r\n\
+  \r\n\
+  @username message \xE2\x80\x94 public reply/send a message to this person\r\n\
+  \r\n\
+  d username message \xE2\x80\x94 sends a direct message to this person\r\n\
+  \r\n\
+  \r\n\
+  f username \xE2\x80\x94 follow this person\r\n\
+  \r\n\
+  u username \xE2\x80\x94 unfollow this person\r\n\
+  \r\n\
+  \r\n\
+  p username \xE2\x80\x94 information on user profile\r\n\
+  \r\n\
+  ing \xE2\x80\x94 list people you follow (following)\r\n\
+  \r\n\
+  ers &mdashl list people that follow you (followers)\r\n\
+  \r\n\
+  \r\n\
+  ss \xE2\x80\x94 show saved searches\r\n\
+  \r\n\
+  sd searchname \xE2\x80\x94 delete saved search\r\n\
+  \r\n\
+  sa query \xE2\x80\x94 save a search query\r\n\
+  \r\n\
+  \r\n\
+  ts \xE2\x80\x94 show your current tweet mode: on, off or auto\r\n\
+  \r\n\
+  tm mode \xE2\x80\x94 set tweet mode where mode is:\r\n\
+  \r\n    on - always receive tweets\r\n\
+  \r\n    off - never receive tweets\r\n\
+  \r\n    auto - receive tweets depending on your current status"

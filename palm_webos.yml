@@ -1,0 +1,19 @@
+--- 
+palm_webos: |-
+  Package + Install + Launch:
+  
+  	palm-package HelloWorld
+  	palm-install com.mystuff.hello_1.0.0_all.ipk
+  	palm-launch com.mystuff.hello
+  	
+  Launch with inspector
+  
+  	palm-launch -i com.mystuff.hello
+  	
+  Close application
+  
+  	palm-launch -c com.mystuff.hello
+  	
+  Delete the application from the emulator
+  
+  	palm-install -r com.mystuff.hello

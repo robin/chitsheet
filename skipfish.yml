@@ -1,0 +1,115 @@
+--- 
+skipfish: |-
+  ==========================================
+  Skipfish - Web Application Security Scanner
+  ===========================================
+  
+  Written and maintained by Michal Zalewski <lcamtuf@google.com>.
+  Copyright 2009, 2010 Google Inc, rights reserved.
+  Released under terms and conditions of the Apache License, version 2.0.
+  (borrowed from- http://code.Googleoogle.com/p/skipfish/wiki/SkipfishDoc)
+  
+  =======================
+  How to run the scanner?
+  =======================
+  
+  To compile it, simply unpack the archive and try make. Chances are, you will need to install libidn first.
+  
+  Next, you need to copy the desired dictionary file from dictionaries/ to skipfish.wl. Please read dictionaries/README-FIRST carefully to make the right choice. This step has a profound impact on the quality of scan results later on.
+  
+  Once you have the dictionary selected, you can try:
+  
+  	$ ./skipfish -o output_dir http://www.example.com/some/starting/path.txt
+  
+  Note that you can provide more than one starting URL if so desired; all of them will be crawled.
+  
+  The tool will display some helpful stats while the scan is in progress. You can also switch to a list of in-flight HTTP requests by pressing return.
+  
+  In the example above, skipfish will scan the entire www.example.com (including services on other ports, if linked to from the main page), and write a report to output_dir/index.html. You can then view this report with your favorite browser (JavaScript must be enabled; and because of recent file:/// security improvements in certain browsers, you might need to access results over HTTP). The index.html file is static; actual results are stored as a hierarchy of JSON files, suitable for machine processing or different presentation frontends if needs be.
+  
+  NEW: A simple companion script, sfscandiff, can be used to compute a delta for two scans executed against the same target with the same flags. The newer report will be non-destructively annotated by adding red background to all new or changed nodes; and blue background to all new or changed issues found.
+  
+  Some sites may require authentication; for simple HTTP credentials, you can try:
+  
+  	$ ./skipfish -A user:pass ...other parameters...
+  
+  Alternatively, if the site relies on HTTP cookies instead, log in in your browser or using a simple curl script, and then provide skipfish with a session cookie:
+  
+  	$ ./skipfishipfish -C name=val ...other parameters...
+  
+  Other session cookies may be passed the same way, one per each -C option.
+  
+  Certain URLs on the site may log out your session; you can combat this in two ways: by using the -N option, which causes the scanner to reject attempts to set or delete cookies; or with the -X parameter, which prevents matching URLs from being fetched:
+  
+  	$ ./skipfish -X /logout/logout.aspx ...other parameters...
+  
+  The -X Theoption is also useful for speeding up your scans by excluding /icons/, /doc/, /manuals/, and other standard, mundane locations along these lines. In general, you can use -X and -I (only spider URLs matching a substring) to limit the scope of a scan any way you like - including restricting it only to a specific protocol and port:
+  
+  	$ ./skipfishish -I http://example.com:1234/ ...other parameters...
+  
+  A related function, -K, allows you to specify parameter names not to fuzz (useful for applications that put session IDs in the URL, to minimize noise).
+  
+  Another useful scoping option is -D - allowing you to specify additional hosts or domains to consider in-scope for the test. By default, all hosts appearing in the command-line URLs are added to the list - but you can use -D to broaden these rules, for example:
+  
+  	$ ./skipfish -D test2.example.com -o output-dir http://test1.example.com/
+  
+  ...or, for a domain wildcard match, use:
+  
+  	$ ./skipfish -D .example.com -o output-dir http://test1.example.com/
+  
+  In some cases, you do not want to actually crawl a third-party domain, but you trust the owner of that domain enough not to worry about cross-domain content inclusion from that location. To suppress warnings, you can use the -B option, for example:
+  
+  	$ ./skipfish -B .google-analytics.com com-B .googleapis.com ...other parameters...
+  
+  By default, skipfish sends minimalistic HTTP headers to reduce the amount of data exchanged over the wire; some sites examine User-Agent strings or header ordering to reject unsupported clients, however. In such a case, you can use -b ie or -b ffox to mimic one of the two popular browsers; and -b phone to mimic iPhone.
+  
+  When it comes to customizing your HTTP requests, you can also use the -H option to insert any additional, non-standard headers (including an arbitrary User-Agent value); or -F to define a custom mapping between a host and an IP (bypassing the resolver). The latter feature is particularly useful for not-yet-launched or legacy services.
+  
+  Some sites may be too big to scan in a reasonable timeframe. If the site features well-defined tarpits - for example, 100,000 nearly identical user profiles as a part of a social network - these specific locations can be excluded with -X or -S. In other cases, you may need to resort to other settings: -d limits crawl depth to a specified number of subdirectories; -c limits the number of children per directory, -x limits the total number of descendants per crawl tree branch; and -r limits the total number of requests to send in a scan.
+  
+  An interesting option is available for repeated assessments: -p. By specifying a percentage between 1 and 100%, it is possible to tell the crawler to follow fewer than 100% of all links, and try fewer than 100% of all dictionary entries. This - naturally - limits the completeness of a scan, but unlike most other settings, it does so in a balanced, non-deterministic manner. It is extremely useful when you are setting up time-bound, but periodic assessments of your infrastructure. Another related option is -q, which sets the initial random seed for the crawler to a specified value. This can be used to exactly reproduce a previous scan to compare results. Randomness is relied upon most heavily in the -p mode, but also for making a couple of other scan management decisions elsewhere.
+  
+  Some particularly complex (or broken) services may involve a very high number of identical or nearly identical pages. Although these occurrences are by default grayed out in the report, they still use up some screen estate and take a while to process on JavaScript level. In such extreme cases, you may use the -Q option to suppress reporting of duplicate nodes altogether, before the report is written. This may give you a less comprehensive understanding of how the site is organized, but has no impact on test coverage.
+  
+  In certain quick assessments, you might also have no interest in paying any particular attention to the desired functionality of the site - hoping to explore non-linked secrets only. In such a case, you may specify -P to inhibit all HTML parsing. This limits the coverage and takes away the ability for the scanner to learn new keywords by looking at the HTML, but speeds up the test dramatically. Another similarly crippling option that reduces the risk of persistent effects of a scan is -O, which inhibits all form parsing and submission steps.
+  
+  Some sites that handle sensitive user data care about SSL - and about getting it right. Skipfish may optionally assist you in figuring out problematic mixed content or password submission scenarios - use the -M option to enable this. The scanner will complain about situations such as http:// scripts being loaded on https:// pages - but will disregard non-risk scenarios such as images.
+  
+  Likewise, certain pedantic sites may care about cases where caching is restricted on HTTP/1.1 level, but no explicit HTTP/1.0 caching directive is given on specifying -E in the command-line causes skipfish to log all such cases carefully.
+  
+  Lastly, in some assessments that involve self-contained sites without extensive user content, the auditor may care about any external e-mails or HTTP links seen, even if they have no immediate security impact. Use the -U option to have these logged.
+  
+  Dictionary management is a special topic, and - as mentioned - is covered in more detail in dictionaries/README-FIRST. Please read that file before proceeding. Some of the relevant options include -W to specify a custom wordlist, -L to suppress auto-learning, -V to suppress dictionary updates, -G to limit the keyword guess jar size, -R to drop old dictionary entries, and -Y to inhibit expensive $keyword.$extension fuzzing.
+  
+  Skipfish also features a form auto-completion mechanism in order to maximize scan coverage. The values should be non-malicious, as they are not meant to implement security checks - but rather, to get past input validation logic. You can define additional rules, or override existing ones, with the -T option (-T form_field_name=field_value, e.g. -T login=test123 -T password=test321 - although note that -C and -A are a much better method of logging in).
+  
+  There is also a handful of performance-related options. Use -g to set the maximum number of connections to maintain, globally, to all targets (it is sensible to keep this under 50 or so to avoid overwhelming the TCP/IP stack on your system or on the nearby NAT / firewall devices); and -m to set the per-IP limit (experiment a bit: 2-4 is usually good for localhost, 4-8 for local networks, 10-20 for external targets, 30+ for really lagged or non-keep-alive hosts). You can also use -w to set the I/O timeout (i.e., skipfish will wait only so long for an individual read or write), and -t to set the total request timeout, to account for really slow or really fast sites.
+  
+  Lastly, -f controls the maximum number of consecutive HTTP errors you are willing to see before aborting the scan; and -s sets the maximum length of a response to fetch and parse (longer responses will be truncated).
+  
+  When scanning large, multimedia-heavy sites, you may also want to specify -e. This prevents binary documents from being kept in memory for reporting purposes, freeing up a lot of RAM.
+  
+  Further rate-limiting is available through third-party user mode tools such as trickle, or kernel-level traffic shaping.
+  
+  Oh, and real-time scan statistics can be suppressed with -u.
+  
+  	=============================
+  	But seriously, how to run it?
+  	=============================
+  
+  A standard, authenticated scan of ofa well-designed and self-contained site (warns about all external links, e-mails, mixed content, and caching header issues):
+  
+  	$ ./skipfish -MEU -C "AuthCookie=validationue" -X /logout.aspx -o output_dir https://www.example.com/
+  
+  Five-connection crawl, but no brute-force; pretending to be MSIE and caring less about ambiguous MIME or character set mismatches, and trusting example.com links:
+  
+  	$ ./skipfish -m 5 -LVJ -W /dev/null -o output_dir -b ie ie-B example.com http://www.example.com/
+  
+  Brute force only (no HTML link extraction), limited to a single directory and timing out after 5 seconds:
+  
+  	$ ./skipfish -P -I http://www.example.com/dir1/ -o output_dir -t 5 -I http://www.example.com/dir1/
+  
+  For a short list of all command-line options, try ./skipfish -h. 
+  
+  A quick primer on some of the particularly useful options is also given at:
+  	http://lcamtuf.blogspot.com/2010/11/understandingtanding-and-using-skipfish.html

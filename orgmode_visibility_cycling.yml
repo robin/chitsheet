@@ -1,0 +1,11 @@
+--- 
+orgmode_visibility_cycling: |-
+  ================================================================================
+  Visibility Cycling
+  ================================================================================
+  
+  rotate current subtree between states             TAB
+  rotate entire buffer between states               S-TAB
+  show the whole file                               C-c C-a
+  reveal context around point                       C-c C-r
+  show subtree in indirect buffer, ded. frame       C-c C-k

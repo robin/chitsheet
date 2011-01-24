@@ -1,5 +1,5 @@
 --- 
-status_codes: |
+status_codes: |-
   Use these codes for the #head or #render methods.  ex:
     head :ok
     render :file => '404.html.erb', :status => :not_found
@@ -31,7 +31,7 @@ status_codes: |
   304 => :not_modified
   305 => :use_proxy
   307 => :temporary_redirect
-   
+  
   4xx Client Error
   
   400 => :bad_request
@@ -67,5 +67,3 @@ status_codes: |
   505 => :http_version_not_supported
   507 => :insufficient_storage
   510 => :not_extended
-  
-

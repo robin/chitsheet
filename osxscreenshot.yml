@@ -1,0 +1,15 @@
+--- 
+osxscreenshot: |
+  = SAVING
+  
+  Cmd-Shift-3 - Take picture of the entire screen
+  Cmd-Shift-4 - Take picture of selected area
+              - Hold Spacebar to move selected area (whilst dragging)
+              - Hold Shift to change size in one direction only
+              - Hold Option for centre-based resizing
+              - Press Spacebar and click window for just that window
+  
+  = COPYING
+  
+  To copy images to the clipboard use the keystrokes above, but include Ctrl.
+

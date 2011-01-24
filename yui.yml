@@ -1,0 +1,54 @@
+--- 
+yui: |-
+  YUI
+  ===
+  
+  YUI Component                   Module Name
+  =============                   ===========
+  Animation Utility               animation
+  AutoComplete Control            autocomplete
+  Base CSS Style Foundation       base
+  Button Control                  button
+  Calendar Control                calendar
+  Carousel Control                carousel
+  Charts Control                  charts
+  Color Picker Control            colorpicker
+  Connection Manager              connection
+  Cookie Utility                  cookie
+  Container Family Core (Module, 
+    Overlay)                      containercore
+  Container Family (Module, 
+    Overlay Panel, Tooltip, 
+    Dialog, SimpleDialog)         container
+  DataSource Utility              datasource
+  DataStore Utility               datastore
+  DataTable Control               datatable
+  Dom Collection                  dom
+  Drag & Drop Utility             dragdrop
+  Rich Text Editor                editor
+  Element Utility                 element
+  Event Utility                   event
+  Fonts CSS                       fonts
+  Get Utility                     get
+  Grids CSS Kit                   grids
+  Browser History Manager         history
+  ImageLoader Utility             imageloader
+  ImageCropper Control            imagecropper
+  JSON Utility                    json
+  Layout Manager                  layout
+  Logger Control                  logger
+  Menu Control                    menu
+  Paginator                       paginator
+  Profiler                        profiler
+  ProfilerViewer Control          profilerviewer
+  Resize Utility                  resize
+  Reset CSS                       reset
+  Selector Utility                selector
+  Simple Editor                   simpleeditor
+  Slider Control                  slider
+  TabView Control                 tabview
+  TreeView Control                treeview
+  Uploader Control                uploader
+  YAHOO Global Object             yahoo
+  YUI Loader Utility              yuiloader
+  YUI Test                        yuitest

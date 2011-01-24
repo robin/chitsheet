@@ -1,0 +1,47 @@
+--- 
+firephp: |-
+  <?php
+  
+  require_once('FirePHPCore/FirePHP.class.php');
+  require_once('FirePHPCore/fb.php');
+  
+  // some reports indicate the output buffering is required
+  // ob_start();
+  
+  FB::setEnabled(true);
+  
+  // the basic message types
+  FB::log('Log message');
+  FB::info('Info message');
+  FB::warn('Warn message');
+  // note this fires the error indicator in the bottom right
+  FB::error('Error message');
+  
+  // dump an array
+  FB::log($_SERVER);
+  // with an optional message
+  FB::log($_SERVER, 'The $_SERVER array');
+  
+  // message grouping
+  FB::group('Plain Group');
+  FB::log('Hello World');
+  FB::log('These messages are all grouped together');
+  FB::log('The last message in this group');
+  FB::groupEnd();
+  
+  $options = array('Collapsed' => true, 'Color' => '#FF00FF');
+  FB::group('Coloured Group', $options);
+  FB::log('Hello World');
+  FB::log('These messages are all grouped together');
+  FB::log('The last message in this group');
+  FB::groupEnd();
+  
+  // log a table of data 
+  $table   = array();
+  $table[] = array('Col 1 Heading','Col 2 Heading');
+  $table[] = array('Row 1 Col 1','Row 1 Col 2');
+  $table[] = array('Row 2 Col 1','Row 2 Col 2');
+  $table[] = array('Row 3 Col 1','Row 3 Col 2');
+  FB::table('Mumbo Jumbo table', $table);
+  
+  // best practice: do not close the PHP tag

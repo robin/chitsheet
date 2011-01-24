@@ -1,0 +1,6 @@
+--- 
+knife: |-
+  knife --help
+  knife <subcommand> --help
+  
+  You'll remember to type `cheat knife`, but you won't remember this?

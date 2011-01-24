@@ -1,0 +1,4 @@
+--- 
+tgd: |-
+  Here we go
+  "foo bar baz"[/foo (\w+) baz/, 1] => "bar"

@@ -1,0 +1,113 @@
+--- 
+file_test: |-
+  =========================================================================
+  --> Kernel#test(command, path [, path2])
+  =========================================================================
+  
+    * used to test the characteristics of the disk path represented
+      in the string argument 'path'
+    * also provides a few comparison tests between two path strings
+    * command is an integer, usually specified with a character
+      literal (i.e. ?e)
+    * characters commands have loose mnemonic mappings,
+      for example: ?f => path is a file?
+  
+  =========================================================================
+  --> test Commands Arranged by Subject
+  -------------------------------------------------------------------------
+  * Single Path Tests
+  - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+  Path Existence:
+  
+      +---------+---------------------------------------------------+
+      | Command | Description                                       |
+      +---------+---------------------------------------------------+
+      |   ?e    | path exists                                       |
+      +---------+---------------------------------------------------+
+  
+  Path Type:
+  
+      +---------+---------------------------------------------------+
+      | Command | Description                                       |
+      +---------+---------------------------------------------------+
+      |   ?f    | regular file?                                     |
+      |   ?d    | directory?                                        |
+      |   ?l    | symbolic link?                                    |
+      |   ?p    | fifo?                                             |
+      |   ?S    | socket?                                           |
+      |   ?b    | block device?                                     |
+      |   ?c    | character device?                                 |
+      +---------+---------------------------------------------------+
+  
+  File Size:
+  
+      +---------+---------------------------------------------------+
+      | Command | Description                                       |
+      +---------+---------------------------------------------------+
+      |   ?z    | path size zero?                                   |
+      |   ?s    | path size if size >= 0                            |
+      +---------+---------------------------------------------------+
+  
+  Path Timestamps:
+  
+      +---------+---------------------------------------------------+
+      | Command | Description                                       |
+      +---------+---------------------------------------------------+
+      |   ?A    | last access time (file read)                      |
+      |   ?C    | last change time (file metadata modified)         |
+      |   ?M    | last modification time (file content modified)    |
+      +---------+---------------------------------------------------+
+  
+  Path Ownership:
+  
+      +---------+---------------------------------------------------+
+      | Command | Description                                       |
+      +---------+---------------------------------------------------+
+      |   ?G    | group ownership equal to the caller's group?      |
+      |   ?o    | owned by caller's *effective* user id?            |
+      |   ?O    | owned by caller's *real* user id?                 |
+      +---------+---------------------------------------------------+
+  
+  Path Permissions:
+  
+      +---------+---------------------------------------------------+
+      | Command | Description                                       |
+      +---------+---------------------------------------------------+
+      |   ?r    | readable by caller's effective user/group id?     |
+      |   ?R    | readable by caller's real user/group id?          |
+      |   ?w    | writable by caller's effective user/group id?     |
+      |   ?W    | writable by caller's real user/group id?          |
+      |   ?x    | executable by caller's effective user/group id?   |
+      |   ?X    | executable by caller's real user/group id?        |
+      +---------+---------------------------------------------------+
+  
+  Misc. Path Attributes:
+  
+      +---------+---------------------------------------------------+
+      | Command | Description                                       |
+      +---------+---------------------------------------------------+
+      |   ?k    | path has the sticky bit set?                      |
+      |   ?u    | path has the setuid bit set?                      |
+      |   ?g    | path has the setgid bit set?                      |
+      +---------+---------------------------------------------------+
+  
+  -------------------------------------------------------------------------
+  * Path Comparison Tests
+  - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+  File Equality:
+  
+      +---------+---------------------------------------------------+
+      | Command | Description                                       |
+      +---------+---------------------------------------------------+
+      |   ?-    | the two paths are identical                       |
+      +---------+---------------------------------------------------+
+  
+  Modification Times:
+  
+      +---------+---------------------------------------------------+
+      | Command | Description                                       |
+      +---------+---------------------------------------------------+
+      |   ?=    | paths last modified at the same time              |
+      |   ?<    | path2 modified more recently than path1           |
+      |   ?>    | path1 modified more recently than path2           |
+      +---------+---------------------------------------------------+

@@ -1,0 +1,57 @@
+--- 
+wordpress: |-
+  Start a new project:  
+  
+    # Add a new virtual host
+    sudo mate /etc/apache2/httpd.conf
+  
+    # Add a new host
+    sudo mate /etc/hosts
+  
+    # Create the database
+    mysqladmin -u root create <database_name>
+  
+  Install Thor:
+  
+    # Install thor
+    sudo gem install thor
+  
+    # Install the thor task for WordPress
+    # Name it 'wordpress' at the prompt
+    thor install http://github.com/adamstac/thor-wordpress/raw/master/wordpress.thor
+  
+  Use Thor:
+  
+    Learn more:
+    http://github.com/adamstac/thor-wordpress
+  
+    wordpress
+    ---------
+    wordpress:install [--directory=DIRECTORY] [--version=VERSION]
+    # Download and unpack WordPress from the interwebs
+  
+    wordpress:theme
+    ---------------
+    wordpress:theme:install --theme=<theme> [--directory=DIRECTORY] [--theme=THEME]
+    # Unpacks the specified <theme> from the compass-wordpress gem
+  
+    wordpress:styles
+    ----------------
+    wordpress:styles:generate
+    # Clears and Generates the styles
+  
+    wordpress:styles:clear
+    # Clears the styles
+  
+    wordpress:compass
+    -----------------
+    wordpress:compass:watch
+    # Runs compass --watch
+  
+    wordpress:deploy
+    ----------------
+    wordpress:deploy:theme
+    # Deploys the theme
+  
+    wordpress:deploy:generate_config
+    # Asks for ssh_user and remote_root, and generates the deploy.yaml file

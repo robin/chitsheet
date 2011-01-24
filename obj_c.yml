@@ -1,0 +1,105 @@
+--- 
+obj_c: "= Objective-C cheatsheet (cheat obj_c)\r\n\
+  \r\n\
+  == Comments\r\n\
+  \r\n  // this is an obj-c comment\r\n  // in this cheatsheet we commented all the optional code\r\n\
+  \r\n\
+  \r\n\
+  == Sending Messages:\r\n\
+  \r\n ---------------------------------------------------------------- \r\n\
+  | Message Type        | Syntax                                   |\r\n ---------------------------------------------------------------- \r\n\
+  | simple message      | [receiver message]                       |\r\n\
+  | named arguments     | [receiver message name1:arg1 name2:arg2] |\r\n\
+  | anonymous arguments | [receiver message :arg1 :arg2 ]          |\r\n\
+  | typical use         | [receiver message:arg1 name2:arg2]       |\r\n ---------------------------------------------------------------- \r\n \r\n\
+  A receiver is an object, a class, self or super. \r\n\
+  \r\n\
+  \r\n\
+  == Class Definition \r\n\
+  \r\n  @interface classname // (category) <protocols> : superclass\r\n  { \r\n  @public \r\n  @protected \r\n  @private \r\n      instance variables \r\n  } \r\n  method declarations \r\n  @end \r\n  \r\n\
+  The default visibility of instance variables is @protected. \r\n\
+  \r\n\
+  \r\n\
+  == Method Declaration \r\n\
+  \r\n -------------------------------------------------------------------------- \r\n\
+  | Method Type       | Syntax                                               |\r\n -------------------------------------------------------------------------- \r\n\
+  | instance method   | -(return type) name :(type) arg1 :(type) arg2 //...  |                   \r\n\
+  | class method      | +(return type) name :(type) arg1 :(type) arg2        |\r\n --------------------------------------------------------------------------\r\n  \r\n  \r\n\
+  == Method Implementation  \r\n\
+  \r\n  @import \xE2\x80\x9Cdeclarations.h\xE2\x80\x9D \r\n  @implementation classname // : superclass \r\n  -(return type) methodname :(type) arg1 \r\n  { \r\n      method implementation \r\n  } \r\n  @end \r\n\
+  \r\n\
+  \r\n\
+  == Protocols \r\n\
+  \r\n  @protocol protocolname <protocol list> \r\n      method declarations \r\n  @end \r\n\
+  \r\n\
+  \r\n\
+  == Exception Handling\r\n\
+  \r\n  @try \r\n  { \r\n  } \r\n  @catch (exception) // exception is optional\r\n  { \r\n  } \r\n  //@finally \r\n  //{ \r\n  //} \r\n  \r\n  @throw(exception);  // throw an exception \r\n  @throw();  // re-throw current exception \r\n  \r\n  \r\n\
+  == Built-in & pre-defined types \r\n\
+  \r\n -------------------------------\r\n\
+  | Type      | Description       |\r\n -------------------------------\r\n\
+  | BOOL      | boolean (YES/NO)  |\r\n\
+  | char      | C char            |\r\n\
+  | double    | C double          |\r\n\
+  | float     | C float           |\r\n\
+  | id        | an object         |\r\n\
+  | int       | C int             |\r\n\
+  | long      | C long            |\r\n\
+  | short     | C short           |\r\n\
+  | signed    | C signed          |\r\n\
+  | unsigned  | C unsigned        |\r\n\
+  | void      | no type           |\r\n -------------------------------\r\n\
+  \r\n\
+  \r\n\
+  == Thread Synchronization \r\n\
+  \r\n  @synchonized(sync object) \r\n  { \r\n       // synchronized code \r\n  } \r\n  \r\n  \r\n\
+  == Special Names \r\n\
+  \r\n -------------------------------------------------------\r\n\
+  | Name      | Description                               |\r\n -------------------------------------------------------\r\n\
+  | nil       | the \xE2\x80\x9Cnull\xE2\x80\x9D object                         |\r\n\
+  | self      | refers to the current object in a method  |\r\n\
+  | super     | refers to the superclass in a method      |\r\n -------------------------------------------------------\r\n\
+  \r\n\
+  \r\n\
+  == Properties (obj-c 2.0) \r\n\
+  \r\n\
+  Properties automatically create setter and getter methods for a class \r\n\
+  attribute. They are declared in the method declaration section. \r\n\
+  \r\n\
+  === Declaration \r\n\
+  \r\n  @property(attributes) type name; \r\n \r\n \r\n\
+  === Attributes \r\n\
+  \r\n -------------------------------------------------------- \r\n\
+  | Attribute   | Description                              | \r\n -------------------------------------------------------- \r\n\
+  | readonly    | read-only                                |\r\n\
+  | readwrite   | read-write (default)                     |\r\n\
+  | assign      | simple assignment (default)              |\r\n\
+  | retain      | retain method is invoked upon assignment |\r\n\
+  | copy        | use a copy of the object for assignment  |\r\n\
+  | nonatomic   | not thread-safe                          |\r\n\
+  | getter=name | explicitly name getter                   |\r\n\
+  | setter=name | explicitly name setter                   |\r\n --------------------------------------------------------\r\n  \r\n\
+  assign, copy and retain are mutually exclusive. \r\n\
+  The default attributes are assign and readwrite. \r\n\
+  In addition to the normal method invocation syntax, \r\n\
+  dot syntax may be used to access properties: object.property \r\n\
+  \r\n\
+  \r\n\
+  === Implementation \r\n\
+  \r\n\
+  @synthesize value = variable; \r\n\
+  @dynamic value; \r\n\
+  Fast Enumeration (Objective-C 2.0) \r\n\
+  for (type variable in expression) \r\n\
+  { \r\n\
+  } \r\n \r\n\
+  == Common Messages \r\n\
+  \r\n ------------------------------------------------\r\n\
+  | Message   | Description                        |      \r\n ------------------------------------------------    \r\n\
+  | alloc     | allocate object memory             |\r\n\
+  | init      | initialize object instance         |\r\n\
+  | retain    | increment object\xE2\x80\x99s reference count |\r\n\
+  | release   | decrement object\xE2\x80\x99s reference count |\r\n ------------------------------------------------\r\n \r\n\
+  \r\n\
+  ------------------------------------------------------\r\n\
+  tnx 2 Ferruccio Barletta (www.the-lazy-programmer.com)"

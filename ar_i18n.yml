@@ -1,0 +1,49 @@
+--- 
+ar_i18n: |
+  -----------------------------------------------------------------------------
+  Method           Option                     Message                    Interp
+  -----------------------------------------------------------------------------
+  confirmation_of  -                          :confirmation              -
+  acceptance_of    -                          :accepted                  -
+  presence_of      -                          :blank                     -
+  length_of        :within, :in               :too_short                 count
+                   :within, :in               :too_long                  count
+                   :is                        :wrong_length              count
+                   :minimum                   :too_short                 count
+                   :maximum                   :too_long                  count
+  uniqueness_of    -                          :taken                     -
+  format_of        -                          :invalid                   -
+  inclusion_of     -                          :inclusion                 -
+  exclusion_of     -                          :exclusion                 -
+  associated       -                          :invalid                   -
+  numericality_of  -                          :not_a_number              -
+                   :greater_than              :greater_than              count
+                   :greater_than_or_equal_to  :greater_than_or_equal_to  count
+                   :equal_to                  :equal_to                  count
+                   :less_than                 :less_than                 count
+                   :less_than_or_equal_to     :less_than_or_equal_to     count
+                   :odd                       :odd                       -
+                   :even                      :even                      -
+  -----------------------------------------------------------------------------
+  
+  All messages interpolate (in addition to the above):
+  
+    model
+    attribute
+    value
+  
+  Keys are tried in this order:
+  
+    activerecord.errors.models.CLASS.attributes.ATTRIBUTE.MESSAGE
+    activerecord.errors.models.CLASS.MESSAGE
+    (the above for all classes up to and not including AR::Base)
+    activerecord.errors.messages.MESSAGE
+  
+  #full_messages are generated using:
+  
+    activerecord.errors.full_messages.format
+    (Default is "{{attribute}} {{message}}")
+  
+  ---------------------------------------------
+  More info: http://guides.rails.info/i18n.html
+

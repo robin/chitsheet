@@ -1,50 +1,59 @@
 --- 
 markdown: |-
+  *italic*   **bold**
+  _italic_   __bold__
+  
+  Links and images include the text or alternate text in preceding brackets:
+  An [Inline URL](http://url.com/ "With a title")
+  A [reference to example link][id]. This would be followed later by:
+  [id]: http://example.com/  "Title"
+  
+  Inline (titles are optional):
+  
+  ![an inline image](/path/img.jpg "Title")
+  ![a referenced image][id] would be followed later by:
+  [id]: /url/to/img.jpg "Title"
+  
+  Header 1
+  ========
+  Header 2
+  --------
+  or
   # Header 1 #
   ## Header 2 ##
-  ### Header 3 ###             (Hashes on right are optional)
-  #### Header 4 ####
-  ##### Header 5 #####
+  (closing #'s are optional)
   
-  This is a paragraph, which is text surrounded by whitespace.
-  Paragraphs can be on one line (or many), and can drone on
-  for hours.  
+  1.  First ordered list item
+  2.  Second item
   
-  Not sure this paragraph is right:
-  Here is a Markdown link to [Warped](http://warpedvisions.org), 
-  and a <literal>.  Now some SimpleLinks, like one to google
-  (autolinks to are-you-feeling-lucky), a test link to a
-  Wikipedia page, and a [CPU][http://foldoc.org?CPU].
+  *   An unordered list item.
   
-  Now some inline markup like _italics_,  **bold**, and `code()`.
+      With multiple paragraphs.
   
-  > Blockquotes are like quoted text in email replies
-  >> And, they can be nested
+  *   Another unordered list item
+      1. With a nested item below it
   
-  * Bullet lists are easy too
-  - Another one
-  + Another one
+  > Email-style angle brackets
+  > are used for blockquotes.
   
-  1. A numbered list
-  2. Which is numbered
-  3. With periods and a space
+  > > And, they can be nested.
   
-  And now some code:
+  > #### Headers in blockquotes
+  > 
+  > * You can quote a list.
+  > * Etc.
   
-      // Code is just text indented a bit
-      which(is_easy) to_remember();
+  `<code>` spans are delimited by backticks.  You can include literal
+  backticks like `` `this` ``.
   
-  Text with  
-  two trailing spaces  
-  (on the right)  
-  can be used  
-  for things like poems  
+  This is a normal paragraph.
   
-  Some horizontal rules:
+      This is a preformatted code block. It must be indented
+      either by at least four spaces or a tab
   
-  * * * *
-  ****
+  Three or more dashes or asterisks make a horizontal rule:
   ---
-  ----------
+  * * *
+  - - - -
   
-  ![alternate image text](image-url.gif){#anchor}
+  Finally, end a line with two or more spaces to do a manual line break

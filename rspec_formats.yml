@@ -12,7 +12,7 @@ rspec_formats: |-
                                        expect WHERE to be a file name, and will write to STDOUT if it's
                                        not specified. The --format option may be specified several times
                                        if you want several outputs
-                                        
+  
                                        Builtin formats: 
                                        progress|p           : Text progress
                                        specdoc|s            : Behaviour doc as text

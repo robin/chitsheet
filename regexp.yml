@@ -1,6 +1,8 @@
 --- 
-regexp: |
+regexp: |-
   A regexp's form is written /pattern/modifiers where "pattern" is the regular expression itself, and "modifiers" are a series of characters indicating various options.
+  
+  (see an alternate/more complete cheat-sheet with 'cheat regex')
   
   /i makes match case insensitive.
   /m makes the dot match newlines.
@@ -28,4 +30,3 @@ regexp: |
   result = subject.gsub(/before/, "after")
   
   myarray = mystring.scan(/delimiter/)
-

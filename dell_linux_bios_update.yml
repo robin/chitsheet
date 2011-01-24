@@ -1,0 +1,66 @@
+--- 
+dell_linux_bios_update: |-
+  BIOS Update Process for:
+  
+  Debian/Ubuntu:
+  
+  Install libsmbios
+  
+  	apt-get install libsmbios-bin
+  
+  Fedora:
+  
+  Install Dell repository:
+  
+  	wget -q -O - http://linux.dell.com/repo/community/bootstrap.cgi | bash
+  
+  	yum install libsmbios-bin
+  
+  
+  
+  #Get the System ID (as root)
+  
+  	getSystemId
+  
+  Libsmbios version:      2.2.13
+  Product Name:           OptiPlex 755
+  Vendor:                 Dell Inc.
+  BIOS Version:           A13
+  System ID:              0x0211
+  Service Tag:            9RW2Y3J
+  Express Service Code:   21277512991
+  Asset Tag:
+  Property Ownership Tag:
+  
+  
+  Download the latest BIOS ".HDR" file for this system. 
+  
+  	http://linux.dell.com/repo/software/bios-hdrs/
+  
+  The directory will be named: 
+  
+  	system_bios_ven_0x1028_dev_SYSTEM_ID_version_BIOS_VERSION. 
+  
+  Go into this directory and download the file, "bios.hdr".
+  
+  #load kernel module
+  #need to check if this is required under Fedora
+  
+  	modprobe dell_rbu
+  
+  #Update the bios
+  
+  	dellBiosUpdate -u -f ./bios.hdr-2.3.2
+  
+  Supported RBU type for this system: (MONOLITHIC)
+  Using RBU v2 driver. Initializing Driver.
+  Setting RBU type in v2 driver to: MONOLITHIC
+  Prep driver for data load.
+  Writing RBU data (4096bytes/dot): ............................
+  ..............................................................
+  .......................
+  Notify driver data is finished.
+  Activate CMOS bit to notify BIOS that update is ready on next boot.
+  Update staged sucessfully. BIOS update will occur on next reboot.
+  
+  Reboot the system

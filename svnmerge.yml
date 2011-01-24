@@ -1,15 +1,15 @@
 --- 
 svnmerge: |-
   Development Branch:
-    
+  
     Prepare branch
-    
+  
     $ svn co <branch url> branch
     $ cd branch
     $ svnmerge.py init
     $ svn ci -F svnmerge-commit-message.txt
     $ rm svnmerge-commit-message.txt
-    
+  
     Merge branch
   
     $ svnmerge.py merge

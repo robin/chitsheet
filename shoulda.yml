@@ -1,45 +1,165 @@
 --- 
-shoulda: |
-  assert_contains
-  assert_did_not_send_email 
-  assert_does_not_contain
-  assert_same_elements
-  assert_save
-  assert_sent_email
-  assert_valid
-  assert_xml_response
+shoulda: |-
+  Installing
+  ----------
   
-  should_allow_values_for
-  should_assign_to
-  should_be_restful
-  should_belong_to
-  should_ensure_length_at_least
-  should_ensure_length_in_range
-  should_ensure_value_in_range
-  should_eventually
-  should_have_and_belong_to_many
-  should_have_class_methods
-  should_have_db_column
-  should_have_db_columns
-  should_have_index
-  should_have_indices
-  should_have_instance_methods
-  should_have_many
-  should_have_one
-  should_not_allow_values_for
-  should_not_assign_to
-  should_not_set_the_flash
-  should_only_allow_numeric_values_for 
-  should_protect_attributes
-  should_redirect_to
-  should_render_a_form
-  should_render_template
-  should_require_acceptance_of
-  should_require_attributes
-  should_require_unique_attributes
-  should_respond_with
-  should_respond_with_xml
-  should_respond_with_xml_for
-  should_set_the_flash_to
+    As a Rails plugin
+    -----------------
   
-
+      script/plugin install git://github.com/thoughtbot/shoulda.git
+  
+    As a Rails gem
+    --------------
+  
+      In config/environment.rb:
+        config.gem 'thoughtbot-shoulda', :lib => 'shoulda/rails', :source => 'http://gems.github.com'
+  
+      Then run:
+        rake gems:install gems:unpack
+  
+    As a standalone gem
+    -------------------
+  
+      Run:
+        sudo gem install thoughtbot-shoulda -s http://gems.github.com
+  
+      In your test, or test_helper.rb:
+        require 'shoulda'
+  
+    Using Shoulda with RSpec
+    ------------------------
+  
+      $ cheat rspec_shoulda
+  
+  Assertions
+  ----------
+  
+    assert_contains <array>, <object in array, or regular expression to match>
+    assert_does_not_contain <array>, <object not in array, or regular expression to not match>
+  
+    assert_same_elements <array>, <array with same elements, but different order>
+  
+    assert_bad_value <class>, <attribute>, <value that should cause an validation error on attribute>
+    assert_good_value <class>, <attribute>, <value that should not cause a validation error on attribute>
+  
+    assert_save <object which .save returns true>
+    assert_valid <object which .valid? returns true> 
+  
+    assert_sent_email do |email| 
+     email.subject =~ /activated/ && email.to.include?('bob@email.com') 
+    end
+    assert_did_not_send_email do |email| 
+     email.subject =~ /activated/ && email.to.include?('bob@email.com') 
+    end
+  
+  Basics
+  ------
+  
+    class FooTest < Test::Unit::TestCase
+      context <context description string> do
+        setup do
+          # ...
+        end
+  
+        teardown do
+        end
+  
+        should <description string> do
+        end
+  
+        should_eventually <description string>
+        should_eventually <description string> do
+          # this code can be broken, but won't break the build
+        end
+      end
+  
+      should <string description> do
+        # ...
+      end
+    end
+  
+  
+  
+  General Macros
+  --------------
+  
+    should_change "Post.count", :from => 0, :to => 1
+    should_change "@post.title", :from => "old", :to => "new"
+    should_change "@post.title"
+    should_change "@post.title" :from => "old"
+    should_change "@post.title" :to   => "new"
+    should_not_change "Post.count"
+  
+  Macros for class under test
+  ---------------------------
+  
+    should_have_class_methods :find, :destroy
+    should_have_instance_methods :email, :name, :name=
+  
+  ActiveRecord Macros
+  -------------------
+  
+    should_have_db_columns :id, :email, :name, :created_at
+    should_have_db_column :email, :type => "string", :default => nil,   :precision
+    => nil, :limit    => 255,
+                                  :null => true,     :primary => false, :scale    
+                                  => nil, :sql_type => 'varchar(255)'
+  
+    should_have_indices :email, :name, [:commentable_type, :commentable_id]
+    should_have_index :age
+  
+    should_have_named_scope 'recent(5)', :limit => 5
+    should_have_named_scope 'recent(1)', :limit => 1
+  
+    should_require_acceptance_of :eula
+  
+    should_ensure_length_is :ssn, 9
+    should_ensure_length_at_least :name, 3
+    should_ensure_length_in_range :password, (8..40)
+    should_ensure_value_in_range :age, (0..100)
+  
+    should_only_allow_numeric_values_for :age
+  
+    should_have_readonly_attributes :password, :admin_flag
+  
+    should_require_attributes :name, :phone_number
+  
+    should_require_unique_attributes :keyword, :username
+    should_require_unique_attributes :name, :message => "O NOES! SOMEONE STOELED
+    YER NAME!"
+    should_require_unique_attributes :email, :scoped_to => :name
+    should_require_unique_attributes :address, :scoped_to => [:first_name,
+    :last_name]
+  
+    should_protect_attributes :password, :admin_flag
+  
+    should_allow_values_for :phone, "(123) 999-3049", "201-0023"
+    should_not_allow_values_for :phone, "I am totally not a phone number",
+    "201-0023"
+  
+    should_belong_to :parent
+  
+    should_have_one :god
+  
+    should_have_many :friends
+    should_have_many :enemies, :through => :friends
+    should_have_many :enemies, :dependent => :destroy
+  
+    should_have_and_belong_to_many :posts, :cars
+  
+  ActionController Macros
+  -----------------------
+  
+    should_assign_to
+    should_be_restful
+    should_belong_to
+    should_filter_params
+    should_not_assign_to
+    should_not_set_the_flash
+    should_redirect_to
+    should_render_a_form
+    should_render_template
+    should_respond_with
+    should_respond_with_xml_for
+    should_route
+    should_set_the_flash_to

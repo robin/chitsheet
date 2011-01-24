@@ -1,0 +1,250 @@
+--- 
+lift: |-
+  == Starting a new lift project ==
+  
+  To start a new ''lift'' project install Java 1.5 or 1.6, and Maven 2.0.8 (newer version should work as well).
+  
+  Now let's create your new project
+  
+   cd ~/tmp
+  {{Template:NewBasicPrj|groupId=com.liftone|artifactId=liftone}}
+   cd liftone
+   mvn jetty:run -U
+  
+  In this example, <tt>LiftOne</tt> is the name of the project, <tt>~/tmp/liftone/</tt> is the location of the project, and <tt>com.liftone</tt> is the package name for the project classes. Remember that Scala package names are similar to Java package names.
+  
+  Point your browser to <code>http://localhost:8080</code> and see your first ''lift'' project.
+  
+  === Troubleshooting === 
+  * '''Problem''': Out of Memory Errors Reported by maven:
+  # '''Possible Solution''': On 64bit machines you need more than a gig of RAM. If you have a 32bit machine, and a gig of RAM, a possible work around is to change the maxmemory parameter in the liftweb/lift/pom.xml to 960m. This has been successfully Tested On:
+  ## Windows XP 32bit, 1 Gig of RAM, JDK/JRE 1.6, Maven 2.0.8
+  
+  === See also ===
+  * [[HowTo_start_a_new_liftwebapp]]
+  
+  * [http://www.nabble.com/Lift-without-maven-tt16751215.html#a16858511 Lift without maven]: Once you have created a new project with maven, you can use any other build tool.
+  
+  == Boot (setting the lift environment) ==
+  
+  When the ''lift'' servlet is initialized, it looks for a class bootstrap.liftweb.Boot and invokes the "boot" method
+  on an instance of this class.  This allows the project to define special request routing rules, tell ''lift'' where
+  certain classes can be found.  See the [[Boot Example]] for more information.
+  
+  == Project Layout ==
+  
+  lift uses [http://maven.apache.org/ Maven] as its build system and lift projects are laid out accordingly.
+  In the root of all projects is a src directory and a pom.xml file.  The POM file contains the Maven
+  build instructions.  The src directory contains main which contains scala and webapp.
+  
+  The src/main/scala directory contains the Scala source code.
+  
+  The src/main/webapp directory contains the HTML, JavaScript, CSS, and WEB-INF code.
+  
+  The lift_example directory contains the derby database.
+  
+  == Run Mode ==
+  
+  One can run a lift application in different modes based on starting the JVM with the -Drun.mode=production.  The run modes are:
+  
+  <pre name="code" class="scala">
+    object RunModes extends Enumeration {
+      val Development = Value(1, "Development")
+      val Test = Value(2, "Test")
+      val Staging = Value(3, "Staging")
+      val Production = Value(4, "Production")
+      val Pilot = Value(5, "Pilot")
+      val Profile = Value(6, "Profile")
+    }
+  </pre>
+  
+  == Property files ==
+  
+  Different developers can have different properties files within the same project.  The properties files are located in
+  <code>src/main/webapp/WEB-INF/classes/props</code>  Properties files are retrieved based on RunMode, user name, and host name.  So, if you're running in development mode, your username is 'dpp' and your hostname is 'goat', the
+  <code>dpp.goat.props</code> file will be used.  If that cannot be found, lift will check for
+  <code>dpp.props</code>, <code>goat.props</code>, and finally <code>default.props</code>.
+  
+  If the RunMode is anything other than "development", the RunMode name will be prepended to the name so <code>test.dpp.goat.props</code>, <code>test.dpp.props</code>,
+  <code>test.goat.props</code>, and <code>test.default.props</code> will be checked for in that order.
+  
+  The properties files are in standard [http://java.sun.com/docs/books/tutorial/i18n/resbundle/propfile.html Java properties format].
+  
+  == Where HTML goes ==
+  
+  Put the HTML, CSS, JavaScript, images, etc. in the <code>src/main/webapp</code> directory or
+  subdirectories.  For file names that end in .xml, .html, .xhtml, .htm, .liftjs, and .liftcss, lift will parse and
+  serve the page.  For all other files, they will be served up as static content by the default servlet.
+  
+  If a request comes in for <code>/hello</code> lift will look for <code>src/main/webapp/hello.html</code>
+  
+  If you want to localize your content, <code>/hello</code> will look for <code>hello_en_US.html</code>, then 
+  <code>hello_en.html</code>, then <code>hello.html</code> where <code>en</code> and <code>US</code> are the language and country for the current locale.
+  
+  See [[lift View First]] rendering.
+  
+  == Defining Models ==
+  
+  lift O-R mapped models are defined based on a class with fields.
+  
+  <pre name="code" class="scala">
+  class WikiEntry extends KeyedMapper[Long, WikiEntry] {
+    def getSingleton = WikiEntry // what's the "meta" object
+    def primaryKeyField = id
+  
+    // the primary key
+    object id extends MappedLongIndex(this)
+    
+    // the name of the entry
+    object name extends MappedString(this, 32) {
+      override def dbIndexed_? = true // indexed in the DB
+    }
+    
+    object owner extends MappedLongForeignKey(this, User)
+    
+    // the text of the entry
+    object entry extends MappedTextarea(this, 8192) {
+      override def textareaRows  = 10
+      override def textareaCols = 50
+    }
+  }
+  </pre>
+  
+  Discussion on having [http://groups.google.com/group/liftweb/browse_frm/thread/3ea88015027e2ff4 shared base traits for Models]
+  
+  == Accessing Model Fields ==
+  
+  Model fields are set with an apply operator:
+  
+  <pre>
+  val e: WikiEntry = WikiEntry.create
+  
+  e.name("Hello") // set the name
+  
+  // chained setting
+  e.name("hello").entry("Dogs and Cats")
+  
+  // and models can be saved
+  e.name("hello").entry("Dogs and Cats").save
+  
+  // accessing fields:
+  
+  e.name == "hello" // true
+  
+  e.name.asHtml // get the HTML formatted value of the field
+  
+  e.owner.obj.asHtml // accessing many-to-one relationship objects
+  
+  </pre>
+  
+  == Schemifier ==
+  The Schemifier makes sure that the database schema supports the declared model. If a database column or table is missing the Schemifier will create it according to the model. If you want lift to create tables from your model entities remember to register the model entities in the Schemifier (this i normally done in Boot.scala):
+  
+  <pre>
+  Schemifier.schemify(true, Log.infoF _, User)
+  Schemifier.schemify(true, Log.infoF _, Auction)
+  Schemifier.schemify(true, Log.infoF _, Bid)
+  </pre>
+  
+  == Web 1.0 Forms ==
+  
+  == AJAX == 
+  If you want to submit a whole form, it is very easy with [[HowTo_use_JSON_forms]]. 
+   
+  In your snippet have the following:
+  <pre name="code" class="scala">
+  class Submission {
+    def form = {
+      val url = ""
+      val title = ""
+      <span> { SHtml.text("URL", u => url = u) }<br />
+      { SHtml.text("Title", t => title = t) }<br />
+      { SHtml.submit("Submit", ignore => LinkStore ! AddLink(url, title)) }</span>
+    }
+  }
+  </pre>
+  And in your template, have the following:
+  <pre">
+  <lift:snippet type="Submission:Form" form="POST" />
+  </pre>
+  
+  Making ajax-ified anchor tags tags are easy, too.
+  
+  <pre>
+  SHtml.a(() => {doSomething; Noop}, Text("Click me to do something!"))
+  </pre>
+  
+  Clicking on the anchor tag will execute the function <code>{doSomething; Noop}</code>
+  
+  If you want to add elements to your anchor tags (or to any Elements) you can use % like so:
+  <pre>
+  SHtml.a(() => Noop), Text("I don't do much but click me anyway")) % ("class" -> "does-nothing-really")
+  </pre>
+  
+  == Comet ==
+  
+  See [[CometActor]]
+  
+  == Lift Tags ==
+  
+  See [[LiftTags]]
+  
+  == Running with Tomcat and JavaRebel ==
+  
+  See [[JavaRebel]]
+  
+  == Cookies ==
+  
+  See [[Cookies]]
+  
+  == Connection String Quickies == 
+  
+  Define in <lift-app>/src/main/scala/bootstrap/liftweb/Boot.scala
+  
+  
+  <pre name="code" class="scala">
+  -- 8< -- 8< -- 8< -- 8< --
+  // Derby - http://db.apache.org/derby/
+  Class.forName("org.apache.derby.jdbc.EmbeddedDriver")
+  val dm =  DriverManager.getConnection("jdbc:derby:DATABASE;create=true")
+  -- 8< -- 8< -- 8< -- 8< --
+  
+  
+  -- 8< -- 8< -- 8< -- 8< --
+  // H2 - http://www.h2database.com/  
+  Class.forName("org.h2.Driver")
+  val dm =  DriverManager.getConnection("jdbc:h2:mem:DATABASE;DB_CLOSE_DELAY=-1")
+  -- 8< -- 8< -- 8< -- 8< --
+  
+  
+  -- 8< -- 8< -- 8< -- 8< --
+  // MySQL - http://www.mysql.org
+  Class.forName("com.mysql.jdbc.Driver")
+  val dm = DriverManager.getConnection("jdbc:mysql://localhost:POST_NUMBER/DATABASE", "USER", "PASSWORD")
+  -- 8< -- 8< -- 8< -- 8< --
+  
+  
+  -- 8< -- 8< -- 8< -- 8< --
+  // PostgreSQL - http://www.postgresql.org  
+  Class.forName("org.postgresql.Driver")
+  val dm = DriverManager.getConnection("jdbc:postgresql://localhost/DATABASE?user=USER&password=PASSWORD")
+  -- 8< -- 8< -- 8< -- 8< --
+  </pre>
+  
+  Sometimes it can be useful to be able to access the database into which lift is writing with an external application via JDBC. Since you don't want to start up another JVM to have a network server running, if you're using derby you can do the following. Add a file to the toplevel folder of your project and name it <tt>derby.properties</tt> with the content:
+  <pre>
+  derby.drda.startNetworkServer=true
+  </pre>
+  
+  Now you can point a generic JDBC client (or the built in <tt>ij</tt>-console) to the follwing URL: <tt>jdbc:derby://localhost:1527/<database-name></tt>.
+  
+  == Always redirect to login if the User is not logged in ==
+  
+  In <tt>Boot.scala</tt> add this RequestMatcher and if the user hits any page and is not logged in, they will be sent to <tt>/user_mgt/login</tt>
+  
+  <pre name="code" class="scala">
+  val dispatcher: LiftServlet.DispatchPf = {
+          case RequestMatcher(_, ParsePath(path, _, _),_,_)  if !User.loggedIn_? && path.head != "user_mgt" =>
+          ignore => Full(RedirectResponse("/user_mgt/login", state))
+       } 
+  </pre>

@@ -1,0 +1,119 @@
+--- 
+android: |-
+  Android Development
+    Google's Mobile Operating System
+    Currently on the G1 phone available from T-Mobile in the US. 
+  ==========================================================
+  
+  Hello World: 
+    http://developer.android.com/guide/tutorials/hello-world.html
+  
+  Not Using Eclipse IDE? 
+    http://developer.android.com/guide/developing/other-ide.html
+  
+  
+  Table of Contents
+  ==================================
+  * Creating a Project Without Eclipse
+  * Running a Project
+  * Android Virtual Device (AVD)
+      Creating an AVD
+      Listing Targets
+  * Working with Virtual SD Cards
+      Creating an SD Card
+      Mounting SD Card
+      Adding Card to AVD
+  * Android and Google Maps API
+      Getting MD5 Fingerprint of SDK Debug Certificate
+      Getting a Google Maps API Key
+  
+  
+  Creating a Project Without Eclipse
+   $ android create project \
+        --package com.android.helloandroid \
+        --activity HelloAndroid \ 
+        --target 2 \
+        --path <path-to-your-project>/HelloAndroid 
+  
+  
+  Running a Project
+    Launch the Emulator (see AVD below):
+      $ emulator -avd <your_avd_name>
+      $ ant debug # compile and sign up with debug key 
+      $ adb install /path/to/your/application.apk # Install to AVD 
+  
+     "If there is more than one emulator running, you must specify the 
+     emulator upon which to install the application, by its serial number, 
+     with the -s option.  For example:"
+     $ adb -s emulator-5554 install /my/project/path/myapp.apk
+  
+  
+  Android Virtual Device (AVD)
+    This is the Android emulator, written in Java and available 
+    for Windows, OS X, and Linux. 
+    http://developer.android.com/guide/developing/tools/avd.html
+  
+    Creating an AVD
+      $ android create avd -n <name> -t <targetID> [-<option> <value>] ...
+  
+      Example: 
+        Here's an example that creates an AVD with name "my_android1.5" 
+        and target ID "2" (the  standard Android 1.5 system image in 
+        the list above): 
+  
+        $ android create avd -n my_android1.5 -t 2
+  
+    Listing Targets
+      $ android list targets
+  
+  
+  Working with Virtual SD Cards
+  ===============================================
+  Creating an SD Card
+    $ mksdcard 1024 1024.sdcard # bytes 
+    $ mksdcard 128M 128M.sdcard 
+    $ mksdcard 2048M 2gig.sdcard
+  
+  Mounting SD Card
+    $ sudo mount -o loop 128M.sdcard /media/card
+    $ sudo cp file1.mp3 file2.jpg file3.txt file4.txt /media/card
+  
+  Adding Card to AVD
+    Make sure to unmount after copying files to card
+    $ sudo umount /media/card
+    $ ./android create avd --name myAVD --target 2 --sdcard 128M.sdcard
+  
+  If you get a warning that the SD card is locked, make sure: 
+  "emulator: WARNING: ignoring locked SD Card image at"
+    Emulator has permissions to read/write the card file
+    Emulator has RWX access to the card file's directory
+    I had problems with the card file being on a FAT32 partition. 
+    Moving it to ext3 or reiserFS worked. 
+  
+  
+  Thanks to 
+  http://blog.jayway.com/2009/04/22/working-with-sd-cards-in-the-android-emulator/
+  
+  
+  
+  Android and Google Maps API
+  ================================================
+  Use an AVD with target 3 for applications that use 
+  the Google Maps API.
+  
+  Getting MD5 Fingerprint of SDK Debug Certificate
+    You will need this key if you want to obtain a Google Maps API Key.
+    This is necessary if you are using Google Maps in your Android app.
+  
+    * OS X and Linux: ~/.android/debug.keystore
+    * Windows XP: C:\Documents and Settings\<user>\.android\debug.keystore
+    * Windows Vista: C:\Users\<user>\.android\debug.keystore
+  
+    $ keytool -list -alias androiddebugkey \
+    -keystore <path_to_debug_keystore>.keystore \
+    -storepass android -keypass android
+  
+  Get a Google Maps API Key: 
+    The link on the official android site is a 404
+    Avoid this: http://code.google.com/android/add-ons/google-apis/maps-api-signup.html
+    Use the new link: http://code.google.com/android/maps-api-signup.html

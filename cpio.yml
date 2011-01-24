@@ -1,5 +1,5 @@
 --- 
-cpio: |
+cpio: |-
   create an archive:
   
   touch .timestamp
@@ -11,7 +11,3 @@ cpio: |
     - or -
   
   find . -newer .timestamp -print | cpio -oaBcv | gzip > ~/new-files.cpio.gz
-  
-  
-  
-

@@ -1,0 +1,13 @@
+--- 
+dired: |-
+  dired mode in emacs
+  -------------------
+  * Managing files
+    * `C' - copy file
+    * `R' - rename file
+  * Deleting files
+    ** `d' - flag file for deletion
+    ** `u' - remove deletion flag on this line
+    ** `x' - delete all flagged files
+    ** `#' - flag all autosave files
+    ** `~' - flag all backup files

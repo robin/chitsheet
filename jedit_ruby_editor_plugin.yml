@@ -16,7 +16,7 @@ jedit_ruby_editor_plugin: |-
   
   1. If you don't have Java 5.0, install JDK 5.0 Update 9 or higher:
      - http://java.sun.com/javase/downloads/
-   
+  
   Hey RadRails is implemented in Java too, get over it! ;-)
   
   2. If you don't have jEdit, install the latest version:
@@ -45,7 +45,7 @@ jedit_ruby_editor_plugin: |-
      - open menu Utilities -> Global Options
      - go to Shortcuts -> Plugin: RubyPlugin
      - click on each primary shortcut cell to assign a shortcut key
-   
+  
   Here are my suggested key bindings:
   
       File structure popup    C + F12

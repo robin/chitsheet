@@ -1,0 +1,238 @@
+--- 
+sql: |-
+  Select
+  
+    SELECT first_name, last_name, state, active
+    FROM users
+    
+    +------------+-----------+-------+--------+
+    | first_name | last_name | state | active |
+    +------------+-----------+-------+--------+
+    | Homer      | Simpson   | WI    |      1 | 
+    | Marge      | Simpson   | MI    |      1 | 
+    | Barney     | Gumble    | IL    |      0 | 
+    | Bart       | Simpson   | WI    |      1 | 
+    +------------+-----------+-------+--------+
+    
+    Filtering with WHERE
+    
+    SELECT first_name, last_name, state, active
+    FROM users
+    WHERE active = 1;
+    
+    +------------+-----------+-------+--------+
+    | first_name | last_name | state | active |
+    +------------+-----------+-------+--------+
+    | Homer      | Simpson   | WI    |      1 | 
+    | Marge      | Simpson   | MI    |      1 | 
+    | Bart       | Simpson   | WI    |      1 | 
+    +------------+-----------+-------+--------+
+    
+    Ordering records
+    
+    SELECT first_name, last_name, state
+    FROM users
+    ORDER BY state asc
+    
+    +------------+-----------+-------+
+    | first_name | last_name | state |
+    +------------+-----------+-------+
+    | Barney     | Gumble    | IL    | 
+    | Marge      | Simpson   | MI    | 
+    | Homer      | Simpson   | WI    | 
+    | Bart       | Simpson   | WI    | 
+    +------------+-----------+-------+
+    
+    Counts
+    
+    select count(*) as NumberOfRecords from users;
+    
+    +-----------------+
+    | NumberOfRecords |
+    +-----------------+
+    |               4 | 
+    +-----------------+
+                  
+    Grouping
+    
+    SELECT count(*) as people, state 
+    FROM users
+    GROUP BY state;
+    
+    +--------+-------+
+    | people | state |
+    +--------+-------+
+    |      1 | IL    | 
+    |      1 | MI    | 
+    |      2 | WI    | 
+    +--------+-------+
+  
+  Insert
+  
+    INSERT INTO users
+    (first_name, last_name, active, state)
+    VALUES ('Lisa', 'Simpson', 1, 'WI');
+      
+    Note that names and values have to match up.  
+    
+  Update
+  
+    UPDATE users SET state = "WI" WHERE users.id = 1;
+    
+  Delete
+  
+    DELETE from users 
+    WHERE state = 'WI';
+  
+    Delete everyone.
+  
+      DELETE from users;
+    
+        -or- (faster)
+         
+      TRUNCATE users;  
+  
+  
+  Joins
+  
+     chapters
+     +----+------------------+---------+
+     | id | title            | book_id |
+     +----+------------------+---------+
+     |  1 | Ninjas Are Cool  |       1 | 
+     |  2 | Pirates Are Cool |       2 | 
+     |  3 | Silence Is Key   |       1 | 
+     +----+------------------+---------+
+  
+     Books
+     +----+-----------------+
+     | id | title           |
+     +----+-----------------+
+     |  1 | The Ninja Book  | 
+     |  2 | The Pirate Book | 
+     |  3 | The Web Book    | 
+     +----+-----------------+   
+  
+  
+     Explicit Joins
+     ---------------
+          
+     Get all books and chapters
+     
+     SELECT books.title AS book, chapters.title AS chapter
+     FROM books 
+     LEFT JOIN chapters
+     ON books.id = chapters.book_id;
+     
+     +-----------------+------------------+
+     | book            | chapter          |
+     +-----------------+------------------+
+     | The Ninja Book  | Ninjas Are Cool  | 
+     | The Ninja Book  | Silence Is Key   | 
+     | The Pirate Book | Pirates Are Cool | 
+     | The Web Book    | NULL             | 
+     +-----------------+------------------+
+     
+     ** The LEFT JOIN keyword returns all the rows from the left table (books), even if there are no matches in the right table (chapters)
+        This is also called OUTER JOIN
+        
+     Get all books with no chapters
+     
+      SELECT books.title AS book, chapters.book_id
+      FROM books 
+      LEFT OUTER JOIN chapters
+      ON books.id = chapters.book_id
+      WHERE chapters.book_id IS NULL;
+              
+      +--------------+---------+
+      | book         | book_id |
+      +--------------+---------+
+      | The Web Book |    NULL | 
+      +--------------+---------+
+      
+      Get only books with chapters.
+      SELECT books.title AS book, chapters.book_id
+      FROM books 
+      INNER JOIN chapters
+      ON books.id = chapters.book_id;
+      
+      +-----------------+---------+
+      | book            | book_id |
+      +-----------------+---------+
+      | The Ninja Book  |       1 | 
+      | The Pirate Book |       2 | 
+      | The Ninja Book  |       1 | 
+      +-----------------+---------+
+      
+      * Inner joins are joins in which only rows with explicit matches
+        are returned. If a record in the left table (books) has no
+        associations in the right table(chapters), it is not returned.
+  
+    Removing duplicates
+  
+      Joins have duplication though. Filter that down with the DISTINCT
+      keyword.
+      
+      SELECT distinct books.title AS book, chapters.book_id
+      FROM books 
+      INNER JOIN chapters
+      ON books.id = chapters.book_id;
+      
+      +-----------------+---------+
+      | book            | book_id |
+      +-----------------+---------+
+      | The Ninja Book  |       1 | 
+      | The Pirate Book |       2 | 
+      +-----------------+---------+
+     
+      * IN order for distinct to work, the WHOLE ROW must be a duplicate.
+      
+    Implicit joins:
+    
+    Many people do an inner join implicitly in the WHERE condition:
+    
+     SELECT distinct books.title AS book, chapters.book_id
+     FROM books, chapters
+     WHERE books.id = chapters.book_id;
+      
+     +-----------------+---------+
+     | book            | book_id |
+     +-----------------+---------+
+     | The Ninja Book  |       1 | 
+     | The Pirate Book |       2 | 
+     +-----------------+---------+
+     
+     This works, but is NOT recommended on many databases, especially for
+     large datasets. The WHERE conditions are USUALLY run on the entire set
+     of returned rows. n*rows.
+     
+    Join Conditions
+    
+    Conditions can be applied in joins as well instead of on the WHERE clause. This can reduce query times.
+    
+    Assume our books table had a 'published' column.
+    And you wanted the number of chapters from books that were
+    published.
+    
+    +----+-----------------+-----------+
+    | id | title           | published |
+    +----+-----------------+-----------+
+    |  1 | The Ninja Book  |         1 | 
+    |  2 | The Pirate Book |         0 | 
+    |  3 | The Web Book    |         0 | 
+    +----+-----------------+-----------+
+    
+    SELECT books.title, count(chapters.book_id) as number_of_chapters
+    FROM books
+    INNER JOIN chapters
+      ON books.id = chapters.book_id
+      AND books.published = 1
+    GROUP BY books.title;
+    
+    +----------------+--------------------+
+    | title          | number_of_chapters |
+    +----------------+--------------------+
+    | The Ninja Book |                  2 | 
+    +----------------+--------------------
+          
+  DON'T FEAR THE SQL! IT IS POWERFUL!

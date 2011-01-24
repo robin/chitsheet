@@ -1,0 +1,14 @@
+--- 
+logging: |-
+  Here are some common logging idioms in various languages/frameworks.  Please add more! (Keep them alphabetized)
+  =========================================
+  
+  Cocoa:
+  NSLog( @"%d bottles of beer on the wall", 99 );
+  
+  Python:
+  import logging
+  logging.warn("%d bottles of beer on the wall" % 99)
+  
+  Rails:
+  RAILS_DEFAULT_LOGGER.error( "%d bottles of beer on the wall" % 99 )

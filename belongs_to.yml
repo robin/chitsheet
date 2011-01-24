@@ -13,4 +13,4 @@ belongs_to: "Options for belongs_to\r\n\
   \r\n\
   :include - specify second-order associations that should be eager loaded when this object is loaded.\r\n\
   \r\n\
-  :polymorphic - specify this association is a polymorphic association by passing true.\r\n"
+  :polymorphic - specify this association is a polymorphic association by passing true."

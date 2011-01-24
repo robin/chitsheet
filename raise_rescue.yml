@@ -1,0 +1,65 @@
+--- 
+raise_rescue: |-
+  Use the "begin/rescue/end" construct for exception handling.
+  The global variable "$!" holds the raised exception object.
+  
+    begin
+      1 / 0
+    rescue
+      puts $!.class.name + ": " + $!.message
+    end
+    ==> ZeroDivisionError: divided by 0
+  
+  Rescue catches instances of StandardError or one of its subclasses.
+  Use "cheat exceptions" for a visual exception class hierarchy.
+  
+  Use Kernel#raise (in one of its many forms) to raise the exception.
+  By default, this throws a RuntimeError with the given message.
+  
+    begin
+      raise "foo bar"
+    rescue
+      puts $!.class.name + ": " + $!.message
+    end
+  
+    ==> RuntimeError: foo bar
+  
+  Use the "begin/rescue/ensure/end" construct for "tidy up" code.
+  The ensure clause gets executed whether or not an exception is raised.
+  
+    begin
+      raise "foo bar"
+    rescue
+      puts $!.class.name + ": " + $!.message
+    ensure
+      puts "That's it, Folks!"
+    end
+    ==> RuntimeError: foo bar
+        That's it, Folks!
+  
+  ... or even without a rescue clause:
+  
+    begin
+      raise "foo bar"
+    ensure
+      puts "That's it, Folks!"
+    end
+    ==> That's it, Folks!
+        RuntimeError: foo bar
+            from (irb):2
+  
+  Exceptions can be re-raised in the rescue clause, using Kernel#raise.
+  
+    begin
+      1 / 0
+    rescue
+      puts "Something bad happened :-("
+      raise # this re-raises "$!" ...
+    end
+    ==> Something bad happened :-(
+        ZeroDivisionError: divided by 0
+            from (irb):2:in `/'
+            from (irb):2
+  
+  Various assertions exist to verify exception handling behaviour in test cases.
+  See also: "cheat (assert_nothing_raised|assert_raise(s)|assert_nothing_thrown)"

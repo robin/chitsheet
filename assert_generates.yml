@@ -21,5 +21,4 @@ assert_generates: |
   
     # Asserts that the generated route gives us our custom route
     assert_generates "changesets/12", { :controller => 'scm', :action => 'show_diff', :revision => "12" }
-  
 

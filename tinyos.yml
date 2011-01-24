@@ -1,0 +1,13 @@
+--- 
+tinyos: |
+  Compiling for telosb:
+  make telosb - compiles a program
+  make telosb install - compiles and install
+  make telosb install.0 bsl,/dev/ttyUSB0 - compiles and install with node address 0 on serial device ttyUSB0
+  
+  Utils:
+  motelist - list all attached motes
+  
+  Printf:
+  java net.tinyos.tools.PrintfClient -comm serial@/dev/ttyUSB0:telosb open a printf client on given serial port
+

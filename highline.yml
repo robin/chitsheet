@@ -22,4 +22,4 @@ highline: "#####################################################################
   \r\n\
   Menus:\r\n\
   \r\n  choose do |menu|\r\n    menu.prompt = \"Please choose your favorite programming language?  \"\r\n\
-  \r\n    menu.choice(:ruby) { say(\"Good choice!\") }\r\n    menu.choices(:python, :perl) { say(\"Not from around here, are you?\") }\r\n  end\r\n"
+  \r\n    menu.choice(:ruby) { say(\"Good choice!\") }\r\n    menu.choices(:python, :perl) { say(\"Not from around here, are you?\") }\r\n  end"

@@ -1,0 +1,28 @@
+--- 
+gist_vim: |-
+  This is vimscript for gist (http://gist.github.com)
+  
+  Get it here: http://www.vim.org/scripts/script.php?script_id=2423
+  
+  Usage:
+  
+    :Gist
+      post whole text to gist.
+  
+    :'<,'>Gist
+      post selected text to gist.
+  
+    :Gist -p
+      post whole text to gist with private.
+  
+    :Gist XXXXX
+      edit gist XXXXX.
+  
+    :Gist -l
+      list gists from mine.
+  
+    :Gist -la
+      list gists from all.
+  
+  Require:
+    curl, and if you want to use profile of git, it require git command.

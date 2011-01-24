@@ -1,0 +1,6 @@
+--- 
+ffi: |-
+  Tips
+  ====
+    * See C functions ready to be attached in a dynamic library (.so)
+      $ nm libfoo.so | egrep " T [a-zA-Z]"

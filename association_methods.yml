@@ -1,5 +1,5 @@
 --- 
-association_methods: |
+association_methods: |-
   Singular associations (one-to-one)
   
                                     |            |  belongs_to  |
@@ -40,4 +40,3 @@ association_methods: |
   #others.find_first                |   X   |          |    
   #others.uniq                      |   X   |    X     |    
   #others.reset                     |   X   |    X     |    X
-

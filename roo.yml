@@ -1,0 +1,8 @@
+--- 
+roo: "roo gem - http://roo.rubyforge.org/\n\n\
+  roo is a Ruby gem to read the following Excel and OpenOffice formats: \n  * Open-office spreadsheets (.ods)\n  * Excel spreadsheets (.xls)\n  * Google (online) spreadsheets\n  * Excel\xE2\x80\x99s new file format .xlsx\n\n\n\
+  INSTALLATION\n\
+  ===================\n\
+  gem install roo\n\n\n\
+  USAGE\n\
+  ==================\n require 'rubygems'\n require 'roo'\n \n oo = Openoffice.new(\"simple_spreadsheet.ods\")\n oo.default_sheet = oo.sheets.first\n\n # iterate all rows \n # cells are named 1,A, 1,B, 2,A, 2,B etc.. \n 0.upto(oo.last_row) do |line|\n   name = oo.cell(line,'A')\n   age = oo.cell(line,'B')\n\n   puts \"Name: #{name}\"\n   puts \"Age: #{age}\\n\"\n end\n\n DOCUMENTATION\n ================\n http://roo.rubyforge.org/rdoc/index.html"

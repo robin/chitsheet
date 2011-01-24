@@ -1,5 +1,5 @@
 --- 
-remind_commands: |
+remind_commands: |-
   Remind (http://www.roaringpenguin.com/products/remind) is a
   sophisticated calendar and alarm program.
   
@@ -37,5 +37,3 @@ remind_commands: |
   Growl:
       $ nohup remind -z -k'osascript -e "beep"; growlnotify -n remind
       -a iCal -t Reminder -s -m %s &' ~/.reminders &
-  
-

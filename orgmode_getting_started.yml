@@ -1,0 +1,12 @@
+--- 
+orgmode_getting_started: |-
+  ================================================================================
+  Getting Started
+  ================================================================================
+  
+  (add-to-list 'auto-mode-alist '("\\.org$" . org-mode))
+  (define-key global-map "\C-cl" 'org-store-link) [1]
+  (define-key global-map "\C-ca" 'org-agenda) [1]
+  
+  For the many customization options try            M-x org-customize
+  To read the on-line documentation try             M-x org-info

@@ -1,0 +1,12 @@
+--- 
+iconv: "# Iconv for Ruby\n\
+  # -> Character Encoding Conversion Library\n\n\
+  require 'iconv'\n\n\
+  Iconv class methods generally take two or more parameters\n   with the first two being strings containing:\n   -> a target encoding name\n   -> a source encoding name\n\n\
+  A few character set name strings:\n  - 'ascii'   - 'utf-16'\n  - 'utf-8'   - 'latin1'\n  ( blah de blah blah blah ...)\n  --> try `iconv -l' on a command line for a full list\n\n\
+  quick, one-time conversion of several strings:\n  Iconv.iconv(to, from, *strings) # => [converted, strings, ...] or\n  Iconv.conv(to, from, *strings)  # same as Iconv.iconv(to, from, *strings).join\n                                  # => \"converted strings joined togeter\"\n\n\
+  creating a reusable, conversion object that is\n\
+  automatically closed (in the style of File.open):\n  Iconv.open(to, from) do |c|   # c is a Iconv conversion object\n    ...                         # the block value is returned \n  end                           # c is closed after the block exits\n\n\
+  Example: \n  Iconv.open('utf-16', 'ascii') do |c|\n    c.iconv(\"\\377\\376n\\000o\\000n\\000s\\000e\\000n\\000s\\000e\\000\")\n    # => \"nonsense\"\n  end\n\n\
+  create a plain old object you close explicitly somewhere later on:\n  converter = Iconv.new(to, from)\n  \n\
+  Example:\n  c = Iconv.new('utf-8', 'latin1')\n  c.iconv(\"\\253 frenchy \\273\")  # => \"\xC2\xAB frenchy \xC2\xBB\"\n  ...\n  c.close"

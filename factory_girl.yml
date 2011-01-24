@@ -1,0 +1,78 @@
+--- 
+factory_girl: |-
+  Factory girl is an object factory library to be used with your tests.
+  
+  Installation:
+  $ [sudo] gem install factory_girl
+  
+  or with Rails >2.1 dependency management, add to environment.rb
+  
+  config.gem "factory_girl", :lib => false
+  
+  Then add:
+    require 'factory_girl'
+  to your test_helper.rb or spec_helper.rb
+  
+  Defining factories:
+  # This will guess the User class
+  Factory.define :user do |u|
+    u.first_name 'John'
+    u.last_name  'Doe'
+    u.admin false
+  end
+  
+  # This will use the User class (Admin would have been guessed)
+  Factory.define :admin, :class => User do |u|
+    u.first_name 'Admin'
+    u.last_name  'User'
+    u.admin true
+  end
+  
+  # This will copy the attributes from the parent factory to the current one with an ability to override them.
+  Factory.define :super_user, :parent => :user do |u|
+    u.super_user true
+  end
+  
+  Lazy Attributes:
+  Factory.define :user do |u|
+    # ...
+    u.activation_code { User.generate_activation_code }
+  end
+  
+  Dependent Attributes:
+  Factory.define :user do |u|
+    u.first_name 'Joe'
+    u.last_name  'Blow'
+    u.email {|a| "#{a.first_name}.#{a.last_name}@example.com".downcase }
+  end
+  
+  Associations:
+  Factory.define :post do |p|
+    # ...
+    p.author {|author| author.association(:user, :last_name => 'Writely') }
+  end
+  
+  # Or in short form
+  Factory.define :post do |p|
+    p.association :author, :factory => :user
+  end
+  
+  Sequences:
+  # Defines a new sequence
+  Factory.sequence :email do |n|
+    "person#{n}@example.com" 
+  end
+  
+  #Uses the sequence
+  Factory.next :email
+  # => "person1@example.com"
+  
+  Using factories:
+  # Build and save a User instance
+  Factory(:user)
+  
+  # Build a User instance and override the first_name property
+  Factory.build(:user, :first_name => 'Joe')
+  
+  # Return an attributes Hash that can be used to build a User instance
+  attrs = Factory.attributes_for(:user)

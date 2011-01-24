@@ -1,0 +1,97 @@
+--- 
+open_solaris: |
+  For people coming to OpenSolaris from Linux.
+  
+  Users:
+  ------
+  
+  pfexec - sudo
+  
+  Processes:
+  ----------
+  
+  prstat - like top
+  pgrep - find PID of process
+  pstack - call stack of a process
+  pfiles - find open files for process (like lsof)
+  pcred - display process credentials (effective/real UID & GID etc.)
+  pldd - show linked libraries
+  psig - list signal actions and handlers
+  man 1 proc - get more information on process related tools
+  
+  Example: pfiles `pgrep cron`
+  
+  NFS exports:
+  ------------ 
+  
+  /etc/dfs/dfstab - like /etc/exports
+  
+  Exporting the file systems:
+  
+  $ exportfs -a 
+  or 
+  $ svcadm restart svc:/network/nfs/server 
+  
+  Alternatively export directory with
+  
+  $ share /path/to/export 
+  
+  and stop sharing it with
+  
+  $ unshare /path/to/export
+  
+  Monitoring:
+  -----------
+  
+  dtrace - dynamic tracing compiler and tracing utility
+  vmstat - virtual memory statistics
+  mpstat - like vmstat but per processor
+  iostat 
+  netstat
+  psrinfo -v - cat /proc/cpuinfo
+  prtconf - cat /proc/meminfo)
+  
+  Kernel modules:
+  ---------------
+  
+  modinfo - like lsmod
+  modload - like modprobe
+  modunload - like rmmod
+  scanpci - scan for PCI devices
+  
+  Software management:
+  -------------------
+  
+  beadm - manage boot environments
+  pkg - install/remove packages
+  pkg image-update [-nv] - upgrade whole boot environment
+  
+  Services:
+  ---------
+  
+  svcs - view services
+  svcadm - administer services
+  svccfg - add or change services
+  
+  Disks and storage media:
+  ------------------------
+  
+  format - like fdisk
+  rmformat - format for removable media
+  vold / volcheck
+  cdrw - like cdrecord
+  
+  Networking:
+  -----------
+  
+  ifconfig
+  ndd - get/set driver configuration parameters (like miitool)
+  dhcpagent
+  ipfilter - 
+  dladm - vlans, bonding
+  
+  Device management:
+  ------------------
+  
+  devfsadm
+

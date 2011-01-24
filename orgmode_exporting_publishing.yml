@@ -1,0 +1,23 @@
+--- 
+orgmode_exporting_publishing: |-
+  ================================================================================
+  Exporting and Publishing
+  ================================================================================
+  
+  Exporting creates files with extensions .txt and .html in the current
+  directory.  Publishing puts the resulting file into some other place.
+  
+  export/publish dispatcher                         C-c C-e
+  export visible part only                          C-c C-e v
+  insert template of export options                 C-c C-e t
+  toggle fixed width for entry or region            C-c :
+  
+  --------------------------------------------------------------------------------
+  Comments: Text not being exported
+  --------------------------------------------------------------------------------
+  
+  Text before the first headline is not considered part of the document and is
+  therefore never exported.  Lines starting with # are comments and are not
+  exported.  Subtrees whose header starts with COMMENT are never exported.
+  
+  toggle COMMENT keyword on entry                   C-c ;

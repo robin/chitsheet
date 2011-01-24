@@ -1,0 +1,16 @@
+--- 
+sass: |-
+  SASS
+  
+  --- to install
+  sudo gem install haml
+  
+  --- convert sass to css
+  sass infile.css.sass outfile.css
+  
+  --- convert css to sass
+  css2sass infile.css outfile.css.sass
+  
+  --- to add to a rails app
+  haml --rails .
+  (from your rails app's root)

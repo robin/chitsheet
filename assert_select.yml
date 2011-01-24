@@ -37,8 +37,8 @@ assert_select: |-
   May be string or regular expression, e.g. "[foo=?]", /bar/i
   
   
-  assert_select(selector, *values, equality?, message?) { |elems| ... }
-  assert_select(element, selector, *values, equality?, message?) { |elems| ... }
+  assert_select(selector, equality?, message?) { |elems| ... }
+  assert_select(element, selector, equality?, message?) { |elems| ... }
   
     Use selector to select elements from response page or first argument (element), and evalute
     equality test. Raises exception with message if equality test fails.
@@ -75,7 +75,7 @@ assert_select: |-
   
     For operating on encoded HTML (e.g. RSS item description).
   
-  css_select(selector, *values) => array
-  css_select(element, selector, *values) => array
+  css_select(selector) => array
+  css_select(element, selector) => array
   
     Returns an array with selected elements (empty if no elements selected).

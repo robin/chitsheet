@@ -1,0 +1,43 @@
+--- 
+nokogiri: |-
+  require 'nokogiri'
+  require 'open-uri'
+  
+  # Get a Nokogiri::HTML:Document for the page we're interested in...
+  
+  doc = Nokogiri::HTML(open('http://www.google.com/search?q=tenderlove'))
+  
+  # Do funky things with it using Nokogiri::XML::Node methods...
+  
+  ####
+  # Search for nodes by css
+  doc.css('h3.r a.l').each do |link|
+      puts link.content
+  end
+  
+  doc.at_css('h3').content
+  
+  ####
+  # Search for nodes by xpath
+  doc.xpath('//h3/a[@class="l"]').each do |link|
+      puts link.content
+  end
+  
+  ####
+  # Or mix and match.
+  doc.search('h3.r a.l', '//h3/a[@class="l"]').each do |link|
+      puts link.content
+  end
+  
+  ####
+  # Work with attributes
+  xml = "<foo wam='bam'>bar</foo>"
+  
+  doc = Nokogiri::XML(xml)
+  doc.at_css("foo").content => "bar"
+  doc.at_css("foo")["wam"].content => "bam"
+  
+  ####
+  # Work with elements
+  el = doc.at_css("foo")
+  el.children  # => array of elements

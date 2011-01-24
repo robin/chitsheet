@@ -1,0 +1,8 @@
+--- 
+orgmode_cal_diary: |-
+  ================================================================================
+  Calendar and Diary Integration
+  ================================================================================
+  
+  Include Emacs diary entries into Org-mode agenda with:
+  (setq org-agenda-include-diary t)

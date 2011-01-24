@@ -1,0 +1,11 @@
+--- 
+rgit: |-
+  rgit - Recursively execute a command on all the git repositories in a directory tree.
+  
+  http://search.cpan.org/~vpit/rgit-0.06/bin/rgit
+  
+  command line switches:
+  -K keep processing on error
+  -I enables interactive mode
+  -D outputs diagnostics
+  -V outputs version

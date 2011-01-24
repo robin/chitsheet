@@ -1,0 +1,138 @@
+--- 
+yuidom: |-
+  YAHOO.util.Dom
+  ===============
+  
+  Boolean | Array addClass ( el , className )
+  - Adds a class name to a given element or collection of elements.
+  
+  Any | Array batch ( el , method , o , override )
+  - Runs the supplied method against each item in the Collection/Array. The method is called with the element(s) as the first arg, and the optional param as the second ( method(el, o) ).
+  
+  String | Array generateId ( el , prefix )
+  - Returns an ID and applies it to the element "el", if provided.
+  
+  HTMLElement | Array get ( el )
+  - Returns an HTMLElement reference.
+  
+  Object getAncestorBy ( node , method )
+  - Returns the nearest ancestor that passes the test applied by supplied boolean method. For performance reasons, IDs are not accepted and argument validation omitted.
+  
+  Object getAncestorByClassName ( node , className )
+  - Returns the nearest ancestor with the given className.
+  
+  Object getAncestorByTagName ( node , tagName )
+  - Returns the nearest ancestor with the given tagName.
+  
+  Array getChildren ( node )
+  - Returns an array of HTMLElement childNodes.
+  
+  Array getChildrenBy ( node , method )
+  - Returns an array of HTMLElement childNodes that pass the test method.
+  
+  Int getClientHeight ( )
+  - Returns the height of the client (viewport).
+  
+  Region getClientRegion ( )
+  - Creates a Region based on the viewport relative to the document.
+    Deprecated Now using getViewportHeight. This interface left intact for back compat.
+  
+  Int getClientWidth ( )
+  - Returns the width of the client (viewport).
+  
+  Int getDocumentHeight ( )
+  - Returns the height of the document.
+    Deprecated Now using getViewportWidth. This interface left intact for back compat.
+  
+  Int getDocumentScrollLeft ( document )
+  - Returns the left scroll value of the document
+  
+  Int getDocumentScrollTop ( document )
+  - Returns the top scroll value of the document
+  
+  Int getDocumentWidth ( )
+  - Returns the width of the document.
+  
+  Array getElementsBy ( method , tag , root , apply )
+  - Returns a array of HTMLElements that pass the test applied by supplied boolean method. For optimized performance, include a tag and/or root node when possible.
+  
+  Array getElementsByClassName ( className , tag , root , apply )
+  - Returns a array of HTMLElements with the given class. For optimized performance, include a tag and/or root node when possible.
+  
+  Object getFirstChild ( node )
+  - Returns the first HTMLElement child.
+  
+  Object getFirstChildBy ( node , method )
+  - Returns the first HTMLElement child that passes the test method.
+  
+  Object getLastChild ( node )
+  - Returns the last HTMLElement child.
+  
+  Object getLastChildBy ( node , method )
+  - Returns the last HTMLElement child that passes the test method.
+  
+  Object getNextSibling ( node )
+  - Returns the next sibling that is an HTMLElement
+  
+  Object getNextSiblingBy ( node , method )
+  - Returns the next HTMLElement sibling that passes the boolean method. For performance reasons, IDs are not accepted and argument validation omitted. Returns the nearest HTMLElement sibling if no method provided.
+  
+  Object getPreviousSibling ( node )
+  - Returns the previous sibling that is an HTMLElement
+  
+  Object getPreviousSiblingBy ( node , method )
+  - Returns the previous sibling that is an HTMLElement. For performance reasons, IDs are not accepted and argument validation omitted. Returns the nearest HTMLElement sibling if no method provided.
+  
+  Region | Array getRegion ( el )
+  - Returns the region position of the given element. The element must be part of the DOM tree to have a region (display:none or elements not appended return false).
+  
+  String | Array getStyle ( el , property )
+  - Normalizes currentStyle and ComputedStyle.
+  
+  Int getViewportHeight ( )
+  - Returns the current height of the viewport.
+  
+  Int getViewportWidth ( )
+  - Returns the current width of the viewport.
+  
+  Number | Array getX ( el )
+  - Gets the current X position of an element based on page coordinates. The element must be part of the DOM tree to have page coordinates (display:none or elements not appended return false).
+  
+  Array getXY ( el )
+  - Gets the current position of an element based on page coordinates. Element must be part of the DOM tree to have page coordinates (display:none or elements not appended return false).
+  
+  Number | Array getY ( el )
+  - Gets the current Y position of an element based on page coordinates. Element must be part of the DOM tree to have page coordinates (display:none or elements not appended return false).
+  
+  Boolean | Array hasClass ( el , className )
+  - Determines whether an HTMLElement has the given className.
+  
+  Boolean inDocument ( el )
+  - Determines whether an HTMLElement is present in the current document.
+  
+  HTMLElement insertAfter ( newNode , referenceNode )
+  - Inserts the new node as the next sibling of the reference node
+  
+  HTMLElement insertBefore ( newNode , referenceNode )
+  - Inserts the new node as the previous sibling of the reference node
+  
+  Boolean isAncestor ( haystack , needle )
+  - Determines whether an HTMLElement is an ancestor of another HTML element in the DOM hierarchy.
+  
+  Boolean | Array removeClass ( el , className )
+  - Removes a class name from a given element or collection of elements.
+  
+  Boolean | Array replaceClass ( el , oldClassName , newClassName )
+  - Replace a class with another class for a given element or collection of elements. If no oldClassName is present, the newClassName is simply added.
+  
+  void setStyle ( el , property , val )
+  - Wrapper for setting style properties of HTMLElements. Normalizes "opacity" across modern browsers.
+  
+  void setX ( el , x )
+  - Set the X position of an html element in page coordinates, regardless of how the element is positioned. The element must be part of the DOM tree to have page coordinates (display:none or elements not appended return false).
+  
+  void setXY ( el , pos , noRetry )
+  - Set the position of an html element in page coordinates, regardless of how the element is positioned. The element(s) must be part of the DOM tree to have page coordinates (display:none or elements not appended return false).
+  
+  void setY ( el , x )
+  - Set the Y position of an html element in page coordinates, regardless of how the element is positioned. The element must be part of the DOM tree to have page coordinates (display:none or elements not appended return false).

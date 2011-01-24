@@ -11,4 +11,4 @@ has_one: "Options for has_one:\r\n\
   \r\n\
   :foreign_key - specify the foreign key used for the association. By default this is guessed to be the name of this class in lower-case and \"_id\" suffixed. So a Person class that makes a has_one association will use \"person_id\" as the default foreign_key.\r\n\
   \r\n\
-  :include - specify second-order associations that should be eager loaded when this object is loaded.\r\n"
+  :include - specify second-order associations that should be eager loaded when this object is loaded."

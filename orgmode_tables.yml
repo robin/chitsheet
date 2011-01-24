@@ -1,0 +1,108 @@
+--- 
+orgmode_tables: |-
+  ================================================================================
+  Tables
+  ================================================================================
+  
+  --------------------------------------------------------------------------------
+  Creating a table
+  --------------------------------------------------------------------------------
+  
+  just start typing, e.g.                           |Name|Phone|Age RET |- TAB
+  convert region to table                           C-c |
+  ... separator at least 3 spaces                   C-3 C-c |
+  
+  --------------------------------------------------------------------------------
+  Commands available inside tables
+  --------------------------------------------------------------------------------
+  
+  The following commands work when the cursor is inside a table.  Outside of
+  tables, the same keys may have other functionality.
+  
+  --------------------------------------------------------------------------------
+  Re-aligning and field motion
+  --------------------------------------------------------------------------------
+  
+  re-align the table without moving the cursor      C-c C-c
+  re-align the table, move to next field            TAB
+  move to previous field                            S-TAB
+  re-align the table, move to next row              RET
+  
+  --------------------------------------------------------------------------------
+  Row and column editing
+  --------------------------------------------------------------------------------
+  
+  move the current column left                      M-LEFT/RIGHT
+  kill the current column                           M-S-LEFT
+  insert new column to left of cursor position      M-S-RIGHT
+  move the current row up/down                      M-UP/DOWN
+  kill the current row or horizontal line           M-S-UP
+  insert new row above the current row              M-S-DOWN
+  insert hline below (C-u : above) current row      C-c -
+  sort lines in region                              C-c ^
+  
+  --------------------------------------------------------------------------------
+  Regions
+  --------------------------------------------------------------------------------
+  
+  cut rectangular region                            C-c C-x C-w
+  copy rectangular region                           C-c C-x M-w
+  paste rectangular region                          C-c C-x C-y
+  fill paragraph across selected cells              C-c C-q
+  
+  --------------------------------------------------------------------------------
+  Miscellaneous
+  --------------------------------------------------------------------------------
+  
+  to limit column width to N characters, use        ...| <N> |...
+  edit the current field in a separate window       C-c `
+  make current field fully visible                  C-u TAB
+  export as tab-separated file                      M-x org-table-export
+  import tab-separated file                         M-x org-table-import
+  sum numbers in current column/rectangle           C-c +
+  
+  --------------------------------------------------------------------------------
+  Tables created with the table.el package
+  --------------------------------------------------------------------------------
+  
+  insert a new table.el table                       C-c ~
+  recognize existing table.el table                 C-c C-c
+  convert table (Org-mode <-> table.el)             C-c ~
+  
+  --------------------------------------------------------------------------------
+  Spreadsheet
+  --------------------------------------------------------------------------------
+  
+  Formulas typed in field are executed by TAB, RET and C-c C-c.  = introduces a
+  column formula, := a field formula.
+  
+  Example: Add Col1 and Col2                        |=$1+$2 |
+  ... with printf format specification              |=$1+$2;%.2f|
+  ... with constants from constants.el              |=$1/$c/$cm |
+  sum from 2nd to 3rd hline                         |:=vsum(@II..@III)|
+  apply current column formula                      | = |
+  set and eval column formula                       C-c =
+  set and eval field formula                        C-u C-c =
+  re-apply all stored equations to current line     C-c *
+  re-apply all stored equations to entire table     C-u C-c *
+  iterate table to stability                        C-u C-u C-c *
+  rotate calculation mark through # * ! $           C-#
+  show line, column, formula reference              C-c ?
+  toggle coordinate grid                            C-c }
+  toggle formula debugger                           C-c {
+  
+  --------------------------------------------------------------------------------
+  Formula Editor
+  --------------------------------------------------------------------------------
+  
+  edit formulas in separate buffer                  C-c '
+  exit and install new formulas                     C-c C-c
+  exit, install, and apply new formulas             C-u C-c C-c
+  abort                                             C-c C-q
+  toggle reference style                            C-c C-r
+  pretty-print Lisp formula                         TAB
+  complete Lisp symbol                              M-TAB
+  shift reference point                             S-cursor
+  shift test line for column references             M-up/down
+  scroll the window showing the table               M-S-up/down
+  toggle table coordinate grid                      C-c }

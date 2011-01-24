@@ -1,0 +1,17 @@
+--- 
+apache2: |
+  --------------------------
+  Apache 2 everyday commands
+  --------------------------
+  
+  Module enable/disable:
+     a2enmod -> list presented
+     a2dismod
+  
+  Website enable/disable:
+     a2ensite -> list presented
+     a2dissite
+  
+  Restart server nicely:
+     apache2 -k graceful
+

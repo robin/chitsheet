@@ -1,0 +1,7 @@
+--- 
+metaprogramming: "mechanisim             method resolution       method definition      new scope?\n\
+  --------------------------------------------------------------------------------\n\
+  class Person           Person                  same                   yes\n\
+  class << Person        Person's metaclass      same                   yes\n\
+  Person.class_eval      Person                  same                   no\n\
+  Person.instance_eval   Person                  Person\xE2\x80\x99s metaclass     no"

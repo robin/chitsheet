@@ -1,0 +1,97 @@
+--- 
+vrome: "---------------\n\
+  | INSERT MODE |\n\
+  ---------------\n\
+  <C-a>   Move to first words or select all\n\
+  <C-d>   Delete forward char\n\
+  <C-e>   Move to end\n\
+  <C-h>   Delete backward char\n\
+  <C-i>   Launch the external editor,default 'editor' is 'gvim -f'.\n\
+  <C-k>   Delete forward to the end of the line.\n\
+  <C-w>   Delete backward word\n\
+  <C-u>   Delete backward to the beginning of the line.\n\
+  <M-d>   Delete forward word\n\
+  <M-h>   Move back a word\n\
+  <M-l>   Move forward a word\n\
+  <M-j>   Move back a char\n\
+  <M-k>   Move forward a char\n\n\
+  ---------------\n\
+  | NORMAL MODE |\n\
+  ---------------\n\
+  <C-^>   Select the previously selected tab.If [count] is specified, go to the [count]th tab.\n\
+  <C-a>   ncrements the last number in URL by 1, or by [count] if given.\n\
+  <C-b>   Scroll up [count] full page.\n\
+  <C-d>   Scroll down [count] half page\n\
+  <C-f>   Scroll down [count] full page\n\
+  <C-i>   Go [count] pages forward in the browser history.\n\
+  <C-o>   Go [count] pages back in the browser history.\n\
+  <C-u>   Scroll up [count] half page\n\
+  <C-v>   Pass through the next key\n\
+  <C-x>   Decrements the last number in URL by 1, or by [count] if given.\n\
+  <C-y>   Shorten current url,and copy it into clipboard\n\
+  <C-z>   Temporarily ignore all Vrome key bindings\n\n\
+  <M-d>     like `d`,but close current tab and selects the last selected tab.\n\n\
+  <F1>    Open the help page.\n\n\
+  0       Scroll to the absolute left of the document\n\
+  $       Scroll to the absolute right of the document\n\n\
+  D         Like d but selects the tab to the left of the deleted tab.\n\
+  F       Start QuickHint mode, but open link in a new tab\n\
+  G       Go to the end of the document\n\
+  H       Go back in the browser history\n\
+  L       Go forward in the browser history\n\
+  N       Find previous\n\
+  O       Open one or more URLs, based on current location\n\
+  R       Reload all Tabs\n\
+  T       Open one or more URLs in a new tab, based on current location\n\
+  Y       Copy selected text\n\n\
+  b       goto the [count] tab or the first matched tab.\n\
+  d       close current tab and selects the tab to the right of the deleted tab.\n\
+  f       Start QuickHint mode\n\
+  h       Scroll document to the left.If [count] is specified then move [count] times as much down.\n\
+  j       Scroll document down. If [count] is specified then move [count] times as much down.\n\
+  k       Scroll document up. If [count] is specified then move [count] times as much down.\n\
+  l       Scroll document to the right. If [count] is specified then move [count] times as much down.\n\n\
+  n       Find the next [count]\n\
+  o       Open one or more URLs\n\
+  r       Reload the current web page\n\
+  t       Open one or more URLs in a new tab\n\
+  u       Undo the last closed tab, If a [count] is specified then undo the [count]th last closed tab.\n\
+  y       Yank current location to the clipboard\n\n\
+  :       Enter Command-line mode\n\n\
+  /       Search forward for the next [count] word for a pattern\n\
+  ?       Search backwards for the next [count] word for a pattern\n\
+  *       Find word under cursor\n\
+  #       Find word under cursor backwards\n\n\
+  N%      Scroll to [count] percent of the document\n\n\
+  .       Repeat the last keyboard mapping [count] times.\n\n\
+  ]]      Follow the link labeled 'next' or '>' if it exists\n\
+  [[      Follow the link labeled 'prev', 'previous' or '<' if it exists\n\n\
+  g$      Go to the last tab\n\
+  g0      Go to the first tab\n\
+  gT      Go to the previous [count] tab\n\
+  gU      Go to the root of the website\n\
+  gf      View source\n\
+  gg      Go to the top of the document\n\
+  gi      Focus the [count]th input field\n\
+  gt      Go to the next [count] tab\n\
+  gu      Go to [count]th parent directory\n\n\
+  zI      Enlarge full zoom of current web page,[count]\n\
+  zM      Enlarge full zoom of current web page by a larger amount,[count]\n\
+  zO      Reduce full zoom of current web page,[count]\n\
+  zR      Reduce full zoom of current web page by a larger amount,[count]\n\
+  zZ      Set full zoom value of current web page\n\
+  zi      Enlarge text zoom of current web page,[count]\n\
+  zm      Enlarge text zoom of current web page by a larger amount,[count]\n\
+  zo      Reduce text zoom of current web page,[count]\n\
+  zr      Reduce text zoom of current web page by a larger amount,[count]\n\
+  zz      Set text zoom value of current web page\n\n\n\
+  go{a-zA-Z0-9}   Jump to a QuickMark in the current tab. Open any QuickMark in the current tab. You can mark any URLs with M{a-zA-Z0-9}. These QuickMarks are persistent across browser sessions.\n\
+  gn{a-zA-Z0-9}   Jump to a QuickMark in a new tab. Works like go{a-zA-Z0-9} but opens the QuickMark in a new tab.\n\
+  M{a-zA-Z0-9}    Add new QuickMark for current URL. You can go to a marked URL in the current tab with go{a-zA-Z0-9} or in a new tab with gn{a-zA-Z0-9}. These QuickMarks are persistent across browser sessions.\n\n\
+  m{a-zA-Z}       Set mark at the cursor position. Marks a-z are local to the buffer, whereas A-Z are valid between buffers.\n\
+  '{a-zA-Z}       Jump to the mark. Marks a-z are local to the buffer, whereas A-Z are valid between buffers.\n\n\
+  ----------------\n\
+  | COMMAND MODE |\n\
+  ----------------\n\
+  :help     Open the help page.\n\
+  :bdelete  Close all matched tabs."

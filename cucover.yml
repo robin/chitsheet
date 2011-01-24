@@ -1,0 +1,13 @@
+--- 
+cucover: |-
+  # To run your features lazily, use the cucover binary instead of cucumber:
+  
+  cucover -- features/lamb_chops.feature
+  
+  # To see what Cucover has already recorded (in the cucover.data file):
+  
+  cucover --show-recordings
+  
+  # To find out which tests cover which lines of a given source file:
+  
+  cucover --coverage_of path/to/some_source_file.rb

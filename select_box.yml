@@ -1,0 +1,59 @@
+--- 
+select_box: |-
+  ---
+  This select box serves two purposes in a view, say a 'new' or 'edit' view:
+  1. The user can choose a pre-existing object by selecting from a dropdown
+     list of the existing objects, rather than typing into an entry field.
+  2. The user can reference the object by a friendly name rather than by id.
+  
+  In the 'foobar' Person view, to select a reference to a Person:
+  
+    <% form_for([foobar]) do |f| %>
+      <%= f.label "Name:" %>
+      <%= f.select :person_id, Person.select_list %>
+  
+  And in the Person model:
+  
+    def self.select_list
+      self.find(:all).map { |p| [p.name, p.id] }
+    end
+  
+  
+  To choose from a list of a subset of all People:
+  
+  In the view:
+    <%= f.label "Member:" %>
+    <%= f.select :person_id, Person.select_member_list %>
+  
+  And in the Person model:
+    def self.select_member_list
+      self.find(:all).map { |p| [p.name, p.id] if p.member? }.compact
+    end
+  
+  --
+  When there is a one-to-many association involved, and you are presenting
+  a choice from among the existing association objects, there is an easy
+  collection_select method that the belongs_to association gives you.  As
+  Ryan Bates discusses in Railscasts episode 057, in the view to create a
+  Product, to choose its Category, you can use:
+  
+    <%= f.collection_select :category_id, Category.all, :id, :name,
+      :prompt => "Select a category:" %>
+  
+  To provide the option to define & choose a new Category when creating a
+  Product, you can add the Category creation to the Person model and view.
+  The belongs_to association provides the 'create_[associated model]'
+  method.
+  
+  In the view:
+    ... Or create a new category:
+    <%= f.text_field :new_category_name %>
+  
+  And in the Person model, define the new attribute (new_category_name),
+  and a before_save callback to create the new category if entered:
+  
+    attr_accessor :new_category_name
+    before_save :create_category_from_name
+    def create_category_from_name
+      create_category(:name => new_category_name) unless \
+        new_category_name.blank?

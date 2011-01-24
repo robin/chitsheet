@@ -1,0 +1,19 @@
+--- 
+mutt_gmail: |
+  Check out this blog post to get mutt working with GMail on OSX (http://www.jstorimer.com/shells/2010/01/19/using-mutt-with-gmail-on-osx.html).
+  
+  You can always use the '?' command to see a full list of mutt commands. This sheet lists commands that map to specific GMail functions.
+  
+  Navigating:
+  Select messages (up and down): 'j' or 'k'
+  Page through message: <Space>
+  See a list of mailboxes: 'c'
+  List URLs: <Ctrl>-b
+  
+  Modifying:
+  Mark as unread: <Shift>-n
+  Archive message: <Ctrl>-d
+  
+  Syncing:
+  Sync local mailbox to GMail: $
+

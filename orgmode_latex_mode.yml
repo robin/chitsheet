@@ -1,0 +1,9 @@
+--- 
+orgmode_latex_mode: |-
+  ================================================================================
+  LaTeX and cdlatex-mode
+  ================================================================================
+  
+  preview LaTeX fragment                            C-c C-x C-l
+  expand abbreviation (cdlatex-mode)                TAB
+  insert/modify math symbol (cdlatex-mode)          ` / '

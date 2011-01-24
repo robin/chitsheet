@@ -1,0 +1,10 @@
+--- 
+firefox_lockdown: |-
+  As per the following page:
+  
+  <http://kb.mozillazine.org/Locking_preferences#Creating_the_lock_file>
+  
+  I changed the lockdown.cfg to be:
+  
+  lockPref("browser.startup.page", 1);
+  lockPref("browser.startup.homepage", "http://www.digg.com/");

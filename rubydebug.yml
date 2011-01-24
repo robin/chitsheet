@@ -33,4 +33,4 @@ rubydebug: "* b[reak]\r\n  list breakpoints\r\n\
   * pp EXPRESSSION\r\n  evaluate expression and print its value\r\n\
   * h[elp]\r\n  print this help\r\n\
   * RETURN KEY\r\n  redo previous command. Convenient when using list, step, next, up, down,\r\n\
-  * EVERYHTING ELSE\r\n  evaluate\r\n"
+  * EVERYHTING ELSE\r\n  evaluate"

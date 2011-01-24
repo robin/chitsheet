@@ -1,0 +1,19 @@
+--- 
+orgmode_todo_and_checkboxes: |-
+  ================================================================================
+  TODO Items and Checkboxes
+  ================================================================================
+  
+  rotate the state of the current item              C-c C-t
+  select next/previous state                        S-LEFT/RIGHT
+  select next/previous set                          C-S-LEFT/RIGHT
+  view TODO items in a sparse tree                  C-c C-v
+  view 3rd TODO keyword's sparse tree               C-3 C-c C-v
+  set the priority of the current item              C-c , [ABC]
+  remove priority cookie from current item          C-c , SPC
+  raise/lower priority of current item              S-UP/DOWN [3]
+  insert new checkbox item in plain list            M-S-RET
+  toggle checkbox(es) in region/entry/at point      C-c C-x C-b
+  toggle checkbox at point                          C-c C-c
+  checkbox statistics cookies                       insert [/] or [%]
+  update checkbox statistics (C-u : whole file)     C-c #

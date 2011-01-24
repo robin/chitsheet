@@ -1,0 +1,3 @@
+--- 
+vimdiff: "MOVING BETWEEN WINDOWS \r\n        CTRL-W h        move to the window on the left \r\n        CTRL-W j        move to the window below \r\n        CTRL-W k        move to the window above \r\n        CTRL-W l        move to the window on the right \r\n        CTRL-W t        move to the TOP window \r\n        CTRL-W b        move to the BOTTOM window \r\n  Moving windows \r\n\
+  \r\n        CTRL-W K        move window to the upper \r\n        CTRL-W H        move window to the far left \r\n        CTRL-W J        move window to the bottom \r\n        CTRL-W L        move window to the far right "

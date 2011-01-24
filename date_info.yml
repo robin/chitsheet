@@ -1,0 +1,6 @@
+--- 
+date_info: |
+  perl -e 'print scalar localtime(1234567890),"\n";'
+  date -d @1234567890
+  watch --interval=1 date +%s
+

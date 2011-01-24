@@ -37,4 +37,4 @@ has_many: "You use has_many in your ActiveRecord models.  In the class Order for
   \r\n\
   :through: Specifies a Join Model to perform the query through. Options for :class_name and :foreign_key are ignored, as the association uses the source reflection. You can only use a :through query through a belongs_to or has_many association.\r\n\
   \r\n\
-  :source: Specifies the source association name used by has_many :through queries. Only use it if the name cannot be inferred from the association. has_many :subscribers, :through => :subscriptions will look for either +:subscribers+ or +:subscriber+ on Subscription, unless a +:source+ is given.\r\n"
+  :source: Specifies the source association name used by has_many :through queries. Only use it if the name cannot be inferred from the association. has_many :subscribers, :through => :subscriptions will look for either +:subscribers+ or +:subscriber+ on Subscription, unless a +:source+ is given."

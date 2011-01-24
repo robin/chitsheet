@@ -1,5 +1,5 @@
 --- 
-wxd: |
+wxd: |-
   ;; cheat.el
   ;; Time-stamp: <2007-08-22 10:00:04 sjs>
   ;;
@@ -260,4 +260,3 @@ wxd: |
     (concat "*cheat-" name "*"))
   
   (provide 'cheat)
-

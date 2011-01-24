@@ -1,0 +1,467 @@
+--- 
+orgmode: "================================================================================\r\n\
+  Org-Mode Reference Card (for version 6.07)\r\n\
+  ================================================================================\r\n\
+  \r\n\
+  ================================================================================\r\n\
+  Getting Started\r\n\
+  ================================================================================\r\n\
+  \r\n\
+  (add-to-list 'auto-mode-alist '(\"\\\\.org$\" . org-mode))\r\n\
+  (define-key global-map \"\\C-cl\" 'org-store-link) [1]\r\n\
+  (define-key global-map \"\\C-ca\" 'org-agenda) [1]\r\n\
+  \r\n\
+  For the many customization options try            M-x org-customize\r\n\
+  To read the on-line documentation try             M-x org-info\r\n\
+  \r\n\
+  ================================================================================\r\n\
+  Visibility Cycling\r\n\
+  ================================================================================\r\n\
+  \r\n\
+  rotate current subtree between states             TAB\r\n\
+  rotate entire buffer between states               S-TAB\r\n\
+  show the whole file                               C-c C-a\r\n\
+  reveal context around point                       C-c C-r\r\n\
+  show subtree in indirect buffer, ded. frame       C-c C-k\r\n\
+  \r\n\
+  ================================================================================\r\n\
+  Motion\r\n\
+  ================================================================================\r\n\
+  \r\n\
+  next/previous heading                             C-c C-n/p\r\n\
+  next/previous heading, same level                 C-c C-f/b\r\n\
+  backward to higher level heading                  C-c C-u\r\n\
+  jump to another place in document                 C-c C-j\r\n\
+  previous/next plain list item                     S-UP/DOWN [3]\r\n\
+  \r\n\
+  ================================================================================\r\n\
+  Structure Editing\r\n\
+  ================================================================================\r\n\
+  \r\n\
+  insert new heading/item at current level          M-RET\r\n\
+  insert new heading after subtree                  C-RET\r\n\
+  insert new TODO entry/checkbox item               M-S-RET\r\n\
+  promote/demote current heading up one level       M-LEFT/RIGHT\r\n\
+  promote/demote current subtree up one level       M-S-LEFT/RIGHT\r\n\
+  move subtree/list item up/down                    M-S-UP/DOWN\r\n\
+  refile subtree                                    C-c C-w\r\n\
+  kill subtree                                      C-c C-x C-w\r\n\
+  copy subtree                                      C-c C-x M-w\r\n\
+  yank subtree                                      C-c C-x C-y\r\n\
+  narrow buffer to current subtree                  C-x n s\r\n\
+  widen restriction to full buffer                  C-x n w\r\n\
+  \r\n\
+  ================================================================================\r\n\
+  Archiving\r\n\
+  ================================================================================\r\n\
+  \r\n\
+  toggle ARCHIVE tag                                C-c C-x C-a\r\n\
+  force cycling of an ARCHIVEd tree                 C-TAB\r\n\
+  move subtree to archive file                      C-c C-x C-s\r\n\
+  \r\n\
+  ================================================================================\r\n\
+  Filtering and Sparse Trees\r\n\
+  ================================================================================\r\n\
+  \r\n\
+  construct a sparse tree by various criteria       C-c /\r\n\
+  view TODO's in sparse tree                        C-c C-v\r\n\
+  global TODO list in agenda mode                   C-c a t [1]\r\n\
+  time sorted view of current org file              C-c a L\r\n\
+  \r\n\
+  ================================================================================\r\n\
+  Tables\r\n\
+  ================================================================================\r\n\
+  \r\n\
+  --------------------------------------------------------------------------------\r\n\
+  Creating a table\r\n\
+  --------------------------------------------------------------------------------\r\n\
+  \r\n\
+  just start typing, e.g.                           |Name|Phone|Age RET |- TAB\r\n\
+  convert region to table                           C-c |\r\n\
+  ... separator at least 3 spaces                   C-3 C-c |\r\n\
+  \r\n\
+  --------------------------------------------------------------------------------\r\n\
+  Commands available inside tables\r\n\
+  --------------------------------------------------------------------------------\r\n\
+  \r\n\
+  The following commands work when the cursor is inside a table.  Outside of\r\n\
+  tables, the same keys may have other functionality.\r\n\
+  \r\n\
+  --------------------------------------------------------------------------------\r\n\
+  Re-aligning and field motion\r\n\
+  --------------------------------------------------------------------------------\r\n\
+  \r\n\
+  re-align the table without moving the cursor      C-c C-c\r\n\
+  re-align the table, move to next field            TAB\r\n\
+  move to previous field                            S-TAB\r\n\
+  re-align the table, move to next row              RET\r\n\
+  \r\n\
+  --------------------------------------------------------------------------------\r\n\
+  Row and column editing\r\n\
+  --------------------------------------------------------------------------------\r\n\
+  \r\n\
+  move the current column left                      M-LEFT/RIGHT\r\n\
+  kill the current column                           M-S-LEFT\r\n\
+  insert new column to left of cursor position      M-S-RIGHT\r\n\
+  move the current row up/down                      M-UP/DOWN\r\n\
+  kill the current row or horizontal line           M-S-UP\r\n\
+  insert new row above the current row              M-S-DOWN\r\n\
+  insert hline below (C-u : above) current row      C-c -\r\n\
+  sort lines in region                              C-c ^\r\n\
+  \r\n\
+  --------------------------------------------------------------------------------\r\n\
+  Regions\r\n\
+  --------------------------------------------------------------------------------\r\n\
+  \r\n\
+  cut rectangular region                            C-c C-x C-w\r\n\
+  copy rectangular region                           C-c C-x M-w\r\n\
+  paste rectangular region                          C-c C-x C-y\r\n\
+  fill paragraph across selected cells              C-c C-q\r\n\
+  \r\n\
+  --------------------------------------------------------------------------------\r\n\
+  Miscellaneous\r\n\
+  --------------------------------------------------------------------------------\r\n\
+  \r\n\
+  to limit column width to N characters, use        ...| <N> |...\r\n\
+  edit the current field in a separate window       C-c `\r\n\
+  make current field fully visible                  C-u TAB\r\n\
+  export as tab-separated file                      M-x org-table-export\r\n\
+  import tab-separated file                         M-x org-table-import\r\n\
+  sum numbers in current column/rectangle           C-c +\r\n\
+  \r\n\
+  --------------------------------------------------------------------------------\r\n\
+  Tables created with the table.el package\r\n\
+  --------------------------------------------------------------------------------\r\n\
+  \r\n\
+  insert a new table.el table                       C-c ~\r\n\
+  recognize existing table.el table                 C-c C-c\r\n\
+  convert table (Org-mode <-> table.el)             C-c ~\r\n\
+  \r\n\
+  --------------------------------------------------------------------------------\r\n\
+  Spreadsheet\r\n\
+  --------------------------------------------------------------------------------\r\n\
+  \r\n\
+  Formulas typed in field are executed by TAB, RET and C-c C-c.  = introduces a\r\n\
+  column formula, := a field formula.\r\n\
+  \r\n\
+  Example: Add Col1 and Col2                        |=$1+$2 |\r\n\
+  ... with printf format specification              |=$1+$2;%.2f|\r\n\
+  ... with constants from constants.el              |=$1/$c/$cm |\r\n\
+  sum from 2nd to 3rd hline                         |:=vsum(@II..@III)|\r\n\
+  apply current column formula                      | = |\r\n\
+  set and eval column formula                       C-c =\r\n\
+  set and eval field formula                        C-u C-c =\r\n\
+  re-apply all stored equations to current line     C-c *\r\n\
+  re-apply all stored equations to entire table     C-u C-c *\r\n\
+  iterate table to stability                        C-u C-u C-c *\r\n\
+  rotate calculation mark through # * ! $           C-#\r\n\
+  show line, column, formula reference              C-c ?\r\n\
+  toggle coordinate grid                            C-c }\r\n\
+  toggle formula debugger                           C-c {\r\n\
+  \r\n\
+  --------------------------------------------------------------------------------\r\n\
+  Formula Editor\r\n\
+  --------------------------------------------------------------------------------\r\n\
+  \r\n\
+  edit formulas in separate buffer                  C-c '\r\n\
+  exit and install new formulas                     C-c C-c\r\n\
+  exit, install, and apply new formulas             C-u C-c C-c\r\n\
+  abort                                             C-c C-q\r\n\
+  toggle reference style                            C-c C-r\r\n\
+  pretty-print Lisp formula                         TAB\r\n\
+  complete Lisp symbol                              M-TAB\r\n\
+  shift reference point                             S-cursor\r\n\
+  shift test line for column references             M-up/down\r\n\
+  scroll the window showing the table               M-S-up/down\r\n\
+  toggle table coordinate grid                      C-c }\r\n\
+  \r\n\
+  ================================================================================\r\n\
+  Links\r\n\
+  ================================================================================\r\n\
+  \r\n\
+  globally store link to the current location       C-c l [1]\r\n\
+  insert a link (TAB completes stored links)        C-c C-l\r\n\
+  insert file link with file name completion        C-u C-c C-l\r\n\
+  edit (also hidden part of) link at point          C-c C-l\r\n\
+  open file links in emacs                          C-c C-o\r\n\
+  ... force open in emacs/other window              C-u C-c C-o\r\n\
+  open link at point                                mouse-1/2\r\n\
+  ... force open in emacs/other window              mouse-3\r\n\
+  record a position in mark ring                    C-c %\r\n\
+  jump back to last followed link(s)                C-c &\r\n\
+  find next link                                    C-c C-x C-n\r\n\
+  find previous link                                C-c C-x C-p\r\n\
+  edit code snippet of file at point                C-c '\r\n\
+  \r\n\
+  --------------------------------------------------------------------------------\r\n\
+  Internal Links\r\n\
+  --------------------------------------------------------------------------------\r\n\
+  \r\n\
+  <<My Target>>                                     target\r\n\
+  <<<My Target>>>                                   radio target [2]\r\n\
+  [[*this text]]                                    find headline\r\n\
+  [[this text]]                                     find target or text in buffer\r\n\
+  [[this text][description]]                        optional link text\r\n\
+  \r\n\
+  --------------------------------------------------------------------------------\r\n\
+  External Links\r\n\
+  --------------------------------------------------------------------------------\r\n\
+  \r\n\
+  file:/home/dominik/img/mars.jpg                   file, absolute\r\n\
+  file:papers/last.pdf                              file, relative\r\n\
+  file:projects.org::*that text                     find headline\r\n\
+  file:projects.org::find me                        find trgt/string\r\n\
+  http://www.astro.uva.nl/dominik                   on the web\r\n\
+  mailto:adent@galaxy.net                           Email address\r\n\
+  news:comp.emacs                                   Usenet group\r\n\
+  bbdb:Richard Stallman                             BBDB person\r\n\
+  gnus:group                                        GNUS group\r\n\
+  gnus:group#id                                     GNUS message\r\n\
+  vm|wl|mhe|rmail:folder                            Mail folder\r\n\
+  vm|wl|mhe|rmail:folder#id                         Mail message\r\n\
+  info:emacs:Regexps                                Info file:node\r\n\
+  shell:ls *.org                                    shell command\r\n\
+  elisp:(calendar)                                  elisp form\r\n\
+  [[external link][description]]                    optional link text\r\n\
+  \r\n\
+  ================================================================================\r\n\
+  Completion\r\n\
+  ================================================================================\r\n\
+  \r\n\
+  In-buffer completion completes TODO keywords at headline start, TeX macros\r\n\
+  after `\\', option keywords after `#-\xC3\xA2', TAGS after `:', and dictionary words\r\n\
+  elsewhere.\r\n\
+  \r\n\
+  complete word at point                            M-TAB\r\n\
+  \r\n\
+  ================================================================================\r\n\
+  TODO Items and Checkboxes\r\n\
+  ================================================================================\r\n\
+  \r\n\
+  rotate the state of the current item              C-c C-t\r\n\
+  select next/previous state                        S-LEFT/RIGHT\r\n\
+  select next/previous set                          C-S-LEFT/RIGHT\r\n\
+  view TODO items in a sparse tree                  C-c C-v\r\n\
+  view 3rd TODO keyword's sparse tree               C-3 C-c C-v\r\n\
+  set the priority of the current item              C-c , [ABC]\r\n\
+  remove priority cookie from current item          C-c , SPC\r\n\
+  raise/lower priority of current item              S-UP/DOWN [3]\r\n\
+  insert new checkbox item in plain list            M-S-RET\r\n\
+  toggle checkbox(es) in region/entry/at point      C-c C-x C-b\r\n\
+  toggle checkbox at point                          C-c C-c\r\n\
+  checkbox statistics cookies                       insert [/] or [%]\r\n\
+  update checkbox statistics (C-u : whole file)     C-c #\r\n\
+  \r\n\
+  ================================================================================\r\n\
+  Tags\r\n\
+  ================================================================================\r\n\
+  \r\n\
+  set tags for current heading                      C-c C-c\r\n\
+  realign tags in all headings                      C-u C-c C-c\r\n\
+  create sparse tree with matching tags             C-c \\\r\n\
+  globally (agenda) match tags at cursor            C-c C-o\r\n\
+  \r\n\
+  \\section{Properties and Column View}\r\n\
+  \r\n\
+  \\key{set property}{C-c C-x p}\r\n\
+  \\key{special commands in property lines}{C-c C-c}\r\n\
+  \\key{next/previous allowed value}{S-left/right}\r\n\
+  \\key{turn on column view}{C-c C-x C-c}\r\n\
+  \\key{capture columns view in dynamic block}{C-c C-x r}\r\n\
+  \r\n\
+  \\key{quit column view}{q}\r\n\
+  \\key{next/previous allowed value}{S-left/right}\r\n\
+  \\key{next/previous allowed value}{n / p}\r\n\
+  \\key{edit value}{e}\r\n\
+  \\key{edit allowed values list}{a}\r\n\
+  \\key{show value}{v}\r\n\
+  \\key{make column wider/narrower}{> / <}\r\n\
+  \\key{move column left/right}{M-left/right}\r\n\
+  \\key{add new column}{M-S-right}\r\n\
+  \\key{Delete current column}{M-S-left}\r\n\
+  \r\n\
+  \r\n\
+  \r\n\
+  ================================================================================\r\n\
+  Timestamps\r\n\
+  ================================================================================\r\n\
+  \r\n\
+  prompt for date and insert timestamp              C-c .\r\n\
+  like C-c . but insert date and time format        C-u C-c .\r\n\
+  like C-c . but make stamp inactive                C-c !\r\n\
+  insert DEADLINE timestamp                         C-c C-d\r\n\
+  insert SCHEDULED timestamp                        C-c C-s\r\n\
+  create sparse tree with all deadlines due         C-c C-w\r\n\
+  the time between 2 dates in a time range          C-c C-y\r\n\
+  change timestamp at cursor by \xC3\x82\xC2\xB11 day              S-RIGHT/LEFT [3]\r\n\
+  change year/month/day at cursor by \xC3\x82\xC2\xB11             S-UP/DOWN [3]\r\n\
+  access the calendar for the current date          C-c >\r\n\
+  insert timestamp matching date in calendar        C-c <\r\n\
+  access agenda for current date                    C-c C-o\r\n\
+  select date while prompted                        mouse-1/RET\r\n\
+  toggle custom format display for dates/times      C-c C-x C-t\r\n\
+  \r\n\
+  --------------------------------------------------------------------------------\r\n\
+  Clocking time\r\n\
+  --------------------------------------------------------------------------------\r\n\
+  \r\n\
+  start clock on current item                       C-c C-x C-i\r\n\
+  stop clock on current item                        C-c C-x C-o\r\n\
+  cancel current clock                              C-c C-x C-x\r\n\
+  display total subtree times                       C-c C-x C-d\r\n\
+  remove displayed times                            C-c C-c\r\n\
+  insert/update table with clock report             C-c C-x C-r\r\n\
+  \r\n\
+  ================================================================================\r\n\
+  Agenda Views\r\n\
+  ================================================================================\r\n\
+  \r\n\
+  add/move current file to front of agenda          C-c [\r\n\
+  remove current file from your agenda              C-c ]\r\n\
+  cycle through agenda file list                    C-'\r\n\
+  compile agenda for the current week               C-c a a [1]\r\n\
+  compile global TODO list                          C-c a t [1]\r\n\
+  compile TODO list for specific keyword            C-c a T [1]\r\n\
+  match tags, todo kwds and properties              C-c a m [1]\r\n\
+  match only in TODO entries                        C-c a M [1]\r\n\
+  find stuck projects                               C-c a # [1]\r\n\
+  show timeline of current org file                 C-c a L [1]\r\n\
+  configure custom commands                         C-c a C [1]\r\n\
+  configure stuck projects                          C-c a ! [1]\r\n\
+  agenda for date at cursor                         C-c C-o\r\n\
+  \r\n\
+  To set categories, add lines like [2]:\r\n\
+  #+CATEGORY: MyCateg\r\n\
+  \r\n\
+  --------------------------------------------------------------------------------\r\n\
+  Commands available in an agenda buffer\r\n\
+  --------------------------------------------------------------------------------\r\n\
+  \r\n\
+  --------------------------------------------------------------------------------\r\n\
+  View Org file\r\n\
+  --------------------------------------------------------------------------------\r\n\
+  \r\n\
+  show original location of item                    SPC/mouse-3\r\n\
+  show and recenter window                          L\r\n\
+  goto original location in other window            TAB/mouse-2\r\n\
+  goto original location, delete other windows      RET\r\n\
+  show subtree in indirect buffer, ded. frame       b\r\n\
+  toggle follow-mode                                f\r\n\
+  \r\n\
+  --------------------------------------------------------------------------------\r\n\
+  Change display\r\n\
+  --------------------------------------------------------------------------------\r\n\
+  \r\n\
+  delete other windows                              o\r\n\
+  switch to day/week/month/year view                d/w/m/y\r\n\
+  toggle inclusion of diary entries                 D\r\n\
+  toggle time grid for daily schedule               G\r\n\
+  toggle display of logbook entries                 l\r\n\
+  toggle inclusion of archived trees/files          v / C-u v}\r\n\
+  refresh agenda buffer with any changes            r / g\r\n\
+  filter agenda with repect to a tag                /\r\n\
+  save all org-mode buffers                         s\r\n\
+  display the next/previous day, week,...           RIGHT/LEFT\r\n\
+  goto today                                        .\r\n\
+  \r\n\
+  --------------------------------------------------------------------------------\r\n\
+  Remote editing\r\n\
+  --------------------------------------------------------------------------------\r\n\
+  \r\n\
+  digit argument                                    0-9\r\n\
+  change state of current TODO item                 t\r\n\
+  kill item and source                              C-k\r\n\
+  archive the subtree                               $ / a / A\r\n\
+  show tags of current headline                     T\r\n\
+  set tags for current headline                     :\r\n\
+  toggle ARCHIVE tag                                a\r\n\
+  set priority of current item                      p\r\n\
+  raise/lower priority of current item              S-UP/DOWN [3]\r\n\
+  display weighted priority of current item         P\r\n\
+  schedule/set deadline for this item               C-c C-s/d\r\n\
+  change timestamp to one day earlier/later         S-LEFT/RIGHT [3]\r\n\
+  change timestamp to today                         >\r\n\
+  insert new entry into diary                       i\r\n\
+  start/stop/cancel the clock in current item       I / O / X\r\n\
+  jump to running clock entry                       J\r\n\
+  \r\n\
+  \r\n\
+  --------------------------------------------------------------------------------\r\n\
+  Misc\r\n\
+  --------------------------------------------------------------------------------\r\n\
+  \r\n\
+  Open link in current line                         C-c C-o\r\n\
+  \r\n\
+  --------------------------------------------------------------------------------\r\n\
+  Calendar commands\r\n\
+  --------------------------------------------------------------------------------\r\n\
+  \r\n\
+  find agenda cursor date in calendar               c\r\n\
+  compute agenda for calendar cursor date           c\r\n\
+  show phases of the moon                           M\r\n\
+  show sunrise/sunset times                         S\r\n\
+  show holidays                                     H\r\n\
+  convert date to other calendars                   C\r\n\
+  \r\n\
+  --------------------------------------------------------------------------------\r\n\
+  Quit and Exit\r\n\
+  --------------------------------------------------------------------------------\r\n\
+  \r\n\
+  quit agenda, remove agenda buffer                 q\r\n\
+  exit agenda, remove all agenda buffers            x\r\n\
+  \r\n\
+  ================================================================================\r\n\
+  Calendar and Diary Integration\r\n\
+  ================================================================================\r\n\
+  \r\n\
+  Include Emacs diary entries into Org-mode agenda with:\r\n\
+  (setq org-agenda-include-diary t)\r\n\
+  \r\n\
+  ================================================================================\r\n\
+  LaTeX and cdlatex-mode\r\n\
+  ================================================================================\r\n\
+  \r\n\
+  preview LaTeX fragment                            C-c C-x C-l\r\n\
+  expand abbreviation (cdlatex-mode)                TAB\r\n\
+  insert/modify math symbol (cdlatex-mode)          ` / '\r\n\
+  \r\n\
+  ================================================================================\r\n\
+  Exporting and Publishing\r\n\
+  ================================================================================\r\n\
+  \r\n\
+  Exporting creates files with extensions .txt and .html in the current\r\n\
+  directory.  Publishing puts the resulting file into some other place.\r\n\
+  \r\n\
+  export/publish dispatcher                         C-c C-e\r\n\
+  export visible part only                          C-c C-e v\r\n\
+  insert template of export options                 C-c C-x t\r\n\
+  toggle fixed width for entry or region            C-c :\r\n\
+  \r\n\
+  --------------------------------------------------------------------------------\r\n\
+  Comments: Text not being exported\r\n\
+  --------------------------------------------------------------------------------\r\n\
+  \r\n\
+  Text before the first headline is not considered part of the document and is\r\n\
+  therefore never exported.  Lines starting with # are comments and are not\r\n\
+  exported.  Subtrees whose header starts with COMMENT are never exported.\r\n\
+  \r\n\
+  toggle COMMENT keyword on entry                   C-c ;\r\n\
+  \r\n\
+  ================================================================================\r\n\
+  Dynamic Blocks\r\n\
+  ================================================================================\r\n\
+  \r\n\
+  update dynamic block at point                     C-c C-x C-u\r\n\
+  update all dynamic blocks                         C-u C-c C-x C-u\r\n\
+  \r\n\
+  ================================================================================\r\n\
+  Notes\r\n\
+  ================================================================================\r\n\
+  \r\n\
+  [1] This is only a suggestion for a binding of this command.  Choose you own\r\n\
+  key as shown under INSTALLATION.\r\n\
+  \r\n\
+  [2] After changing a #+KEYWORD or <<<target>>> line, press C-c C-c with the\r\n\
+  cursor still in the line to update.\r\n\
+  \r\n\
+  [3] Keybinding affected by org-CUA-compatibility."

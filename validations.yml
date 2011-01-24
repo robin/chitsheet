@@ -1,10 +1,11 @@
 --- 
 validations: |-
   Basic Validations
+  http://ar.rubyonrails.com/classes/ActiveRecord/Validations/ClassMethods.html
   
   def validate
     unless name && name =~ /^\w+$/
-      errors.add(:name, "is missing or valid")
+      errors.add(:name, "is missing or invalid")
     end
   end
   
@@ -15,24 +16,30 @@ validations: |-
   end
   
   
-  Validation Helpers
+  validates_acceptance_of
+    Validates that the value of the attribute is the string "1" or the value of the :accept parameter. Useful for checkboxes.
+  validates_associated
+  validates_confirmation_of
+  validates_each
+  validates_exclusion_of
+  validates_format_of
+  validates_inclusion_of
+  validates_length_of
+  validates_numericality_of
+  validates_presence_of
+  validates_size_of
+  validates_uniqueness_of
   
-  validates_acceptance_of attr... [ options... ]
-  
-  Validates that the value of the attribute is the string "1" or the value of the :accept parameter. Useful for checkboxes.
-  
-  Options:
-  :accept     value     The value that signifies acceptance (defaults to 1)
-  :allow_nil  boolean
-  :if         code
-  :message    text      Default is "must be accepted"
-  :on                   :save, :create, or :update
+  DEFAULT_VALIDATION_OPTIONS = { :on => :save, :allow_nil => false, :allow_blank => false, :message => nil
+  ALL_RANGE_OPTIONS = [ :is, :within, :in, :minimum, :maximum ].freeze
+  ALL_NUMERICALITY_CHECK = { :greater_than => '>', :greater_than_or_equal_to => '>=', :equal_to => '==', :less_than => '<', :less_than_or_equal_to => '<=', :odd => 'odd?', :even => 'even?' }.freeze
   
   
-  validates_associated name... [ options... ]
-  
-  (details go here)
-  
-  validates_confirmation_of attr... [ options... ]
-  
-  (details go here)
+  validates_length_of :first_name, :maximum=>30
+  validates_length_of :last_name, :maximum=>30, :message=>"less than {{count}} if you don't mind"
+  validates_length_of :fax, :in => 7..32, :allow_nil => true
+  validates_length_of :phone, :in => 7..32, :allow_blank => true
+  validates_length_of :user_name, :within => 6..20, :too_long => "pick a shorter name", :too_short => "pick a longer name"
+  validates_length_of :fav_bra_size, :minimum => 1, :too_short => "please enter at least {{count}} character"
+  validates_length_of :smurf_leader, :is => 4, :message => "papa is spelled with {{count}} characters... don't play me."
+  validates_length_of :essay, :minimum => 100, :too_short => "Your essay must be at least {{count}} words."), :tokenizer => lambda {|str| str.scan(/\w+/) }

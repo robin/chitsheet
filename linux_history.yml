@@ -1,0 +1,2 @@
+--- 
+linux_history: For example, if you want to run the last three commands repeatedly, just scroll up to the first one in the sequence, hold down the Control key and tap O as many times as you need. Each time you tap O, one command in the sequence will be executed, and when it hits the last command it goes back to the first one you selected and repeats.

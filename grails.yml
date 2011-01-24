@@ -1,5 +1,5 @@
 --- 
-grails: |
+grails: |-
   Grails Commands:
   grails create-app [AppName]
   grails create-domain-class [lower-case-classname]
@@ -16,4 +16,3 @@ grails: |
   ant test
   grails test-app
   grails run-webtest (with plugin)
-

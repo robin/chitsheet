@@ -1,5 +1,5 @@
 --- 
-io: |
+io: |-
   Basic Math
   
   Io> 1+1
@@ -104,5 +104,3 @@ io: |
   
   Io> s slice(2, 10)
   ==> "is is a "
-  
-

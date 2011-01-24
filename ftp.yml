@@ -1,0 +1,68 @@
+--- 
+ftp: |
+  Terminal ftp commands:
+  
+  ---
+  Notes:
+  	You cannot directly upload entire directories containing files and/or other directories.
+  	'binary' and 'ascii' modes are often set automatically according to file type, so don't worry about them unless you need to.
+  
+  ---
+  First, go to the directory on your machine from/to which you will upload/download files:
+  	cd [directoryName]
+  
+  then connect to the remote machine:
+  	ftp yourdomain.name
+  	(enter login and password when prompted)
+  
+  ---
+  list all files, print current dir, change directory:
+  	ls -al
+  	pwd
+  	cd [directoryName]
+  go up one level to the parent directory:
+  	cd ..
+  add ! to for commands to the local machine:
+  	!ls -al
+  
+  change directory on the local machine you're running on:
+  	lcd [directoryName]
+  
+  ---
+  download/upload a single file from/to the remote directory:
+  	get [fileName]
+  	put [fileName]
+  download/upload multiple files from/to the remote directory:
+  	mget [fileName wildcard or pattern]
+  	mput [fileName wildcard or pattern]	
+  example to upload all .jpg files:
+  	mput *.jpg
+  
+  ---
+  make a directory on the remote machine:
+  	mkdir [directoryName]
+  delete a directory on the remote machine:
+  	rmdir [directoryName]
+  
+  ---
+  delete a file:
+  	delete [fileName]
+  delete multiple files:
+  	delete [fileName wildcard or pattern]
+  example to delete all .jpg files:
+  	delete *.jpg
+  
+  ---
+  turn confirmation on/off:
+  	prompt
+  
+  get help:
+  	help
+  
+  close the ftp session with either:
+  	bye
+  	quit
+  
+  more information online e.g.:
+  	http://linux.about.com/od/commands/l/blcmdl1_ftp.htm
+

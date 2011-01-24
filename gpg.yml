@@ -1,0 +1,20 @@
+--- 
+gpg: |-
+  Create a key:
+    gpg --gen-key
+  
+  List all known keys:
+    gpg --list-keys
+  
+  Export a public key (to give to someone):
+    gpg --armor --export EMAIL > KEYFILE
+  
+  Import a public key (you've received from someone):
+    gpg --import KEYFILE
+  
+  Encrypt file with someone's public key:
+    (Import their public key first.  You'll be prompted for the recipient.)
+    gpg --out ENCRYPTED-FILE --encrypt DECRYPTED-FILE
+  
+  Decrypt a file that has been encrypted with your public key:
+    gpg --out DECRYPTED-FILE --decrypt ENCRYPTED-FILE

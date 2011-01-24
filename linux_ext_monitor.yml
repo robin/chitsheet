@@ -1,0 +1,16 @@
+--- 
+linux_ext_monitor: |-
+  See: http://promberger.info/linux/2007/12/20/external-monitor-on-thinkpad-x41-running-xubuntu-gutsy/
+  See: http://www.thinkwiki.org/wiki/Installing_Ubuntu_6.06.1_on_a_ThinkPad_R60e#Intel_945GM_with_the_xorg_Intel_driver
+  
+  Project to external monitor:
+    xrandr --output VGA --auto
+  
+  Project to external monitor with a specific resolution:
+    xrandr --output VGA --mode 1280x1024
+  
+  Turn off projecting to external monitor:
+    xrandr --output LVDS --auto --output VGA --off
+  
+  One big virtual screen across both monitors:
+    xrandr --output VGA --right-of LVDS --mode 1280x1024

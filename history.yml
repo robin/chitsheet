@@ -1,5 +1,5 @@
 --- 
-history: |
+history: |-
   Your history:
   
       % which firefox
@@ -21,4 +21,3 @@ history: |
       Last arg :     % vi !./f:$     becomes:   % vi foo.conf
       All args :     % ./bar !./f:*  becomes:   % ./bar -f foo.conf
       First arg:     % svn ci !vi:1  becomes:   % svn ci foo.c
-

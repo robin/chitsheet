@@ -1,0 +1,10 @@
+--- 
+orgmode_filter_and_sparse_trees: |-
+  ================================================================================
+  Filtering and Sparse Trees
+  ================================================================================
+  
+  construct a sparse tree by various criteria       C-c /
+  view TODO's in sparse tree                        C-c C-v
+  global TODO list in agenda mode                   C-c a t [1]
+  time sorted view of current org file

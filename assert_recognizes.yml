@@ -1,5 +1,5 @@
 --- 
-assert_recognizes: |
+assert_recognizes: |-
   # 'cheat assertions' for the rest
   
   assert_recognizes(expected_options, path, extras={}, message=nil)
@@ -33,5 +33,3 @@ assert_recognizes: |
   
     # Check a Simply RESTful generated route
     assert_recognizes(list_items_url, 'items/list')
-  
-

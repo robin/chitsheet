@@ -1,0 +1,7 @@
+--- 
+rpm2cpio: |-
+  to list the contents of an rpm:
+    rpm2cpio <blah.rpm> | cpio -t
+  
+  to extract the contents of an rpm:
+    rpm2cpio <blah.rpm> | cpio -ivd [optional files to extract]

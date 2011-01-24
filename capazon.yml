@@ -1,5 +1,5 @@
 --- 
-capazon: |
+capazon: |-
   Capistrano tasks to manage Amazon EC2 Images. Requires Capistrano 2.x
   http://capazon.rubyforge.org/, http://www.capify.org/
   
@@ -26,5 +26,3 @@ capazon: |
   
           #defaults to, um, default
           #set :aws_security_group, "default"
-  
-

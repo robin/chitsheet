@@ -1,0 +1,15 @@
+--- 
+rpm: |-
+  Install a package:                    rpm -ivh {rpm-file} [{rpm-file}] ...
+  Upgrade package:                      rpm -Uvh {rpm-file} [{rpm-file}] ...
+  Erase/remove an installed package:    rpm -ev [--nodeps] {package}
+  List all installed packages:          rpm -qa
+  Show package detail:                  rpm -qi {package}	
+  Validate all files in package:        rpm -V {package}
+  Show package contents:                rpm -q --filesbypkg {package}
+  Show package ownership of file:       rpm -qf {/path/to/file}
+  Show config files for package:        rpm -qc {package-name}	
+  Show config files for command:        rpm -qcf {/path/to/file}
+  Show recently installed RPMs:         rpm -qa --last
+  Show package dependencies:            rpm -qpR {rpm-file}
+                                        rpm -qR {package}

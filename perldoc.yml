@@ -1,0 +1,44 @@
+--- 
+perldoc: |-
+  PERLDOC
+  
+  Language Reference
+  ===
+  Example: perldoc perlfunc
+  
+  * perlsyn - syntax
+  * perldata - Perl data types
+  * perlsub - subroutine function
+  * perlop - operator
+  * perlfunc - function
+  * perlpod - POD plain old documentation
+  * perlpodspec - Plain Old Documentation: format specification and notes
+  * perldiag - various Perl diagnostics
+  * perllexwarn - warning, lexical warnings warning
+  * perldebug - debug debugger
+  * perlvar - Perl predefined variables
+  * perlre - regular expression regex regexp
+  * perlreref - Perl Regular Expressions Reference
+  * perlref - reference pointer data structure structure struct
+  * perlform - format report chart
+  * perlobj - object OOP
+  * perltie - tie
+  * perldbmfilter - Perl DBM Filters
+  * perlipc - Perl interprocess communication (signals, fifos, pipes, safe subprocesses, sockets, and semaphores)
+  * perlfork - Perl's fork() emulation
+  * perlnumber - semantics of numbers and numeric operations in Perl
+  * perlport - Writing portable Perl
+  * perllocale - Perl locale handling (internationalization and localization)
+  * perluniintro - Perl Unicode introduction
+  * perlunicode - Unicode support in Perl
+  * perlebcdic - Considerations for running Perl on EBCDIC platforms
+  * perlsec - Perl security
+  * perlmod - Perl modules (packages and symbol tables)
+  * perlmodlib - constructing new Perl modules and finding existing ones
+  * perlmodstyle - Perl module style guide
+  * perlmodinstall - Installing CPAN Modules
+  * perlnewmod - preparing a new module for distribution
+  * perlcompile - Introduction to the Perl Compiler-Translator
+  * perlfilter - Source Filters
+  * perlglossary - Perl Glossary
+  * CORE - Pseudo-namespace for Perl's core routines

@@ -1,0 +1,29 @@
+--- 
+orgmode_tags: |-
+  ================================================================================
+  Tags
+  ================================================================================
+  
+  set tags for current heading                      C-c C-c
+  realign tags in all headings                      C-u C-c C-c
+  create sparse tree with matching tags             C-c \
+  globally (agenda) match tags at cursor            C-c C-o
+  
+  \section{Properties and Column View}
+  
+  \key{set property}{C-c C-x p}
+  \key{special commands in property lines}{C-c C-c}
+  \key{next/previous allowed value}{S-left/right}
+  \key{turn on column view}{C-c C-x C-c}
+  \key{capture columns view in dynamic block}{C-c C-x r}
+  
+  \key{quit column view}{q}
+  \key{next/previous allowed value}{S-left/right}
+  \key{next/previous allowed value}{n / p}
+  \key{edit value}{e}
+  \key{edit allowed values list}{a}
+  \key{show value}{v}
+  \key{make column wider/narrower}{> / <}
+  \key{move column left/right}{M-left/right}
+  \key{add new column}{M-S-right}
+  \key{Delete current column}{M-S-left}

@@ -1,0 +1,600 @@
+--- 
+vs2005: |-
+  ---
+  Visual Studio 2005
+  
+  
+  Edit.RemoveRow                     Managed Resources Editor::Ctrl+Del
+  Edit.RemoveRow                     Settings Designer::Ctrl+Del
+  Edit.EditCell                      Managed Resources Editor::F2
+  Edit.EditCell                      Settings Designer::F2
+  View.ForwardBrowseContext          Global::Ctrl+Shift+7
+  File.ShowPendingChanges            Global::Ctrl+K, C
+  View.RepositoryExplorer            Global::Ctrl+K, R
+  View.WorkingCopyExplorer           Global::Ctrl+K, W
+  Edit.DeleteBackwards               Text Editor::Shift+Bkspce
+  Edit.DeleteBackwards               Text Editor::Bkspce
+  Edit.DeleteBackwards               DataWarehouse Designer::Shift+Bkspce
+  Edit.DeleteBackwards               DataWarehouse Designer::Bkspce
+  Edit.BreakLine                     Windows Forms Designer::Enter
+  Edit.BreakLine                     Text Editor::Shift+Enter
+  Edit.BreakLine                     Text Editor::Enter
+  Edit.BreakLine                     Report Designer::Enter
+  Edit.BreakLine                     DataWarehouse Designer::Shift+Enter
+  Edit.BreakLine                     DataWarehouse Designer::Enter
+  Edit.BreakLine                     SQL Server Report Designer::Enter
+  Edit.InsertTab                     Windows Forms Designer::Tab
+  Edit.InsertTab                     Text Editor::Tab
+  Edit.InsertTab                     Report Designer::Tab
+  Edit.InsertTab                     DataWarehouse Designer::Tab
+  Edit.InsertTab                     SQL Server Report Designer::Tab
+  Edit.TabLeft                       Windows Forms Designer::Shift+Tab
+  Edit.TabLeft                       Text Editor::Shift+Tab
+  Edit.TabLeft                       Report Designer::Shift+Tab
+  Edit.TabLeft                       DataWarehouse Designer::Shift+Tab
+  Edit.TabLeft                       SQL Server Report Designer::Shift+Tab
+  Edit.CharLeft                      Windows Forms Designer::Left Arrow
+  Edit.CharLeft                      Text Editor::Left Arrow
+  Edit.CharLeft                      Report Designer::Left Arrow
+  Edit.CharLeft                      DataWarehouse Designer::Left Arrow
+  Edit.CharLeft                      SQL Server Report Designer::Left Arrow
+  Edit.CharLeftExtend                Windows Forms Designer::Shift+Left Arrow
+  Edit.CharLeftExtend                Text Editor::Shift+Left Arrow
+  Edit.CharLeftExtend                Report Designer::Shift+Left Arrow
+  Edit.CharLeftExtend                DataWarehouse Designer::Shift+Left Arrow
+  Edit.CharLeftExtend                SQL Server Report Designer::Shift+Left Arrow
+  Edit.CharRight                     Windows Forms Designer::Right Arrow
+  Edit.CharRight                     Text Editor::Right Arrow
+  Edit.CharRight                     Report Designer::Right Arrow
+  Edit.CharRight                     DataWarehouse Designer::Right Arrow
+  Edit.CharRight                     SQL Server Report Designer::Right Arrow
+  Edit.CharRightExtend               Windows Forms Designer::Shift+Right Arrow
+  Edit.CharRightExtend               Text Editor::Shift+Right Arrow
+  Edit.CharRightExtend               Report Designer::Shift+Right Arrow
+  Edit.CharRightExtend               DataWarehouse Designer::Shift+Right Arrow
+  Edit.CharRightExtend               SQL Server Report Designer::Shift+Right Arrow
+  Edit.LineUp                        Windows Forms Designer::Up Arrow
+  Edit.LineUp                        Text Editor::Up Arrow
+  Edit.LineUp                        Report Designer::Up Arrow
+  Edit.LineUp                        DataWarehouse Designer::Up Arrow
+  Edit.LineUp                        SQL Server Report Designer::Up Arrow
+  Edit.LineUpExtend                  Windows Forms Designer::Shift+Down Arrow
+  Edit.LineUpExtend                  Text Editor::Shift+Up Arrow
+  Edit.LineUpExtend                  Report Designer::Shift+Up Arrow
+  Edit.LineUpExtend                  DataWarehouse Designer::Shift+Up Arrow
+  Edit.LineUpExtend                  SQL Server Report Designer::Shift+Up Arrow
+  Edit.LineDown                      Windows Forms Designer::Down Arrow
+  Edit.LineDown                      Text Editor::Down Arrow
+  Edit.LineDown                      Report Designer::Down Arrow
+  Edit.LineDown                      DataWarehouse Designer::Down Arrow
+  Edit.LineDown                      SQL Server Report Designer::Down Arrow
+  Edit.LineDownExtend                Windows Forms Designer::Shift+Up Arrow
+  Edit.LineDownExtend                Text Editor::Shift+Down Arrow
+  Edit.LineDownExtend                Report Designer::Shift+Down Arrow
+  Edit.LineDownExtend                DataWarehouse Designer::Shift+Down Arrow
+  Edit.LineDownExtend                SQL Server Report Designer::Shift+Down Arrow
+  Edit.DocumentStart                 Windows Forms Designer::Home
+  Edit.DocumentStart                 Text Editor::Ctrl+Home
+  Edit.DocumentStart                 DataWarehouse Designer::Ctrl+Home
+  Edit.DocumentStartExtend           Windows Forms Designer::Shift+Home
+  Edit.DocumentStartExtend           Text Editor::Ctrl+Shift+Home
+  Edit.DocumentStartExtend           DataWarehouse Designer::Ctrl+Shift+Home
+  Edit.DocumentEnd                   Windows Forms Designer::End
+  Edit.DocumentEnd                   Text Editor::Ctrl+End
+  Edit.DocumentEnd                   DataWarehouse Designer::Ctrl+End
+  Edit.DocumentEndExtend             Windows Forms Designer::Shift+End
+  Edit.DocumentEndExtend             Text Editor::Ctrl+Shift+End
+  Edit.DocumentEndExtend             DataWarehouse Designer::Ctrl+Shift+End
+  Edit.LineStart                     Text Editor::Home
+  Edit.LineStart                     DataWarehouse Designer::Home
+  Edit.LineStartExtend               Text Editor::Shift+Home
+  Edit.LineStartExtend               DataWarehouse Designer::Shift+Home
+  Edit.LineEnd                       Text Editor::End
+  Edit.LineEnd                       DataWarehouse Designer::End
+  Edit.LineEndExtend                 Text Editor::Shift+End
+  Edit.LineEndExtend                 DataWarehouse Designer::Shift+End
+  Edit.PageUp                        Text Editor::PgUp
+  Edit.PageUp                        DataWarehouse Designer::PgUp
+  Edit.PageUpExtend                  Text Editor::Shift+PgUp
+  Edit.PageUpExtend                  DataWarehouse Designer::Shift+PgUp
+  Edit.PageDown                      Text Editor::PgDn
+  Edit.PageDown                      DataWarehouse Designer::PgDn
+  Edit.PageDownExtend                Text Editor::Shift+PgDn
+  Edit.PageDownExtend                DataWarehouse Designer::Shift+PgDn
+  Edit.ViewTop                       Text Editor::Ctrl+PgUp
+  Edit.ViewTop                       DataWarehouse Designer::Ctrl+PgUp
+  Edit.ViewTopExtend                 Text Editor::Ctrl+Shift+PgUp
+  Edit.ViewTopExtend                 DataWarehouse Designer::Ctrl+Shift+PgUp
+  Edit.ViewBottom                    Text Editor::Ctrl+PgDn
+  Edit.ViewBottom                    DataWarehouse Designer::Ctrl+PgDn
+  Edit.ViewBottomExtend              Text Editor::Ctrl+Shift+PgDn
+  Edit.ViewBottomExtend              DataWarehouse Designer::Ctrl+Shift+PgDn
+  Edit.ScrollLineUp                  VC Dialog Editor::Ctrl+Up Arrow
+  Edit.ScrollLineUp                  Text Editor::Ctrl+Up Arrow
+  Edit.ScrollLineUp                  DataWarehouse Designer::Ctrl+Up Arrow
+  Edit.ScrollLineDown                VC Dialog Editor::Ctrl+Down Arrow
+  Edit.ScrollLineDown                Text Editor::Ctrl+Down Arrow
+  Edit.ScrollLineDown                DataWarehouse Designer::Ctrl+Down Arrow
+  Edit.ScrollColumnLeft              VC Dialog Editor::Ctrl+Left Arrow
+  Edit.ScrollColumnRight             VC Dialog Editor::Ctrl+Right Arrow
+  Edit.MakeLowercase                 Text Editor::Ctrl+U
+  Edit.MakeLowercase                 DataWarehouse Designer::Ctrl+U
+  Edit.MakeUppercase                 Text Editor::Ctrl+Shift+U
+  Edit.MakeUppercase                 DataWarehouse Designer::Ctrl+Shift+U
+  Edit.SwapAnchor                    Text Editor::Ctrl+K, Ctrl+A
+  Edit.SwapAnchor                    DataWarehouse Designer::Ctrl+R, Ctrl+P
+  Edit.GotoBrace                     Text Editor::Ctrl+]
+  Edit.GotoBrace                     DataWarehouse Designer::Ctrl+]
+  Edit.GotoBraceExtend               Text Editor::Ctrl+Shift+]
+  Edit.GotoBraceExtend               DataWarehouse Designer::Ctrl+Shift+]
+  Edit.OvertypeMode                  Text Editor::Ins
+  Edit.OvertypeMode                  DataWarehouse Designer::Ins
+  Edit.LineCut                       Text Editor::Ctrl+L
+  Edit.LineCut                       DataWarehouse Designer::Ctrl+L
+  Edit.LineDelete                    Text Editor::Ctrl+Shift+L
+  Edit.LineDelete                    DataWarehouse Designer::Ctrl+Shift+L
+  Edit.DeleteHorizontalWhiteSpace    Text Editor::Ctrl+K, Ctrl+\
+  Edit.DeleteHorizontalWhiteSpace    DataWarehouse Designer::Ctrl+K, Ctrl+\
+  Edit.LineOpenAbove                 Text Editor::Ctrl+Enter
+  Edit.LineOpenAbove                 DataWarehouse Designer::Ctrl+Enter
+  Edit.LineOpenBelow                 Text Editor::Ctrl+Shift+Enter
+  Edit.LineOpenBelow                 DataWarehouse Designer::Ctrl+Shift+Enter
+  Edit.ClearBookmarks                Text Editor::Ctrl+K, Ctrl+L
+  Edit.ClearBookmarks                DataWarehouse Designer::Ctrl+K, Ctrl+L
+  Edit.ToggleBookmark                Text Editor::Ctrl+K, Ctrl+K
+  Edit.ToggleBookmark                DataWarehouse Designer::Ctrl+K, Ctrl+K
+  Edit.NextBookmark                  Global::Ctrl+K, Ctrl+N
+  Edit.NextBookmark                  DataWarehouse Designer::Ctrl+K, Ctrl+N
+  Edit.PreviousBookmark              Global::Ctrl+K, Ctrl+P
+  Edit.PreviousBookmark              DataWarehouse Designer::Ctrl+K, Ctrl+P
+  Edit.CharTranspose                 Text Editor::Ctrl+T
+  Edit.CharTranspose                 DataWarehouse Designer::Ctrl+T
+  Edit.WordTranspose                 Text Editor::Ctrl+Shift+T
+  Edit.WordTranspose                 DataWarehouse Designer::Ctrl+Shift+T
+  Edit.LineTranspose                 Text Editor::Shift+Alt+T
+  Edit.LineTranspose                 DataWarehouse Designer::Shift+Alt+T
+  Edit.SelectCurrentWord             Text Editor::Ctrl+W
+  Edit.SelectCurrentWord             DataWarehouse Designer::Ctrl+W
+  Edit.WordDeleteToEnd               Text Editor::Ctrl+Del
+  Edit.WordDeleteToEnd               DataWarehouse Designer::Ctrl+Del
+  Edit.WordDeleteToStart             Text Editor::Ctrl+Bkspce
+  Edit.WordDeleteToStart             DataWarehouse Designer::Ctrl+Bkspce
+  Edit.WordPrevious                  Text Editor::Ctrl+Left Arrow
+  Edit.WordPrevious                  DataWarehouse Designer::Ctrl+Left Arrow
+  Edit.WordPreviousExtend            Text Editor::Ctrl+Shift+Left Arrow
+  Edit.WordPreviousExtend            DataWarehouse Designer::Ctrl+Shift+Left Arrow
+  Edit.WordNext                      Text Editor::Ctrl+Right Arrow
+  Edit.WordNext                      DataWarehouse Designer::Ctrl+Right Arrow
+  Edit.WordNextExtend                Text Editor::Ctrl+Shift+Right Arrow
+  Edit.WordNextExtend                DataWarehouse Designer::Ctrl+Shift+Right Arrow
+  Edit.SelectionCancel               Windows Forms Designer::Esc
+  Edit.SelectionCancel               Text Editor::Esc
+  Edit.SelectionCancel               Report Designer::Esc
+  Edit.SelectionCancel               Managed Resources Editor::Esc
+  Edit.SelectionCancel               Settings Designer::Esc
+  Edit.SelectionCancel               DataWarehouse Designer::Esc
+  Edit.SelectionCancel               SQL Server Report Designer::Esc
+  Edit.ParameterInfo                 Text Editor::Ctrl+Shift+Space
+  Edit.ParameterInfo                 DataWarehouse Designer::Ctrl+Shift+Space
+  Edit.ViewWhiteSpace                Text Editor::Ctrl+R, Ctrl+W
+  Edit.ViewWhiteSpace                DataWarehouse Designer::Ctrl+R, Ctrl+W
+  Edit.CompleteWord                  Text Editor::Alt+Right Arrow
+  Edit.CompleteWord                  Text Editor::Ctrl+Space
+  Edit.CompleteWord                  DataWarehouse Designer::Alt+Right Arrow
+  Edit.CompleteWord                  DataWarehouse Designer::Ctrl+Space
+  Edit.ListMembers                   Text Editor::Ctrl+J
+  Edit.ListMembers                   DataWarehouse Designer::Ctrl+J
+  Edit.FormatSelection               Text Editor::Ctrl+K, Ctrl+F
+  Edit.FormatSelection               DataWarehouse Designer::Ctrl+K, Ctrl+F
+  Edit.ToggleTaskListShortcut        Text Editor::Ctrl+K, Ctrl+H
+  Edit.ToggleTaskListShortcut        DataWarehouse Designer::Ctrl+K, Ctrl+H
+  Edit.QuickInfo                     Text Editor::Ctrl+K, Ctrl+I
+  Edit.QuickInfo                     DataWarehouse Designer::Ctrl+K, Ctrl+I
+  Edit.CharLeftExtendColumn          Text Editor::Shift+Alt+Left Arrow
+  Edit.CharLeftExtendColumn          DataWarehouse Designer::Shift+Alt+Left Arrow
+  Edit.CharRightExtendColumn         Text Editor::Shift+Alt+Right Arrow
+  Edit.CharRightExtendColumn         DataWarehouse Designer::Shift+Alt+Right Arrow
+  Edit.LineUpExtendColumn            Text Editor::Shift+Alt+Up Arrow
+  Edit.LineUpExtendColumn            DataWarehouse Designer::Shift+Alt+Up Arrow
+  Edit.LineDownExtendColumn          Text Editor::Shift+Alt+Down Arrow
+  Edit.LineDownExtendColumn          DataWarehouse Designer::Shift+Alt+Down Arrow
+  Edit.ToggleWordWrap                Text Editor::Ctrl+E, Ctrl+W
+  Edit.ToggleWordWrap                DataWarehouse Designer::Ctrl+R, Ctrl+R
+  Edit.IncrementalSearch             Text Editor::Ctrl+I
+  Edit.IncrementalSearch             DataWarehouse Designer::Ctrl+I
+  Edit.ReverseIncrementalSearch      Text Editor::Ctrl+Shift+I
+  Edit.ReverseIncrementalSearch      DataWarehouse Designer::Ctrl+Shift+I
+  Edit.LineStartExtendColumn         Text Editor::Shift+Alt+Home
+  Edit.LineStartExtendColumn         DataWarehouse Designer::Shift+Alt+Home
+  Edit.LineEndExtendColumn           Text Editor::Shift+Alt+End
+  Edit.LineEndExtendColumn           DataWarehouse Designer::Shift+Alt+End
+  Edit.WordPreviousExtendColumn      Text Editor::Ctrl+Shift+Alt+Left Arrow
+  Edit.WordPreviousExtendColumn      DataWarehouse Designer::Ctrl+Shift+Alt+Left Arrow
+  Edit.WordNextExtendColumn          Text Editor::Ctrl+Shift+Alt+Right Arrow
+  Edit.WordNextExtendColumn          DataWarehouse Designer::Ctrl+Shift+Alt+Right Arrow
+  Edit.HideSelection                 Text Editor::Ctrl+M, Ctrl+H
+  Edit.HideSelection                 DataWarehouse Designer::Ctrl+M, Ctrl+H
+  Edit.ToggleOutliningExpansion      Text Editor::Ctrl+M, Ctrl+M
+  Edit.ToggleOutliningExpansion      DataWarehouse Designer::Ctrl+M, Ctrl+M
+  Edit.ToggleAllOutlining            Text Editor::Ctrl+M, Ctrl+L
+  Edit.ToggleAllOutlining            DataWarehouse Designer::Ctrl+M, Ctrl+L
+  Edit.StopOutlining                 Text Editor::Ctrl+M, Ctrl+P
+  Edit.StopOutlining                 DataWarehouse Designer::Ctrl+M, Ctrl+P
+  Edit.StopHidingCurrent             Text Editor::Ctrl+M, Ctrl+U
+  Edit.StopHidingCurrent             DataWarehouse Designer::Ctrl+M, Ctrl+U
+  Edit.CollapsetoDefinitions         Text Editor::Ctrl+M, Ctrl+O
+  Edit.CollapsetoDefinitions         DataWarehouse Designer::Ctrl+M, Ctrl+O
+  Edit.CommentSelection              Text Editor::Ctrl+K, Ctrl+C
+  Edit.CommentSelection              DataWarehouse Designer::Ctrl+K, Ctrl+C
+  Edit.UncommentSelection            Text Editor::Ctrl+K, Ctrl+U
+  Edit.UncommentSelection            DataWarehouse Designer::Ctrl+K, Ctrl+U
+  Edit.OpenFile                      Global::Ctrl+Shift+G
+  Edit.SelectToLastGoBack            Text Editor::Ctrl+=
+  Edit.SelectToLastGoBack            DataWarehouse Designer::Ctrl+=
+  Edit.FormatDocument                Text Editor::Ctrl+K, Ctrl+D
+  Edit.FormatDocument                DataWarehouse Designer::Ctrl+K, Ctrl+D
+  Edit.IncreaseFilterLevel           Text Editor::Alt+.
+  Edit.DecreaseFilterLevel           Text Editor::Alt+,
+  View.ShowSmartTag                  Global::Shift+Alt+F10
+  View.ShowSmartTag                  HTML Editor Design View::Shift+Alt+F10
+  View.ShowSmartTag                  Global::Ctrl+.
+  Edit.CopyParameterTip              Text Editor::Ctrl+Shift+Alt+C
+  Edit.PasteParameterTip             Text Editor::Ctrl+Shift+Alt+P
+  View.VisibleBorders                HTML Editor Design View::Ctrl+Q
+  View.Details                       HTML Editor Design View::Ctrl+Shift+Q
+  Layout.InsertColumntotheLeft       HTML Editor Design View::Ctrl+Alt+Left Arrow
+  Layout.InsertColumntotheRight      HTML Editor Design View::Ctrl+Alt+Right Arrow
+  Layout.InsertRowAbove              HTML Editor Design View::Ctrl+Alt+Up Arrow
+  Layout.InsertRowBelow              HTML Editor Design View::Ctrl+Alt+Down Arrow
+  Format.InsertBookmark              HTML Editor Design View::Ctrl+Shift+L
+  Format.ConverttoHyperlink          HTML Editor Design View::Ctrl+L
+  View.AutoCloseTagOverride          HTML Editor Source View::Ctrl+Shift+.
+  Schema.Expand                      XML Editor Schema View::Ctrl+=
+  Schema.Collapse                    XML Editor Schema View::Ctrl+-
+  View.EditMaster                    HTML Editor Design View::Ctrl+M, Ctrl+M
+  Edit.InsertSnippet                 Global::Ctrl+K, Ctrl+X
+  Edit.CollapseTag                   Text Editor::Ctrl+M, Ctrl+T
+  View.NonVisualControls             HTML Editor Design View::Ctrl+Alt+Q
+  Build.Compile                      Global::Ctrl+F7
+  Project.AddContentPage             HTML Editor Design View::Ctrl+M, Ctrl+C
+  View.ViewMarkup                    HTML Editor Design View::Shift+F7
+  NewFolder                          Global::Ctrl+K, Ctrl+F
+  Edit.NextBookmarkInFolder          Global::Ctrl+Shift+K, Ctrl+Shift+N
+  Edit.PreviousBookmarkInFolder      Global::Ctrl+Shift+K, Ctrl+Shift+P
+  Format.TestDialog                  VC Dialog Editor::Ctrl+T
+  Format.SpaceAcross                 VC Dialog Editor::Alt+Left Arrow
+  Format.SpaceAcross                 VC Dialog Editor::Alt+Right Arrow
+  Format.SpaceDown                   VC Dialog Editor::Alt+Down Arrow
+  Format.SpaceDown                   VC Dialog Editor::Alt+Up Arrow
+  Format.ToggleGuides                VC Dialog Editor::Ctrl+G
+  Format.SizetoContent               VC Dialog Editor::Shift+F7
+  Format.CenterVertical              VC Dialog Editor::Ctrl+F9
+  Format.CenterHorizontal            VC Dialog Editor::Ctrl+Shift+F9
+  Format.TabOrder                    VC Dialog Editor::Ctrl+D
+  Format.ButtonRight                 VC Dialog Editor::Ctrl+R
+  Format.ButtonBottom                VC Dialog Editor::Ctrl+B
+  Edit.MoveControlLeft               Global::Ctrl+Left Arrow
+  Edit.MoveControlLeft               VC Dialog Editor::Left Arrow
+  Edit.MoveControlLeft               Windows Forms Designer::Ctrl+Left Arrow
+  Edit.MoveControlLeft               Report Designer::Ctrl+Left Arrow
+  Edit.MoveControlLeft               SQL Server Report Designer::Ctrl+Left Arrow
+  Edit.MoveControlDown               Global::Ctrl+Down Arrow
+  Edit.MoveControlDown               VC Dialog Editor::Down Arrow
+  Edit.MoveControlDown               Windows Forms Designer::Ctrl+Down Arrow
+  Edit.MoveControlDown               Report Designer::Ctrl+Down Arrow
+  Edit.MoveControlDown               SQL Server Report Designer::Ctrl+Down Arrow
+  Edit.MoveControlRight              Global::Ctrl+Right Arrow
+  Edit.MoveControlRight              VC Dialog Editor::Right Arrow
+  Edit.MoveControlRight              Windows Forms Designer::Ctrl+Right Arrow
+  Edit.MoveControlRight              Report Designer::Ctrl+Right Arrow
+  Edit.MoveControlRight              SQL Server Report Designer::Ctrl+Right Arrow
+  Edit.MoveControlUp                 Global::Ctrl+Up Arrow
+  Edit.MoveControlUp                 VC Dialog Editor::Up Arrow
+  Edit.MoveControlUp                 Windows Forms Designer::Ctrl+Up Arrow
+  Edit.MoveControlUp                 Report Designer::Ctrl+Up Arrow
+  Edit.MoveControlUp                 SQL Server Report Designer::Ctrl+Up Arrow
+  Edit.SizeControlDown               Global::Ctrl+Shift+Down Arrow
+  Edit.SizeControlDown               VC Dialog Editor::Shift+Down Arrow
+  Edit.SizeControlDown               Windows Forms Designer::Ctrl+Shift+Down Arrow
+  Edit.SizeControlDown               Report Designer::Ctrl+Shift+Down Arrow
+  Edit.SizeControlDown               DataWarehouse Designer::Ctrl+Shift+Down Arrow
+  Edit.SizeControlDown               SQL Server Report Designer::Ctrl+Shift+Down Arrow
+  Edit.SizeControlUp                 Global::Ctrl+Shift+Up Arrow
+  Edit.SizeControlUp                 VC Dialog Editor::Shift+Up Arrow
+  Edit.SizeControlUp                 Windows Forms Designer::Ctrl+Shift+Up Arrow
+  Edit.SizeControlUp                 Report Designer::Ctrl+Shift+Up Arrow
+  Edit.SizeControlUp                 DataWarehouse Designer::Ctrl+Shift+Up Arrow
+  Edit.SizeControlUp                 SQL Server Report Designer::Ctrl+Shift+Up Arrow
+  Edit.SizeControlLeft               Global::Ctrl+Shift+Left Arrow
+  Edit.SizeControlLeft               VC Dialog Editor::Shift+Left Arrow
+  Edit.SizeControlLeft               Windows Forms Designer::Ctrl+Shift+Left Arrow
+  Edit.SizeControlLeft               Report Designer::Ctrl+Shift+Left Arrow
+  Edit.SizeControlLeft               SQL Server Report Designer::Ctrl+Shift+Left Arrow
+  Edit.SizeControlRight              Global::Ctrl+Shift+Right Arrow
+  Edit.SizeControlRight              VC Dialog Editor::Shift+Right Arrow
+  Edit.SizeControlRight              Windows Forms Designer::Ctrl+Shift+Right Arrow
+  Edit.SizeControlRight              Report Designer::Ctrl+Shift+Right Arrow
+  Edit.SizeControlRight              SQL Server Report Designer::Ctrl+Shift+Right Arrow
+  Edit.NewAccelerator                VC Accelerator Editor::Ins
+  Edit.NextKeyTyped                  VC Accelerator Editor::Ctrl+W
+  Image.FlipHorizontal               VC Image Editor::Ctrl+H
+  Image.FlipVertical                 VC Image Editor::Shift+Alt+H
+  Image.Rotate90Degrees              VC Image Editor::Ctrl+Shift+H
+  Edit.NewString                     VC String Editor::Ins
+  Format.CheckMnemonics              VC Dialog Editor::Ctrl+M
+  Image.DrawOpaque                   VC Image Editor::Ctrl+J
+  Image.NewImageType                 VC Image Editor::Ins
+  Image.ShowGrid                     VC Image Editor::Ctrl+Alt+S
+  Image.ShowTileGrid                 VC Image Editor::Ctrl+Shift+Alt+S
+  Image.Magnify                      VC Image Editor::Ctrl+Shift+M
+  Image.RectangleSelectionTool       VC Image Editor::Shift+Alt+S
+  Image.EraseTool                    VC Image Editor::Ctrl+Shift+I
+  Image.FillTool                     VC Image Editor::Ctrl+F
+  Image.PencilTool                   VC Image Editor::Ctrl+I
+  Image.BrushTool                    VC Image Editor::Ctrl+B
+  Image.AirbrushTool                 VC Image Editor::Ctrl+A
+  Image.LineTool                     VC Image Editor::Ctrl+L
+  Image.TextTool                     VC Image Editor::Ctrl+T
+  Image.RectangleTool                VC Image Editor::Alt+R
+  Image.OutlinedRectangleTool        VC Image Editor::Shift+Alt+R
+  Image.FilledRectangleTool          VC Image Editor::Ctrl+Shift+Alt+R
+  Image.RoundedRectangleTool         VC Image Editor::Alt+W
+  Image.OutlinedRoundedRectangleTool VC Image Editor::Shift+Alt+W
+  Image.FilledRoundedRectangleTool   VC Image Editor::Ctrl+Shift+Alt+W
+  Image.EllipseTool                  VC Image Editor::Alt+P
+  Image.OutlinedEllipseTool          VC Image Editor::Shift+Alt+P
+  Image.FilledEllipseTool            VC Image Editor::Ctrl+Shift+Alt+P
+  Image.MagnificationTool            VC Image Editor::Ctrl+M
+  Image.LargerBrush                  VC Image Editor::Ctrl+=
+  Image.SmallBrush                   VC Image Editor::Ctrl+.
+  Image.SmallerBrush                 VC Image Editor::Ctrl+-
+  Image.ZoomIn                       VC Image Editor::Ctrl+Up Arrow
+  Image.ZoomIn                       VC Image Editor::Ctrl+Shift+.
+  Image.ZoomOut                      VC Image Editor::Ctrl+Down Arrow
+  Image.ZoomOut                      VC Image Editor::Ctrl+Shift+,
+  Image.PreviousColor                VC Image Editor::Ctrl+Left Arrow
+  Image.PreviousColor                VC Image Editor::Ctrl+[
+  Image.PreviousRightColor           VC Image Editor::Ctrl+Shift+Left Arrow
+  Image.PreviousRightColor           VC Image Editor::Ctrl+Shift+[
+  Image.NextColor                    VC Image Editor::Ctrl+Right Arrow
+  Image.NextColor                    VC Image Editor::Ctrl+]
+  Image.NextRightColor               VC Image Editor::Ctrl+Shift+Right Arrow
+  Image.NextRightColor               VC Image Editor::Ctrl+Shift+]
+  Edit.ShowTileGrid                  Global::Enter
+  Edit.MoveControlUpGrid             Global::Up Arrow
+  Edit.MoveControlDownGrid           Global::Down Arrow
+  Edit.MoveControlLeftGrid           Global::Left Arrow
+  Edit.MoveControlRightGrid          Global::Right Arrow
+  Edit.SizeControlRightGrid          Global::Shift+Right Arrow
+  Edit.SizeControlUpGrid             Global::Shift+Up Arrow
+  Edit.SizeControlLeftGrid           Global::Shift+Left Arrow
+  Edit.SizeControlDownGrid           Global::Shift+Down Arrow
+  Edit.SelectNextControl             Global::Tab
+  Edit.SelectPreviousControl         Global::Shift+Tab
+  Refactor.Rename                    Global::Ctrl+R, Ctrl+R
+  Refactor.ExtractMethod             Global::Ctrl+R, Ctrl+M
+  Refactor.EncapsulateField          Global::Ctrl+R, Ctrl+E
+  Refactor.ExtractInterface          Global::Ctrl+R, Ctrl+I
+  Refactor.PromoteLocalVariable      Global::Ctrl+R, Ctrl+P
+  Refactor.RemoveParameters          Global::Ctrl+R, Ctrl+V
+  Refactor.ReorderParameters         Global::Ctrl+R, Ctrl+O
+  Edit.GenerateMethodStub            Global::Ctrl+K, Ctrl+M
+  Edit.SurroundWith                  Global::Ctrl+K, Ctrl+S
+  Window.ShowEzMDIFileList           Global::Ctrl+Alt+Down Arrow
+  Window.NextToolWindowNav           Global::Alt+F7
+  Window.PreviousToolWindowNav       Global::Shift+Alt+F7
+  View.ClassViewGoToSearchCombo      Global::Ctrl+K, Ctrl+V
+  View.ObjectBrowserGoToSearchCombo  Global::Ctrl+K, Ctrl+R
+  View.Backward                      Global::Alt+Left Arrow
+  View.Forward                       Global::Alt+Right Arrow
+  View.CodeDefinitionWindow          Global::Ctrl+\, Ctrl+D
+  View.CodeDefinitionWindow          Global::Ctrl+\, D
+  View.ServerExplorer                Global::Ctrl+Alt+S
+  Format.AlignBottoms                VC Dialog Editor::Ctrl+Shift+Down Arrow
+  Format.AlignMiddles                VC Dialog Editor::F9
+  Format.AlignLefts                  VC Dialog Editor::Ctrl+Shift+Left Arrow
+  Format.AlignRights                 VC Dialog Editor::Ctrl+Shift+Right Arrow
+  Format.AlignTops                   VC Dialog Editor::Ctrl+Shift+Up Arrow
+  Format.AlignCenters                VC Dialog Editor::Shift+F9
+  Edit.Copy                          Global::Ctrl+C
+  Edit.Copy                          Global::Ctrl+Ins
+  Edit.Cut                           Global::Ctrl+X
+  Edit.Cut                           Global::Shift+Del
+  Edit.Delete                        Global::Del
+  Edit.Delete                        Class Diagram::Ctrl+Del
+  Edit.Paste                         Global::Ctrl+V
+  Edit.Paste                         Global::Shift+Ins
+  File.Print                         Global::Ctrl+P
+  Edit.Redo                          Global::Ctrl+Y
+  Edit.Redo                          Global::Shift+Alt+Bkspce
+  Edit.Redo                          Global::Ctrl+Shift+Z
+  Edit.SelectAll                     Global::Ctrl+A
+  View.Toolbox                       Global::Ctrl+Alt+X
+  Edit.Undo                          Global::Ctrl+Z
+  Edit.Undo                          Global::Alt+Bkspce
+  Format.Bold                        HTML Editor Design View::Ctrl+B
+  Format.Italic                      HTML Editor Design View::Ctrl+I
+  Format.Underline                   HTML Editor Design View::Ctrl+U
+  Edit.Find                          Global::Ctrl+F
+  QueryDesigner.SQL                  Query Designer::Ctrl+3
+  QueryDesigner.SQL                  View Designer::Ctrl+3
+  QueryDesigner.Diagram              Query Designer::Ctrl+1
+  QueryDesigner.Diagram              View Designer::Ctrl+1
+  QueryDesigner.Results              Query Designer::Ctrl+4
+  QueryDesigner.Results              View Designer::Ctrl+4
+  QueryDesigner.Criteria             Query Designer::Ctrl+2
+  QueryDesigner.Criteria             View Designer::Ctrl+2
+  Edit.Remove                        Managed Resources Editor::Del
+  Debug.StopDebugging                Global::Shift+F5
+  Debug.BreakAll                     Global::Ctrl+Alt+Break
+  QueryDesigner.ExecuteSQL           Query Designer::Ctrl+R
+  QueryDesigner.ExecuteSQL           View Designer::Ctrl+R
+  QueryDesigner.GotoRow              Query Designer::Ctrl+G
+  QueryDesigner.GotoRow              View Designer::Ctrl+G
+  Debug.ScriptExplorer               Global::Ctrl+Alt+N
+  Debug.Threads                      Global::Ctrl+Alt+H
+  File.NewProject                    Global::Ctrl+Shift+N
+  File.OpenProject                   Global::Ctrl+Shift+O
+  Project.AddNewItem                 Global::Ctrl+Shift+A
+  File.NewFile                       Global::Ctrl+N
+  File.OpenFile                      Global::Ctrl+O
+  File.SaveAll                       Global::Ctrl+Shift+S
+  Edit.Replace                       Global::Ctrl+H
+  Edit.GoTo                          Global::Ctrl+G
+  View.PropertyPages                 Global::Shift+F4
+  View.FullScreen                    Global::Shift+Alt+Enter
+  View.SolutionExplorer              Global::Ctrl+Alt+L
+  View.PropertiesWindow              Global::F4
+  View.TaskList                      Global::Ctrl+\, Ctrl+T
+  View.TaskList                      Global::Ctrl+\, T
+  View.Output                        Global::Ctrl+Alt+O
+  View.ObjectBrowser                 Global::Ctrl+Alt+J
+  View.DocumentOutline               Global::Ctrl+Alt+T
+  Debug.Immediate                    Global::Ctrl+Alt+I
+  Debug.Locals                       Global::Ctrl+Alt+V, L
+  Debug.CallStack                    Global::Ctrl+Alt+C
+  Project.AddExistingItem            Global::Shift+Alt+A
+  Debug.StepInto                     Global::F11
+  Debug.StepOver                     Global::F10
+  Debug.StepOut                      Global::Shift+F11
+  Debug.RunToCursor                  Global::Ctrl+F10
+  Debug.QuickWatch                   Global::Ctrl+Alt+Q
+  Debug.QuickWatch                   Global::Shift+F9
+  Debug.ToggleBreakpoint             Global::F9
+  Debug.DeleteAllBreakpoints         Global::Ctrl+Shift+F9
+  Debug.SetNextStatement             Global::Ctrl+Shift+F10
+  Debug.ShowNextStatement            Global::Alt+Num *
+  Edit.FindinFiles                   Global::Ctrl+Shift+F
+  Edit.ReplaceinFiles                Global::Ctrl+Shift+H
+  Edit.GoToNextLocation              Global::F8
+  Edit.GoToPrevLocation              Global::Shift+F8
+  Window.NextTab                     Global::Ctrl+PgDn
+  Window.PreviousTab                 Global::Ctrl+PgUp
+  Window.PreviousTab                 HTML Editor Design View::Ctrl+PgUp
+  Window.PreviousTab                 HTML Editor Source View::Ctrl+PgUp
+  Window.CloseToolWindow             Global::Shift+Esc
+  Window.ActivateDocumentWindow      Global::Esc
+  Window.MovetoNavigationBar         Global::Ctrl+F2
+  Debug.Start                        Global::F5
+  Debug.Restart                      Global::Ctrl+Shift+F5
+  Window.NextPane                    Global::Alt+F6
+  Window.PreviousPane                Global::Shift+Alt+F6
+  View.ErrorList                     Global::Ctrl+\, Ctrl+E
+  View.ErrorList                     Global::Ctrl+\, E
+  File.SaveSelectedItems             Global::Ctrl+S
+  View.ViewDesigner                  HTML Editor Source View::Shift+F7
+  View.ViewCode                      Class Diagram::Enter
+  File.ViewinBrowser                 Global::Ctrl+Shift+W
+  View.EditLabel                     Global::F2
+  Debug.Exceptions                   Global::Ctrl+Alt+E
+  View.ToggleDesigner                Global::F7
+  Edit.StopSearch                    Global::Alt+F3, S
+  Debug.StartWithoutDebugging        Global::Ctrl+F5
+  Edit.FindNext                      Global::F3
+  Edit.FindPrevious                  Global::Shift+F3
+  Edit.FindNextSelected              Global::Ctrl+F3
+  Edit.FindPreviousSelected          Global::Ctrl+Shift+F3
+  Debug.EnableBreakpoint             Global::Ctrl+F9
+  Help.F1Help                        Global::F1
+  ClassViewContextMenus.ClassViewProject.PropertiesGlobal::Alt+Enter
+  Tools.GoToCommandLine              Global::Ctrl+/
+  View.ClassView                     Global::Ctrl+Shift+C
+  Window.NextSplitPane               Global::F6
+  Window.PreviousSplitPane           Global::Shift+F6
+  Window.NextDocumentWindow          Global::Ctrl+F6
+  Window.PreviousDocumentWindow      Global::Ctrl+Shift+F6
+  Edit.CycleClipboardRing            Global::Ctrl+Shift+V
+  Edit.CycleClipboardRing            Global::Ctrl+Shift+Ins
+  Window.CloseDocumentWindow         Global::Ctrl+F4
+  View.CommandWindow                 Global::Ctrl+Alt+A
+  Debug.Autos                        Global::Ctrl+Alt+V, A
+  View.NavigateBackward              Global::Ctrl+-
+  View.NavigateForward               Global::Ctrl+Shift+-
+  Build.BuildSolution                Global::Ctrl+Shift+B
+  Build.Cancel                       Global::Ctrl+Break
+  Edit.GoToDefinition                Global::F12
+  Edit.GoToDeclaration               Global::Ctrl+F12
+  Project.Override                   Global::Ctrl+Alt+Ins
+  Edit.FindSymbol                    Global::Alt+F12
+  View.FindSymbolResults             Global::Ctrl+Alt+F12
+  View.ResourceView                  Global::Ctrl+Shift+E
+  Help.WindowHelp                    Global::Shift+F1
+  View.NextView                      HTML Editor Design View::Ctrl+PgDn
+  View.NextView                      HTML Editor Source View::Ctrl+PgDn
+  Tools.AttachtoProcess              Global::Ctrl+Alt+P
+  View.PopBrowseContext              Global::Ctrl+Shift+8
+  View.BrowseNext                    Global::Ctrl+Shift+1
+  View.BrowsePrevious                Global::Ctrl+Shift+2
+  Edit.QuickFindSymbol               Global::Shift+Alt+F12
+  View.BookmarkWindow                Global::Ctrl+K, Ctrl+W
+  Tools.CodeSnippetsManager          Global::Ctrl+K, Ctrl+B
+  Window.NextDocumentWindowNav       Global::Ctrl+Tab
+  Window.PreviousDocumentWindowNav   Global::Ctrl+Shift+Tab
+  Edit.FindAllReferences             Global::Shift+F12
+  Image.CopyandOutlineSelection      VC Image Editor::Ctrl+Shift+U
+  Image.UseSelectionasBrush          VC Image Editor::Ctrl+U
+  Debug.Breakpoints                  Global::Ctrl+Alt+B
+  Debug.Disassembly                  Global::Ctrl+Alt+D
+  Debug.Registers                    Global::Ctrl+Alt+G
+  Debug.Modules                      Global::Ctrl+Alt+U
+  Debug.ApplyCodeChanges             Global::Alt+F10
+  Debug.Processes                    Global::Ctrl+Alt+Z
+  Debug.BreakatFunction              Global::Ctrl+B
+  Debug.StepIntoCurrentProcess       Global::Ctrl+Alt+F11
+  Debug.StepOverCurrentProcess       Global::Ctrl+Alt+F10
+  Debug.StepOutCurrentProcess        Global::Ctrl+Shift+Alt+F11
+  DebuggerContextMenus.BreakpointsWindow.DeleteGlobal::Alt+F9, D
+  DebuggerContextMenus.BreakpointsWindow.GoToSourceCodeGlobal::Alt+F9, S
+  DebuggerContextMenus.BreakpointsWindow.GoToDisassemblyGlobal::Alt+F9, A
+  Debug.ToggleDisassembly            Global::Ctrl+F11
+  Debug.Memory1                      Global::Ctrl+Alt+M, 1
+  Debug.Watch                        Global::Ctrl+Alt+W, 1
+  Debug.Memory2                      Global::Ctrl+Alt+M, 2
+  Debug.Watch2                       Global::Ctrl+Alt+W, 2
+  Debug.Memory3                      Global::Ctrl+Alt+M, 3
+  Debug.Watch3                       Global::Ctrl+Alt+W, 3
+  Debug.Memory4                      Global::Ctrl+Alt+M, 4
+  Debug.Watch4                       Global::Ctrl+Alt+W, 4
+  View.NextError                     Global::Ctrl+Shift+F12
+  Help.Nexttopic                     WebBrowser::Alt+Down Arrow
+  Help.Previoustopic                 WebBrowser::Alt+Up Arrow
+  View.WebBrowser                    Global::Ctrl+Alt+R
+  Help.Contents                      Global::Ctrl+Alt+F1
+  Help.Index                         Global::Ctrl+Alt+F2
+  Help.Search                        Global::Ctrl+Alt+F3
+  Help.HowDoI                        Global::Ctrl+F1
+  Help.SearchResults                 Global::Shift+Alt+F3
+  Data.StepInto                      Global::Alt+F5
+  Data.Execute                       Global::Ctrl+Alt+F5
+  Data.RunSelection                  Global::Ctrl+Q
+  Data.Column                        DataSet Editor::Ctrl+L
+  Data.InsertColumn                  DataSet Editor::Ins
+  Edit.ExpandCollapseBaseTypeList    Class Diagram::Shift+Alt+B
+  Edit.NavigateToLollipop            Class Diagram::Shift+Alt+L
+  ClassDiagram.Collapse              Class Diagram::Num -
+  ClassDiagram.Expand                Class Diagram::Num +
+  Edit.RemovefromDiagram             Class Diagram::Del
+  Tools.RunTemporaryMacro            Global::Ctrl+Shift+P
+  Tools.RecordTemporaryMacro         Global::Ctrl+Shift+R
+  View.MacroExplorer                 Global::Alt+F8
+  Tools.MacrosIDE                    Global::Alt+F11
+  View.Datasets                      Report Designer::Ctrl+Alt+D
+  Data.ShowDataSources               Global::Shift+Alt+D
+  QueryDesigner.JoinMode             Query Designer::Ctrl+Shift+J
+  QueryDesigner.JoinMode             View Designer::Ctrl+Shift+J
+  QueryDesigner.CancelRetrievingData Query Designer::Ctrl+T
+  QueryDesigner.CancelRetrievingData View Designer::Ctrl+T
+  CrystalReports.PreviousReportView  Crystal Report Editor::Ctrl+PgUp
+  CrystalReports.NextReportView      Crystal Report Editor::Ctrl+PgDn
+  Resources.Strings                  Managed Resources Editor::Ctrl+1
+  Resources.Images                   Managed Resources Editor::Ctrl+2
+  Resources.Icons                    Managed Resources Editor::Ctrl+3
+  Resources.Audio                    Managed Resources Editor::Ctrl+4
+  Resources.Files                    Managed Resources Editor::Ctrl+5
+  Resources.Other                    Managed Resources Editor::Ctrl+6
+  View.Datasets                      SQL Server Report Designer::Ctrl+Alt+D
+  Edit.GoToFindCombo                 Global::Ctrl+D
+  Weigelt.GhostDoc.AddIn.DocumentThisText Editor::Ctrl+Shift+D
+  
+  
+  strung together by chris blazek

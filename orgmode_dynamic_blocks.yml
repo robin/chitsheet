@@ -1,0 +1,8 @@
+--- 
+orgmode_dynamic_blocks: |-
+  ================================================================================
+  Dynamic Blocks
+  ================================================================================
+  
+  update dynamic block at point                     C-c C-x C-u
+  update all dynamic blocks                         C-u C-c C-x C-u

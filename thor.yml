@@ -1,0 +1,10 @@
+--- 
+thor: "An example\n\
+  ----------\n\n\
+  class Ls < Thor\n  # thor ls:default\n  desc \"default\", \"List files\"\n  def default\n    system \"ls\"\n  end\n\n  # thor ls:with_args '*.sql'\n  desc \"with_args GLOB\", \"List files, filter with arg\"\n  def with_args(glob)\n    system \"ls #{glob}\"\n  end\n\n  # thor ls:with_opts --glob='*.sql'\n  # thor ls:with_opts -g '*.sql'\n  desc \"with_opts [--glob GLOB]\", \"List files, filter with option\"\n  method_options %w(glob -g) => :string\n  def with_opts\n    system \"ls #{options[:glob]}\"\n  end\n\
+  end\n\n\
+  Types for method_options\n\
+  ------------------------\n  :boolean  is parsed as \xE2\x80\x94option or \xE2\x80\x94option=true\n  :string   is parsed as \xE2\x80\x94option=VALUE\n  :numeric  is parsed as \xE2\x80\x94option=N\n  :array    is parsed as \xE2\x80\x94option=one two three\n  :hash     is parsed as \xE2\x80\x94option=name:string age:integer\n\n\
+  Besides, method_option allows a default value to be given, examples:\n\n  method_options :force => false\n  #=> Creates a boolean option with default value false\n\n  method_options :alias => \"bar\"\n  #=> Creates a string option with default value \"bar\"\n\n  method_options :threshold => 3.0\n  #=> Creates a numeric option with default value 3.0\n\n\
+  Actions\n\
+  -------\n  Some actions like copy file requires that a class method called source_root is defined in your class.\n  say, ask, yes?, no?, add_file, remove_file, copy_file, template, directory, inside, run, inject_into_file\n\n    class App < Thor\n      include Thor::Actions\n      # tasks\n    end"

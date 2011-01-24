@@ -1,5 +1,5 @@
 --- 
-postgres: |
+postgres: |-
   PostgreSQL
   ----------
   
@@ -22,4 +22,143 @@ postgres: |
     $ createdb -O owner -T some_template database_name
   
   
-
+  
+  By default, PostgreSQL listens on TCP port 5432.
+  
+  Dump all databases
+  ----
+  
+  pg_dumpall --clean > databases.sql
+  Dump a database with compression (-Fc)
+  
+  pg_dump -Fc --file=database.sql --clean database
+  Dump a table
+  
+  pg_dump [-d database] [--schema schema] -t table
+  Dump a table definition (no data)
+  
+  pg_dump -s [-d database] [--schema schema] -t table
+  Restore a database from a dump file
+  
+  pg_restore -Fc database.sql
+  Start the PostgreSQL interactive terminal
+  
+  
+  
+  Reset password of postgres user
+  ----
+  # su postgres
+  # psql -d template1
+  template1=# ALTER USER postgres WITH PASSWORD '${POSTGRESQL_POSTGRES_PASSWORD}';
+  
+  
+  psql
+  ----
+  
+  Psql - show a list of databases
+  
+  \l
+  Lowercase L, not the number 1
+  Psql - show all users
+  
+  select * from pg_user;
+  Psql - show all tables (including system tables)
+  
+  select * from pg_tables;
+  Psql - show tables in the current context (database/schema)
+  
+  \d
+  Psql - change current database
+  
+  \c database;
+  Psql - show all schemas in the current database
+  
+  \dn
+  Psql - Grant permissions on a schema to a user
+  
+  GRANT ALL ON myschema TO user;
+  Psql - quit psql
+  
+  \q
+  Psql - show help
+  
+  \?
+  Psql - copy a table to a tab delimeted file
+  
+  COPY table TO 'table.txt';
+  Psql - load a table from a tab delimeted file
+  
+  COPY table FROM 'table.txt';
+  Psql - show permissions on database objects
+  
+  \z [object]
+  r -- SELECT ("read")
+  w -- UPDATE ("write")
+  a -- INSERT ("append")
+  d -- DELETE
+  R -- RULE
+  x -- REFERENCES (foreign keys)
+  t -- TRIGGER
+  X -- EXECUTE
+  U -- USAGE
+  C -- CREATE
+  T -- TEMPORARY
+  arwdRxt -- ALL PRIVILEGES (for tables)
+  * -- grant option for preceding privilege
+  /yyyy -- user who granted this privilege
+  Run the vacuum utility
+  
+  vacuumdb --verbose --analyze --all
+  Note: vacuum reclaims space from deleted records and updates indexes. It should be set up in cron. Newer versions of postgresql may run vacuum automatically.
+  Increase perfomance with shared memory
+  
+  One effective performance tuning tip for Postgresql is to increase the shared memory buffers. This might require adding RAM to the server. Many Linux distros default to 32MB of shared memory, controlled by two kernel parameters:
+  /proc/sys/kernel/shmmax
+  /proc/sys/kernel/shmall
+  
+  These values can be changed at run time, but it is better to set them at boot using the /etc/sysctl.conf file. This increases shared memory to 1GB:
+  # increase shared buffers for postgres at boot
+  kernel.shmmax=1073741824
+  kernel.shmall=1073741824
+  Then, tell PostgreSQL to use 768MB of the 1GB available in the /var/lib/pgsql/data/postgresql.conf file:
+  shared_buffers = 98304 # min 16, at least max_connections*2, 8KB each
+  
+  Restart PostgreSQL for the change to take effect.
+  
+  homebrew
+  --------
+  brew install postgresql
+  
+  To build plpython against a specific Python, set PYTHON prior to brewing:
+    PYTHON=/usr/local/bin/python  brew install postgresql
+  See:
+    http://www.postgresql.org/docs/8.4/static/install-procedure.html
+  
+  
+  If this is your first install, create a database with:
+      initdb /usr/local/var/postgres
+  
+  Automatically load on login with:
+      launchctl load -w /usr/local/Cellar/postgresql/8.4.3/org.postgresql.postgres.plist
+  
+  and if that fails try the homebrew mysql launchd approach:
+      cp /usr/local/Cellar/postgresql/8.4.4/org.postgresql.postgres.plist ~/Library/LaunchAgents/
+      launchctl load ~/Library/LaunchAgents/org.postgresql.postgres.plist
+  
+  Or start manually with:
+      pg_ctl -D /usr/local/var/postgres -l /usr/local/var/postgres/server.log start
+  
+  And stop with:
+      pg_ctl -D /usr/local/var/postgres stop -s -m fast
+  
+  If you want to install the postgres gem, including ARCHFLAGS is recommended:
+      env ARCHFLAGS="-arch x86_64" gem install pg
+  
+  PostgreSQL Examples
+  -------------------
+  
+  ALTER TABLE
+  -----------
+  
+  --Add a unique constraint to the email column in the customer table
+  ALTER TABLE customer ADD CONSTRAINT customer_email_key UNIQUE (email);

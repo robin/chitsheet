@@ -1,5 +1,5 @@
 --- 
-emacs_slime: |
+emacs_slime: |-
   Slime (Superior Lisp Interaction Mode for Emacs)
   
   Compilation
@@ -50,4 +50,3 @@ emacs_slime: |
       p        slime-apropos-package.
       h        slime-hyperspec-lookup. Customize with common-lisp-hyperspec-root browse-url-browser-function.
       ~        common-lisp-hyperspec-format
-

@@ -1,0 +1,46 @@
+--- 
+xargs: |-
+  xargs allows construction of UNIX shell command lines at a higher level of abstraction.  This makes it harder to grasp, as well as more flexible (and therefore powerful).  Examples are the best way to get a grip on what it can do.
+  
+  Let's suppose you have a list of files you want to edit, stored in current_files.txt.  You can pass them all to your favorite text editor like so:
+  $ xargs mate  < current_files.txt
+  
+  Or if you prefer vim or emacs, it's just the same:
+  $ xargs vim   < current_files.txt
+  $ xargs emacs < current_files.txt
+  
+  These read, more or less, as 
+    "pass a bunch of arguments to my editor, which are read from current_files.txt".
+  
+  So if current_files.txt contains the following files
+     app/controllers/application.rb
+     app/models/article.rb
+  then xargs would, in effect, call this command:
+  $ mate app/controllers/application.rb app/models/article.rb
+  
+  Even though UNIX commands have limits to the number of arguments they can take, you don't have to worry about the list of files being too long, since xargs takes care of that.  If you had a list of 1000 files, xargs would break it into chunks small enough for the command to handle.  (In the case of TextMate, this would probably result in opening separate project windows.  Feel free to test that and update this cheatsheet.)
+  
+  
+  You don't need to read the arguments from a file, though.  You can also pipe them from another command to xargs, like so:
+  $ ls *test* | xargs mate
+  
+  Of course, this isn't very useful, because you could just as easily have typed 
+  $ mate *test*
+  but it does illustrate a very simple case of piping commands to xargs, and how it works.  
+  
+  Here's a slightly more useful example:
+  $ find . -name '*test*' | xargs mate
+  
+  Assuming you're in the root of a Ruby on Rails application, this will open (in TextMate) all of the files and folders with 'test' in their names.  Notice that you pipe from the find command to xargs, and then mate is an argument of xargs.  You might think that you could pipe directly to mate, but that doesn't work.  (Try it to see what happens.)  
+  
+  Now that you've got the basics down, all the examples you find by googling "xargs examples" will make a lot more sense.  Please add the ones here that you find expecially useful.
+  
+  Here are few places where I've found useful examples:
+       http://en.wikipedia.org/wiki/Xargs
+       http://www.softpanorama.org/Tools/xargs.shtml
+  
+  If you want to execute one command per line, use the -n <num arguments> parameter:
+  
+  $ find . -name '*test*' | xargs -n1 mate
+  
+  #BZ#

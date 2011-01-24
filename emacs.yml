@@ -22,8 +22,22 @@ emacs: |-
   C-c C-l          "Load a Ruby file into the inferior Ruby process."
   C-c C-s or M-x run-ruby  "Run an inferior Ruby process..."
   
+  Unicode in Emacs:
+  (prefer-coding-system 'utf-8)
+  
   Emacs opens in yaml-mode and outdent-mode when first line is:
   # -*- mode: yaml; mode: outdent; -*-
   
   For more:
   http://wiki.rubyonrails.org/rails/pages/HowToUseEmacsWithRails
+  
+  
+  General
+  
+  C-u M-x align
+  C-x z repeat
+  C-r (enter recursive edit)
+  C-M-c (exit recursive edit)
+  C-] (abort: exit all nested recursive-edit sessions)
+  M-! Execute shell command
+  M-1 M-!  Execute shell command and paste into current buffer

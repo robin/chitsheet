@@ -1,0 +1,30 @@
+--- 
+dvtm: |
+  C-g followed by:
+  
+  c - create new window
+  x - kill window
+  
+  j - next window
+  k - previous window
+  u - next window (ignoring those minimised)
+  i - previous window (ignoring those minimised)
+  
+  t - left focussed layout
+  b - top focussed layout
+  g - bottom focussed layout
+  m - one window at a time layout
+  [space] - next layout
+  
+  h - move vertical window separator left
+  l - move vertical window separator right
+  
+  . - toggle minimise
+  return - toggle focus
+  
+  (1-0) - set focus to window of that number
+  
+  L - redraw
+  q - quit
+  G - escape key
+

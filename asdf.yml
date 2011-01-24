@@ -1,0 +1,14 @@
+--- 
+asdf: |-
+  Loading ASDF:
+  
+    (require 'asdf)
+  
+  Installing a system (ex. hunchentoot):
+  
+    (require 'asdf-install) ; ones ofcourse
+    (asdf-install:install 'hunchentoot)
+  
+  Loading a system (ex. hunchentoot):
+  
+    (asdf:operate 'asdf:load-op 'hunchentoot)

@@ -1,7 +1,8 @@
 --- 
 regex: |-
-  /normal regex/iomx[neus]
-  %r|alternate form|
+  no sugar       - Regexp.new('pattern')
+  alternate form - %r{pattern}
+  normal regex   - /pattern/iomx[neus]
   
   options:
   
@@ -45,5 +46,16 @@ regex: |-
   (?! )      zero-width negative look-ahead assertion
   (?ix-ix)   turns on/off i/x options, localized in group if any.
   (?ix-ix: ) turns on/off i/x options, localized in non-capturing group.
+  
+  result of matching:
+  
+  foo =~ /pattern/ # 
+                     if no match, returns nil.
+                     if match, returns positive integer position of first 
+                     matching charecter.
+  
+  $&     part of string matched by pattern.
+  $`     part of string preceding match.
+  $'     part of string after match.
   
   thanks to http://www.zenspider.com/Languages/Ruby/QuickRef.html#11

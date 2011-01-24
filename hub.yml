@@ -1,0 +1,130 @@
+--- 
+hub: |-
+  ### git clone
+  
+      $ git clone schacon/ticgit
+      > git clone git://github.com/schacon/ticgit.git
+  
+      $ git clone -p schacon/ticgit
+      > git clone git@github.com:schacon/ticgit.git
+  
+      $ git clone resque
+      > git clone git://github.com/YOUR_USER/resque.git
+  
+      $ git clone -p resque
+      > git clone git@github.com:YOUR_USER/resque.git
+  
+  ### git remote add
+  
+      $ git remote add rtomayko
+      > git remote add rtomayko git://github.com/rtomayko/CURRENT_REPO.git
+  
+      $ git remote add -p rtomayko
+      > git remote add rtomayko git@github.com:rtomayko/CURRENT_REPO.git
+  
+      $ git remote add origin
+      > git remote add origin git://github.com/YOUR_USER/CURRENT_REPO.git
+  
+  ### git fetch
+  
+      $ git fetch mislav
+      > git remote add mislav git://github.com/mislav/REPO.git
+      > git fetch mislav
+  
+      $ git fetch mislav,xoebus
+      > git remote add mislav ...
+      > git remote add xoebus ...
+      > git fetch --multiple mislav xoebus
+  
+  ### git cherry-pick
+  
+      $ git cherry-pick http://github.com/mislav/REPO/commit/SHA
+      > git remote add -f mislav git://github.com/mislav/REPO.git
+      > git cherry-pick SHA
+  
+      $ git cherry-pick mislav@SHA
+      > git remote add -f mislav git://github.com/mislav/CURRENT_REPO.git
+      > git cherry-pick SHA
+  
+      $ git cherry-pick mislav@SHA
+      > git fetch mislav
+      > git cherry-pick SHA
+  
+  ### git fork
+  
+      $ git fork
+      ... hardcore forking action ...
+      > git remote add -f YOUR_USER git@github.com:YOUR_USER/CURRENT_REPO.git
+  
+  Forks the original repo on GitHub and adds the new remote under your
+  username. It requires your GitHub token to be present; see "GitHub
+  login" below for details.
+  
+  ### git init
+  
+      $ git init -g
+      > git init
+      > git remote add origin git@github.com:YOUR_USER/REPO.git
+  
+  ### git push
+  
+      $ git push origin,staging,qa bert_timeout
+      > git push origin bert_timeout
+      > git push staging bert_timeout
+      > git push qa bert_timeout
+  
+  ### git browse
+  
+      $ git browse
+      > open http://github.com/CURRENT_REPO
+  
+      $ git browse -- issues
+      > open http://github.com/CURRENT_REPO/issues
+  
+      $ git browse schacon/ticgit
+      > open http://github.com/schacon/ticgit
+  
+      $ git browse -p schacon/ticgit
+      > open https://github.com/schacon/ticgit
+  
+      $ git browse resque
+      > open http://github.com/YOUR_USER/resque
+  
+      $ git browse resque network
+      > open http://github.com/YOUR_USER/resque/network
+  
+      $ git browse -p resque
+      > open https://github.com:YOUR_USER/resque
+  
+  ### git compare
+  
+      $ git compare refactor
+      > open http://github.com/CURRENT_REPO/compare/refactor
+  
+      $ git compare 1.0...1.1
+      > open http://github.com/CURRENT_REPO/compare/1.0...1.1
+  
+      $ git compare -u fix
+      > (http://github.com/CURRENT_REPO/compare/fix)
+  
+      $ git compare other-user patch
+      > open http://github.com/other-user/REPO/compare/patch
+  
+  ### git submodule
+  
+      $ hub submodule add wycats/bundler vendor/bundler
+      > git submodule add git://github.com/wycats/bundler.git vendor/bundler
+  
+      $ hub submodule add -p wycats/bundler vendor/bundler
+      > git submodule add git@github.com:wycats/bundler.git vendor/bundler
+  
+      $ hub submodule add -b ryppl ryppl/pip vendor/pip
+      > git submodule add -b ryppl git://github.com/ryppl/pip.git vendor/pip
+  
+  
+  ### git help
+  
+      $ git help
+      > (improved git help)
+      $ git help hub
+      > (hub man page)

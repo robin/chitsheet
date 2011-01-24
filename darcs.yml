@@ -1,5 +1,5 @@
 --- 
-darcs: |
+darcs: |-
   Creating a new repository:
     $ mkdir ProjectDirectory
     $ cd ProjectDirectory
@@ -47,5 +47,3 @@ darcs: |
   Updating your repository on the web:
     $ cd dynamorph-local
     $ darcs push gnufoo.org:www/darcs/dynamorph; # uses scp to copy (requires darcs on the other machine)
-  
-

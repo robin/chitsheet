@@ -1,0 +1,82 @@
+--- 
+blender: |-
+  No control buttons
+   - everything is done directly with the keyboard keys
+  
+  Adding a new object
+   - Space Bar
+  
+  Mark all objects
+   - A
+  
+  Delete all currently marked objects
+   - X
+  
+  Scale all objects
+   - N
+   - <Tab>
+   - <Tab>... until in the object properties window
+     the scale appears
+  
+  Blender Units are all millimeter --> 12.123 --> 12 mm --> 1.2 cms
+  
+  Remove duplicate vertices - important for gcode generation
+  
+  1. Hit Tab to enter Mesh Edit mode
+  2. Hit A to select all nodes (everything goes yellow and purple)
+  3. Type W6 or select Mesh -> Vertices -> Remove Doubles
+  
+  
+  A few UI tips:
+  
+   - the 'A' key toggles between select all and select none
+   - the right key is how you select objects
+   - the tab key will take you between object and mesh mode
+   - holding middle click will allow you to move your view. scrolling it will zoom.
+   - the num pad keys will give you good default views if you get lost
+   - the 'X' key will allow you to delete objects, like the default cube when you open blender
+  
+  Find non-manifold points
+  
+  Non-manifold points are points that just don't make sense in the real world. These can be hanging points, internal surfaces, holes, zero-thickness walls, etc. Unfortunately there is no way to automatically fix them in software. The best you can do is to identify the problems and then attempt to fix them.
+  
+  1. Hit Tab to enter Mesh Edit mode
+  2. Hit A to deselect all nodes (everything goes gray and pink)
+  3. Select Select -> Non-Manifold
+  
+  If there are non-manifold points, they will be selected. If nothing happens, you're golden. 
+  If there are problems, then you can see what's wrong and attempt to fix it.
+  
+  Importing SVGs
+  
+   - import and then
+   - Alt-C converts them to mesh that can be extruded and worked on
+  
+  Extrude (create a new point)
+   - E (z,y,x to lock to one coordinate)
+  
+  Goto (move existing point)
+   - G (z,y,x to lock to one coordinate)
+  
+  Create a face between points
+   - Select the two points (right mouse button and shift-RMB)
+   - F
+   - shift-F to create face using triangles
+  
+  Converting Fonts to Meshes
+   - Having entered the text, switch to object mode
+   - (Edit mode is used to enter text)
+   - Add a new object
+   - Select the old text object
+   - Alt-C
+   - Text is no mesh!
+  
+  Move cursor to the origin
+   - Shift-C in edit mode (and object mode?)
+  
+  Join / Combine meshes
+   - Object Mode --> J
+   - Edit Mode --> P
+  
+  Tutorials
+   - http://www.rab3d.com/rab3d/tutorial/608/tutorial_608-1.html

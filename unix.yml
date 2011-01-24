@@ -1,0 +1,89 @@
+--- 
+unix: |-
+  One of Unix's most useful features is its large number of text/data manipulations programs. Some of the more propular include:
+  
+  = FILE MANUPULATION
+  
+  * mkdir - make directory
+    mkdir -p /dir/new/dirs/even/if/not/existing
+  * ln - symbolic links
+    ln -s ../source/file dest/file      # symbolic link named dest/file to dest/../source/file
+    ln -s ../source/file dest/          # same, since name is assumed
+  * sudo - run a command as root
+  * cd, pushd - change directories
+  * ps - list running processes
+  * touch - modify updated time of a file (creating if doesn't exist)
+  * rm - remove file
+  * df - disk space free
+  * du - disk space usage
+  
+  = ARCHIVE FILES
+  
+  * tar - archive many files
+    tar xvzf file.tar.gz  # extracts
+    tar xvjf file.tar.bz2 # extracts
+    tar cvjf file.tar.bz2 file1 file2 file3
+  * zip, unzip, arj, rar, compress - more formats
+  
+  = WORKING ON MANY FILES
+  
+  * find
+    find . -iname *.foo -type f -print -exec command {} \\; # executes command on each *.foo file below given directory
+  * xargs
+    find . -iname *.foo -type f -print0 | xargs -0 command # run command on each *.foo file.  (Those are zeros, not oh's.)
+  * for x in y ; do ... ; done
+    for foo in *4?.* ; do echo $foo ; done
+  
+  = LEARN MORE, LEARN WHERE
+  
+  * man - manual page for a command
+  * info - man, but different
+  * help - learn about a shell internal function
+  * apropos - search for word across man pages
+  * which - show path to an executable
+  * locate - show path for any file whose **name** contains substring
+  * basename, dirname - get the file part / directory part of a pathname
+  
+  = PROCESSING TEXT FILES
+  
+  * cat - concatenate and display files
+  * less - output contents of a file interactively
+  * echo, printf - print a given string
+  * sort - sort and collate lines
+  * uniq - remove or report adjacent duplicate lines
+  * diff - display line-by-line differences between pairs of text files
+    diff -ruwqN /dir/tree/old /dir/tree/new # all files that differ
+  * patch - apply differences between two files
+    diff -ruwq  /dir/tree/old /dir/tree/new > patch # create patch
+  * grep, egrep, fgrep - search a file for a string or regular expression
+  * tail, head
+    tail -n 50 file.txt  # last 50 lines
+    head -50   file.txt  # first 50 lines
+  * hexdump - show binary contents
+  * strings - show any contained ASCII (non-binary) sequences
+  * file - guess the type of a file
+  
+  = COLUMN-ORIENTED UTILITIES
+  
+  * cut - remove selected fields from each line of a file
+  * paste - join corresponding lines of several files, or subsequent lines of one file
+  * nl - line number
+  * colrm - remove characters from specified columns within each line
+  * expand, unexpand - expand TAB characters to SPACE characters, and vice versa
+  * wc - word (line, letter) count
+    wc file1 file2 dir/*
+  
+  = OBSOLETE
+  
+  While sed, awk and tr are still used, and still useful, any of perl, ruby or python from the command line present a more powerful and integrated interface
+   
+  * awk - pattern scanning and processing language
+  * sed - stream editor
+  * tr - translate characters
+  
+  h2. Other
+  
+  * wget - fetch a URL and store locally
+    wget http://website.com/path/file.html
+    wget -x http://website.com/path/file.html # saves to path 'website.com/path/file.html'
+    wget -r -l5 -nc -np [url] # rip recursively, 5 levels, don't reget, don't ascend in url.

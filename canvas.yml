@@ -1,0 +1,161 @@
+--- 
+canvas: |-
+  # HTML5 Canvas API
+  
+  interface HTMLCanvasElement : HTMLElement {
+    ulong width = 300
+    ulong height = 150
+  
+    string toDataURL(string type, ...)
+    CanvasContext getContext(string contextID)
+  }
+  
+  interface CanvasRenderingContext2D : CanvasContext {
+    readonly HTMLCanvasElement canvas
+    void save()
+    void restore()
+  
+    // Transformations /////////////////////////////////////////////////////////
+  
+    void scale(float x, float y)
+    void rotate(float angle)
+    void translate(float x, float y)
+    void transform(float m11, float m12,
+                   float m21, float m22,
+                   float dx, float dy)
+    void setTransform(float m11, float m12,
+                      float m21, float m22,
+                      float dx, float dy)
+  
+    // Compositing /////////////////////////////////////////////////////////////
+  
+    float globalAlpha = 1.0
+    CompositeOperation globalCompositeOperation = 'source-over'
+  
+    enum CompositeOperation {
+      'source-atop', 'source-in', 'source-out', 'source-over',
+      'destination-atop', 'destination-in', 'destination-out',
+      'destination-over',
+      'lighter', 'darker', 'copy', 'xor',
+      '<vendorName>-<operationName>  // vendor extensions
+    }  # see [1] for examples
+  
+    // Colors and Styles ///////////////////////////////////////////////////////
+  
+    Style strokeStyle = 'black'
+    Style fillStyle = 'black'
+  
+    CanvasGradient createLinearGradient(float x0, float y0,
+                                        float x1, float y1)
+    CanvasGradient createRadialGradient(float x0, float y0, float r0,
+                                        float x1, float y1, float r1)
+    CanvasPattern createPattern(HTML{Image,Canvas}Element Image,
+                                Repetition repetition = 'repeat')
+    enum Repetition { 'repeat', 'repeat-x', 'repeat-y', 'no-repeat' }
+  
+    interface CanvasGradient {
+      void addColorStop(float offset, CSSColor color)
+    }
+  
+    interface CanvasPattern {}
+  
+    // Line Caps and Joins /////////////////////////////////////////////////////
+  
+    float lineWidth = 1.0
+    LineCap lineCap = 'butt'
+    LineJoin lineJoin = 'miter'
+    float miterLimit = 10
+  
+    enum LineCap { 'butt', 'round', 'square' }
+    enum LineJoin { 'round', 'bevel', 'miter' }
+  
+    // Shadows /////////////////////////////////////////////////////////////////
+  
+    float shadowOffsetX = 0.0
+    float shadowOffsetY = 0.0
+    float shadowBlur = 0.0
+    CSS2Color shadowColor = 'transparent black'
+  
+    // Rectangles //////////////////////////////////////////////////////////////
+  
+    void  clearRect(float x, float y, float w, float h)
+    void   fillRect(float x, float y, float w, float h)
+    void strokeRect(float x, float y, float w, float h)
+  
+    // Paths ///////////////////////////////////////////////////////////////////
+  
+    void beginPath()
+    void closePath()
+    void moveTo(float x, float y)
+    void lineTo(float x, float y)
+    void quadraticCurveTo(float cpx, float cpy, float x, float y)
+    void bezierCurveTo(float cp1x, float cp1y, float cp2x, float cp2y,
+                       float x, float y)
+    void arcTo(float x1, float y1, float x2, float y2, float radius)
+    void rect(float x, float y, float w, float h)
+    void arc(float x, float y, float radius,
+             float startAngle, float endAngle, boolean anticlockwise)
+    void fill()
+    void stroke()
+    void clip()
+    boolean isPointInPath(float x, float y)
+  
+    // Text ////////////////////////////////////////////////////////////////////
+  
+    CSSFont font = '10px sans-serif'
+    TextAlign textAlign = 'start'
+    TextBaseline textBaseline = 'alphabetic'
+  
+    enum TextAlign { 'start', 'end', 'left', 'right', 'center' }
+    enum TextBaseline { 'top', 'hanging', 'middle',
+                         'alphabetic', 'ideographic', 'bottom' }
+  
+    void fillText(string text, float x, float y, float maxWidth=undefined)
+    void strokeText(string text, float x, float y, float maxWidth=undefined)
+    TextMetrics measureText(string text)
+  
+    TextMetrics {
+      readonly float width
+    }
+  
+    // Image Drawing ///////////////////////////////////////////////////////////
+  
+    void drawImage(HTML{Image,Canvas,Video}Element image,
+                   float dx, float dy)
+    void drawImage(HTML{Image,Canvas,Video}Element image,
+                   float dx, float dy, float dw, float dh)
+    void drawImage(HTML{Image,Canvas}Element image,
+                   float sx, float xy, float sw, float sh,
+                   float dx, float dy, float dw, float dh)
+  
+    // Pixel Manipulation //////////////////////////////////////////////////////
+  
+    ImageData createImageData(float sw, float sh)
+    ImageData getImageData(float sx, float sy, float sw, float sh)
+    void putImageData(ImageData imageData, float dx, float dy,
+                      float dirtyX = 0, float dirtyY = 0,
+                      float dirtyWidth = imageData.width,
+                      float dirtyHeight = imageData.height)
+  
+    ImageData {
+      readonly ulong width
+      readonly ulong height
+      readonly CanvasPixelArray data
+    }
+  
+    CanvasPixelArray {
+      readonly ulong length  // = w*h*4
+      byte [](int index)
+      byte []=(int index)
+    }
+  }
+  
+  
+  # More information
+  
+  [1] PDF cheat sheet
+      http://blog.nihilogic.dk/2009/02/html5-canvas-cheat-sheet.html
+  [2] WHATWG Spec
+      http://www.whatwg.org/specs/web-apps/current-work/#the-canvas-element
+  [3] Browser support
+      http://tinyurl.com/b2bt4h

@@ -1,138 +1,126 @@
 --- 
-vim: "Cursor movement\r\n\
-  \r\n\
-  h - move left\r\n\
-  j - move down\r\n\
-  k - move up\r\n\
-  l - move right\r\n\
-  ctrl-f - page up\r\n\
-  ctrl-b - page down\r\n\
-  w - jump by start of words (punctuation considered words)\r\n\
-  W - jump by words (spaces separate words)\r\n\
-  e - jump to end of words (punctuation considered words)\r\n\
-  E - jump to end of words (no punctuation)\r\n\
-  b - jump backward by words (punctuation considered words)\r\n\
-  B - jump backward by words (no punctuation)\r\n\
-  0 - (zero) start of line\r\n\
-  ^ - first non-blank character of line\r\n\
-  $ - end of line\r\n\
-  gg - Go to first line\r\n\
-  [N]G - Go To line N. No N: last line\r\n\
-  Note: Prefix a cursor movement command with a number to repeat it. For example, 4j moves down 4 lines.\r\n\
-  \r\n\
-  Insert Mode - Inserting/Appending text\r\n\
-  \r\n\
-  i - start insert mode at cursor\r\n\
-  I - insert at the beginning of the line\r\n\
-  a - append after the cursor\r\n\
-  A - append at the end of the line\r\n\
-  o - open (append) blank line below current line (no need to press return)\r\n\
-  O - open blank line above current line\r\n\
-  ea - append at end of word\r\n\
-  Esc - exit insert mode\r\n\
-  \r\n\
-  Editing\r\n\
-  \r\n\
-  r - replace a single character (does not use insert mode)\r\n\
-  J - join line below to the current one\r\n\
-  cc - change (replace) an entire line\r\n\
-  cw - change (replace) to the end of word\r\n\
-  c$ - change (replace) to the end of line\r\n\
-  s - delete character at cursor and subsitute text\r\n\
-  S - delete line at cursor and substitute text (same as cc)\r\n\
-  xp - transpose two letters (delete and paste, technically)\r\n\
-  u - undo\r\n\
-  ctrl-r - redo\r\n\
-  . - repeat last command\r\n\
-  ~ - switch case\r\n\
-  b~ - switch case of current word\r\n\
-  >> - indent line one column to right\r\n\
-  << - indet line one column to left\r\n\
-  \r\n\
-  Cut and Paste\r\n\
-  \r\n\
-  dd - delete (cut) a line\r\n\
-  dw - delete the current word\r\n\
-  x - delete current character\r\n\
-  X - delete previous character\r\n\
-  D - delete from cursor to end of line\r\n\
-  yy - yank (copy) a line\r\n\
-  2yy - yank 2 lines\r\n\
-  yw - yank word\r\n\
-  y$ - yank to end of line\r\n\
-  p - put (paste) the clipboard after cursor/current line\r\n\
-  P - put (paste) before cursor/current line\r\n\
-  :set paste - avoid unexpected effects in pasting\r\n\
-  \r\n\
-  Visual Mode - Marking text\r\n\
-  \r\n\
-  v - start visual mode, mark lines, then do command (such as y-yank)\r\n\
-  V - start Linewise visual mode\r\n\
-  o - move to other end of marked area\r\n\
-  U - upper case of marked area\r\n\
-  ctrl+v - start visual block mode\r\n\
-  O - move to Other corner of block\r\n\
-  aw - mark a word\r\n\
-  ab - a () block (with braces)\r\n\
-  aB - a {} block (with brackets)\r\n\
-  ib - inner () block\r\n\
-  iB - inner {} block\r\n\
-  Esc - exit visual mode\r\n\
-  \r\n\
-  Visual Mode - Commands\r\n\
-  \r\n\
-  > - shift right\r\n\
-  < - shift left\r\n\
-  y - yank (copy) marked text\r\n\
-  d - delete marked text\r\n\
-  ~ - switch case\r\n\
-  \r\n\
-  Visual Mode - Cut and paste\r\n\
-  \r\n\
-  1. Place the cursor at the start of your text.\r\n\
-  2. ma (marks the location as point 'a')\r\n\
-  3. Place the cursor at the end of your text.\r\n\
-  4. d'a (cuts back to location 'a')\r\n\
-  \r\n\
-  Exiting\r\n\
-  \r\n\
-  :w - write (save) the file, but don't exit\r\n\
-  :wq - write (save) and quit\r\n\
-  :x - same as :wq\r\n\
-  :q - quit (fails if anything has changed)\r\n\
-  :q! - quit and throw away changes\r\n\
-  \r\n\
-  Search/Replace\r\n\
-  \r\n\
-  /pattern - search for pattern\r\n\
-  ?pattern - search backward for pattern\r\n\
-  n - repeat search in same direction\r\n\
-  N - repeat search in opposite direction\r\n\
-  :%s/old/new/g - replace all old with new throughout file\r\n\
-  :%s/old/new/gc - replace all old with new throughout file with confirmations\r\n\
-  \r\n\
-  Working with multiple files\r\n\
-  \r\n\
-  :e filename - Edit a file in a new buffer\r\n\
-  :tabe filename - Edit a file in a new tab (Vim7, gVim)\r\n\
-  :bnext (or :bn) - go to next buffer\r\n\
-  :bprev (or :bp) - go to previous buffer\r\n\
-  :bd - delete a buffer (close a file)\r\n\
-  :sp filename - Open a file in a new buffer and split window\r\n\
-  ctrl-w s - Split windows\r\n\
-  ctrl-w w - switch between windows\r\n\
-  ctrl-w q - Quit a window\r\n\
-  ctrl-w v - Split windows vertically\r\n\
-  \r\n\
-  Tabs (Vim7)\r\n\
-  \r\n\
-  gt - Next tab\r\n\
-  gT - Previous tab\r\n\
-  :tabr - First tab\r\n\
-  :tabl - Last tab\r\n\
-  :tabm [N] - Move current tab after tab N. No N: last. N=0: first.\r\n\
-  $vim -p file1 file2 fileN  - Open multiple files in different tabs (vim7) \r\n\
-  \r\n\
-  Command Line Options\r\n\
-  \r\n\
-  $vim -c \"vim command\" file - execute an editor command on startup"
+vim: "Cursor movement\n\n\
+  h - move left\n\
+  j - move down\n\
+  k - move up\n\
+  l - move right\n\
+  ctrl-b - page up\n\
+  ctrl-f - page down\n\
+  % - jump to matching brace\n\
+  w - jump by start of words (punctuation considered words)\n\
+  W - jump by words (spaces separate words)\n\
+  e - jump to end of words (punctuation considered words)\n\
+  E - jump to end of words (no punctuation)\n\
+  b - jump backward by words (punctuation considered words)\n\
+  B - jump backward by words (no punctuation)\n\
+  0 - (zero) start of line\n\
+  ^ - first non-blank character of line\n\
+  $ - end of line\n\
+  gg - Go to first line\n\
+  [N]G - Go To line N. No N: last line\n\
+  Note: Prefix a cursor movement command with a number to repeat it. For example, 4j moves down 4 lines.\n\n\
+  Insert Mode - Inserting/Appending text\n\n\
+  i - start insert mode at cursor\n\
+  I - insert at the beginning of the line\n\
+  a - append after the cursor\n\
+  A - append at the end of the line\n\
+  o - open (append) blank line below current line (no need to press return)\n\
+  O - open blank line above current line\n\
+  ea - append at end of word\n\
+  Esc - exit insert mode\n\n\
+  Editing\n\n\
+  r - replace a single character (does not use insert mode)\n\
+  J - join line below to the current one\n\
+  cc - change (replace) an entire line\n\
+  cw - change (replace) to the end of word\n\
+  c$ - change (replace) to the end of line\n\
+  s - delete character at cursor and subsitute text\n\
+  S - delete line at cursor and substitute text (same as cc)\n\
+  xp - transpose two letters (delete and paste, technically)\n\
+  u - undo\n\
+  ctrl-r - redo\n\
+  . - repeat last command\n\
+  ~ - switch case\n\
+  g~iw - switch case of current word\n\
+  gUiw - make current word uppercase\n\
+  guiw - make current word lowercase\n\
+  >> - indent line one column to right\n\
+  << - indet line one column to left\n\
+  == - auto-indent current line\n\
+  ddp - swap current line with next\n\
+  ddkP - swap current line with previous\n\n\
+  Cut and Paste\n\n\
+  dd - delete (cut) a line\n\
+  dw - delete the current word\n\
+  x - delete current character\n\
+  X - delete previous character\n\
+  D - delete from cursor to end of line\n\
+  yy - yank (copy) a line\n\
+  2yy - yank 2 lines\n\
+  yw - yank word\n\
+  y$ - yank to end of line\n\
+  p - put (paste) the clipboard after cursor/current line\n\
+  P - put (paste) before cursor/current line\n\
+  :set paste - avoid unexpected effects in pasting\n\n\
+  Visual Mode - Marking text\n\n\
+  v - start visual mode, mark lines, then do command (such as y-yank)\n\
+  V - start Linewise visual mode\n\
+  o - move to other end of marked area\n\
+  U - upper case of marked area\n\
+  ctrl+v - start visual block mode\n\
+  O - move to Other corner of block\n\
+  aw - mark a word\n\
+  ab - a () block (with braces)\n\
+  aB - a {} block (with brackets)\n\
+  ib - inner () block\n\
+  iB - inner {} block\n\
+  Esc - exit visual mode\n\n\
+  Visual Mode - Commands\n\n\
+  > - shift right\n\
+  < - shift left\n\
+  c - change (replace) marked text\n\
+  y - yank (copy) marked text\n\
+  d - delete marked text\n\
+  ~ - switch case\n\n\
+  Visual Mode - Cut and paste\n\n\
+  1. Place the cursor at the start of your text.\n\
+  2. ma (marks the location as point 'a')\n\
+  3. Place the cursor at the end of your text.\n\
+  4. d'a (cuts back to location 'a')\n\n\
+  Exiting\n\n\
+  :w - write (save) the file, but don't exit\n\
+  :wq - write (save) and quit\n\
+  :x - same as :wq\n\
+  :q - quit (fails if anything has changed)\n\
+  :q! - quit and throw away changes\n\n\
+  Search/Replace\n\n\
+  /pattern - search for pattern\n\
+  ?pattern - search backward for pattern\n\
+  n - repeat search in same direction\n\
+  N - repeat search in opposite direction\n\
+  :%s/old/new/g - replace all old with new throughout file\n\
+  :%s/old/new/gc - replace all old with new throughout file with confirmations\n\n\
+  Working with multiple files\n\n\
+  :e filename - Edit a file in a new buffer\n\
+  :n **/*.pl - Open all perl files under the current directory, recursively\n\
+  :tabe filename - Edit a file in a new tab (Vim7, gVim)\n\
+  :bnext (or :bn) - go to next buffer\n\
+  :bprev (or :bp) - go to previous buffer\n\
+  :bd - delete a buffer (close a file)\n\
+  :sp filename - Open a file in a new buffer and split window\n\
+  ctrl-w s - Split windows\n\
+  ctrl-w w - switch between windows\n\
+  ctrl-w q - Quit a window\n\
+  ctrl-w v - Split windows vertically\n\n\n\
+  Tabs (Vim7)\n\n\
+  gt - Next tab\n\
+  gT - Previous tab\n\
+  :tabr - First tab\n\
+  :tabl - Last tab\n\
+  :tabm [N] - Move current tab after tab N. No N: last. N=0: first.\n\
+  $vim -p file1 file2 fileN  - Open multiple files in different tabs (vim7) \n\n\
+  Command Line Options\n\n\
+  $vim -c \"vim command\" file - execute an editor command on startup\n\n\
+  Commands:\n\n\
+  :setlocal fileformat=dos|unix\n\
+  :setlocal fileencoding=utf-8"

@@ -1,5 +1,5 @@
 --- 
-assert_template: |
+assert_template: |-
   # 'cheat assertions' for the rest
   
   assert_template(expected = nil, message=nil)
@@ -10,5 +10,3 @@ assert_template: |
   
     # assert that the "new" view template was rendered
     assert_template "new"
-  
-

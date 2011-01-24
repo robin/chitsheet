@@ -1,5 +1,5 @@
 --- 
-ubyubyuby: |
+ubyubyuby: |-
   # double space a file
       $  ruby -pe 'puts' < file.txt
   # triple space a file
@@ -209,6 +209,3 @@ ubyubyuby: |
   # delete all leading blank lines at top of file
       $  ruby -pe '@lineFound = true if $_ !~ /^\s*$/; next if !@lineFound' <
       file.txt
-  
-  
-

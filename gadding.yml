@@ -1,0 +1,59 @@
+--- 
+gadding: |-
+  GADDING ABOUT CHEAT FILE
+  ------------------------
+  
+  EDIT THIS FILE
+  --------------
+  
+  Type cheat gadding --edit
+  
+  MySQL
+  -----
+  
+  To add the socket information run this command:
+  
+  ln -s /var/mysql/mysql.sock /tmp/mysql.sock
+  
+  To authenticate to the database run this command:
+  
+  mysql gadding_development -u root -p
+  
+  Edit Database
+  -------------
+  
+  To update the database if Felix has migrated a new version run:
+  
+  rake db:migrate
+  
+  To refresh the counties data run this command:
+  
+  rake populate:update_property_country
+  
+  If you need to turn off validation then comment out:
+  
+  app/models/property.rb try editing out the line validates_presence_of
+  
+  Edit Ruby Files
+  ---------------
+  
+  To comment out a line add a #
+  
+  Sphinx
+  ------
+  
+  To start the search engine run this command:
+  
+  rake ts:start
+  
+  To stop the search engine run this command:
+  
+  rake ts:stop
+  
+  To update the fields of the search engine run this command:
+  
+  rake ts:config
+  
+  
+  
+  rake ts:run

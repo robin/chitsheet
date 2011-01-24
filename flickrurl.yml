@@ -1,0 +1,41 @@
+--- 
+flickrurl: |-
+  FLICKR URL
+  ==========
+  
+  FORMAT:
+  -------
+  http://farm{farm-id}.static.flickr.com/{server-id}/{id}_{secret}.jpg
+  http://farm{farm-id}.static.flickr.com/{server-id}/{id}_{secret}_[mstb].jpg
+  http://farm{farm-id}.static.flickr.com/{server-id}/{id}_{o-secret}_o.(jpg|gif|png)
+  
+  = Sizes:
+  s	small square 75x75
+  t	thumbnail, 100 on longest side
+  m	small, 240 on longest side
+  -	medium, 500 on longest side
+  b	large, 1024 on longest side (only exists for very large original images)
+  o	original image, either a jpg, gif or png, depending on source format
+  
+  = Example:
+  http://farm1.static.flickr.com/2/1418878_1e92283336_m.jpg
+  
+  farm-id: 1
+  server-id: 2
+  photo-id: 1418878
+  secret: 1e92283336
+  size: m
+  
+  WEBPAGE URL:
+  ------------
+  http://www.flickr.com/people/{user-id}/ - profile
+  http://www.flickr.com/photos/{user-id}/ - photostream
+  http://www.flickr.com/photos/{user-id}/{photo-id} - individual photo
+  http://www.flickr.com/photos/{user-id}/sets/ - all photosets
+  http://www.flickr.com/photos/{user-id}/sets/{photoset-id} - single photoset
+  
+  = Example:
+  http://www.flickr.com/photos/12037949754@N01/
+  http://www.flickr.com/photos/12037949754@N01/155761353/
+  http://www.flickr.com/photos/12037949754@N01/sets/
+  http://www.flickr.com/photos/12037949754@N01/sets/72157594162136485/

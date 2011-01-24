@@ -1,0 +1,55 @@
+--- 
+unzip: |-
+  EXAMPLES
+  
+  To use unzip to extract all members of the archive letters.zip into the current directory and subdirectories below it, creating any subdirectories as necessary:
+  
+  unzip letters
+  To extract all members of letters.zip into the current directory only:
+  
+  unzip -j letters
+  To test letters.zip, printing only a summary message indicating whether the archive is OK or not:
+  
+  unzip -tq letters
+  To test all zipfiles in the current directory, printing only the summaries:
+  
+  unzip -tq \*.zip
+  (The backslash before the asterisk is only required if the shell expands wildcards, as in Unix; double quotes could have been used instead, as in the source examples below.) To extract to standard output all members of letters.zip whose names end in .tex, auto-converting to the local end-of-line convention and piping the output into more(1):
+  
+  unzip -ca letters \*.tex | more
+  To extract the binary file paper1.dvi to standard output and pipe it to a printing program:
+  
+  unzip -p articles paper1.dvi | dvips
+  To extract all FORTRAN and C source files--*.f, *.c, *.h, and Makefile--into the /tmp directory:
+  
+  unzip source.zip "*.[fch]" Makefile -d /tmp
+  (the double quotes are necessary only in Unix and only if globbing is turned on). To extract all FORTRAN and C source files, regardless of case (e.g., both *.c and *.C, and any makefile, Makefile, MAKEFILE or similar):
+  
+  unzip -C source.zip "*.[fch]" makefile -d /tmp
+  To extract any such files but convert any uppercase MS-DOS or VMS names to lowercase and convert the line-endings of all of the files to the local standard (without respect to any files that might be marked ``binary''):
+  
+  unzip -aaCL source.zip "*.[fch]" makefile -d /tmp
+  To extract only newer versions of the files already in the current directory, without querying (NOTE: be careful of unzipping in one timezone a zipfile created in another--ZIP archives other than those created by Zip 2.1 or later contain no timezone information, and a ``newer'' file from an eastern timezone may, in fact, be older):
+  
+  unzip -fo sources
+  To extract newer versions of the files already in the current directory and to create any files not already there (same caveat as previous example):
+  
+  unzip -uo sources
+  To display a diagnostic screen showing which unzip and zipinfo options are stored in environment variables, whether decryption support was compiled in, the compiler with which unzip was compiled, etc.:
+  
+  unzip -v
+  In the last five examples, assume that UNZIP or UNZIP OPTS is set to -q. To do a singly quiet listing:
+  
+  unzip -l file.zip
+  To do a doubly quiet listing:
+  
+  unzip -ql file.zip
+  (Note that the ``.zip'' is generally not necessary.) To do a standard listing:
+  
+  unzip --ql file.zip
+  or
+  
+  unzip -l-q file.zip
+  or
+  
+  unzip -l--q file.zip

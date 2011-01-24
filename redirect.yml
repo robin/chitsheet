@@ -1,11 +1,7 @@
 --- 
-redirect: |
-  
+redirect: |-
   # Send contents of file to command
   $ command < file	
-  
-  # Redirect to file and pipe						
-  $ command > file | grep -i error	
   
   # Redirect Stderr twice		
   $ command 2> file2 > file1 2>&1	
@@ -19,7 +15,7 @@ redirect: |
   # Redirect Stdout to one file and Stderr to another
   $ command > file1 2> file2	
   
-  # Pipe Stdout and Stdin to another process	
+  # Pipe Stdout and Stderr to another process	
   $ command 2>&1 | command2			
   
   $ less <(gzip -cd foo.gz)
@@ -27,4 +23,6 @@ redirect: |
   
   # Redirect an error
   $ echo An Error >&2 2>&1 | sed -e 's/A/I/'
-
+  
+  # Duplicate output
+  $ command | tee file1 > file2

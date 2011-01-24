@@ -1,0 +1,13 @@
+--- 
+hitch: |-
+  For leela and fry to pair:
+    hitch leela fry
+  To clear pair info:
+    hitch -u
+  For a complete list of features:
+    hitch -h
+  To print out the necessary shell function and aliases you need to add to your ~/.bashrc or ~/.zshrc
+    hitch --setup
+  Creating a Gravatar for your pair:
+    Once I've hitched with my pair. (e.g. hitch leela fry) I have now created a unique email: dev+fry+leela@example.com
+    Then, I go to gravatar.com. Add an image to that particular email address and I'm done.

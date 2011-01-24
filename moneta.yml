@@ -1,0 +1,64 @@
+--- 
+moneta: |-
+  Here's a quick cheat sheet for wycat's moneta cache (http://github.com/wycats/moneta)
+  
+  
+  Instantiate the cache:
+  ======================
+  
+  Create a Moneta::Memory cache store:
+  >> require 'moneta'
+  >> require 'moneta/memory'
+  >> cache = Moneta::Memory.new
+  
+  Create a Moneta::BasicFile cache store:
+  >> require 'moneta'
+  >> require 'moneta/basic_file'
+  >> cache = Moneta::BasicFile.new(:path => 'my_cache_dir')
+  
+  
+  Use the cache:
+  ==============
+  
+  Basic Usage:
+  >> cache['my_key'] = 'my_value'
+  => "my_value"
+  >> cache['my_key']
+  => "my_value"
+  
+  Set an expiration:
+  >> cache.store('my_2nd_key', 'my_2nd_value', :expires => 100)
+  >> cache['my_2nd_key']
+  => "my_2nd_value"
+  
+  
+  
+  The API:
+  ========
+  
+  #initialize(options)::
+  Options differs per-store, and is used to set up the store.
+  
+  #[](key)::
+  Retrieve a key. if the key is not available, return nil.
+  
+  #[]=(key, value)::
+  Set a value for a key. if the key is already used, clobber it. Keys set using []= will never expire.
+  
+  #delete(key)::
+  Delete the key from the store and return the current value.
+  
+  #key?(key)::
+  true if the key exists, false if it does not
+  
+  #has_key?(key)::
+  Alias for key?
+  
+  #store(key, value, options)::   
+  Same as []=, but you can supply an :expires_in option, which will specify a number of seconds before the key should expire. In order to support the same features across all stores, only full seconds are supported.
+  
+  #update_key(key, options)::     
+  Updates an existing key with a new :expires_in option. If the key has already expired, it will not be updated.
+  
+  #clear::                        
+  Clear all keys in this store.

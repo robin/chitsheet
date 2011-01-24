@@ -1,0 +1,11 @@
+--- 
+orgmode_motion: |-
+  ================================================================================
+  Motion
+  ================================================================================
+  
+  next/previous heading                             C-c C-n/p
+  next/previous heading, same level                 C-c C-f/b
+  backward to higher level heading                  C-c C-u
+  jump to another place in document                 C-c C-j
+  previous/next plain list item                     S-UP/DOWN [3]

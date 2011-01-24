@@ -1,0 +1,39 @@
+--- 
+remarkable: |-
+  Remarkable ActiveRecord Macros
+  
+      should_belong_to :user
+      should_have_many :comments
+      should_have_and_belong_to_many :tags
+  
+      should_validate_presence_of :body
+      should_validate_uniqueness_of :title, :allow_blank => true
+  
+  For those who likes more the Rspec way can simply do:
+  
+      it { should belong_to(:user) }
+      it { should have_many(:comments) }
+      it { should have_and_belong_to_many(:tags) }
+  
+      it { should validate_presence_of(:body) }
+      it { should validate_uniqueness_of(:title, :allow_blank => true) }
+  
+  Other matchers:
+  
+  	accept_nested_attributes_for
+  	allow_mass_assignment_of
+  	allow_values_for
+  	have_column	
+  	have_default_scope
+  	have_index
+  	have_one
+  	have_readonly_attribute
+  	have_scope
+  	validate_acceptance_of
+  	validate_associated
+  	validate_confirmation_of
+  	validate_exclusion_of
+  	validate_format_of
+  	validate_inclusion_of
+  	validate_length_of
+  	validate_numericality_of

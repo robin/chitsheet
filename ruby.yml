@@ -25,4 +25,5 @@ ruby: |-
     --copyright     print the copyright
     --version       print the version
   
-  [Aren't you glad you didn't have to type 'ruby -h' to get that?]
+  sometimes
+  [Aren't you glad you didn't have to type 'ruby -h' to get that?];

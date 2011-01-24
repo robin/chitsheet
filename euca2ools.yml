@@ -1,0 +1,56 @@
+--- 
+euca2ools: "Initialization variables:\r\n  $ . ~/.euca/eucarc\r\n\
+  \r\n\
+  Infos:\r\n  $ euca-describe-availability-zones verbose\r\n  $ euca-describe-images\r\n  $ euca-describe-keypairs\r\n  $ euca-describe-instances\r\n  $ euca-describe-volumes\r\n  $ euca-describe-snapshots\r\n  $ euca-describe-addresses\r\n  $ euca-describe-groups\r\n\
+  \r\n\
+  Keypairs:\r\n  $ euca-add-keypair mykey > mykey.priv\r\n  $ euca-delete-keypair helloworld\r\n\
+  \r\n\
+  ---\r\n\
+  \r\n\
+  Registering kernel image:\r\n  $ euca-bundle-image -i vmlinuz-2.6.28-11-server --kernel true\r\n  $ euca-upload-bundle -b mybucket -m /tmp/vmlinuz-2.6.28-11-server.manifest.xml\r\n  $ euca-register mybucket/vmlinuz-2.6.28-11-server.manifest.xml\r\n\
+  \r\n\
+  Registering ramdisk image:\r\n  $ euca-bundle-image -i  initrd.img-2.6.28-11-server\r\n  $ euca-upload-bundle -b mybucket -m /tmp/initrd.img-2.6.28-11-server.manifest.xml\r\n  $ euca-register mybucket/initrd.img-2.6.28-11-server.manifest.xml\r\n\
+  \r\n\
+  Registering disk image:\r\n  $ euca-bundle-image -i image.img --kernel eki-XXXXXXXX --ramdisk eri-XXXXXXXX\r\n  $ euca-upload-bundle -b mybucket -m /tmp/image.img.manifest.xml\r\n  $ euca-register mybucket/image.img.manifest.xml\r\n\
+  \r\n\
+  ---\r\n\
+  \r\n\
+  Lounching and manage instances:\r\n  $ euca-run-instances emi-XXXXXXXX -k mykey -t c1.medium\r\n  $ euca-get-console-output i-XXXXXXXX\r\n\
+  \r\n\
+  Launching an instance associated with the security group \xE2\x80\x9Cwebservers\xE2\x80\x9D :\r\n  $ euca-run-instances emi-XXXXXXXX -k mykey -g webservers\r\n\
+  \r\n\
+  Connecting to the instance:\r\n  $ ssh -i mykey.priv user@ip\r\n  $ euca-reboot-instances i-XXXXXXXX\r\n  $ euca-terminate-instances i-XXXXXXXX\r\n\
+  \r\n\
+  ---\r\n\
+  \r\n\
+  Create new 10GB volume:\r\n  $ euca-create-volume -s 10 -z mycloud\r\n  $ euca-create-volume -s 10 --snapshot snap-ZZZZZZZZ --zone mycloud\r\n\
+  \r\n\
+  Attach a volume to a runing instance:\r\n  $ euca-attach-volume -i i-XXXXXXX -d /dev/sdb vol-YYYYYYYY\r\n\
+  \r\n\
+  Detach a volume:\r\n  $ euca-detach-volume vol-YYYYYYYY\r\n  $ euca-delete-volume vol-YYYYYYYY  ### for windows only\r\n\
+  \r\n\
+  Snapshots:\r\n  $ euca-create-snapshot vol-YYYYYYYY\r\n  $ euca-delete-snapshot snap-ZZZZZZZZ\r\n\
+  \r\n\
+  ---\r\n\
+  \r\n\
+  Allocating IP address:\r\n  $ euca-allocate-address\r\n  ADDRESS IP\r\n\
+  \r\n\
+  Releasing a public ip address from a specify user:\r\n  $ euca-release-address IP\r\n\
+  \r\n\
+  Associating a public ip address to a running instance\r\n  $ euca-associate-address -i i-XXXXXXXX ip\r\n\
+  \r\n\
+  Disassociating a public ip address from a running instance\r\n  $ euca-disassociate-address ip\r\n\
+  \r\n\
+  ---\r\n\
+  \r\n\
+  Creating a security group named \xE2\x80\x9Cwebservers\xE2\x80\x9D:\r\n  $ euca-add-group -d \"Web Servers\" webservers\r\n\
+  \r\n\
+  Adding a rule to the security group \xE2\x80\x9Cwebservers\xE2\x80\x9D allowing icmp and tcp traffic from a.b.c.d:\r\n  $ euca-authorize -P tcp -s a.b.c.d webservers\r\n  $ euca-authorize -P icmp -s a.b.c.d webservers\r\n\
+  \r\n\
+  Removing the rule for icmp traffic from the source ip a.b.c.d from the security group \xE2\x80\x9Cwebservers\xE2\x80\x9D:\r\n  $ euca-revoke -P icmp -s a.b.c.d webservers\r\n\
+  \r\n\
+  Deleting the security group \xE2\x80\x9Cwebservers\xE2\x80\x9D:\r\n  $ euca-delete-group webservers\r\n\
+  \r\n\
+  ---\r\n\
+  \r\n\
+  source: http://cssoss.wordpress.com/2010/05/10/eucalyptus-beginner%E2%80%99s-guide-%E2%80%93-uec-edition-chapter-10-%E2%80%93-euca%C2%A0commands/"

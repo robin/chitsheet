@@ -1,5 +1,5 @@
 --- 
-cool_options: |
+cool_options: |-
   From http://cooloptions.rubyforge.org/:
   Declaration:
   
@@ -55,5 +55,3 @@ cool_options: |
         -f, --[no-]finish                Prep and commit the new project.
                                          Default is: true
         -h, --help                       This help info.
-  
-

@@ -1,5 +1,5 @@
 --- 
-svn: |
+svn: |-
   Creating a new repository:
     mkdir /path/to/new/dir
     svnadmin create /path/to/new/dir
@@ -79,4 +79,3 @@ svn: |
    $ svn add --non-recursive directory_name
    $ svn co -r7 url directory
    $ svn propedit svn:ignore *.bak
-

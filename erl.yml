@@ -1,0 +1,27 @@
+--- 
+erl: |-
+  `erl` runs .beam files. To create these you must first compile your
+  erlang source file (.erl) with the `erlc` program.
+  
+  Usage:
+    erl [arguments]
+  
+  Arguments:
+    -pa Directory
+     Specifies a load path directory
+    -man Command
+     load the man entry for a command
+    -config File
+     Load a configuration file
+    -setcookie CookieName
+     Give this node a cookie name 
+    -detached
+     Run this program in the background
+    -eval "some:code()."
+     Evaluate erlang code
+    -heart
+     Monitor this program and auto-restart it
+    -s Module [Function [Argument1, ... ArgumentN]]
+     Execute Module:Function(Argument1, ... ArgumentN)
+  
+  Full Details: http://erlang.org/doc/man/erl.html
