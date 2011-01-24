@@ -1,6 +1,5 @@
 --- 
-sed::print: |
-  
+sed_print: |-
   # print first 10 lines of file (emulates behavior of "head")
   sed 10q
   
@@ -83,4 +82,3 @@ sed::print: |
   
   # print section of file between two regular expressions (inclusive)
   sed -n '/Iowa/,/Montana/p'             # case sensitive
-

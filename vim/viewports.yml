@@ -1,0 +1,18 @@
+--- 
+vim_viewports: "VIM VIEWPORT REFERENCE\n\
+  ======================\n\
+  :sp         split window horizontally (:split)\n\
+  :vsp        split window vertically   (:vsplit)\n\n\
+  Ctrl-w      move between viewports\n\n\
+  Ctrl-w j    move one viewport down\n\
+  Ctrl-w k    move one viewport up\n\
+  Ctrl-w h    move one viewport left\n\
+  Ctrl-w l    move one viewport right\n\n\
+  Ctrl-w =    resize viewports to be equal size\n\n\
+  Ctrl-w -    reduce viewport by 1 line\n\
+  Ctrl-w 20-  reduce viewport by 20 line\n\n\
+  Ctrl-w +    increase viewport by 1 line\n\
+  Ctrl-w 20+  increase viewport by 20 line\n\n\
+  Ctrl-w q    close the active window\n\n\
+  Ctrl-w r    rotate windows to the right\n\
+  Ctrl-w R    rotate windows to the left"

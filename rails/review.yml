@@ -1,0 +1,24 @@
+--- 
+rails_review: "Como analisar um projeto em Rails a primeira vista\r\n\
+  \r\n\
+  1. Vers\xC3\xA3o do rails\r\n\
+  2. Conseguir levantar o database (rake db:migrate)\r\n\
+  3. Quais gems ou plugins usa\r\n\
+  4. Qual framework de teste?\r\n\
+  5. Usa fixture replacement?\r\n\
+  6. Gerar um diagrama do banco de dados\r\n\
+  7. Rotas\r\n\
+  9. Restful controllers?\r\n\
+  10. Como est\xC3\xA1 feita a estrat\xC3\xA9gia de deploy?\r\n\
+  \r\n\
+  How to analyze a project in Rails at first sight\r\n\
+  \r\n\
+  1. Version of rails\r\n\
+  2. Getting up the database (rake db: migrate)\r\n\
+  3. What uses gems or plugins\r\n\
+  4. What test framework?\r\n\
+  5. Uses fixture replacement?\r\n\
+  6. Generate a database diagram\r\n\
+  7. Routes\r\n\
+  9. Restful Controllers?\r\n\
+  10. How is made the strategy of deployment?"

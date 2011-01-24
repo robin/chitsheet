@@ -1,0 +1,80 @@
+--- 
+vim_anders: "SEARCH\n\
+  ======\n\
+  *           Search forward, word under cursor\n\
+  #           Search backward, word under cursor\n\
+  /           Search forward\n\
+  ?           Search backward\n\
+  fc          Search line forward for 'c'\n\
+  Fc          Search line backward for 'c'\n\
+  tc          Search line forward before 'c'\n\
+  Tc          Search line backward before 'c'\n\n\
+  MOVE\n\
+  ====\n\
+  w           Word forward\n\
+  b           Word backward\n\
+  e           To end of word forward\n\
+  ge          To end of word backward\n\
+  ^           Beginning of line\n\
+  $           End of line\n\
+  h,j,k,l     Left, down, up, right\n\n\
+  MACROS\n\
+  ======\n\
+  qa          Start recording macro 'a'\n\
+  q           End recording macro\n\
+  @a          Replay macro 'a'\n\n\
+  MARKS\n\
+  =====\n\
+  ma          Mark current position in 'a'\n\
+  `a          Goto position with mark 'a'\n\
+  'a          Goto line with mark 'a'\n\n\
+  REGISTERS\n\
+  =========\n\
+  :reg        List all registers\n\
+  \"c          Register 'c'\n\
+  \".          Last edit\n\
+  \"/          Last search\n\
+  \":          Last command\n\
+  \"%          Filepath\n\n\
+  SURROUND\n\
+  ========\n\
+  cs'\"        Change surrounding quotes to double-quotes\n\
+  cs(}        Change surrounding parens to braces \n\
+  cs({        Change surrounding parens to braces with space\n\
+  ds'         Delete surrounding quotes\n\
+  dst         Delete surrounding tags\n\
+  ysiw[       Surround inner word with brackets\n\
+  vees'       Surround 2 words (ee) with quote\n\n\
+  RUBY REFACTORING\n\
+  ================\n\
+  ,relv       Refactor Extract Local Variable\n\
+  ,rem        Refactor Extract Method\n\
+  ,rec        Refactor Extract Constant\n\
+  ,rriv       Refactor Rename Instance Variable\n\
+  ,rrlv       Refactor Rename Local Variable\n\
+  ,rit        Refactor Inline temp\n\
+  ,rap        Refactor Add Parameter\n\
+  ,rcpc       Refactor Convert Post Conditonal\n\
+  ,rel        Refactor Extract Let (RSPEC)\n\n\
+  SPELLING\n\
+  ========\n\
+  ]s          Next misspelled word\n\
+  [s          Previous misspelled word\n\
+  zg          Add word to wordlist\n\
+  zug         Undo last add word\n\
+  z=          Suggest word\n\n\
+  COMMAND MODE\n\
+  ============\n\
+  C-p         Previous command\n\
+  C-n         Next command\n\
+  C-f         Enter command window mode\n\
+  C-h         Left\n\
+  C-l         Right\n\
+  C-b         Back word\n\
+  C-w         Word forward\n\
+  C-a         Beginning of line\n\
+  C-e         End of line\n\n\
+  COMMAND WINDOW\n\
+  ==============\n\
+  q/          Command window for searches\n\
+  q:          Command window for commands"

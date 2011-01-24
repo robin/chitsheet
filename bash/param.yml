@@ -1,0 +1,59 @@
+--- 
+bash_param: |
+  Bash parameter expansions
+  =========================
+  
+  NOTE:
+    The `:' character used in many of the expansions is optional.
+    Using the `:' checks for param that is unset or null.
+    Without the `:' checks for param that is unset.
+  
+  | Expansion                | Note                            |
+  |--------------------------+---------------------------------|
+  | ${param}                 | Use value                       |
+  | ${!param}                | Variable indirection            |
+  | ${param:-word}           | Use default value               |
+  | ${param:=word}           | Assign default value            |
+  | ${param:?word}           | Display error                   |
+  | ${param:+word}           | Use alternate value             |
+  | ${param:offset}          | Substring expansion             |
+  | ${param:offset:length}   | Substring expansion with length |
+  | ${!prefix*}              | Name expansion with prefix      |
+  | ${#param}                | Length in characters            |
+  | ${param#word}            | Remove shortest match at start  |
+  | ${param##word}           | Remove longest match at start   |
+  | ${param%word}            | Remove shortest match at end    |
+  | ${param%%word}           | Remove longest match at end     |
+  | ${param/pattern/string}  | Replace first matching pattern  |
+  | ${param//pattern/string} | Replace all matching patterns   |
+  
+  Examples:
+  
+  $ x=yes
+  $ echo ${x}         #=> yes
+  $ echo ${x:-no}     #=> yes
+  $ x=
+  $ echo ${x:-no}     #=> no
+  $ echo ${x-no}      #=> "" <an empty string>
+  $ unset x
+  $ echo ${x:-no}     #=> no
+  $ echo ${x-no}      #=> no
+  
+  $ path='/some/path/to/file.txt'
+  $ echo ${path##*/}  #=> file.txt
+  $ echo ${path%/*}   #=> /some/path/to
+  
+  $ x=yes
+  $ y=x
+  $ echo ${!y}        #=> yes
+  
+  $ x=0123456789
+  $ echo ${x:0}       #=> 0123456789
+  $ echo ${x:3}       #=> 3456789
+  $ echo ${x:3:2}     #=> 34
+  
+  $ xval1=first
+  $ xval2=second
+  $ xval3=third
+  $ echo ${!xval*}    #=> xval1 xval2 xval3
+

@@ -1,6 +1,5 @@
 --- 
-rails::plugin_creation: |-
-  
+rails_plugin_creation: |-
   require 'active_record'
   
   module Foo

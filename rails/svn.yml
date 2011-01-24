@@ -1,5 +1,5 @@
 --- 
-rails::svn: |-
+rails_svn: |-
   # Set up various sexy SVN parts
   cd trunk
   

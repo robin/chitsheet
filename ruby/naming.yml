@@ -1,0 +1,35 @@
+--- 
+ruby_naming: |-
+  ------------------------
+  Ruby naming conventions:
+  ------------------------
+  
+     local variables,
+     arrays,
+     hashes,
+     method names
+        begin with lower case letter
+  
+     global variables
+        begin with $
+  
+     instance variables
+        begin with @
+        (@ represents 'attribute of an object')
+  
+     class variables
+        begin with @@
+        (@@ represents 'attribute for all related objects')
+  
+     constants,
+     class names,
+        begin with capital letter e.g.
+        class Myclass
+           def etc...
+  
+        create an instance:
+        myinstance = Myclass.new("myparam")
+  
+     symbols
+        begin with :
+        :varname - pass in a symbol i.e. name of variable not value

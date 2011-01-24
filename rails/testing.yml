@@ -1,0 +1,19 @@
+--- 
+rails_testing: |-
+  CONTROLLERS
+  
+    assert_response :success  # 200
+                    :redirect # 300-399
+                    :missing  # 404
+                    :error    # 500-599
+  
+  MAILERS
+  
+    ActionMailer::Base.deliveries.clear
+  
+    email = ActionMailer::Base.deliveries[0]
+  
+    assert_equal email.from, "me@example.com"
+    assert_equal email.to[0], 'friend@example.com'
+    assert_equal email.subject, "You have been invited by me@example.com"
+    assert_match /Hi friend@example.com/, email.body

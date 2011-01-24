@@ -1,5 +1,5 @@
 --- 
-zsh::rename: |-
+zsh_rename: |-
   # Renaming files with Zsh
   
   

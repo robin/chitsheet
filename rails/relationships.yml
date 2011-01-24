@@ -1,0 +1,21 @@
+--- 
+rails_relationships: |-
+  # has_many and belongs_to#
+  ## Models ##
+      class Customer < ActiveRecord::Base
+        belongs_to :company
+      end
+  
+      class Company < ActiveRecord::Base
+        has_many customers
+      end
+  
+  ## Migrations ##
+      class CreateCustomer < Activerecord::Migration
+        def self.up
+          create_table :customers do |t|
+            t.references :company
+            ...
+          end
+        end
+      end

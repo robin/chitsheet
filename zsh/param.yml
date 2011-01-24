@@ -1,5 +1,5 @@
 --- 
-zsh::param: |
+zsh_param: |-
   TBC
   
   ${name}			Value
@@ -47,4 +47,3 @@ zsh::param: |
   
   
   If the opening brace is directly followed by an opening parenthesis the string up to the matching closing parenthesis will be taken as a list of flags. Where arguments are valid, any character, or the matching pairs (...), {...}, [...], or <...>, may be used in place of the colon as delimiters. The following flags are supported:
-

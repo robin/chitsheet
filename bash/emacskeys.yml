@@ -1,0 +1,78 @@
+--- 
+bash_emacskeys: |
+  Emacs keyboard bindings
+  
+  For OS X, open Terminal Preferences > keyboard, and check:
+  "Use option key as meta key"
+  
+  ---
+  In Terminal
+  
+  * and ** = variable user input
+  
+  opt-b       : back one word
+  opt-f       : forward one word
+  ctrl-a      : beginning of line
+  ctrl-e      : end of line
+  ctrl-]*     : jump forward to character *
+  ctrl-opt-]* : jump backward to character * (not OS X 10.4?)
+  opt-*       : repeat the next command * times where * is an integer
+  
+  ctrl-r *    : reverse history search for *
+  ctrl-j      : edit found command
+  !*          : run last command matching *
+  * opt-.     : find last command matching * (repeat to cycle)
+  *!$         : grab last command argument and execute
+  !#:*        : grab *th argument of current line (to repeat it)
+  :s/*/**     : search and replace * with **
+  
+  ^*^**       : search and replace in previous command
+    e.g.
+    ls al
+    ls: al: No such file or directory
+    ^al^-al
+    gives
+    ls -al
+  
+  ^*          : delete first instance of * in previous command
+    e.g.
+    lss -al
+    -bash: lss: command not found
+    ^s
+    gives
+    ls -al
+  
+  Cut and paste (Kill and Yank)
+  
+  ctrl -w     : delete argument back to previous space
+              : press immediately more than once to save multiple in one go
+  opt-del     : delete word back to previous word boundary
+  opt-d       : delete forward one word
+  ctrl-k      : kill to end of line
+  ctrl-u      : kill to start of line
+  
+  ctrl-y      : paste
+  opt-y       : (after ctrl-y) cycle through 'kill ring'
+  
+  grab numbered argument e.g.
+  echo a b c d > file.txt
+  echo !echo:3
+  gives echo c
+  
+  transform: grab tail end :t of last argument e.g.
+  wget ftp://somedomain.com/somefile.tar.gz
+  tar xzf !$:t
+  gives:
+  tar xzf ftp://somedomain.com/somefile.tar.gz
+  
+  remove two extensions with :r
+  cd !$:r:r
+  gives
+  cd somefile
+  
+  
+  see:
+  http://teachmetocode.com/screencasts/bash-command-line-editing/
+  
+  ctrl-x ctrl-v : default bash editor
+

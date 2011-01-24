@@ -1,0 +1,27 @@
+--- 
+rails_conventions: "Naming Convention Summary\r\n\
+  \r\n\
+  Model Naming Convention\r\n\
+  Table: orders\xE2\x80\xA8\r\n\
+  Class: Order\xE2\x80\xA8\r\n\
+  File: /app/models/order.rb\xE2\x80\xA8\r\n\
+  Primary Key: id\xE2\x80\xA8\r\n\
+  Foreign Key: customer_id\xE2\x80\xA8\r\n\
+  Link Tables: items_orders <-- note that these are in _alphabetic_ order, if not you will have to specify your association with :through => :orders_items\r\n\
+  \r\n\
+  Controller Naming Convention\r\n\
+  Class: OrdersController\xE2\x80\xA8\r\n\
+  File: /app/controllers/orders_controller.rb\r\n\
+  Layout: /app/layouts/orders.html.erb\r\n\
+  \r\n\
+  View Naming Convention\r\n\
+  Helper: /app/helpers/orders_helper.rb\xE2\x80\xA8\r\n\
+  Helper Module: OrdersHelper\xE2\x80\xA8\r\n\
+  Views: /app/views/orders/\xE2\x80\xA6 (list.html.erb for example)\r\n\
+  \r\n\
+  Tests Naming Convention\r\n\
+  Unit: /test/unit/order_test.rb\xE2\x80\xA8\r\n\
+  Functional: /test/functional/orders_controller_test.rb\xE2\x80\xA8\r\n\
+  Fixtures: /test/fixtures/orders.yml\r\n\
+  \r\n\
+  Shamelessly stolen from: itsignals.cascadia.com.au/?p=7 (more info there)"

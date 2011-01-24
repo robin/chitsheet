@@ -1,5 +1,5 @@
 --- 
-git::usage: |-
+git_usage: |-
   Some common git usage
   ---------------------
   
@@ -24,9 +24,9 @@ git::usage: |-
   $ git push
   
   Track the Remote Branch
-   [branch "master"]
-    remote = origin
-    merge = refs/heads/master
+  [branch "master"]
+  	remote = origin
+  	merge = refs/heads/master
   
   To pull from someone else's repository:
   # # Create a local branch

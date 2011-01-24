@@ -1,5 +1,5 @@
 --- 
-zsh::modifiers: "# Filename Modifiers\r\n\
+zsh_modifiers: "# Filename Modifiers\r\n\
   \r\n\
   :h\thead (dirname)\r\n\
   :t\ttail (basename)\r\n\

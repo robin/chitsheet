@@ -1,0 +1,8 @@
+--- 
+rails_3_ajax_events: "* ajax:before \xE2\x80\x93 right before ajax call\n\
+  * ajax:loading \xE2\x80\x93 before ajax call, but after XmlHttpRequest object\n  is created)\n\
+  * ajax:success \xE2\x80\x93 successful ajax call\n\
+  * ajax:failure \xE2\x80\x93 failed ajax call\n\
+  * ajax:complete \xE2\x80\x93 completion of ajax call (after ajax:success and\n  ajax:failure)\n\
+  * ajax:after \xE2\x80\x93 after ajax call is sent (note: not after it returns)\n\n\
+  (credit: http://bu.tt/48m)"

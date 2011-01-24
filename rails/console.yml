@@ -1,5 +1,5 @@
 --- 
-rails::console: |
+rails_console: |-
   Reloading the Console Environment:
   >> reload!
   >> Dispatcher.reset_application!   # (outdated)
@@ -33,6 +33,22 @@ rails::console: |
   Print as YAML
   >> y @something
   
+  Grep available methods between model objects:
+  >> p = Post.new # in this case there's a corresponding Comments model too
+  >> y p.methods.grep(/commen/).sort
+  --- 
+  - autosave_associated_records_for_comments
+  - comment_ids
+  - comment_ids=
+  - comments
+  - comments=
+  ...
+  ...
+  etc.
+  
   Start in a sandbox (any modifications you make to the database will be rolled back on exit)
   $ ./script/console -s
-
+  
+  See also:
+  
+  $ cheat console

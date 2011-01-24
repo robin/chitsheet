@@ -1,0 +1,72 @@
+--- 
+ruby_string_examples: |-
+  # Use single quotes \' to create a literal string. 
+    # Inside a quoted string #{foobar}, \, ... is not interpreted.
+    %q = single quoted 
+    # e.g. 
+    %q{ 'single quoted text' doesn't need to be escaped} =>  " 'single quoted text' doesn't need to be escaped" 
+  
+    %Q = double quoted
+    # e.g. %Q{ "doublee quoted text" doesn't need to be escaped}
+  
+    # Can replace curly braces with any other character, like a dot "."
+    %q = single quoted
+    # e.g.
+    %q. 'single quoted text' doesn't need to be escaped. =>  " 'single quoted text' doesn't need to be escaped" 
+  
+    # here document
+    mystring = <<EOS
+    this is a 
+    mulitword 
+    string
+    EOS
+    
+    # Most operations don't change the orginal string.
+    # Unless the bang \! is used or the method implies it, replace method.
+  
+    "a" + "b" => "ab"
+    "a" << "b"  => "ab"
+    b = "some string"
+    "a#{b}" =>  "asome string" 
+    "%d some text more text" % 33 => "33 some text more text" 
+    "%d some text more text" % [55]  => "55 some text more text" 
+    "some int %d some float %f" % [55, 44.7] =>  "some int %d some float %f" % [55, 44.7]
+    # Massaging strings
+    # Default will create a new string. For in-place changes add bang ! to method name
+  
+    capitilize	"tom".captilize => "Tom"
+    upcase	"tom".upcase => "TOM"
+    downcase	"TOM".downcase => "tom"
+    swapcase	"tom".swapcase = "TOM"
+    strip		 "  lose the outer spaces  ".strip => "lose the outer spaces"
+    rstrip	 "  lose the right spaces   ".rstrip =>  "  lose the outer spaces" 
+    lstrip	 " lose the left spaces    ".lstrip =>  "lose the outer spaces  " 
+    chop		 "remove the last character".chop => "remove the last characte"
+    chomp		 "remove trailing newline\n".chomp =>  "remove the the trailing newline" 
+    reverse	 " gnirts eht esrever".reverse => "reverse the string"
+  
+    # Getting character
+    "foobar"[3] => 98 # ascii number for 'b'
+    "foobar"[3].chr => "b" 
+    "foobar"[3,2] => "ba"
+    "foobar"[-2].chr => "a"
+  
+    # Getting Substrings
+    "This is a string"[5, 4] => "is a"
+    "foo bar baz"[/foo (\w+) baz/, 1]  => "bar"
+  
+  
+    # Replacement
+    foo = "bar"
+    foo.replace "hush" => "hush"
+    foo = "This is a string"
+    foo[5, 4] => "is a"
+    "Some string with  whitespace\n and\t\tlines".gsub(/\s+/,'_') => "Some_string_with_whitespace_and_lines" 
+    
+    # Equality
+    "a" == "a" => true
+    # they are not the place in memory. different obj ids
+    "a".equal? "a" =>  false
+  
+    # Comparision
+    <=> spaceship operator, return -1, 0, 1 for less than, equal to, greater than

@@ -1,0 +1,14 @@
+--- 
+zsh_startup: |-
+  The Startup Process
+  
+  (In the below description, zsh looks for user startup files in the user's home directory by default. 
+  To make it look in another directory, set the parameter ZDOTDIR to where you'd like zsh to look.)
+  
+  When zsh starts up, the following files are read (in order):
+  
+  	1. First, read /etc/zshenv (If the RCS option is unset in this system file, all other startup files are skipped.)
+  	2. Next, read ~/.zshenv
+  	3. Next, IF the shell is a login shell, read /etc/zprofile, followed by ~/.zprofile
+  	4. Next, IF the shell is interactive, read /etc/zshrc, followed by ~/.zshrc
+  	5. Finally, if the shell is a login shell, read /etc/zlogin, followed by ~/.zlogin

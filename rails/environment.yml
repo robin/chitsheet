@@ -1,5 +1,5 @@
 --- 
-rails::environment: "Source: http://glu.ttono.us/articles/2006/05/22/configuring-rails-environments-the-cheat-sheet\n\n\
+rails_environment: "Source: http://glu.ttono.us/articles/2006/05/22/configuring-rails-environments-the-cheat-sheet\n\n\
   = General Options =\n\
   For more detailed documentation, see the source code directly. \n\
   Each of these options should be prepended with config. when used with a Rails::Initializer do |config| block.\n\n\

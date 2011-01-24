@@ -1,5 +1,5 @@
 --- 
-rails::to_s: |-
+rails_to_s: |-
   >> 3.days.ago.to_s(:db)
   
   Formats:

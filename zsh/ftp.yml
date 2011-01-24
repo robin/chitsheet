@@ -1,5 +1,5 @@
 --- 
-zsh::ftp: |
+zsh_ftp: |-
   # Zsh ftp
   (need to autoload zsh/ftp)
   
@@ -14,4 +14,3 @@ zsh::ftp: |
   		zfopen
   		zfls -l zsh-lovers.html
   		zfcd tips
-

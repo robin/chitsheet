@@ -1,5 +1,5 @@
 --- 
-rails::routes: |-
+rails_routes: |-
   http://api.rubyonrails.com/classes/ActionController/Routing.html
   
   TEST/UNIT:

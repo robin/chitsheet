@@ -1,5 +1,5 @@
 --- 
-rails::reserved_words: |-
+rails_reserved_words: |-
   ADDITIONAL_LOAD_PATHS
   ARGF
   ARGV
@@ -167,3 +167,4 @@ rails::reserved_words: |-
   Verbose
   YAML
   ZeroDivisionError
+  type

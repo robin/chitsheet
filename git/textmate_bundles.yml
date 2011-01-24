@@ -1,0 +1,5 @@
+--- 
+git_textmate_bundles: |-
+  cd ~/"Library/Application Support/TextMate/Bundles/"
+  git clone GIT_URL bundle-name.tmbundle
+  osascript -e 'tell app "TextMate" to reload bundles'

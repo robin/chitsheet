@@ -1,5 +1,5 @@
 --- 
-rails::vim: |-
+rails_vim: |-
   Cheat sheet for the rails.vim plugin
   
   General Commands:

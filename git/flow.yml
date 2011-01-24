@@ -1,0 +1,29 @@
+--- 
+git_flow: "GIT FLOW\r\n\
+  ========\r\n\
+  Git extensions to provide high-level repository operations for Vincent Driessen's branching model. \xE2\x80\x94 Read more:\r\n\
+  http://nvie.com/posts/a-successful-git-branching-model/\r\n\
+  \r\n\
+  INIT:\r\n\
+  $ git flow init\r\n\
+  \r\n\
+  TRACK DEVELOP REMOTELY ON GITHUB:\r\n\
+  $ git push origin develop\r\n\
+  \r\n\
+  FEATURES:\r\n\
+  Use to develop new features starting from the develop branch. Merge back into develop branch waiting for a reasonable amount of features to be there before declaring it a release.\r\n\
+  $ git flow feature\r\n\
+  $ git flow feature start <name>\r\n\
+  $ git flow feature finish <name>\r\n\
+  \r\n\
+  RELEASES:\r\n\
+  Use to group together latest development (features) add a few finishing touches if necessary and send to production. All last changes will merge back to master and develop so new features will start from current release.\r\n\
+  $ git flow release\r\n\
+  $ git flow release start <release> [<base>]\r\n\
+  $ git flow release finish <release>\r\n\
+  \r\n\
+  HOTFIXES:\r\n\
+  Similar to releases but the hotfix branch starts off master to avoid unvoluntary send to production of unwanted features that my be present in branches. The quick fix must be used when an important bug arises in production which must be fixed and can't wait for other features to be ready. It merges back to master and develop.\r\n\
+  $ git flow hotfix\r\n\
+  $ git flow hotfix start <release> [<base>]\r\n\
+  $ git flow hotfix finish <release>"

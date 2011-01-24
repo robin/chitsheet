@@ -1,5 +1,5 @@
 --- 
-rails::migrations: |-
+rails_migrations: |-
   http://wiki.rubyonrails.com/rails/pages/UsingMigrations
   
   valid data types:

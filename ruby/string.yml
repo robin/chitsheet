@@ -1,0 +1,58 @@
+--- 
+ruby_string: |-
+  To change case: 
+  
+   capitalize - first character to upper, rest to lower
+   downcase - all to lower case
+   swapcase - changes the case of all letters
+   upcase - all to upper case
+  
+  To rejustify: 
+  
+   center - add white space padding to center string
+   ljust - pads string, left justified
+   rjust - pads string, right justified
+  
+  To trim: 
+  
+   chop - remove last character
+   chomp - remove trailing line separators
+   squeeze - reduces successive equal characters to singles
+   strip - deletes leading and trailing white space
+  
+  To examine: 
+  
+   count - return a count of matches
+   empty? - returns true if empty
+   include? - is a specified target string present in the source?
+   index - return the position of one string in another
+   length or size - return the length of a string
+   rindex - returns the last position of one string in another
+   slice - returns a partial string
+  
+  To encode and alter: 
+  
+   crypt - password encryption
+   delete - delete an intersection
+   dump - adds extra \ characters to escape specials
+   hex - takes string as hex digits and returns number
+   next or succ - successive or next string (eg ba -> bb)
+   oct - take string as octal digits and returns number
+   replace - replace one string with another
+   reverse - turns the string around
+   slice! - DELETES a partial string and returns the part deleted
+   split - returns an array of partial strings exploded at separator
+   sum - returns a checksum of the string
+   to_f and to_i - return string converted to float and integer
+   tr - to map all occurrences of specified char(s) to other char(s)
+   tr_s - as tr, then squeeze out resultant duplicates
+   unpack - to extract from a string into an array using a template
+  
+  To iterate: 
+  
+   each - process each character in turn
+   each_line - process each line in a string
+   each_byte - process each byte in turn
+   upto - iterate through successive strings (see "next" above)
+  
+  Taken from: http://www.wellho.net/solutions/ruby-string-functions-in-ruby.html

@@ -1,0 +1,17 @@
+--- 
+mysql_move: |-
+  # How to move the mysql data files
+  
+          rsync -av /var/lib/mysql /data/
+  
+  
+  # Edit the /etc/mysql/my.cnf and change the line
+          datadir         = /data/mysql
+  
+  
+  # Add the following to /etc/apparmor.d/usr.sbin.mysqld
+  
+  /data/mysql/ r,
+  /data/mysql/** rwk,
+  
+  /etc/init.d/apparmor restart

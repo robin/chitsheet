@@ -1,5 +1,5 @@
 --- 
-zsh::process: |-
+zsh_process: |-
   backgrounding
     command &
     ^Z bg
