@@ -1,79 +1,48 @@
 --- 
-migrations: |-
-  Methods:
-    create_table(name, options)
-    drop_table(name)
-    rename_table(old_name, new_name)
-    add_column(table_name, column_name, type, options)
-    rename_column(table_name, column_name, new_column_name)
-    change_column(table_name, column_name, type, options)
-    remove_column(table_name, column_name)
-    add_index(table_name, column_name, index_type)
-    remove_index(table_name, column_name)
-  
-  Available Column Types:
-    * integer
-    * float
-    * datetime
-    * date
-    * timestamp
-    * time
-    * text
-    * string
-    * binary
-    * boolean
-    * decimal :precision, :scale
-  
-  Valid Column Options:
-    * limit
-    * null (i.e. ":null => false" implies NOT NULL)
-    * default (to specify default values)
-    * :decimal, :precision => 8, :scale => 3
-    
-  Rake Tasks:
-    rake db:schema:dump: run after you create a model to capture the schema.rb
-    rake db:schema:import: import the schema file into the current database (on error, check if your schema.rb has ":force => true" on the create table statements
-    ./script/generate migration MigrationName: generate a new migration with a new 'highest' version (run './script/generate migration' for this info at your fingertips)
-    rake db:migrate: migrate your current database to the most recent version
-    rake db:migrate VERSION=5: migrate your current database to a specific version (in this case, version 5)
-    rake db:rollback: migrate down one migration
-    rake db:rollback STEP=3: migrate down three migrations
-    rake db:migrate RAILS_ENV=production: migrate your production database
-  
-  SQL:
-    Queries can be executed directly:
-    execute 'ALTER TABLE researchers ADD CONSTRAINT fk_researchers_departments FOREIGN KEY ( department_id ) REFERENCES departments( id )'
-    
-  Example Migration:
-    class UpdateUsersAndCreateProducts < ActiveRecord::Migration
-      def self.up
-        rename_column "users", "password", "hashed_password" 
-        remove_column "users", "email" 
-  
-         User.reset_column_information
-         User.find(:all).each{|u| #do something with u}
-  
-        create_table "products", :force => true do |t|
-            t.column "name", :text
-            t.column "description", :text
-            t.column "price", :decimal, :precision => 9, :scale => 2
-        end
-  
-        #the rails 2.0 way:
-        create_table :people do |t|
-          t.integer :account_id
-          t.string  :first_name, :last_name, :null => false
-          t.text    :description
-          t.timestamps
-        end
-      end
-  
-      def self.down
-        rename_column "users", "hashed_password", "password" 
-        add_column "users", "email", :string
-        drop_table "products" 
-      end
-    end
-  
-  Find Highest version:
-    script/runner "puts ActiveRecord::Migrator.current_version"
+migrations: "Methods:\r\n  create_table(name, options)\r\n  drop_table(name)\r\n  rename_table(old_name, new_name)\r\n  add_column(table_name, column_name, type, options)\r\n  rename_column(table_name, column_name, new_column_name)\r\n  change_column(table_name, column_name, type, options)\r\n  remove_column(table_name, column_name)\r\n  add_index(table_name, column_name, index_type)\r\n  remove_index(table_name, column_name)\r\n  change_table(table_name) {|Table.new(table_name, self)| ...} \r\n\
+  \r\n\
+  Available Column Types (mappings are below):\r\n  * integer\r\n  * float\r\n  * datetime\r\n  * date\r\n  * timestamp\r\n  * time\r\n  * text\r\n  * string\r\n  * binary\r\n  * boolean\r\n  * decimal :precision, :scale\r\n\
+  \r\n\
+  Valid Column Options:\r\n  * limit\r\n  * null (i.e. \":null => false\" implies NOT NULL)\r\n  * default (to specify default values)\r\n  * :decimal, :precision => 8, :scale => 3\r\n\
+  \r\n\
+  Rake Tasks:\r\n  rake db:schema:dump: run after you create a model to capture the schema.rb\r\n  rake db:schema:import: import the schema file into the current database (on error, check if your schema.rb has \":force => true\" on the create table statements\r\n  ./script/generate migration MigrationName: generate a new migration with a new 'highest' version (run './script/generate migration' for this info at your fingertips)\r\n  rake db:migrate: migrate your current database to the most recent version\r\n  rake db:migrate VERSION=5: migrate your current database to a specific version (in this case, version 5)\r\n  rake db:rollback: migrate down one migration\r\n  rake db:rollback STEP=3: migrate down three migrations\r\n  rake db:migrate RAILS_ENV=production: migrate your production database\r\n\
+  \r\n\
+  SQL:\r\n  Queries can be executed directly:\r\n  execute 'ALTER TABLE researchers ADD CONSTRAINT fk_researchers_departments FOREIGN KEY ( department_id ) REFERENCES departments( id )'\r\n\
+  \r\n\
+  Example Migration:\r\n  class UpdateUsersAndCreateProducts < ActiveRecord::Migration\r\n    def self.up\r\n      rename_column \"users\", \"password\", \"hashed_password\" \r\n      remove_column \"users\", \"email\" \r\n\
+  \r\n       User.reset_column_information\r\n       User.find(:all).each{|u| #do something with u}\r\n\
+  \r\n      create_table \"products\", :force => true do |t|\r\n          t.column \"name\", :text\r\n          t.column \"description\", :text\r\n          t.column \"price\", :decimal, :precision => 9, :scale => 2\r\n          t.column \"category_id\", :integer\r\n      end\r\n\
+  \r\n      #the rails 2.0 way:\r\n      create_table :people do |t|\r\n        t.integer :account_id\r\n        t.string  :first_name, :last_name, :null => false\r\n        t.text    :description\r\n        t.references :category # is the equivalent of t.integer :category_id\r\n        t.timestamps\r\n      end\r\n    end\r\n\
+  \r\n    def self.down\r\n      rename_column \"users\", \"hashed_password\", \"password\" \r\n      add_column \"users\", \"email\", :string\r\n      drop_table \"products\" \r\n    end\r\n  end\r\n\
+  \r\n\
+  Find Highest version:\r\n  script/runner \"puts ActiveRecord::Migrator.current_version\"\r\n\
+  \r\n\
+  Database Mapping\r\n\
+  \r\n\
+  Rails\t\tdb2\t\tmysql\t\topenbase\tOracle\r\n\
+  :binary\tblob(32678)\tblob\t\tobject\t\tblob\r\n\
+  :boolean\tdecimal(1)\ttinyint(1)\tboolean\t\tnumber(10)\r\n\
+  :date\t\tdate\t\tdate\t\tdate\t\tdate\r\n\
+  :datetime\ttimestamp\tdatetime\tdatetime\tdate\r\n\
+  :decimal\tdecimal\t\tdecimal\t\tdecimal\t\tdecimal\r\n\
+  :float\tfloat\t\tfloat\t\tfloat\t\tnumber\r\n\
+  :integer\tint\t\tint(11)\t\tinteger\t\tnumber(38)\r\n\
+  :string\tvarchar(255)\tvarchar(255)\tchar(4096)\tvarchar2(255)\r\n\
+  :text\t\tclob(32768)\ttext\t\ttext\t\tclob\r\n\
+  :time\t\ttime\t\ttime\t\ttime\t\tdate\r\n\
+  :timestamp\ttimestamp\tdatetime\ttimestamp\tdate\r\n\
+  \r\n\
+  Rails\t\tpostgresql\tsqlite\t\tsqlserver\tSybase\r\n\
+  :binary\tbytea\t\tblob\t\timage\t\timage\r\n\
+  :boolean\tboolean\t\tboolean\t\tbit\t\tbit\r\n\
+  :date\t\tdate\t\tdate\t\tdatetime\tdatetime\r\n\
+  :datetime\ttimestamp\tdatetime\tdatetime\tdatetime\r\n\
+  :decimal\tdecimal\t\tdecimal\t\tdecimal\t\tdecimal\r\n\
+  :float\tfloat\t\tfloat\t\tfloat(8)\tfloat(8)\r\n\
+  :integer\tinteger\t\tinteger\t\tint\t\tint\r\n\
+  :string\t*\t\tvarchar(255)\tvarchar(255)\tvarchar(255)\r\n\
+  :text\t\ttext\t\ttext\t\ttext\t\ttext\r\n\
+  :time\t\ttime\t\tdatetime\tdatetime\ttime\r\n\
+  :timestamp\ttimestamp\tdatetime\tdatetime\ttimestamp\r\n\
+  \r\n\
+  \r\n "

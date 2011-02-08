@@ -1,5 +1,5 @@
 --- 
-ambition: |
+ambition: |-
   Query#to_sql
   >> User.select { |m| m.name == 'jon' }.to_sql
   => "SELECT * FROM users WHERE users.name = 'jon'"
@@ -55,9 +55,8 @@ ambition: |
   
   Other
   
+  
   User.any? { |m| m.name == 'jon' }
   User.all? { |m| m.name == 'jon' }
   User.select { |m| m.name == 'jon' }.empty?
   User.select { |m| m.name.downcase =~ 'jon%' }.to_sql
-  
-

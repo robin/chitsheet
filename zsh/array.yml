@@ -1,5 +1,5 @@
 --- 
-zsh::array: |-
+zsh_array: |-
   # Standard array
   	array=(~/.zshenv, ~/.zshrc, ~/.zlogout)
   	print ${array:t}

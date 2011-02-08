@@ -1,5 +1,5 @@
 --- 
-assert_redirected_to: |
+assert_redirected_to: |-
   # 'cheat assertions' for the rest
   
   assert_redirected_to(options = {}, message=nil)
@@ -13,5 +13,3 @@ assert_redirected_to: |
   
     # assert that the redirection was to the named route login_url
     assert_redirected_to login_url
-  
-

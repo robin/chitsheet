@@ -1,0 +1,21 @@
+--- 
+ubuntu: |-
+  == verzije ==
+  6.06	Dapper Drake (LTS)
+  6.10	Edgy Eft
+  7.04	Feisty Fawn
+  7.10	Gutsy Gibbon
+  8.04	Hardy Heron (LTS)
+  8.10	Intrepid Ibex
+  9.04	Jaunty Jackalope
+  9.10	Karmic Koala
+  10.04	Lucid Lynx (LTS)
+  10.10	Maverick Meerkat
+  
+  == getting a list of all installed packages ==
+  
+  dpkg --get-selections
+  
+  == searching for a package on command line ==
+  
+  apt-cache search <string>

@@ -1,0 +1,22 @@
+--- 
+rngtng: |-
+  Developing Hints for rngtng:
+  
+  ######################################
+  # Cucumber
+  
+  * with cucumber:
+  RAILS_ENV=cucumber DISABLE_CACHE_CLASSES=1 s
+  
+  DISABLE_CLEANING=1 cucumber features/activity_stream_filtering.feature
+  
+  infinitive EM loop:
+     Thread.new { EM.run }
+   
+  
+  
+  ####################################
+  # Cassandra
+  
+  cassandra-cli
+    connect localhost/9160

@@ -1,5 +1,5 @@
 --- 
-zsh::ranges: |-
+zsh_ranges: |-
   # Ranges
   
   print {010..001}c

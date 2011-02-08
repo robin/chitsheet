@@ -1,0 +1,10 @@
+--- 
+gitignore: |-
+  echo 'log/*.log
+  tmp/**/*
+  doc/api
+  doc/app
+  db/*.sqlite3'>.gitignore
+  
+  touch log/.gitignore
+  touch tmp/.gitignore

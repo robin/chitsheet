@@ -1,0 +1,26 @@
+--- 
+sun_ilom: |-
+  === Sun x2200 === 
+  
+  start /SP/AgentInfo/console
+  stop /SP/AgentInfo/console
+  reset /SP 
+  show /SP/AgentInfo/SEL
+  set /SP/AgentInfo/SEL clear=action
+  set /SP/SystemInfo/CtrlInfo IdLedCtrl=blink
+  set /SP/SystemInfo/CtrlInfo PowerCtrl=reset
+  set /SP/SystemInfo/CtrlInfo PowerCtrl=forceoff
+  set /SP/SystemInfo/CtrlInfo BootCtrl=BIOSSetup
+  
+  === Sun X4540 ===
+  Start console:
+  start /SP/console
+  
+  Start system:
+  start /SYS
+  
+  Stop system:
+  stop /SYS
+  
+  hard reset system:
+  reset /SYS

@@ -1,0 +1,6 @@
+--- 
+sudo: |-
+  /etc/sudoers
+    Let user foo run command /sbin/bar as root, no password prompt:
+  
+    foo ALL=NOPASSWD: /sbin/bar

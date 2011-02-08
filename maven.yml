@@ -1,0 +1,144 @@
+--- 
+maven: |-
+  To build and thus create the project's artifact (war, jar, etc):
+  mvn package
+  
+  To clean all previous build files:
+  mvn clean
+  
+  To clean all previous build files and then build:
+  mvn clean package
+  
+  If you want to do the above but in a "off-line" mode
+  mvn -o clean package
+  
+  To clean all previous build files, then build, then install in the local repository:
+  mvn clean package install
+  
+  ---------------------------------
+  
+  Installing Artifact in Local Repository
+  mvn clean install
+  
+  To build the package file (jar, war, etc) allowing test failure:
+  mvn -Dmaven.test.failure.ignore=true package
+  
+  To generate Eclipse project descriptor after configuring the dependencies in pom.xml:
+  mvn eclipse:eclipse
+  
+  To clean previous generated Eclipse support files and then generate Eclipse project descriptor after configuring the dependencies in pom.xml:
+  mvn eclipse:clean eclipse:eclipse
+  
+  To generate the project's development support site
+  mvn site
+  
+  To generate site documentation without running the tests (handy while updating the APTs):
+  mvn -Dmaven.test.skip=true clean site
+  
+  To generate javadoc
+  mvn javadoc:javadoc
+  
+  To generate javadoc stuffed into a jar file
+  mvn javadoc:jar
+  
+  To create a new non web app Java project (artifact is jar):
+  mvn archetype:create -DgroupId=com.mycompany.app -DartifactId=my-app
+  
+  To create a new web app Java project (artifact is war):
+  mvn archetype:create -DgroupId=com.mycompany.app -DartifactId=my-webapp -DarchetypeArtifactId=maven-archetype-webapp
+  
+  To check the version of Maven:
+  mvn --version
+  
+  To run unit tests:
+  mvn test
+  
+  To distribute the source code:
+  mvn assembly:assembly -DdescriptorId=src
+  
+  To install a jar file on local repo:
+  mvn install:install-file -Dfile=foo.jar -DgroupId=bar -Dversion=x.y -Dpackaging=jar -DartifactId=blah
+  
+  To install the oracle ojdbc14_g.jar file on local repo:
+  Optionally Download the Oracle JDBC driver from http://www.oracle.com/technology/software/tech/java/sqlj_jdbc/index.html
+  Q:
+  cd C:\some\path\to\file\oracle
+  mvn install:install-file -DgroupId=com.oracle -DartifactId=ojdbc14_g -Dversion=10.2.0.1.0 -Dpackaging=jar -Dfile=ojdbc14_g.jar
+  Then add a dependency in the pom.xml file similar to the following
+   <project>
+   <dependencies>
+          <dependency>
+                  <groupId>com.oracle</groupId>
+                  <artifactId>ojdbc14_g</artifactId>
+                  <version>10.2.0.1.0</version>
+          </dependency>
+   </dependencies>
+   </project>
+  
+  Installing 3rdParty jar in local repository:
+  mvn install:install-file -Dfile=foo.jar -DgroupId=org.foosoft -DartifactId=foo -Dversion=1.2.3 -Dpackaging=jar
+  
+  Setting Compiler Version
+   <project>
+     <build>
+        <plugins>
+           <plugin>
+           <artifactId>maven-compiler-plugin</artifactId>
+              <configuration>
+                 <source>1.6</source>
+                 <target>1.6</target>
+              </configuration>
+           </plugin>
+        </plugins>
+     </build>
+   </project>
+  
+  Standard Project Structure
+  /new-app/pom.xml		maven2 project file
+  /new-app/src/			Sources
+  /new-app/src/main/java/		Java source tree
+  /new-app/src/test/java/		Java unit tests
+  /new-app/src/main/resources/	Java classpath resources
+  /new-app/src/test/resources/	Resources for unit-tests
+  /new-app/target/classes/	compiles classes
+  /new-app/target/test-classes/	compiles test classes
+  /new-app/target/dots		other plugins' output
+  /newwebapp/src/main/webapp	root of webapp
+  
+  
+  Generic Create Commands using Archetypes
+  Create a jar artifact project
+  mvn archetype:create -DgroupId=com.mycompany.app -DartifactId=my-app
+  
+  Create a web app, war artifact project
+  mvn archetype:create -DgroupId=com.mycompany.app -DartifactId=my-webapp -DarchetypeArtifactId=maven-archetype-webapp
+  
+  Add documentation source
+  mvn archetype:create -DarchetypeGroupId=org.apache.maven.archetypes -DarchetypeArtifactId=maven-archetype-site -DgroupId=com.mycompany.app -DartifactId=my-app-site
+  
+  Create a Groovy based project, groovy-jar artifact project
+  mvn archetype:create \
+      -DarchetypeGroupId=org.codehaus.mojo.groovy \
+      -DarchetypeArtifactId=groovy-maven-archetype \
+      -DgroupId=com.mycompany.app \
+      -DpackageName=com.mycompany.app.mygroovymodule \
+      -DartifactId=my-groovy-module
+  
+  Fake Specific Create Commands
+  
+  create a jar artifact project
+  mvn archetype:create -DgroupId=com.mycompany.app -DartifactId=my-app
+  
+  Create a web app, war artifact project
+  mvn archetype:create -DgroupId=com.mycompany.app -DartifactId=my-app -DarchetypeArtifactId=maven-archetype-webapp
+  
+  Add documentation source
+  mvn archetype:create -DarchetypeGroupId=org.apache.maven.archetypes -DarchetypeArtifactId=maven-archetype-site -DgroupId=com.mycompany.app -DartifactId=my-app
+  or cd into project dir
+  mvn archetype:create -DarchetypeGroupId=org.apache.maven.archetypes -DarchetypeArtifactId=maven-archetype-site
+  
+  Creating a war project
+  http://maven.apache.org/guides/mini/guide-webapp.html
+  
+  
+  (based on http://nbtconsulting.com/cheat-sheets/maven-cheat-sheet.html)

@@ -1,0 +1,13 @@
+--- 
+rails_data_types: "Rails 2.x Data Types for Migrations\n\n\
+  :integer\n\
+  :float\n\
+  :decimal\n\
+  :datetime\n\
+  :date\n\
+  :timestamp\n\
+  :time\n\
+  :text\n\
+  :string\n\
+  :binary\n\
+  :boolean"

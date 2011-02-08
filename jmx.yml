@@ -1,0 +1,15 @@
+--- 
+jmx: |-
+  To enable the JMX, set this system property to a Java application:
+      
+      com.sun.management.jmxremote
+      
+  To enable monitoring and management from remote systems, set this system 
+  property:
+  
+      com.sun.management.jmxremote.port=portNum
+  
+  To disable security set this system properties:
+  
+      com.sun.management.jmxremote.authenticate=false
+      com.sun.management.jmxremote.ssl=false

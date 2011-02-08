@@ -1,0 +1,138 @@
+--- 
+txt2tags: |-
+  txt2tags cheat Sheet
+   Author Name
+   Last Updated: %%mtime(%A %B %d, %Y)
+    
+    % This is a comment.
+    
+    % which type of encoding you'd like to use on the converted file:
+    %! encoding: utf-8
+    
+    % this specifies that you'd like to use a Table Of Contents:
+    %! options: --toc
+    %! options: --toc-level 3
+    
+    % Enumerate all titles:
+    %! options: --enum-title
+    
+    % Pre-processed named links:
+    %! preproc: '(Wikipedia)' '[\1 http://www.wikipedia.org/]'
+    
+    % %date() can take stftime (cheat strftime)
+    The date of compilation of this file was %%date(%m-%d-%Y).
+    
+    = Common formatting elements =
+    == Numbered list ==
+  
+    A numbered list is created by using a plus symbol (+) and a
+    space before each item. To make a nested item, indent the + one
+    or more spaces. You can have as many nested levels as you like.
+    Close the list with one empty item (a + and a space) beneath the
+    list, which shows up as one blank line in the converted
+    document.
+    
+    + item one
+    + item two
+    + item three
+     + sub-item one
+     + sub-item two
+     + sub-item three
+    + item four
+    + item five
+    + item six
+    +
+    
+    == Unnumbered list ==
+  
+    A plain list is created by using a dash (-) and a space before
+    each item. Close the list with two blank lines beneath the list,
+    which show up as one blank line in the converted document.
+  
+    - item one
+    - item two
+    - item three
+     + subitem one
+     + subitem two
+     + subitem three
+    - item four
+    - item five
+    - item six
+    
+    
+    == File inclusion ==
+    === Include file as txt2tags file ===
+  
+    %!include: sample.txt
+    
+    === Include file as raw block ===
+  
+    %!include: ""sample.txt""
+    
+    === Include file as verbatim block ===
+  
+    %!include: ``sample.txt``
+    
+    == Styling elements ==
+  
+    - ``code``
+    - **bold**
+    - //italic//
+    - __underline__
+    - --strike--
+    - ""raw""
+    
+    
+    == verbatim block ==
+  
+    ```
+    verbatim
+    **block**
+    ```
+    
+    
+    == Definition list ==
+  
+   A definition list is created by using a colon ( and a space
+   before each word you wish to define, and putting the definition
+   on the next line. Close the list with two empty lines beneath
+   it, which show up as one blank line in the converted document.
+    
+    : enamored
+    charmed
+    : despicable
+    very unpleasant or evil
+    : relish
+    to get great pleasure from something
+    
+    
+    == Tables ==
+    === With border and centering ===
+  
+      || This is a table | It has two columns |
+      | Here's another row | Also with two columns |
+      | Here's another row | Also with two columns |
+      | Here's another row | Also with two columns |
+    
+    === Without border and centering ===
+  
+    || This is a table | It has two columns
+    | Here's another row | Also with two columns
+    | Here's another row | Also with two columns
+    | Here's another row | Also with two columns
+    
+    === When some items span more than one column ===
+  
+      | XXXXXXX | XXXXXXX
+      |         | XXXXXXX
+      | XXXXXXX | XXXXXXX
+      | XXXXXXX |
+      | XXXXXXX | XXXXXXX
+      |      XXXXXXX      ||
+      | XXXXXXX | XXXXXXX
+    
+    == Author ==
+  
+   You may contact me at jyoti.mickey at gmail. Or you may check
+   [my profile http://profiles.wikidot.com/profile:jyoti-sharma].
+   you can check out my blog at http://my.opera.com/jsharma/blog.

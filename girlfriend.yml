@@ -1,0 +1,9 @@
+--- 
+girlfriend: |
+  Cheating on your girlfriend, wife, or significant other is y'know... probably a very bad idea.
+  
+  ... I'm judgin'.
+  
+  Just because you clicked the link, doesn't mean you will actually do it. It's a catchy link, don't worry. -rmx
+  
+

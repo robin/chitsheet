@@ -1,0 +1,112 @@
+--- 
+rails_configuration: "General options\r\n\
+  ---------------\r\n\
+  \r\n\
+  All of these options can be accessed directly on the config object inside an Initializer block (ie production.rb). For example in your environment.rb:\r\n\
+  \r\n  Rails::Initializer.run do |config|\r\n    ...\r\n    config.frameworks -= [ :active_resource ]\r\n    ...\r\n  end\r\n  \r\n\
+  \r\n\
+  cache_classes\r\n    Whether or not classes should be cached (set to false if you want\r\n    application classes to be reloaded on each request)\r\n\
+  \r\n\
+  cache_store\r\n    The specific cache store to use. By default, the \r\n    ActiveSupport::Cache::Store will be used.\r\n\
+  \r\n\
+  controller_paths\r\n    The list of paths that should be searched for controllers. (Defaults\r\n    to <tt>app/controllers</tt> and <tt>components</tt>.)\r\n\
+  \r\n\
+  database_configuration_file\r\n    The path to the database configuration file to use. (Defaults to\r\n    <tt>config/database.yml</tt>.)\r\n\
+  \r\n\
+  frameworks\r\n    The list of rails framework components that should be loaded. (Defaults\r\n    to <tt>:active_record</tt>, <tt>:action_controller</tt>,\r\n    <tt>:action_view</tt>, <tt>:action_mailer</tt>, and\r\n    <tt>:active_resource</tt>).\r\n\
+  \r\n\
+  gem\r\n    Adds a single Gem dependency to the rails application.\r\n\
+  \r\n      # gem 'aws-s3', '>= 0.4.0'\r\n      # require 'aws/s3'\r\n      config.gem 'aws-s3', :lib => 'aws/s3', :version => '>= 0.4.0', \\\r\n        :source => \"http://code.whytheluckystiff.net\"\r\n\
+  \r\n\
+  gems\r\n    An array of gems that this rails application depends on.  Rails will\r\n    automatically load these gems during installation, and allow you to install\r\n    any missing gems with:\r\n\
+  \r\n      rake gems:install\r\n\
+  \r\n    You can add gems with the #gem method.\r\n\
+  \r\n\
+  load_paths\r\n    An array of additional paths to prepend to the load path. By default,\r\n    all +app+, +lib+, +vendor+ and mock paths are included in this list.\r\n\
+  \r\n\
+  load_once_paths\r\n    An array of paths from which Rails will automatically load from only once.\r\n    All elements of this array must also be in +load_paths+.\r\n\
+  \r\n\
+  log_level\r\n    The log level to use for the default Rails logger. In production mode,\r\n    this defaults to <tt>:info</tt>. In development mode, it defaults to\r\n    <tt>:debug</tt>.\r\n\
+  \r\n\
+  log_path\r\n    The path to the log file to use. Defaults to log/    #{environment}.log\r\n    (e.g. log/development.log or log/production.log).\r\n\
+  \r\n\
+  logger\r\n    The specific logger to use. By default, a logger will be created and\r\n    initialized using #log_path and #log_level, but a programmer may\r\n    specifically set the logger to use via this accessor and it will be\r\n    used directly.\r\n\
+  \r\n\
+  plugin_paths\r\n    The path to the root of the plugins directory. By default, it is in\r\n    <tt>vendor/plugins</tt>.\r\n\
+  \r\n\
+  plugin_locators\r\n    The classes that handle finding the desired plugins that you'd like to load\r\n    for your application. By default it is the Rails::Plugin::FileSystemLocator\r\n    which finds plugins to load in <tt>vendor/plugins</tt>. You can hook into\r\n    gem location by subclassing Rails::Plugin::Locator and adding it onto the\r\n    list of <tt>plugin_locators</tt>.\r\n\
+  \r\n\
+  plugin_loader\r\n    The class that handles loading each plugin. Defaults to \r\n    Rails::Plugin::Loader, but a sub class would have access to fine grained\r\n    modification of the loading behavior. See the implementation of \r\n    Rails::Plugin::Loader for more details.\r\n\
+  \r\n\
+  reload_plugins\r\n    Enables or disables plugin reloading.  You can get around this setting per \r\n    plugin. If #reload_plugins? == false, add this to your plugin's init.rb to\r\n    make it reloadable:\r\n\
+  \r\n      Dependencies.load_once_paths.delete lib_path\r\n\
+  \r\n    If #reload_plugins? == true, add this to your plugin's init.rb to only load\r\n    it once:\r\n\
+  \r\n      Dependencies.load_once_paths << lib_path\r\n\
+  \r\n\
+  view_path\r\n    The root of the application's views. (Defaults to <tt>app/views</tt>.)\r\n\
+  \r\n\
+  whiny_nils\r\n    Set to +true+ if you want to be warned (noisily) when you try to invoke\r\n    any method of +nil+. Set to +false+ for the standard Ruby behavior.\r\n\
+  \r\n\
+  \r\n\
+  ActiveRecord Options\r\n\
+  --------------------\r\n\
+  \r\n\
+  Each of these options should be prepended with config.active_record. when used with a Rails::Initializer do |config| block.\r\n\
+  \r\n\
+  primary_key_prefix_type\r\n    Accessor for the prefix type that will be prepended to every primary key column name. The options are :table_name and :table_name_with_underscore. If the first is specified, the Product class will look for \xE2\x80\x9Cproductid\xE2\x80\x9D instead of \xE2\x80\x9Cid\xE2\x80\x9D as the primary column. If the latter is specified, the Product class will look for \xE2\x80\x9Cproduct_id\xE2\x80\x9D instead of \xE2\x80\x9Cid\xE2\x80\x9D. Remember that this is a global setting for all Active Records.\r\n\
+  table_name_prefix\r\n    The string to prepend to every table name.\r\n    By default, the prefix is an empty string\r\n\
+  table_name_suffix\r\n    The same as table_name_prefix, but it appends the string to the table name.\r\n\
+  pluralize_table_names\r\n    Indicates whether or not table names should be the pluralized versions of the corresponding class names.\r\n    Defaults to true.\r\n\
+  colorize_logging\r\n    Should logs have ANSI color codes in logging statments?\r\n    Defaults to true\r\n\
+  default_timezone\r\n    Determines whether to use Time.local (using :local) or Time.utc (using :utc) when pulling dates and times from the database.\r\n    Defaults to :local by default.\r\n\
+  allow_concurrency\r\n    Determines whether or not to use a connection for each thread, or a single shared connection for all threads.\r\n    Defaults to false. Set to true if you\xE2\x80\x99re writing a threaded application.\r\n\
+  generate_read_methods\r\n    Determines whether to speed up access by generating optimized reader methods to avoid expensive calls to method_missing when accessing attributes by name. You might want to set this to false in development mode, because the methods would be regenerated on each request.\r\n\
+  schema_format\r\n    Specifies whether to dump the database in ruby or sql. It takes :ruby or :sql as options, and defaults to :ruby\r\n\
+  \r\n\
+  \r\n\
+  ActionController Options\r\n\
+  ------------------------\r\n\
+  \r\n\
+  Each of these options should be prepended with config.action_controller. when used with a Rails::Initializer do |config| block.\r\n\
+  \r\n\
+  view_controller_internals\r\n    Determines whether the view has access to controller internals @request, @response, @session, and @template.\r\n\
+  assert_host\r\n    Prepends all the URL-generating helpers from AssetHelper (eg. image_tag)\r\n\
+  consider_all_requests_local\r\n    All requests are considered local by default (true), so everyone will be exposed to detailed debugging screens on errors.\r\n    Defaults to true\r\n\
+  debug_routes\r\n    Enable or disable the collection of failure information for RoutingErrors.\r\n    Defaults to true.\r\n\
+  allow_concurrency\r\n    Controls whether the application is thread-safe.\r\n    Defaults to false.\r\n\
+  param_parsers\r\n    Lets you register handlers wich will process the http body and add parameters to the @params hash.\r\n    Defaults to { Mime::XML => :xml_simple }\r\n\
+  template_root\r\n    Sets the default template location. For example, a call to render(\"test/template\") will be converted to \"#{template_root}/test/template.rhtml\"\r\n\
+  logger\r\n    Can be set to nil for no logging or a logger conforming to the interface of Log4r or the default Ruby 1.8+ Logger class.\r\n\
+  ignore_missing_templates\r\n    Turn on ignore_missing_templates if you want to unit test actions without making the associated templates.\r\n\
+  \r\n\
+  \r\n\
+  ActionView Options\r\n\
+  ------------------\r\n\
+  \r\n\
+  Each of these options should be prepended with config.action_view. when used with a Rails::Initializer do |config| block.\r\n\
+  \r\n\
+  cache_template_loading\r\n    Specify whether file modification times should be checked to see if a template needs recompilation\r\n\
+  cache_template_extensions\r\n    Specify whether file extension lookup should be cached. Should be false for development environments.\r\n    Defaults to true.\r\n\
+  local_assigns_support_string_keys\r\n    Specify whether local_assigns should be able to use string keys.\r\n    Defaults to true.\r\n    String keys are deprecated and will be removed shortly.\r\n\
+  debug_rjs\r\n    Specify whether RJS responses should be wrapped in a try/catch block that alert()s the caught exception (and then re-raises it).\r\n    Defaults to false.\r\n\
+  logger\r\n    Can be set to nil for no logging or a logger conforming to the interface of Log4r or the default Ruby 1.8+ Logger class.\r\n\
+  \r\n\
+  \r\n\
+  ActionMailer Options\r\n\
+  --------------------\r\n\
+  \r\n\
+  Each of these options should be prepended with config.action_mailer. when used with a Rails::Initializer do |config| block.\r\n\
+  \r\n\
+  server_settings\r\n    A hash defining the server to be used for email.\r\n    Defaults to using a server localy on port 25 as such:\r\n\
+  \r\n    { :address        => \"localhost\", \r\n      :port           => 25, \r\n      :domain         => 'localhost.localdomain', \r\n      :user_name      => nil, \r\n      :password       => nil, \r\n      :authentication => nil }\r\n\
+  \r\n\
+  raise_delivery_errors\r\n    Defaults to true\r\n\
+  delivery_method\r\n    Defaults to :smtp\r\n\
+  perform_deliveries\r\n    Defaults to true\r\n\
+  default_charset\r\n    Defaults to \xE2\x80\x9Cutf-8\xE2\x80\x9D\r\n\
+  default_content_type\r\n    Defaults to \xE2\x80\x9Ctext/plain\xE2\x80\x9D\r\n\
+  default_mime_version\r\n    Defaults to nil\r\n\
+  default_implicit_parts_order\r\n    Defaults to [ \xE2\x80\x9Ctext/html\xE2\x80\x9D, \xE2\x80\x9Ctext/enriched\xE2\x80\x9D, \xE2\x80\x9Ctext/plain\xE2\x80\x9D ]\r\n\
+  \r\n\
+  \r\n\
+  Original information taken from http://glu.ttono.us/articles/2006/05/22/configuring-rails-environments-the-cheat-sheet"

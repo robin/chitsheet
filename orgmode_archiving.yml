@@ -1,0 +1,9 @@
+--- 
+orgmode_archiving: |-
+  ================================================================================
+  Archiving
+  ================================================================================
+  
+  toggle ARCHIVE tag                                C-c C-x C-a
+  force cycling of an ARCHIVEd tree                 C-TAB
+  move subtree to archive file                      C-c C-x C-s

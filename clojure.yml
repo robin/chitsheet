@@ -1,0 +1,54 @@
+--- 
+clojure: ";comment\r\n\
+  symbol a-zA-Z0-9*+!-_? ; <- both are valid symbols\r\n\
+  :keyword\r\n\
+  \\c \\h \\a \\r \\a \\c \\t \\e \\r \\newline \\space \\tab \\return \\linefeed\r\n\
+  \"string\"\r\n\
+  #\"regex\"\r\n\
+  \r\n\
+  (a b c) ; list\r\n\
+  [1 2 3] ; vector\r\n\
+  {:a 1 :b 2} ; map\r\n\
+  #{:a :b :c} ; set\r\n\
+  \r\n\
+  (fn [x y] (+ x y)) ; anonymous fn\r\n\
+  #(+ 1 1)         ; short version, not a replacement for fn, eg. does not nest\r\n\
+  #(inc %)         ; one argument\r\n\
+  #(+ %1 %2)       ; numbered arguments\r\n\
+  #(apply + %1 %2 %&) ; varargs\r\n\
+  \r\n\
+  ^x   ; (meta x)\r\n\
+  #^y x  ; *not* equivalent to (with-meta x y)\r\n\
+  @x   ; (deref x)\r\n\
+  #'x ; (var x)\r\n\
+  \r\n\
+  ; cool stuff\r\n\
+  (-> {:foo {:bar :bat}} :foo :bar) ; gets :bat\r\n\
+  (take 10 (repeatedly rand))       ; 10 random numbers\r\n\
+  \r\n\
+  ; Java interop\r\n\
+  (Classname. args*)\r\n\
+  ; Old syntax: (Classname. ...) to be preferred\r\n\
+  (new Classname args*)\r\n\
+  \r\n\
+  (.getBytes \"foo\") ; \"foo\".getBytes();\r\n\
+  (Math/sqrt x) ; Math.sqrt(x);\r\n\
+  \r\n\
+  (.instanceMember instance args*)\r\n\
+  (.instanceMember Classname args*)\r\n\
+  (Classname/staticMethod args*)\r\n\
+  \r\n\
+  ; Old syntax: (.method ...) (Class/staticMethod ...) to be preferred\r\n\
+  (. instance-expr member-symbol)\r\n\
+  (. Classname-symbol member-symbol)\r\n\
+  (. instance-expr (method-symbol args*)) or\r\n\
+  (. instance-expr method-symbol args*)\r\n\
+  (. Classname-symbol (method-symbol args*)) or\r\n\
+  (. Classname-symbol method-symbol args*)\r\n\
+  \r\n\
+  (-> instance-expr (.method ...) (.method ...))\r\n\
+  ; Obsoleted by the more general ->\r\n\
+  (.. instance-expr member+)\r\n\
+  (.. Classname-symbol member+)\r\n\
+  \r\n\
+  (doto obj (.instanceMember) (.anotherInstanceMember args*) ...)"

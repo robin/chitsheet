@@ -1,0 +1,99 @@
+--- 
+orgmode_agenda_views: |-
+  ================================================================================
+  Agenda Views
+  ================================================================================
+  
+  add/move current file to front of agenda          C-c [
+  remove current file from your agenda              C-c ]
+  cycle through agenda file list                    C-'
+  compile agenda for the current week               C-c a a [1]
+  compile global TODO list                          C-c a t [1]
+  compile TODO list for specific keyword            C-c a T [1]
+  match tags, todo kwds and properties              C-c a m [1]
+  match only in TODO entries                        C-c a M [1]
+  find stuck projects                               C-c a # [1]
+  show timeline of current org file                 C-c a L [1]
+  configure custom commands                         C-c a C [1]
+  configure stuck projects                          C-c a ! [1]
+  agenda for date at cursor                         C-c C-o
+  
+  To set categories, add lines like [2]:
+  #+CATEGORY: MyCateg
+  
+  --------------------------------------------------------------------------------
+  Commands available in an agenda buffer
+  --------------------------------------------------------------------------------
+  
+  --------------------------------------------------------------------------------
+  View Org file
+  --------------------------------------------------------------------------------
+  
+  show original location of item                    SPC/mouse-3
+  show and recenter window                          L
+  goto original location in other window            TAB/mouse-2
+  goto original location, delete other windows      RET
+  show subtree in indirect buffer, ded. frame       b
+  toggle follow-mode                                f
+  
+  --------------------------------------------------------------------------------
+  Change display
+  --------------------------------------------------------------------------------
+  
+  delete other windows                              o
+  switch to day/week/month/year view                d/w/m/y
+  toggle inclusion of diary entries                 D
+  toggle time grid for daily schedule               G
+  toggle display of logbook entries                 l
+  toggle inclusion of archived trees/files          v / C-u v}
+  refresh agenda buffer with any changes            r / g
+  filter agenda with repect to a tag                /
+  save all org-mode buffers                         s
+  display the next/previous day, week,...           RIGHT/LEFT
+  goto today                                        .
+  
+  --------------------------------------------------------------------------------
+  Remote editing
+  --------------------------------------------------------------------------------
+  
+  digit argument                                    0-9
+  change state of current TODO item                 t
+  kill item and source                              C-k
+  archive the subtree                               $ / a / A
+  show tags of current headline                     T
+  set tags for current headline                     :
+  toggle ARCHIVE tag                                a
+  set priority of current item                      p
+  raise/lower priority of current item              S-UP/DOWN [3]
+  display weighted priority of current item         P
+  schedule/set deadline for this item               C-c C-s/d
+  change timestamp to one day earlier/later         S-LEFT/RIGHT [3]
+  change timestamp to today                         >
+  insert new entry into diary                       i
+  start/stop/cancel the clock in current item       I / O / X
+  jump to running clock entry                       J
+  
+  
+  --------------------------------------------------------------------------------
+  Misc
+  --------------------------------------------------------------------------------
+  
+  Open link in current line                         C-c C-o
+  
+  --------------------------------------------------------------------------------
+  Calendar commands
+  --------------------------------------------------------------------------------
+  
+  find agenda cursor date in calendar               c
+  compute agenda for calendar cursor date           c
+  show phases of the moon                           M
+  show sunrise/sunset times                         S
+  show holidays                                     H
+  convert date to other calendars                   C
+  
+  --------------------------------------------------------------------------------
+  Quit and Exit
+  --------------------------------------------------------------------------------
+  
+  quit agenda, remove agenda buffer                 q
+  exit agenda, remove all agenda buffers            x

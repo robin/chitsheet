@@ -13,7 +13,7 @@ console: "Special Variables:\r\n\
   Loading a session for debugging:\r\n\
   \r\n\
   >> session = Marshal.load(File.open(\xE2\x80\x99tmp/sessions/ruby_sess.8eb9614a7e4e1e3b\xE2\x80\x99))\r\n\
-  => {\xE2\x80\x9Dhash\xE2\x80\x9D=>{:cart=\xE2\x80\xA6\r\n\
+  => {\xE2\x80\x9Dhash\xE2\x80\x9D=>{:cart=...}}\r\n\
   >> cart = session[\xE2\x80\x9Dhash\xE2\x80\x9D][:cart]\r\n\
   \r\n\
   Reloading the console:\r\n\
@@ -26,7 +26,7 @@ console: "Special Variables:\r\n\
   $ script/console --sandbox \r\n\
   Loading development environment in sandbox.\r\n\
   Any modifications you make will be rolled back on exit.\r\n\
-  >>\r\n\
+  >> _\r\n\
   \r\n\
   To maintain history across console sessions, add the following to ~/.irbrc:\r\n\
   \r\n\

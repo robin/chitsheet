@@ -1,5 +1,5 @@
 --- 
-assert_response: |
+assert_response: |-
   # 'cheat assertions' for the rest
   
   assert_response(type, message = nil)
@@ -20,4 +20,3 @@ assert_response: |
   
     # assert that the response code was status code 401 (unauthorized)
     assert_response 401
-

@@ -1,0 +1,24 @@
+--- 
+fm: |-
+  require 'rubygems'
+  require 'fork_manager'
+  
+   puts "PARENT PID #{Process.pid}"
+   fm = ForkManager.new(5)
+  
+   # loop 20 times, each time fork a child and print that child's pid
+   # sleep for 3 seconds so that there is time to see how processes are limited.
+   statuses = fm.manage {
+       20.times do
+           child = fm.fork {
+               sleep 3
+           }
+           puts "    CHILD PID #{child}"
+       end
+   }
+  
+   # dump the status info from Process.waitall
+   puts "Final process statuses"
+   statuses.each {|x| puts x}
+  
+   puts "Finished"

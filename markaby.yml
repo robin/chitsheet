@@ -30,7 +30,19 @@ markaby: |-
       ul {
         li "Markaby is just Ruby"
         li "So Curly Brace code blocks work too"
-      }  
+      }
+      div :style => "font-size:32px", "This is huge due to the style parameter!"
+      img :src=> '/static/img/image.png'
+  
+      iframe :src=>'http://mislav.uniqpath.com/poignant-guide/images/the.foxes-4b.png',
+             :scrolling=>'no',:frameborder=>'no',
+             :style=>'width:400px;height:240px;'
+  
+      select.status! do
+        option 'Unavailable', :value=> 0
+        option 'Busy', :value=> 1, :selected=> true
+        option 'Available', :value=> 2
+      end
     end
   end
   

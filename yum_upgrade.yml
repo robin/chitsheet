@@ -1,0 +1,10 @@
+--- 
+yum_upgrade: |-
+  Safe way to run yum to upgrade a Centos/RHEL distro form X.Y to X.Z
+  yum clean all
+  yum update glibc\*
+  yum update yum\* rpm\* python\*
+  yum clean all
+  yum update kernel\*
+  yum update
+  shutdown -r now

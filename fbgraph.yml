@@ -1,0 +1,189 @@
+--- 
+fbgraph: |-
+  FACEBOOK GRAPH CHEAT SHEET
+  ==========================
+  
+  INTRODUCTION
+  ============
+  Object Output:
+    {
+       "name": "Facebook Platform",
+       "type": "page",
+       "website": "http://developers.facebook.com",
+       "username": "platform",
+       "founded": "May 2007",
+       "company_overview": "Facebook Platform enables anyone to build...",
+       "mission": "To make the web more open and social.",
+       "products": "Facebook Application Programming Interface (API)...",
+       "fan_count": 449921,
+       "id": 19292868552,
+       "category": "Technology"
+    }
+  
+  All objects in Facebook can be accessed in the same way: https://graph.facebook.com/ID/CONNECTION_TYPE
+  
+      * Users: https://graph.facebook.com/btaylor (Bret Taylor)
+      * Pages: https://graph.facebook.com/cocacola (Coca-Cola page)
+      * Events: https://graph.facebook.com/251906384206 (Facebook Developer Garage Austin)
+      * Groups: https://graph.facebook.com/2204501798 (Emacs users group)
+      * Applications: https://graph.facebook.com/2439131959 (the Graffiti app)
+      * Status messages: https://graph.facebook.com/367501354973 (A status message from Bret)
+      * Photos: https://graph.facebook.com/98423808305 (A photo from the Coca-Cola page)
+      * Photo albums: https://graph.facebook.com/99394368305 (Coca-Cola's wall photos)
+      * Videos: https://graph.facebook.com/614004947048 (A Facebook tech talk on Tornado)
+      * Notes: https://graph.facebook.com/122788341354 (Note announcing Facebook for iPhone 3.0)
+  
+  Logged-in User Objects
+  
+      * Friends: https://graph.facebook.com/me/friends
+      * News feed: https://graph.facebook.com/me/home
+      * Profile feed (Wall): https://graph.facebook.com/me/feed
+      * Likes: https://graph.facebook.com/me/likes
+      * Movies: https://graph.facebook.com/me/movies
+      * Books: https://graph.facebook.com/me/books
+      * Notes: https://graph.facebook.com/me/notes
+      * Photos: https://graph.facebook.com/me/photos
+      * Videos: https://graph.facebook.com/me/videos
+      * Events: https://graph.facebook.com/me/events
+      * Groups: https://graph.facebook.com/me/groups
+  
+  SELECTION
+  =========
+  fields => https://graph.facebook.com/bgolub?fields=id,name,picture
+  ids => https://graph.facebook.com?ids=arjun,vernal  
+  current user => https://graph.facebook.com/me
+  
+  INSTROSPECTION
+  ==============
+  https://graph.facebook.com/331218348435?metadata=1
+  
+  {
+     "name": "Facebook Developer Garage Austin - SXSW Edition",
+     "metadata": {
+        "connections": {
+           "feed": "http://graph.facebook.com/331218348435/feed",
+           "picture": "https://graph.facebook.com/331218348435/picture",
+           "invited": "https://graph.facebook.com/331218348435/invited",
+           "attending": "https://graph.facebook.com/331218348435/attending",
+           "maybe": "https://graph.facebook.com/331218348435/maybe",
+           "noreply": "https://graph.facebook.com/331218348435/noreply",
+           "declined": "https://graph.facebook.com/331218348435/declined"
+        }
+     }
+  }
+  
+  AUTHORIZATION
+  =============
+  https://graph.facebook.com/220439?access_token=...
+  
+  The steps to obtain an access token are:
+  
+  * Get App ID and secret.
+  
+  * Redirect the user to https://graph.facebook.com/oauth/authorize with your client_id and the callback URL:
+  
+      https://graph.facebook.com/oauth/authorize?
+          client_id=...&
+          redirect_uri=http://www.example.com/oauth_callback
+  
+  * Redirect the user back to the callback URL you specified with a verification string in the argument code, which can be exchanged for an oauth access token.
+  
+      https://graph.facebook.com/oauth/access_token?
+          client_id=...&
+          redirect_uri=http://www.example.com/oauth_callback&
+          client_secret=...&
+          code=...
+  
+  * Use the access token returned by the request above to make requests on behalf of the user:
+  
+      https://graph.facebook.com/me?access_token=...
+  
+  PUBLISH TO FACEBOOK
+  ===================
+    curl -F 'access_token=...' \
+         -F 'body=Hello, Arjun. I like this new API.' \
+         https://graph.facebook.com/arjun/feed
+  
+    curl -F 'access_token=...' \
+       https://graph.facebook.com/313449204401/likes
+  
+  
+    We support writing the following types of objects:
+  
+    Method 	              Description 	                          Arguments
+    -------------------------------------------------------------------------------
+    /PROFILE_ID/feed 	    write to the given profile's feed/wall 	message, picture, link, name, description
+    /POST_ID/comments 	  comment on the given post 	            message
+    /POST_ID/likes 	      like the given post 	                  none
+    /PROFILE_ID/notes 	  write a note on the given profile     	message, subject
+    /PROFILE_ID/links 	  write a link on the given profile 	    link, message
+    /EVENT_ID/attending 	attend the given event 	                none
+    /EVENT_ID/maybe 	    maybe attend the given event 	          none
+    /EVENT_ID/declined 	  decline the given event 	              none
+  
+    curl -F 'access_token=...' \
+       -F 'message=I am posting to my own feed. I am awesome.' \
+       https://graph.facebook.com/me/feed
+  
+  DELETING OBJECT
+  ===============
+    DELETE https://graph.facebook.com/ID?access_token=... HTTP/1.1
+    https://graph.facebook.com/COMMENT_ID?method=delete
+  
+  PICTURES
+  ========
+  <img src="https://graph.facebook.com/herryanto/picture"/>
+  
+      * People: http://graph.facebook.com/herryanto/picture
+      * Events: http://graph.facebook.com/331218348435/picture
+      * Groups: http://graph.facebook.com/335845912900/picture
+      * Pages: http://graph.facebook.com/DoloresPark/picture
+      * Applications: http://graph.facebook.com/2318966938/picture
+      * Photo Albums: http://graph.facebook.com/platform/picture
+  
+  PICTURE SIZES:
+  - square (50x50)
+  - small  (50 pixels wide, variable height)
+  - large (about 200 pixels wide, variable height)
+  
+  http://graph.facebook.com/herryanto/picture?type=large.
+  
+  PAGING
+  ======
+  
+    * limit, offset: https://graph.facebook.com/me/likes?limit=3
+    * until, since (a unix timestamp or any date accepted by strtotime): 
+  
+  https://graph.facebook.com/search?until=yesterday&q=orange
+  
+  SEARCH
+  ======
+  https://graph.facebook.com/search?q=QUERY&type=OBJECT_TYPE
+  
+    * All public posts: https://graph.facebook.com/search?q=watermelon&type=post
+    * People: https://graph.facebook.com/search?q=mark&type=user
+    * Pages: https://graph.facebook.com/search?q=platform&type=page
+    * Events: https://graph.facebook.com/search?q=conference&type=event
+    * Groups: https://graph.facebook.com/search?q=programming&type=group
+  
+  News Feed: https://graph.facebook.com/me/home?q=facebook
+  
+  ANALYTICS
+  =========
+  
+  Obtain Access Token:
+  
+  curl -F type=client_cred \
+       -F client_id=your_app_id \
+       -F client_secret=your_app_secret \
+       https://graph.facebook.com/oauth/access_token
+  
+  https://graph.facebook.com/app_id/insights?access_token=...
+  
+  https://graph.facebook.com/app_id/insights/share_views/day?access_token=...
+  
+  Params:
+  * since 
+  * until
+  
+  https://graph.facebook.com/app_id/insights?access_token=...&since=yesterday

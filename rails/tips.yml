@@ -1,5 +1,5 @@
 --- 
-rails::tips: |-
+rails_tips: |-
   * Store sessions in the database.
   * Use a custom configuration file for passwords and API keys instead of storing them in your Subversion repository. I use YAML and mirror the style of database.yml.
   * Use constants where needed. Instead of repeating strings like the address of your customer service reply email, set it once in a constant (in environment.rb or the appropriate environment file) and use that throughout your application.

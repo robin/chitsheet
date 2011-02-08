@@ -1,12 +1,14 @@
 --- 
-autotest: |
+autotest: |-
   Autotest continuously scans the files in your project for changes and runs the appropriate tests. Test failures are run until they have all passed. Then the full test suite is run to ensure that nothing else was inadvertantly broken.
   
   If you want Autotest to start over from the top, hit ^C once. If you want Autotest to quit, hit ^C twice.
   
-  Rails:
+  To use Autotest with Rails:
   
-  The autotest command will automatically discover a Rails directory by looking for config/environment.rb. When Rails is discovered, autotest uses RailsAutotest to perform file mappings and other work. See RailsAutotest for details.
+  $ sudo gem install ZenTest
+  $ cd /path/to/railsapp/
+  $ autotest
   
   Plugins:
   
@@ -45,4 +47,3 @@ autotest: |
       at.add_exception(coverage)
       at.add_exception(vendor)
     end
-

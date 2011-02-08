@@ -1,0 +1,18 @@
+--- 
+cformats: |-
+  %@			id
+  %d, %D, %i		long
+  %u, %U			unsigned long
+  %hi			short
+  %hu			unsigned short
+  %qi			long long
+  %qu			unsigned long long
+  %x, %X			unsigned long printed as hexadecimal
+  %o, %O			unsigned long printed as octal
+  %f, %e, %E, %g, %G	double
+  %c			unsigned char as ASCII character
+  %C			unichar as Unicode character
+  %s			char * (a null-terminal C string of ASCII characters)
+  %S			unichar * (a null-terminated C string of Unicode characters)
+  %p			void * (an address printed in hexadecimal with a leading 0x)
+  %%			a % character

@@ -1,20 +1,20 @@
 --- 
-rails::rake_tasks: |-
+rails_rake_tasks: |-
   rake cache:clear                     # Clears all cached pages
   
-  rake db:bootstrap                    # Loads a schema.rb file into the database 
-                                         and then loads the initial database 
-                                         fixtures.
+  rake db:bootstrap                    # Loads a schema.rb file into the 
+                                         database and then loads the initial 
+                                         database fixtures.
   
   rake db:bootstrap:copy_default_theme # Copy default theme to site theme
   
   rake db:migrate                      # Migrate the database through scripts in 
-                                         db/migrate. Target specific version with 
-                                         VERSION=x
+                                         db/migrate. Target specific version 
+                                         with VERSION=x
   
   rake db:schema:dump                  # Create a db/schema.rb file that can be 
-                                         portably used against any DB supported by                         
-                                         AR
+                                         portably used against any DB supported
+                                         by AR
   
   rake db:schema:load                  # Load a schema.rb file into the database
   
@@ -32,7 +32,8 @@ rails::rake_tasks: |-
   rake db:sessions:create              # Creates a sessions table for use with 
                                          CGI::Session::ActiveRecordStore
   
-  rake db:structure:dump               # Dump the database structure to a SQL file
+  rake db:structure:dump               # Dump the database structure to a SQL
+                                         file
   
   rake db:test:clone                   # Recreate the test database from the 
                                          current environment's database schema
@@ -45,11 +46,11 @@ rails::rake_tasks: |-
   
   rake db:test:purge                   # Empty the test database
   
-  rake deploy                          # Push the latest revision into production  
-                                         using the release manager
+  rake deploy                          # Push the latest revision into 
+                                         production using the release manager
   
-  rake diff_from_last_deploy           # Describe the differences between HEAD and 
-                                         the last production release
+  rake diff_from_last_deploy           # Describe the differences between HEAD 
+                                         and the last production release
   
   rake doc:app                         # Build the app HTML Files
   
@@ -70,20 +71,21 @@ rails::rake_tasks: |-
   
   rake edge                            # freeze rails edge
   
-  rake log:clear                       # Truncates all *.log files in log/ to zero 
-                                         bytes
+  rake log:clear                       # Truncates all *.log files in log/ to 
+                                         zero bytes
   
   rake rails:freeze:edge               # Lock to latest Edge Rails or a specific 
                                          revision with REVISION=X (ex: 
                                          REVISION=4021) or a tag with TAG=Y (ex: 
                                          TAG=rel_1-1-0)
   
-  rake rails:freeze:gems               # Lock this application to the current gems 
-                                         (by unpacking them into vendor/rails)
+  rake rails:freeze:gems               # Lock this application to the current 
+                                         gems (by unpacking them into 
+                                         vendor/rails)
   
   rake rails:unfreeze                  # Unlock this application from freeze of 
-                                         gems or edge and return to a fluid use of 
-                                         system gems
+                                         gems or edge and return to a fluid use 
+                                         of system gems
   
   rake rails:update                    # Update both configs, scripts and  
                                          public/javascripts from Rails
@@ -91,8 +93,8 @@ rails::rake_tasks: |-
   rake rails:update:configs            # Update config/boot.rb from your current 
                                          rails install
   
-  rake rails:update:javascripts        # Update your javascripts from your current 
-                                         rails install
+  rake rails:update:javascripts        # Update your javascripts from your 
+                                         current rails install
   
   rake rails:update:scripts            # Add new scripts to the application 
                                          script/ directory
@@ -103,22 +105,26 @@ rails::rake_tasks: |-
   rake rollback                        # Rollback to the release before the 
                                          current release in production
   
-  rake show_deploy_tasks               # Enumerate all available deployment tasks
+  rake show_deploy_tasks               # Enumerate all available deployment 
+                                         tasks
   
-  rake stats                           # Report code statistics (KLOCs, etc) from 
-                                         the application
+  rake stats                           # Report code statistics (KLOCs, etc) 
+                                         from the application
   
   rake test                            # Test all units and functionals
   
-  rake test:functionals                # Run tests for functionalsdb:test:prepare
+  rake test:functionals                # Run tests for 
+                                         functionalsdb:test:prepare
   
-  rake test:integration                # Run tests for integrationdb:test:prepare
+  rake test:integration                # Run tests for 
+                                         integrationdb:test:prepare
   
   rake test:plugins                    # Run tests for pluginsenvironment
   
   rake test:recent                     # Run tests for recentdb:test:prepare
   
-  rake test:uncommitted                # Run tests for uncommitteddb:test:prepare
+  rake test:uncommitted                # Run tests for 
+                                         uncommitteddb:test:prepare
   
   rake test:units                      # Run tests for unitsdb:test:prepare
   

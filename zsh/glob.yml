@@ -1,5 +1,5 @@
 --- 
-zsh::glob: |
+zsh_glob: |-
   **/* 	Picks out all files and directories, recursively.
   ***/*	Ditto, following symlinks
   *	Any string, including the null string.
@@ -31,4 +31,3 @@ zsh::glob: |
   
   	ls **/some_file             # Lists file under current directory   
   	zargs -- **/*(.) -- ls -l   # Ditto
-

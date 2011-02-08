@@ -1,2 +1,13 @@
 --- 
-zsh::case: "   case $var in\r\n      <<pattern1>>)\r\n        <<things to do for pattern 1>>\r\n        ;;\r\n      <<pattern2>>)\r\n        <<things to do for pattern 1>>\r\n        ;;\r\n      *)  # The default condition\r\n        <<things to do in the default case>>\r\n        ;;\r\n     esac"
+zsh_case: |-
+  case $var in
+        <<pattern1>>)
+          <<things to do for pattern 1>>
+          ;;
+        <<pattern2>>)
+          <<things to do for pattern 1>>
+          ;;
+        *)  # The default condition
+          <<things to do in the default case>>
+          ;;
+       esac

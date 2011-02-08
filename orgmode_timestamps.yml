@@ -1,0 +1,27 @@
+--- 
+orgmode_timestamps: "================================================================================\n\
+  Timestamps\n\
+  ================================================================================\n\n\
+  prompt for date and insert timestamp              C-c .\n\
+  like C-c . but insert date and time format        C-u C-c .\n\
+  like C-c . but make stamp inactive                C-c !\n\
+  insert DEADLINE timestamp                         C-c C-d\n\
+  insert SCHEDULED timestamp                        C-c C-s\n\
+  create sparse tree with all deadlines due         C-c C-w\n\
+  the time between 2 dates in a time range          C-c C-y\n\
+  change timestamp at cursor by \xC3\x82\xC2\xB11 day              S-RIGHT/LEFT [3]\n\
+  change year/month/day at cursor by \xC3\x82\xC2\xB11             S-UP/DOWN [3]\n\
+  access the calendar for the current date          C-c >\n\
+  insert timestamp matching date in calendar        C-c <\n\
+  access agenda for current date                    C-c C-o\n\
+  select date while prompted                        mouse-1/RET\n\
+  toggle custom format display for dates/times      C-c C-x C-t\n\n\
+  --------------------------------------------------------------------------------\n\
+  Clocking time\n\
+  --------------------------------------------------------------------------------\n\n\
+  start clock on current item                       C-c C-x C-i\n\
+  stop clock on current item                        C-c C-x C-o\n\
+  cancel current clock                              C-c C-x C-x\n\
+  display total subtree times                       C-c C-x C-d\n\
+  remove displayed times                            C-c C-c\n\
+  insert/update table with clock report             C-c C-x C-r"

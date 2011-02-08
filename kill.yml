@@ -37,5 +37,7 @@ kill: |-
   BUS            core      core dump may fail
   XCPU           core      core dump may fail
   XFSZ           core      core dump may fail
-   
+  
   Taken from the kill man page on Linux.
+  
+  (According to Larry Wall, avoid kill -9.  Instead try 15 and wait a couple seconds, then 2 then 1 to allow the proces a chance to end clenaly.)

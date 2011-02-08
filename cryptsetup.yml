@@ -1,0 +1,26 @@
+--- 
+cryptsetup: |-
+  Encrypt your usb-stick (REMOVES ALL DATA ON STICK!):
+  
+  all as root:
+  
+  # 0. unmount device if mounted
+  umount /media/MOUNTPOINT   # or whereever your usb stick mountpoint is
+  
+  # 1. save remove data on stick
+  dd if=/dev/urandom of=/dev/DEVICENAME
+  
+  # 2. load kernel device mapper module
+  modprobe dm-mod
+  
+  # 3. format device encrypted
+  cryptsetup luksFormat /dev/DEVICENAME
+  
+  # 4. open device mapper
+  cryptsetup luksOpen /dev/DEVICENAME crypt
+  
+  # 5. make file system on mapper
+  mkfs.ext3 /dev/mapper/crypt
+  
+  # 6. close device mapper
+  cryptsetup luksClose crypt

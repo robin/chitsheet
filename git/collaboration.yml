@@ -1,5 +1,5 @@
 --- 
-git::collaboration: |-
+git_collaboration: |-
   Restricted, shared git repo:
     $ mkdir repo.git
     $ cd repo.git

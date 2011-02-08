@@ -1,0 +1,150 @@
+--- 
+gnome_terminals_4_rails: |-
+  #!/usr/bin/env ruby
+  
+  # A Ruby script that generates a bash script which automates the opening
+  # of terminals in Gnome.
+  
+  def assemble_script 
+  	script =  $script1 + $listing + $script2 + 
+  		"echo #{$commands} \n\n#{$commands}" +
+  		$error_message
+  	File.open(ARGV[0], 'w') do |f|
+  		f.puts script
+  	end
+  end
+  
+  def display_help_and_exit
+  	puts <<-EOF
+  	Gnome Terminals 4 Rails. 
+  	
+  	USAGE: terminals4rails file_name command1 command2 ... "title":"exec"
+  	
+  	file_name: File name of the generated bash script.
+  	tilte: Title of the terminal tab
+  	exec: bash command. GIGO
+  	
+  	Built-in commands:
+  		bash         The Bash
+  		vim          Vim editor
+  		vimNERD      Vim with NERDTree, if pre-installed
+  		server       Start script/server
+  		autospec     Start autospect
+  	EOF
+  	
+  	exit
+  end
+  
+  # Display helf if there are less than 2 arguments.
+  display_help_and_exit if ARGV.length < 2 
+  ARGV.each { |arg| display_help_and_exit if arg == "--help" or arg == "-h" }
+  
+  
+  # Start the core script 
+  
+  $script1 = <<-EOF
+  #!/bin/bash
+  
+  # Rails Terminals for Rails and Gnome
+  # A simple script that opens a Gnome terminal with titled tabs.
+  
+  # Tabs with following bash commands:
+  EOF
+  
+  $script2 = <<-EOF
+  
+  # USAGE: terminal4rails.sh working_dir
+  
+  dir=$1	# The first argument is the path of the working directory.
+  err=0	# If err becomes negative, an error message is generated in the end. 
+  
+  if [ -z $dir ] || [ ! -d $dir ]; then
+  	echo "Please specify a working directory as the argument"
+  	exit
+  fi
+  	
+  # If the argument is a relative path, then augment it with 
+  # the current dir.
+  if [ ${dir:0:1} != '~' ] && [ ${dir:0:1} != '/' ]; then
+  	dir=`pwd`'/'$dir
+  fi
+  
+  echo "Working directory: $dir"
+  
+  EOF
+  
+  $error_message =<<-EOF
+  
+  if [ $err -lt 0 ]; then
+  	echo "WARNING: Some tabs could not be opened."
+  fi
+  EOF
+  
+  $commands="gnome-terminal --working-directory=$dir --geometry=112x30 "
+  
+  execs = Array.new 
+  
+  ARGV[1..-1].each do |arg|
+  	case arg
+  	when "bash" then exec="bash"; title="Bash"
+  	when "vim" then exec="vim"; title="Vim"
+  	when "vimNERD" then exec='vim +NERDTree'; title="Vim"
+  	when "server" then exec="script/server && bash" 
+  		title="script/server"
+  	when "autospec" then exec='autospec'; title="autospec"
+  	else 
+  		if arg =~ /.+:.+/ 
+  			title, exec = arg.split(":")
+  		else raise "ERROR: Input is not recognised."
+  		end
+  	end
+  
+  	first_exec = exec.split(" ")[0]
+  	if first_exec[0] == '"' or first_exec[0] == "'"
+  		first_exec = first_exec[1..-1]
+  	end
+  	script_title = title.downcase.gsub(/\W/, "_" )
+  
+  	$script2 += <<-EOF
+  	#{script_title}_t="#{title}"
+  	check_exec=(`whereis -b #{first_exec}`)	# Check whether binary exist
+  
+  	if [ ${#check_exec[@]} -gt "1" ]; then
+  		echo "#{title} found in ${check_exec[1]}."
+  		#{script_title}_e="bash -c '#{exec}'"
+  	elif [ -x $dir/#{first_exec} ]; then
+  		echo "#{title} found in "$dir"#{first_exec}."
+  		#{script_title}_e="bash -c '#{exec}'"
+  	else
+  		#{script_title}_e="echo"	# Closes the tab w/o action.
+  		err=$(( $err - 1 ))
+  		echo "#{first_exec} not found."
+  	fi
+  	
+  	EOF
+  
+  	execs << [exec, script_title] 
+  end
+  
+  $listing = ""
+  
+  execs.each do |exec, title|
+  	$commands += "--tab -t $#{title}_t -e \"$#{title}_e\" "
+  	$listing += "# * #{exec}\n"  
+  end	
+  
+  # Ask for permission to overwrite an existing file.
+  if File.exists? ARGV[0] then 
+  	print "Do you want to overwrite the file #{ARGV[0]} (y/n): "
+  	answer = $stdin.gets
+  	if answer.downcase[0] == "y" then 
+  		puts "Script is assembled."
+  		assemble_script
+  	else 
+  		puts "Script terminates without writing."
+  		exit
+  	end
+  else 
+  	puts "Script is assembled."
+  	assemble_script
+  end

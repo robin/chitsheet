@@ -1,0 +1,50 @@
+--- 
+orgmode_links: |-
+  ================================================================================
+  Links
+  ================================================================================
+  
+  globally store link to the current location       C-c l [1]
+  insert a link (TAB completes stored links)        C-c C-l
+  insert file link with file name completion        C-u C-c C-l
+  edit (also hidden part of) link at point          C-c C-l
+  open file links in emacs                          C-c C-o
+  ... force open in emacs/other window              C-u C-c C-o
+  open link at point                                mouse-1/2
+  ... force open in emacs/other window              mouse-3
+  record a position in mark ring                    C-c %
+  jump back to last followed link(s)                C-c &
+  find next link                                    C-c C-x C-n
+  find previous link                                C-c C-x C-p
+  edit code snippet of file at point                C-c '
+  
+  --------------------------------------------------------------------------------
+  Internal Links
+  --------------------------------------------------------------------------------
+  
+  <<My Target>>                                     target
+  <<<My Target>>>                                   radio target [2]
+  [[*this text]]                                    find headline
+  [[this text]]                                     find target or text in buffer
+  [[this text][description]]                        optional link text
+  
+  --------------------------------------------------------------------------------
+  External Links
+  --------------------------------------------------------------------------------
+  
+  file:/home/dominik/img/mars.jpg                   file, absolute
+  file:papers/last.pdf                              file, relative
+  file:projects.org::*that text                     find headline
+  file:projects.org::find me                        find trgt/string
+  http://www.astro.uva.nl/dominik                   on the web
+  mailto:adent@galaxy.net                           Email address
+  news:comp.emacs                                   Usenet group
+  bbdb:Richard Stallman                             BBDB person
+  gnus:group                                        GNUS group
+  gnus:group#id                                     GNUS message
+  vm|wl|mhe|rmail:folder                            Mail folder
+  vm|wl|mhe|rmail:folder#id                         Mail message
+  info:emacs:Regexps                                Info file:node
+  shell:ls *.org                                    shell command
+  elisp:(calendar)                                  elisp form
+  [[external link][description]]                    optional link text

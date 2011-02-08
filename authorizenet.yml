@@ -1,14 +1,30 @@
 --- 
-authorizenet: |-
-  
+authorizenet: |
   Authorize.net Test Credit Cards
+  ===============================
   
-  370000000000002 - American Express Test Card
+  4222222222222    - Visa Error Test Card (see error codes)
+  370000000000002  - American Express Test Card
   6011000000000012 - Discover Test Card
   5424000000000015 - MasterCard Test Card
-  4007000000027 - Visa Test Card
-  4012888818888 - Visa Test Card II
+  4007000000027    - Visa Test Card
+  4012888818888    - Visa Test Card II
   3088000000000017 - JCB Test Card (Use expiration date 0905)
-  38000000000006 - Diners Club/Carte Blanche Test (Use expiration date 0905) 
+  38000000000006   - Diners Club/Carte Blanche Test (Use expiration date 0905)
   
-  User any non-expired date for cards without specific expiration dates
+  Use any non-expired date for cards without specific expiration dates.
+  
+  Error Codes
+  ===========
+  
+  "When testing transaction results in the developer test environment as well as the production environment, you can produce a specific response reason code [0] by submitting a test transaction using a test credit card number designed to generate specific transaction results." [1]
+  
+  Quick example:  when using the Visa Error Test Card, a charge of $1.00 will always generate a successful transaction, while $2.00 will always be declined.  See References and Authorize.net developer documentation for further information.
+  
+  
+  References
+  ==========
+  [0] REASON RESPONSE CODES:  http://developer.authorize.net/guides/AIM/Transaction_Response/Response_Reason_Codes_and_Response_Reason_Text.htm
+  
+  [1] TEST CREDIT CARD TRANSACTION RESULTS: http://developer.authorize.net/guides/AIM/Test_Transactions/Test_Credit_Card_Numbers.htm
+

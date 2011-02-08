@@ -41,7 +41,7 @@ hobo: |-
        => 3
        >> nil._?.length
        => nil
-      
+  
   Object#try
   
   ".try" only calls the method if the receiver responds to that method.

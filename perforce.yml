@@ -1,0 +1,94 @@
+--- 
+perforce: "# perforce helpers\n\n\
+  # find unadded files\n\
+  alias p5_unadded=\"find . -type f | grep -v '.*EXCLUDE_PATTERN' | p4 -x - have > /dev/null\"\n\n\
+  # deletes empty dirs b/c perforce will sync and leave empty dirs\n\
+  alias p5_delete_empty_dirs=\"find . -depth -empty -type d -exec rmdir {} \\;\"\n\n\
+  # get and then check for conflicts\n\
+  alias p5_get=\"p4 sync ...; p4 resolve ...;\"\n\n\
+  # check for unadded, revert unmodified, submit\n\
+  alias p5_put=\"p5_unadded; p4 revert -a ...; p4 submit ...;\"\n\n\
+  # opens diff for a tree in textmate, ignoring whitespace changes\n\
+  alias p5_diff=\"p4 diff -db ... | mate;\"\n\n\
+  # add a directory tree (recursively)\n\
+  # http://kb.perforce.com/article/12/adding-a-directory-tree\n\
+  alias p5_add=\"find . -type f -print | p4 -x - add;\"\n\n\
+  # opens for edit recursively\n\
+  alias p5_edit=\"p4 edit ...;\"\n\n\
+  # reverts unmodified files\n\
+  alias p5_revert=\"p4 revert -a ...;\"\n\n\n\
+  p4 add              # Open a new file to add it to the depot \n\
+  p4 admin            # Perform administrative operations on the server \n\
+  p4 annotate         # Print file lines along with their revisions \n\
+  p4 branch           # Create or edit a branch specification \n\
+  p4 branches         # Display list of branches \n\
+  p4 change           # Create or edit a changelist description \n\
+  p4 changes          # Display list of pending and submitted changelists \n\
+  p4 changelist       # Create or edit a changelist description \n\
+  p4 changelists      # Display list of pending and submitted changelists \n\
+  p4 client           # Create or edit a client specification and its view \n\
+  p4 clients          # Display list of known clients \n\
+  p4 counter          # Display, set, or delete a counter \n\
+  p4 counters         # Display list of known counters \n\
+  p4 delete           # Open an existing file to delete it from the depot \n\
+  p4 depot            # Create or edit a depot specification \n\
+  p4 depots           # Display list of depots \n\
+  p4 describe         # Display a changelist description \n\
+  p4 diff             # Display diff of client file with depot file \n\
+  p4 diff2            # Display diff of two depot files \n\
+  p4 dirs             # List subdirectories of a given depot directory \n\
+  p4 edit             # Open an existing file for edit \n\
+  p4 filelog          # List revision history of files \n\
+  p4 files            # List files in the depot \n\
+  p4 fix              # Mark jobs as being fixed by named changelists \n\
+  p4 fixes            # List what changelists fix what job \n\
+  p4 flush            # Fake a \xE2\x80\x98p4 sync\xE2\x80\x99 by not moving files \n\
+  p4 fstat            # Dump file info \n\
+  p4 group            # Change members of a user group \n\
+  p4 groups           # List groups (of users) \n\
+  p4 have             # List revisions last synced \n\
+  p4 help             # Print this help message \n\
+  p4 info             # Print out client/server information \n\
+  p4 integrate        # Schedule integration from one file to another \n\
+  p4 integrated       # Show integrations that have been submitted \n\
+  p4 job              # Create or edit a job (defect) specification \n\
+  p4 jobs             # Display list of jobs \n\
+  p4 jobspec          # Edit the job template \n\
+  p4 label            # Create or edit a label specification and its view \n\
+  p4 labels           # Display list of labels \n\
+  p4 labelsync        # Synchronize label with the current client contents \n\
+  p4 license          # Update or display the license file \n\
+  p4 lock             # Lock an opened file against changelist submission \n\
+  p4 logger           # Report what jobs and changelists have changed \n\
+  p4 login            # Login to Perforce by obtaining a session ticket \n\
+  p4 logout           # Logout of Perforce by removing or invalidating a ticket. \n\
+  p4 monitor          # Display current running Perforce process information \n\
+  p4 move             # Move file(s) from one location to another \n\
+  p4 obliterate       # Remove files and their history from the depot \n\
+  p4 opened           # Display list of files opened for pending changelist \n\
+  p4 passwd           # Set user password on server (and Windows client) \n\
+  p4 print            # Retrieve a depot file to the standard output \n\
+  p4 protect          # Modify protections in the server namespace \n\
+  p4 protects         # Display protections in place for a given user/path \n\
+  p4 rename           # Explains how to rename files \n\
+  p4 reopen           # Change the type or changelist number of an opened file \n\
+  p4 resolve          # Merge open files with other revisions or files \n\
+  p4 resolved         # Show files that have been merged but not submitted \n\
+  p4 revert           # Discard changes from an opened file \n\
+  p4 review           # List and track changelists (for the review daemon) \n\
+  p4 reviews          # Show what users are subscribed to review files \n\
+  p4 set              # Set variables in the registry (Windows only) \n\
+  p4 sizes            # Display size information for files in the depot \n\
+  p4 submit           # Submit open files to the depot \n\
+  p4 sync             # Synchronize the client with its view of the depot \n\
+  p4 tag              # Tag files with a label \n\
+  p4 tickets          # Display list of session tickets for this user \n\
+  p4 triggers         # Modify list of pre-submit and form-validating triggers \n\
+  p4 typemap          # Modify the file name-to-type mapping table \n\
+  p4 unlock           # Release a locked file but leave it open \n\
+  p4 user             # Create or edit a user specification \n\
+  p4 users            # Display list of known users \n\
+  p4 verify           # Verify that the server archives are intact \n\
+  p4 workspace        # Create or edit a client specification and its view \n\
+  p4 workspaces       # Display list of known clients \n\
+  p4 where            # Show how file names map through the client view"

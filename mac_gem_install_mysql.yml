@@ -1,0 +1,2 @@
+--- 
+mac_gem_install_mysql: sudo env ARCHFLAGS="-arch i386" gem install mysql -- --with-mysql-config=/usr/local/mysql/bin/mysql_config

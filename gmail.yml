@@ -28,6 +28,9 @@ gmail: |-
   <Esc>: Escape from input field
   <Ctrl>+s: Save
   <Cmd>+s for Macs
+  #: Delete/Discard Moves the conversation to Trash.
+  <Shift>+i: Mark as read
+  <Shift>+u: Mark as unread
   
   Combo-keys
   <tab> then <Enter>: Send message
@@ -37,3 +40,28 @@ gmail: |-
   g then c: Go to 'Contacts'
   g then d: Go to 'Drafts'
   g then i: Go to 'Inbox'
+  
+  Search Operators
+  from:  		Used to specify the sender
+  to: 		Used to specify a recipient
+  subject: 	Search for words in the subject line
+  OR 		Search for messages matching term A or term B*
+  -(hyphen) 	Used to exclude messages from your search
+  label: 		Search for messages by label*
+  		*There isn't a search operator for unlabeled messages
+  has:attachment	Search for messages with an attachment
+  list: 		Search for messages on mailing lists
+  filename: 	Search for an attachment by name or type
+  " "(quotes)	Used to search for an exact phrase*
+  ( )		Used to group words
+  in:anywhere 	Search for messages anywhere in Gmail*
+  in:inbox
+  in:trash
+  in:spam 	Search for messages in Inbox, Trash, or Spam
+  is:starred
+  is:unread
+  is:read
+  cc: bcc: 	Used to specify recipients in the cc: or bcc: fields*
+  after: before: 	Search for messages sent during a certain period of time*
+  		*Dates must be in yyyy/mm/dd format.
+  is:chat 	Search for chat messages

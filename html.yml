@@ -1,0 +1,11 @@
+--- 
+html: "  <ELEMENT id=\"\" class=\"\" MORE_ATTR=\"\"></ELEMENT>\r\n  <ELEMENT /> for IMG, BR, META, LINK\r\n\
+  \r\n\
+  <header>   --  belongs_to :section, :has_many :headlines(h#)\r\n\
+  <nav>      --  belongs_to :section, :header, :footer\r\n\
+  <section>  --  has_many :headers, :asides, :articles\r\n\
+  <aside>    --  related_to :article\r\n\
+  <article>  --  represents a :entry\r\n\
+  <footer>   --  represents :copyright_data\r\n\
+  \r\n\
+  Thanks to: http://orderedlist.com/articles/structural-tags-in-html5\r\n"

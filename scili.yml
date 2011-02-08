@@ -1,0 +1,67 @@
+--- 
+scili: |-
+  You've stumbled upon Matt Scilipoti's "personal" cheat sheet.
+  
+  = nix
+  ncdu: disk usage
+  lsof: who is using file
+  
+  == fix 'no init': 
+    $ sudo fdisk -l
+    $ sudo fsck /dev/sda1
+  
+  == boot record
+  update-initramfs -u
+  update-grub
+  
+  == Who is serving on port 3000?
+  lsof -w -n -i tcp:3000
+  
+  = osx
+  pbcopy, pbpaste  (pb==pasteboard)
+  
+  = Debug
+  arspy
+  
+  ==log_buddy
+  require 'lib/log_buddy'
+  LogBuddy.init
+  
+  d { @a } # logs "@a = 'my var'"
+  
+  =share
+  http://drnicwilliams.com/2008/06/18/what-is-gitjour-gemjour-starjour/
+  
+  =git 
+  == remove need for `origin master`
+  [branch "master"]
+    remote = origin
+    merge = refs/heads/master
+  
+  == remote branches
+  #remove remote
+  git push origin :<remote_branch_name>
+  
+  #refresh list
+  git remote prune origin
+  
+  =passenger
+  == refresh against apache
+    cd /usr/local/src/passenger
+    sudo rake apache2
+    sudo /etc/init.d/apache2 restart
+  
+  
+  =ssh
+  == add my public key to remote server (no more password)
+  cat ~/.ssh/id_rsa.pub | ssh user@hostname 'cat >> .ssh/authorized_keys'
+  
+  =vim
+  Move amoung windows: Cw<direction>
+  Repeat command (not just text):Cp = :<up arrow>
+  Format code: gg=G (top, format, bottom)
+  Ext cmd to buffer: :% !html2haml %
+  Spell checker (MacVim): set spell
+  Find/replace across multiple files:
+    :args app/views/**/*.*
+    :argdo %s/test/)/gce | update

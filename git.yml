@@ -215,11 +215,14 @@ git: |-
   Stashing
   --------
   
-  git stash 
-    save your local modifications to a new stash, and run "git reset --hard" to revert them, so you can "git svn rebase" or "git pull"
+  git stash save <optional-name>
+    save your local modifications to a new stash so you can "git svn rebase" or "git pull"
   
   git stash apply
     restore the changes recorded in the stash on top of the current working tree state
+    
+  git stash pop
+    restore the changes from the most recent stash, and remove it from the stack of stashed changes
   
   Environment Variables
   ---------------------

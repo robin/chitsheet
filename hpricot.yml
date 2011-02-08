@@ -1,5 +1,5 @@
 --- 
-hpricot: |
+hpricot: |-
   Element#css_path
   
    doc.at("div > div:nth(1)").css_path
@@ -39,4 +39,3 @@ hpricot: |
   element  = doc.at("a#ID") == doc.search("a#ID").first
   attribute = doc.at("body")['onload'] == doc.at("body")[:onload]
   elements = doc.search("table > a#ID") == (doc/"table > a#ID") == (doc/"table/a#ID") == (doc/:table/:a#ID)
-

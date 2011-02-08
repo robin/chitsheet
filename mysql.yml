@@ -16,6 +16,10 @@ mysql: |-
   To DELETE a database:
   msql> DROP DATABASE <database_name>;
   
+  ---
+  To DELETE a row
+  msql> DELETE FROM MYTABLE where colum=1;
+  
   ----
   Show databases, connect, show tables and table schema
   msql> SHOW DATABASES;
@@ -24,12 +28,18 @@ mysql: |-
   msql> DESC <table_name>;
   
   ----
+  to create and grant all privileges to a user
+  mysql> grant all privileges on some_db.* to 'someuser'@'localhost' identified by 'somepassword';
+  mysql> flush privileges;
+  
+  ----
   To SET a user password
   mysql> use mysql;
   mysql> update user set Password = PASSWORD('<password>') where host='<host_name>' and user='<user_name>';
   mysql> flush privileges;
   mysql> exit
   $ mysqladmin -uroot -p<password> reload
+  
   
   ----
   To dump a database into an sql-text file
@@ -57,7 +67,6 @@ mysql: |-
   
   To be prompted for password:
     omit <existing_password>, but include the -p arg.
-  
   
   Inspired by http://www.delphifaq.com/faq/databases/mysql/f750.shtml
   

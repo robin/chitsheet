@@ -1,5 +1,5 @@
 --- 
-zsh::bang: |-
+zsh_bang: |-
   1   % ls /user/dir/file.c
   2   % which firefox
   3   % make

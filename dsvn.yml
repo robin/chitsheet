@@ -1,0 +1,27 @@
+--- 
+dsvn: "DSVN provides subversion integration with emacs.\r\n\
+  \r\n\
+  To get you started, add this line to your startup file: \r\n (autoload 'svn-status \"dsvn\" \"Run `svn status'.\" t) \r\n (autoload 'svn-update \"dsvn\" \"Run `svn update'.\" t) \r\n\
+  \r\n\
+  This file integrates well with vc-svn, so you might want to do this \r\n\
+  as well: \r\n  (require 'vc-svn) \r\n\
+  \r\n\
+  To get the status view, type \r\n  M-x svn-status \r\n\
+  \r\n\
+  Navigate through the file list using \"n\" and \"p\", for next and \r\n\
+  previous file, respectively. \r\n\
+  \r\n\
+  You can get a summary of available commands by typing \"?\". \r\n\
+  \r\n\
+  Some commands operate on files, and can either operate on the file \r\n\
+  under point, or on a group of files that have been marked. \r\n\
+  \r\n\
+  The commands used for marking a file are the following: \r\n  m mark and go down \r\n  DEL unmark and go up \r\n  u unmark and go down \r\n  SPC toggle mark \r\n  M-DEL unmark all \r\n\
+  \r\n\
+  The commands that operate on files are: \r\n  f Visit the file under point (does not use marks) \r\n  o Visit the file under point in another window (does not use marks) \r\n  = Show diff of uncommitted changes. This does not use marks \r\n           unless you give a prefix argument (C-u) \r\n  c Commit files \r\n  a Add files \r\n  r Remove files \r\n  R Resolve conflicts \r\n  M Rename/move files \r\n  U Revert files \r\n  P View or edit properties of the file or directory under point \r\n           (does not use marks) \r\n\
+  \r\n\
+  These commands update what is shown in the status buffer: \r\n  g Rerun \"svn status\" to update the list. Use a prefix \r\n           argument (C-u) to clear the list first to make sure that \r\n           it is correct. \r\n  s Update status of selected files \r\n  S Show status of specific file or directory \r\n  x Expunge unchanged files from the list \r\n\
+  \r\n\
+  To update the working copy: \r\n  M-u Run \"svn update\". If a prefix argument is given (C-u), \r\n           you will be prompted for a revision to update to. \r\n  M-s Switch working copy to another branch. \r\n  M-m Merge in changes using \"svn merge\". \r\n\
+  \r\n\
+  To view the Subversion log type \"M-x svn-log\". "

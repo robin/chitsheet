@@ -1,5 +1,5 @@
 --- 
-zsh::if: |-
+zsh_if: |-
   if [[ $foo = '' ]]; then
   	print The parameter foo is empty
   fi

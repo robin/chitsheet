@@ -1,5 +1,5 @@
 --- 
-assert_routing: |
+assert_routing: |-
   # 'cheat assertions' for the rest
   
   assert_routing(path, options, defaults={}, extras={}, message=nil)
@@ -21,5 +21,3 @@ assert_routing: |
   
    # Tests a route, providing a defaults hash
    assert_routing 'controller/action/9', {:id => "9", :item => "square"}, {:controller => "controller", :action => "action"}, {}, {:item => "square"}
-  
-

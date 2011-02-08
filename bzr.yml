@@ -1,5 +1,5 @@
 --- 
-bzr: |
+bzr: |-
   Bazaar -- a free distributed version-control tool
   http://bazaar-vcs.org/
   
@@ -19,11 +19,17 @@ bzr: |
   Status of working copy:
     $ bzr status
   
+  Difference between the last commitment and the working copy:
+    $ bzr diff
+  
   Committing changes in working copy:
-    $ bzr commit
+    $ bzr commit [-m "Comment to the commitment"]
   
   Rollback:
     $ bzr uncommit
+  
+  Looking though logs:
+    $ bzr log
   
   Making a new copy of an existing branch:
     $ bzr branch ProjectDirectory RadicalRefactor
@@ -51,4 +57,3 @@ bzr: |
     $ bzr help topics
     $ bzr help commands
     $ bzr help merge #...etc
-

@@ -1,5 +1,5 @@
 --- 
-vim::folding: |
+vim_folding: |-
   zf#j creates a fold from the cursor down # lines.
   zf/string creates a fold from the cursor to string .
   zj moves the cursor to the next fold.
@@ -17,4 +17,3 @@ vim::folding: |
   ]z move to end of open fold.
   mkview save folds
   loadview restore folds
-

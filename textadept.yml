@@ -1,0 +1,102 @@
+--- 
+textadept: |-
+  File
+    New           CTRL+n
+    Open          CTRL+o
+    Open Recent   ALT+o
+    Save          CTRL+s
+    Save As       CTRL+S
+    Close         CTRL+w
+    Close All     CTRL+W
+    Quit          ALT+q
+  
+  Edit
+    Undo              CTRL+z
+    Redo              CTRL+y
+    Cut               CTRL+x
+    Copy              CTRL+c
+    Paste             CTRL+v
+    Delete            DEL
+    Select All        CTRL+a
+    Grow Selection    ALT+s g
+    Match Brace       CTRL+e
+    Select to Brace   CTRL+E
+    Autocomplete      CTRL+ENTER
+    Block Comment     CTRL+q
+  
+  Enclose In
+    Tags <>           ALT+c t
+    Single Tag < />   ALT+c s t
+    Single Quotes ''  ALT+c '
+    Double Quotes ""  ALT+c "
+    Parentheses ()    ALT+c (
+    Brackes []        ALT+c [
+    Braces {}         ALT+c {
+    Spaces            ALT+c c
+  
+  Select In
+    Tags <>             ALT+s t
+    Single Quotes ''    ALT+s '
+    Double Quotes ""    ALT+s "
+    Parentheses ()      ALT+s (
+    Brackets []         ALT+s [
+    Braces {}           ALT+s {
+    Current Word        ALT+s w
+    Current Line        ALT+s l
+    Current Paragraph   ALT+s p
+    Current Block       ALT+s b
+    Current Scope       ALT+s s
+  
+  Search
+    Find/Replace    CTRL+f
+    Find Next       ALT+n
+    Find Previous   ALT+p
+    Replace         ALT+r
+    Find in Files   ALT+i
+    Go To Line      CTRL+g
+  
+  Tools
+    Command Entry   F2
+    Run             CTRL+r
+    Compile         CTRL+R
+  
+  Snippets
+    Insert          TAB
+    Previous        SHIFT+TAB
+    Cancel Current  CTRL+ALT+i
+    List            CTRL+ALT+I
+    Show Style      ALT+I
+  
+  Multiple Line Editing
+    Add               CTRL+m a
+    Add Multiple      CTRL+m A
+    Remove            CTRL+m r
+    Remove Multiple   CTRL+m R
+    Update            CTRL+m u
+    Clear             CTRL+m c
+  
+  Buffers
+    Next                        CTRL+TAB
+    Previous                    CTRL+ALT+TAB
+    Toggle View EOL             CTRL+t v e
+    Toggle Wrap Mode            CTRL+t v w
+    Toggle Indentation Guides   CTRL+t v i
+    Toggle Use Tabs             CTRL+t v TAB
+    Toggle View Whitespace      CTRL+t v SPACE
+    Refresh Highlighting        F5
+  
+  Views
+    Next              CTRL+ALT+v n
+    Previous          CTRL+ALT+v p
+    Split Horizontal  CTRL+ALT+v s
+    Split Vertical    CTRL+ALT+v S
+    Unsplit           CTRL+ALT+v w
+    Unsplit All       CTRL+ALT+v W
+  
+  Project Manager
+    Hide                    CTRL+P
+    Show                    CTRL+p
+    Activate ctags          CTRL+ALT+p c
+    Activate buffers        CTRL+ALT+p b
+    Activate file browser   CTRL+ALT+p f
+    Activate modules        CTRL+ALT+p m

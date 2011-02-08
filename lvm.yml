@@ -1,0 +1,78 @@
+--- 
+lvm: |-
+  Creating new PV for LVM
+    pvcreate /dev/sdb1 /dev/sdc1 /dev/sdd1 /dev/sde1
+  
+  Removing PV from LVM
+    pvremove /dev/sdb1 /dev/sdc1 /dev/sdd1 /dev/sde1
+  
+  Showing info
+    pvdisplay
+    lvdisplay
+    vgdisplay
+    lvs
+    pvs
+    vgs
+    vgscan
+    lvscan
+    pvscan
+  
+  Creating VG "fileserver" and add to it our PV
+    vgcreate fileserver /dev/sdb1 /dev/sdc1 /dev/sdd1
+  
+  Extending VG "fileserver" by additional PV
+    vgextend fileserver /dev/sde1
+  
+  Copying data from one PV to other PV
+    pvmove /dev/sdb1 /dev/sde1
+  
+  Removing one PV from VG "fileserver" 
+  (first you need to move data from this PV to another PV)
+    vgreduce fileserver /dev/sdb1
+  
+  Renaming VG
+    vgrename fileserver data
+  
+  Removing VG
+    vgremove data
+  
+  Creating 1GB LV "media" in "fileserver" VG
+    lvcreate --name media --size 1G fileserver
+  
+  Creating a filesystem in our LV
+    mkfs.ext4 /dev/fileserver/media
+  
+  Extending our LV from 1GB to 1.5GB
+    lvextend -L1.5G /dev/fileserver/media
+  
+  Checking LV filesystem
+    e2fsck -f /dev/fileserver/media
+  Extending LV filesystem
+    resize2fs /dev/fileserver/media
+  Shrinking LV filesystem
+    resize2fs /dev/fileserver/media <nr-of-blocks>
+  
+  Shrinking our LV from 1.5GB to 1GB
+  (Shrinking a logical volume is the other way round: first we must shrink the filesystem before we reduce the logical volume's size)
+    lvreduce -L1G /dev/fileserver/media
+  
+  Mounting LV
+    mkdir /var/media 
+    mount /dev/fileserver/media /var/media
+    df -h
+  
+  Renaming LV from "fileserver" VG
+    lvrename fileserver media films
+  
+  Removing LV from "fileserver" VG
+    lvremove /dev/fileserver/films
+  
+  
+  
+  
+  Creating a snapshot:
+    lvcreate --size <snapsize> -s --name <snapname> <root-volume>
+  
+  
+  
+  source: http://www.howtoforge.com/linux_lvm_p6

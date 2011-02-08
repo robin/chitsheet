@@ -1,5 +1,5 @@
 --- 
-balloon: |
+balloon: |-
   http://balloon.hobix.com/
   
   Balloon, another great service created and provided by our benevolent overlord _why.  Run programs without going through the trouble of downloading and installing the application or its libraries.  Definitely read help page for _why's disclaimers.
@@ -22,4 +22,3 @@ balloon: |
     Serve the current directory on port 3000. Uses Mongrel as the web server.
   * ringserver - by bishop
     Who knows!
-

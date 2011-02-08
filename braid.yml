@@ -1,0 +1,53 @@
+--- 
+braid: |-
+  Homepage
+  ========
+  
+    http://github.com/evilchelu/braid/wikis/home
+  
+  
+  Install braid
+  =============
+  
+  Requirements: git v. >= 1.6
+  
+  sudo gem install braid
+  
+  
+  Usage
+  =====
+  
+  Add a repository
+  ----------------
+  
+    braid add <git-url> <dir>
+  
+      where repos = git://github.com/foo.git
+            dir = vendor/plugins/foo
+  
+      This will add the files and generate a commit. 
+  
+  Update a repository
+  -------------------
+  
+    update a remote to the HEAD of the remote:
+  
+      braid update <dir>
+  
+    or to a specific commit:
+  
+      braid update <dir> -r <git-revision>
+  
+    It doesn't appear as though -r will take a git tag.  
+    Use the revision number which corresponds to the tag.
+  
+  Help
+  ====
+  
+    for general help:
+  
+      braid help 
+  
+    for specific commands:
+  
+      braid help <command>

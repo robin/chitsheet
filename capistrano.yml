@@ -7,20 +7,21 @@ capistrano: "http://www.dizzy.co.uk/cheatsheets\n\
   ########## Shell Commands ##########\t\n\
   Installation:\n\
   $ gem install capistrano\n\n\
-  Add your application to Capistrano (capistranize):\n\
-  $ cap --apply-to /path/to/your/app YourApplicationName\n\n\
+  Add your application to Capistrano (capify):\n\
+  $ capify .\n\n\
   # NOTE: Rake access to capistrano is deprecated in Capistrano 1.3.\n\
   #       Use the 'cap' command instead.\n\n\
   Execute the setup task:\n\
-  $ rake remote:exec ACTION=setup\n\n\
-  Execute the cold_deploy task:\n\
-  $ rake remote:exec ACTION=cold_deploy\n\n\
+  $ cap deploy:setup\n\n\
   Deploy your application:\n\
-  $ rake deploy\n\n\
-  Similar to deploy, but it runs the migrate task on the new release before updating the symlink:\n\
-  $ rake remote:deploy_with_migrations\n\n\
+  $ cap deploy\n\n\
+  Similar to deploy, but it runs the migrate task on the new release before\n\
+  updating the symlink:\n\
+  $ cap deploy:migrations\n\n\
   Rollback a release from production:\n\
   $ rake rollback\n\n\
+  Deploy a particular revision from Subversion\n\
+  $ cap deploy -s revision=1234\n\n\
   Execute the disable_web task:\n\
   $ rake remote_exec ACTION=disable_web \\\n\
   UNTIL=\"tomorrow morning\" \\\n\
@@ -32,7 +33,8 @@ capistrano: "http://www.dizzy.co.uk/cheatsheets\n\
   ########## Standard Tasks ##########\n\
   cleans up the releases directory, leaving the five most recent releases:\n\
   $ cap cleanup \n\n\
-  used when deploying an application for the first time. Starts the application\xE2\x80\x99s \n\
+  used when deploying an application for the first time. Starts the\n\
+  application\xE2\x80\x99s\n\
   spinner (via the spinner task) and then does a normal deploy:\n\
   $ cap cold_deploy \n\n\
   updates all the code on your server (via update_code and symlink\n\
@@ -88,10 +90,12 @@ capistrano: "http://www.dizzy.co.uk/cheatsheets\n\
   EXAMPLE_TEMPLATE\n\n\
   put buffer, \"path/to/save/file.txt\", :mode => 0755\n\n\
   * multi-stage\n\
-  set :stages, %w(staging production testing) # [optional] defaults to [development, test, staging?, production].\n\
-  set :default_stage, \"testing\" # [optional] if omitted, cap aborts if you don't specify in args\n\
+  set :stages, %w(staging production testing) # [optional] defaults to\n\
+  [development, test, staging?, production].\n\
+  set :default_stage, \"testing\" # [optional] if omitted, cap aborts if you don't\n\
+  specify in args\n\
   require 'capistrano/ext/multistage'\n\n\
-  Stage-specific code in config/deploy/staging.rb and config/deploy/production.rb. \n\
+  Stage-specific code in config/deploy/staging.rb and config/deploy/production.rb.\n\
   see: http://weblog.jamisbuck.org/2007/7/23/capistrano-multistage\n\n\
   *deploy.rb variables and their defaults\n\n\
   The name of your application. \n\
@@ -112,7 +116,8 @@ capistrano: "http://www.dizzy.co.uk/cheatsheets\n\
   The name to use (relative to deploy_to) for the symlink that points at \n\
   the current release\n\
   :current_dir\tcurrent\t\t\n\n\
-  The name of the directory under deploy_to that will contain directories and files to be shared between all releases.\n\
+  The name of the directory under deploy_to that will contain directories and\n\
+  files to be shared between all releases.\n\
   :shared_dir\tshared\t\n\n\
   This specifies the revision you want to check out on the remote machines.\n\
   :revision\t(latest)\t\n\n\
@@ -130,7 +135,8 @@ capistrano: "http://www.dizzy.co.uk/cheatsheets\n\
   (ssh_options[:port] = 2345)\n\
   :ssh_options\tHash.new\t\n\
   \t\t\t\t\n\
-  Whether or not tasks that can use sudo, ought to use sudo. In a shared environment, this is typically not desirable (or possible), and \n\
+  Whether or not tasks that can use sudo, ought to use sudo. In a shared\n\
+  environment, this is typically not desirable (or possible), and\n\
   in that case you should set this variable to false\n\
   :use_sudo\ttrue\t\t\n\n\
   Sets the path to sudo.\n\

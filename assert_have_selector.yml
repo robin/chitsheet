@@ -1,0 +1,13 @@
+--- 
+assert_have_selector: |-
+  == assert_have_selector
+  
+  # Matches HTML content against a CSS 3 selector.
+  # In Webrat core, Webrat Selenium
+  
+  assert_have_selector    'div.pagination'
+  assert_have_no_selector 'form input#name'
+  
+  assert_have_selector 'img',  :src     => image_url
+  assert_have_selector '.cpm', :content => "$100.00"
+  assert_have_selector 'li',   :count   => 2

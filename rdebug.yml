@@ -1,5 +1,5 @@
 --- 
-rdebug: |
+rdebug: |-
   general Informations and Key shortcuts for Kent Sibilev's great ruby-debug gem.
   http://www.datanoise.com/ruby-debug/, http://rubyforge.org/projects/ruby-debug/
   
@@ -59,7 +59,7 @@ rdebug: |
   (rdb:1) disp[lay]              (display expression list)
   
   down
-  (rdb:1) down[count] (move to lower frame)
+  (rdb:1) down [count] (move to lower frame)
   
   enable
   (rdb:1) enable BPT-NUM - enable given breakpoint number
@@ -148,7 +148,7 @@ rdebug: |
     framefullpath  - frame will display full file names
     frameclassname - frame will display class names
     forcestep      - make sure 'next/step' commands always move to a new line
-    width          - number of characters the debugger things are in aline
+    width          - number of characters the debugger thinks are in a line
   
   To disable setting, use 'no' prefix, like 'noautolist' or "off" as in
   "autolist off"
@@ -184,4 +184,3 @@ rdebug: |
   
   where
   (rdb:1) w[here] display frames
-

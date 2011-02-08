@@ -1,0 +1,63 @@
+--- 
+port: |-
+  Update local ports and upgrade the MacPorts infrastructure:
+  $ sudo port selfupdate
+  
+  Search all available ports:
+  $ port search <string>
+  
+  Install a port:
+  $ sudo port install <port> [+variant]
+  
+  Find outdated local ports
+  $ port outdated
+  
+  Upgrade a port:
+  $ sudo port upgrade <port>
+  
+  Cleaning:
+  $ sudo port clean --all <port>
+  
+  Information:
+  $ port info <port>
+  
+  Dependencies:
+  $ port deps <port>
+  
+  Variations:
+  $ port variants <port>
+  
+  Creating Packages
+  
+  $ port pkg <port>
+  $ port dmg <port>
+  $ port rpm <port>
+  
+  Other Useful Options
+  
+  	Fetch
+  	Extract
+  	Patch
+  	Configure
+  	Build
+  	Destroot
+  	
+  $ port clean --all <port>
+  
+  $ port contents <port>
+  $ port installed
+  $ port outdated
+  $ port upgrade <port>
+  $ port dependents <port>
+  $ port livecheck <port>
+  $ port lint <port>
+  $ port lint <port>
+  $ port variants <port>
+  $ port -v install <port> +<variant>
+  $ sudo port -f uninstall inactive
+  
+  To see more information, add -d, e.g.
+  $ sudo port -d selfupdate
+  
+  More information on Using MacPorts:
+  http://guide.macports.org/#usi

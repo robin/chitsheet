@@ -1,5 +1,6 @@
 --- 
 foo: |-
-  FOO SHEET
+  FOO 
   ----------
-    TTHis is the foo sheet THis is the foo sheet THis is the foo sheet THis is the foo sheet THis is the foo sheet THis is the foo sheet THis is the foo sheet His is the foo sheet
+  
+  Foo!

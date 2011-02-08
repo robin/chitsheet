@@ -1,2 +1,11 @@
 --- 
-date: See strftime.
+date: |-
+  Display the current date/time:
+  
+   date [+FORMAT]
+  
+  Set the system date:
+  
+   date [-u|--utc|--universal] [MMDDhhmm[[CC]YY][.ss]]
+  
+  For FORMAT character sequences, see strftime.

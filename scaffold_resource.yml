@@ -1,7 +1,7 @@
 --- 
 scaffold_resource: |-
   REST
-  $ ruby script\generate scaffold_resource Model columnname:columntype --skip-migration
+  $ ruby script/generate scaffold_resource Model columnname:columntype --skip-migration
   
   
   The Payoff:

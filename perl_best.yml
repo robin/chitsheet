@@ -1,0 +1,334 @@
+--- 
+perl_best: "===================================\r\n\
+  Perl Best Practices Reference Guide\r\n\
+  ===================================\r\n\
+  \r\n\
+  Code Layout\r\n\
+  ===========\r\n\
+  \r\n\
+  1.\tBrace and parenthesize in K&R style. \r\n\
+  2.\tSeparate your control keywords from the following opening bracket. \r\n\
+  3.\tDon\xE2\x80\x99t separate subroutine or variable names from the following opening bracket. \r\n\
+  4.\tDon\xE2\x80\x99t use unnecessary parentheses for builtins and \xE2\x80\x98honorary\xE2\x80\x99 builtins. \r\n\
+  5.\tSeparate complex keys or indices from their surrounding brackets. \r\n\
+  6.\tUse whitespace to help binary operators stand out from their operands. \r\n\
+  7.\tPlace a semicolon after every statement. \r\n\
+  8.\tPlace a comma after every value in a multiline list. \r\n\
+  9.\tUse 78-column lines. \r\n\
+  10.\tUse four-column indentation levels. \r\n\
+  11.\tIndent with spaces, not tabs. \r\n\
+  12.\tNever place two statements on the same line. \r\n\
+  13.\tCode in paragraphs. \r\n\
+  14.\tDon\xE2\x80\x99t cuddle an else. \r\n\
+  15.\tAlign corresponding items vertically. \r\n\
+  16.\tBreak long expressions before an operator. \r\n\
+  17.\tFactor out long expressions in the middle of statements. \r\n\
+  18.\tAlways break a long expression at the operator of the lowest possible precedence. \r\n\
+  19.\tBreak long assignments before the assignment operator. \r\n\
+  20.\tFormat cascaded ternary operators in columns. \r\n\
+  21.\tParenthesize long lists. \r\n\
+  22.\tEnforce your chosen layout style mechanically.\r\n\
+  \r\n\
+  Naming Conventions\r\n\
+  ==================\r\n\
+  \r\n\
+  23.\tUse grammatical templates when forming identifiers. \r\n\
+  24.\tName booleans after their associated test. \r\n\
+  25.\tMark variables that store references with a _ref suffix. \r\n\
+  26.\tName arrays in the plural and hashes in the singular. \r\n\
+  27.\tUse underscores to separate words in multiword identifiers. \r\n\
+  28.\tDistinguish different program components by case.\r\n\
+  29.\tAbbr idents by prefx. \r\n\
+  30.\tAbbreviate only when the meaning remains unambiguous. \r\n\
+  31.\tAvoid using inherently ambiguous words in names. \r\n\
+  32.\tPrefix \xE2\x80\x98for internal use only\xE2\x80\x99 subroutines with an underscore.\r\n\
+  \r\n\
+  Values and Expressions\r\n\
+  ======================\r\n\
+  \r\n\
+  33.\tUse interpolating string delimiters only for strings that actually inter- polate.\r\n\
+  34.\tDon\xE2\x80\x99t use \"\" or '' for an empty string. \r\n\
+  35.\tDon\xE2\x80\x99t write one-character strings in visually ambiguous ways. \r\n\
+  36.\tUse named character escapes instead of numeric escapes. \r\n\
+  37.\tUse named constants, but don\xE2\x80\x99t use constant. \r\n\
+  38.\tDon\xE2\x80\x99t pad decimal numbers with leading zeros.\r\n\
+  39.\tUse underscores to improve the readability of long numbers. \r\n\
+  40.\tLay out multiline strings over multiple lines. \r\n\
+  41.\tUse a heredoc when a multiline string exceeds two lines. \r\n\
+  42.\tUse a \xE2\x80\x98theredoc\xE2\x80\x99 when a heredoc would compromise your indentation. \r\n\
+  43.\tMake every heredoc terminator a single uppercase identifier with a standard prefix. \r\n\
+  44.\tWhen introducing a heredoc, quote the terminator. \r\n\
+  45.\tDon\xE2\x80\x99t use barewords. \r\n\
+  46.\tReserve => for pairs. \r\n\
+  47.\tDon\xE2\x80\x99t use commas to sequence statements. \r\n\
+  48.\tDon\xE2\x80\x99t mix high- and low-precedence booleans. \r\n\
+  49.\tParenthesize every raw list. \r\n\
+  50.\tUse table-lookup to test for membership in lists of strings; use any() for membership of lists of anything else.\r\n\
+  \r\n\
+  Variables\r\n\
+  =========\r\n\
+  \r\n\
+  51.\tAvoid using non-lexical variables. \r\n\
+  52.\tDon\xE2\x80\x99t use package variables in your own development. \r\n\
+  53.\tIf you\xE2\x80\x99re forced to modify a package variable, localize it. \r\n\
+  54.\tInitialize any variable you localize. \r\n\
+  55.\tuse English for the less familiar punctuation variables. \r\n\
+  56.\tIf you\xE2\x80\x99re forced to modify a punctuation variable, localize it. \r\n\
+  57.\tDon\xE2\x80\x99t use the regex match variables. \r\n\
+  58.\tBeware of any modification via $_. \r\n\
+  59.\tUse negative indices when counting from the end of an array. \r\n\
+  60.\tTake advantage of hash and array slicing. \r\n\
+  61.\tUse a tabular layout for slices. \r\n\
+  62.\tFactor large key or index lists out of their slices.\r\n\
+  \r\n\
+  Control Structures\r\n\
+  ==================\r\n\
+  \r\n\
+  63.\tUse block if, not postfix if. \r\n\
+  64.\tReserve postfix if for flow-of-control statements. \r\n\
+  65.\tDon\xE2\x80\x99t use postfix unless, for, while, or until. \r\n\
+  66.\tDon\xE2\x80\x99t use unless or until at all. \r\n\
+  67.\tAvoid C-style for statements. \r\n\
+  68.\tAvoid subscripting arrays or hashes within loops. \r\n\
+  69.\tNever subscript more than once in a loop. \r\n\
+  70.\tUse named lexicals as explicit for loop iterators. \r\n\
+  71.\tAlways declare a for loop iterator variable with my. \r\n\
+  72.\tUse map instead of for when generating new lists from old. \r\n\
+  73.\tUse grep and first instead of for when searching for values in a list. \r\n\
+  74.\tUse for instead of map when transforming a list in place. \r\n\
+  75.\tUse a subroutine call to factor out complex list transformations. \r\n\
+  76.\tNever modify $_ in a list function. \r\n\
+  77.\tAvoid cascading an if. \r\n\
+  78.\tUse table look-up in preference to cascaded equality tests. \r\n\
+  79.\tWhen producing a value, use tabular ternaries. \r\n\
+  80.\tDon\xE2\x80\x99t use do...while loops. \r\n\
+  81.\tReject as many iterations as possible, as early as possible. \r\n\
+  82.\tDon\xE2\x80\x99t contort loop structures just to consolidate control. \r\n\
+  83.\tUse for and redo instead of an irregularly counted while. \r\n\
+  84.\tLabel every loop that is exited explicitly, and use the label with every next, last, or redo.\r\n\
+  \r\n\
+  Documentation\r\n\
+  =============\r\n\
+  \r\n\
+  85.\tDistinguish user documentation from technical documentation. \r\n\
+  86.\tCreate standard POD templates for modules and applications. \r\n\
+  87.\tExtend and customize your standard POD templates. \r\n\
+  88.\tPut user documentation in source files.\r\n\
+  89.\tKeep all user documentation in a single place within your source file.\r\n\
+  90.\tPlace POD as close as possible to the end of the file. \r\n\
+  91.\tSubdivide your technical documentation appropriately. \r\n\
+  92.\tUse block templates for major comments. \r\n\
+  93.\tUse full-line comments to explain the algorithm. \r\n\
+  94.\tUse end-of-line comments to point out subtleties and oddities. \r\n\
+  95.\tComment anything that has puzzled or tricked you. \r\n\
+  96.\tConsider whether it\xE2\x80\x99s better to rewrite than to comment. \r\n\
+  97.\tUse \xE2\x80\x98invisible\xE2\x80\x99 POD sections for longer technical discussions. \r\n\
+  98.\tCheck the spelling, syntax, and sanity of your documentation.\r\n\
+  \r\n\
+  Built\xC2\xADin Functions\r\n\
+  ==================\r\n\
+  \r\n\
+  99.\tDon\xE2\x80\x99t recompute sort keys inside a sort. \r\n\
+  100. Use reverse to reverse a list. \r\n\
+  101. Use scalar reverse to reverse a scalar. \r\n\
+  102. Use unpack to extract fixed-width fields. \r\n\
+  103. Use split to extract simple variable-width fields. \r\n\
+  104. Use Text::CSV_XS to extract complex variable-width fields. \r\n\
+  105. Avoid string eval.\r\n\
+  106. Consider building your sorting routines withSort::Maker. \r\n\
+  107. Use 4-arg substr instead of lvalue substr. \r\n\
+  108. Make appropriate use of lvalue values. \r\n\
+  109. Use glob, not <...>.\r\n\
+  110. Avoid a raw select for non-integer sleeps. \r\n\
+  111. Always use a block with a map and grep. \r\n\
+  112. Use the \xE2\x80\x98non-builtin builtins\xE2\x80\x99.\r\n\
+  \r\n\
+  Subroutines\r\n\
+  ===========\r\n\
+  \r\n\
+  113. Call subroutines with parentheses but without a leading &. \r\n\
+  114. Don\xE2\x80\x99t give subroutines the same names as built-in functions. \r\n\
+  115. Always unpack @_ first. \r\n\
+  116. Use a hash of named arguments for any subroutine that has more than three parameters. \r\n\
+  117. Use definedness or existence to test for missing arguments. \r\n\
+  118. Resolve any default argument values as soon as @_ is unpacked. \r\n\
+  119. Always return scalar in scalar returns. \r\n\
+  120. Make list-returning subroutines return the \xE2\x80\x98obvious\xE2\x80\x99 value in scalar context. \r\n\
+  121. When there is no \xE2\x80\x98obvious\xE2\x80\x99 scalar context return value, consider Contextual::Return instead. \r\n\
+  122. Don\xE2\x80\x99t use subroutine prototypes. \r\n\
+  123. Always return via an explicit return. \r\n\
+  124. Use a bare return to return failure.\r\n\
+  \r\n\
+  I/O\r\n\
+  ===\r\n\
+  \r\n\
+  125. Don\xE2\x80\x99t use bareword filehandles. \r\n\
+  126. Use indirect filehandles. \r\n\
+  127. If you have to use a package filehandle, localize it first.\r\n\
+  128. Use either the IO::File module or the three-argument form of open.\r\n\
+  129. Never open, close, or print to a file without checking the outcome. \r\n\
+  130. Close filehandles explicitly, and as soon as possible. \r\n\
+  131. Use while (<>), not for (<>). \r\n\
+  132. Prefer line-based I/O to slurping.\r\n\
+  133. Slurp a filehandle with a do block for purity. \r\n\
+  134. Slurp a stream with Perl6::Slurp for power and simplicity. \r\n\
+  135. Avoid using *STDIN, unless you really mean it. \r\n\
+  136. Always put filehandles in braces within any print statement. \r\n\
+  137. Always prompt for interactive input. \r\n\
+  138. Don\xE2\x80\x99t reinvent the standard test for interactivity. \r\n\
+  139. Use the IO::Prompt module for prompting. \r\n\
+  140. Always convey the progress of long non-interactive operations within interactive applications. \r\n\
+  141. Consider using the Smart::Comments module to automate your progress indicators. \r\n\
+  142. Avoid a raw select when setting autoflushes.\r\n\
+  \r\n\
+  References\r\n\
+  ==========\r\n\
+  \r\n\
+  143. Wherever possible, dereference with arrows. \r\n\
+  144. Where prefix dereferencing is unavoidable, put braces around the reference. \r\n\
+  145. Never use symbolic references. \r\n\
+  146. Use weaken to prevent circular data structures from leaking memory.\r\n\
+  \r\n\
+  Regular Expressions\r\n\
+  ===================\r\n\
+  \r\n\
+  147. Always use the /x flag. \r\n\
+  148. Always use the /m flag. \r\n\
+  149. Use \\A and \\z as string boundary anchors. \r\n\
+  150. Use \\z, not \\Z, to indicate \xE2\x80\x98end of string\xE2\x80\x99. \r\n\
+  151. Always use the /s flag. \r\n\
+  152. Consider mandating the Regexp::Autoflags module. \r\n\
+  153. Use m{...} in preference to /.../ in multiline regexes. \r\n\
+  154. Don\xE2\x80\x99t use any delimiters other than /.../ or m{...}. \r\n\
+  155. Prefer singular character classes to escaped metacharacters. \r\n\
+  156. Prefer named characters to escaped metacharacters. \r\n\
+  157. Prefer properties to enumerated character classes. \r\n\
+  158. Consider matching arbitrary whitespace, rather than specific whitespace characters. \r\n\
+  159. Be specific when matching \xE2\x80\x98as much as possible\xE2\x80\x99. \r\n\
+  160. Use capturing parentheses only when you intend to capture. \r\n\
+  161. Use the numeric capture variables only when you\xE2\x80\x99re sure that the preceding match succeeded. \r\n\
+  162. Always give captured substrings proper names. \r\n\
+  163. Tokenize input using the /gc flag. \r\n\
+  164. Build regular expressions from tables. \r\n\
+  165. Build complex regular expressions from simpler pieces. \r\n\
+  166. Consider using Regexp::Common instead of writing your own regexes. \r\n\
+  167. Always use character classes instead of single-character alternations. \r\n\
+  168. Factor out common affixes from alternations. \r\n\
+  169. Prevent useless backtracking. \r\n\
+  170. Prefer fixed-string eq comparisons to fixed-pattern regex matches.\r\n\
+  \r\n\
+  Error Handling\r\n\
+  ==============\r\n\
+  \r\n\
+  171. Throw exceptions instead of returning special values or setting flags.\r\n\
+  172. Make failed builtins throw exceptions too. \r\n\
+  173. Make failures fatal in all contexts. \r\n\
+  174. Be careful when testing for failure of the system builtin. \r\n\
+  175. Throw exceptions on all failures, including recoverable ones. \r\n\
+  176. Have exceptions report from the caller's location, not from the place where they were thrown. \r\n\
+  177. Compose error messages in the recipient\xE2\x80\x99s dialect. \r\n\
+  178. Document every error message in the recipient\xE2\x80\x99s dialect. \r\n\
+  179. Use exception objects whenever failure data needs to be conveyed to a handler. \r\n\
+  180. Use exception objects when error messages may change. \r\n\
+  181. Use exception objects when two or more exceptions are related. \r\n\
+  182. Catch exception objects in most-derived-first order. \r\n\
+  183. Build exception classes automatically. \r\n\
+  184. Unpack the exception variable in extended exception handlers.\r\n\
+  \r\n\
+  Command\xC2\xADLine Processing\r\n\
+  =======================\r\n\
+  \r\n\
+  185. Enforce a single consistent command-line structure. \r\n\
+  186. Adhere to a standard set of conventions in your command-line syntax. \r\n\
+  187. Standardize your meta-options. \r\n\
+  188. Allow the same filename to be specified for both input and output. \r\n\
+  189. Standardize on a single approach to command-line processing. \r\n\
+  190. Ensure that your interface, run-time messages, and documentation remain consistent. \r\n\
+  191. Factor out common command-line interface components into a shared module.\r\n\
+  \r\n\
+  Objects\r\n\
+  =======\r\n\
+  \r\n\
+  192. Make object orientation a choice, not a default. \r\n\
+  193. Choose object orientation using appropriate criteria. \r\n\
+  194. Don\xE2\x80\x99t use pseudohashes. \r\n\
+  195. Don\xE2\x80\x99t use restricted hashes. \r\n\
+  196. Always use fully encapsulated objects. \r\n\
+  197. Give every constructor the same standard name. \r\n\
+  198. Don\xE2\x80\x99t let a constructor clone objects. \r\n\
+  199. Always provide a destructor for every inside-out class. \r\n\
+  200. When creating methods, follow the general guidelines for subroutines. \r\n\
+  201. Provide separate read and write accessors. \r\n\
+  202. Don\xE2\x80\x99t use lvalue accessors. \r\n\
+  203. Don\xE2\x80\x99t use the indirect object syntax. \r\n\
+  204. Provide an optimal interface, rather than a minimal one. \r\n\
+  205. Overload only the isomorphic operators of algebraic classes. \r\n\
+  206. Always consider overloading the boolean, numeric, and string coer-\r\n\
+  cions of objects.\r\n\
+  \r\n\
+  Class Hierarchies\r\n\
+  =================\r\n\
+  \r\n\
+  207. Don\xE2\x80\x99t manipulate the list of base classes directly. \r\n\
+  208. Use distributed encapsulated objects. \r\n\
+  209. Never use the one-argument form of bless. \r\n\
+  210. Pass constructor arguments as labeled values, using a hash reference. \r\n\
+  211. Distinguish arguments for base classes by class name as well. \r\n\
+  212. Separate your construction, initialization, and destruction processes. \r\n\
+  213. Build the standard class infrastructure automatically. \r\n\
+  214. Use Class::Std to automate the deallocation of attribute data.\r\n\
+  215. Have attributes initialized and verified automatically. \r\n\
+  216. Specify coercions as :STRINGIFY, :NUMERIFY, and :BOOLIFY methods. \r\n\
+  217. Use :CUMULATIVE methods instead of SUPER:: calls. \r\n\
+  218. Don\xE2\x80\x99t use AUTOLOAD().\r\n\
+  \r\n\
+  Modules\r\n\
+  =======\r\n\
+  \r\n\
+  219. Design the module\xE2\x80\x99s interface first. \r\n\
+  220. Place original code inline. Place duplicated code in a subroutine. Place duplicated subroutines in a module. \r\n\
+  221. Use three-part version numbers. \r\n\
+  222. Enforce your version requirements programmatically. \r\n\
+  223. Export judiciously and, where possible, only by request. \r\n\
+  224. Consider exporting declaratively. \r\n\
+  225. Never make variables part of a module\xE2\x80\x99s interface. \r\n\
+  226. Build new module frameworks automatically. \r\n\
+  227. Use core modules wherever possible. \r\n\
+  228. Use CPAN modules where feasible.\r\n\
+  \r\n\
+  Testing and Debugging\r\n\
+  =====================\r\n\
+  \r\n\
+  229. Write the test cases first. \r\n\
+  230. Standardize your tests with Test::Simple or Test::More. \r\n\
+  231. Standardize your test suites with Test::Harness. \r\n\
+  232. Write test cases that fail. \r\n\
+  233. Test both the likely and the unlikely. \r\n\
+  234. Add new test cases before you start debugging. \r\n\
+  235. Always use strict. \r\n\
+  236. Always turn on warnings explicitly. \r\n\
+  237. Never assume that a warning-free compilation implies correctness. \r\n\
+  238. Turn off strictures or warnings explicitly, selectively, and in the smallest possible scope. \r\n\
+  239. Learn at least a subset of the perl debugger. \r\n\
+  240. Use serialized warnings when debugging \xE2\x80\x98manually\xE2\x80\x99. \r\n\
+  241. Consider using \xE2\x80\x98smart comments\xE2\x80\x99 when debugging, rather than warn statements.\r\n\
+  \r\n\
+  Miscellanea\r\n\
+  ===========\r\n\
+  \r\n\
+  242. Use a revision control system. \r\n\
+  243. Integrate non-Perl code into your applications via the Inline:: modules. \r\n\
+  244. Keep your configuration language uncomplicated. \r\n\
+  245. Don\xE2\x80\x99t use formats. \r\n\
+  246. Don\xE2\x80\x99t tie variables or filehandles. \r\n\
+  247. Don\xE2\x80\x99t be clever. \r\n\
+  248. If you must rely on cleverness, encapsulate it. \r\n\
+  249. Don\xE2\x80\x99t optimize code \xE2\x80\x94 benchmark it. \r\n\
+  250. Don\xE2\x80\x99t optimize data structures \xE2\x80\x94 measure them. \r\n\
+  251. Look for opportunities to use caches. \r\n\
+  252. Automate your subroutine caching. \r\n\
+  253. Benchmark any caching strategy you use. \r\n\
+  254. Don\xE2\x80\x99t optimize applications \xE2\x80\x94 profile them. \r\n\
+  255. Be careful to preserve semantics when refactoring syntax.\r\n\
+  \r\n\
+  Sources: Perl Best Practices by Damian Conway and Reference Guide by Johan Vromans"

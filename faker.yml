@@ -1,0 +1,50 @@
+--- 
+faker: |-
+  * Faker::Name.name => "Christophe Bartell"
+  * Faker::Internet.email => "kirsten.greenholt@corkeryfisher.info"
+  
+  
+  Address Fakes
+  ------------
+  
+  Methods
+  city   city_prefix   city_suffix   secondary_address   street_address   street_name   street_suffix   uk_country   uk_county   uk_postcode   us_state   us_state_abbr   zip_code  
+  
+  Internet Fakes
+  -------------
+  
+  
+  Methods
+  domain_name   domain_suffix   domain_word   email   free_email   user_name  
+  
+  
+  PhoneNumber Fakes
+  -------------
+  
+  
+  Methods
+  phone_number  
+  
+  
+  Name Fakes
+  ----------
+  
+  
+  Methods
+  first_name   last_name   name   prefix   suffix  
+  
+  
+  Company Fakes
+  -------------
+  
+  
+  Methods
+  bs   catch_phrase   name   suffix  
+  
+  
+  Lorem Fakes
+  -----------
+  
+  
+  Methods
+  paragraph   paragraphs   sentence   sentences   words

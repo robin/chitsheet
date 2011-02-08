@@ -1,0 +1,56 @@
+--- 
+xcode: |
+  WINDOW FOCUS
+  ------------
+  shift-cmd-b (build window)
+  shift-cmd-e (toggles edit-only window)
+  shift-cmd-option-e (toggle zooming of editor to full window mode)
+  cmd-0 (switch to editor)
+  shift-cmd-y (switch to debugger)
+  
+  
+  FILE NAVIGATION
+  ---------------
+  cmd-option-<up> (toggle header/implementation)
+  ctrl-cmd-N (create new empty file)
+  shift-command-d (open quickly..)
+  command-click (open this quickly)
+  shift-option-cmd-D (open this quickly (when cursor is on target class))
+  shitt-cmd-W (close file)
+  
+  POP-UPS
+  -------
+  ctrl-2 (pop up symbol navigation)
+  ctrl-1 (pop up loaded files list)
+  
+  
+  CODE FOLDING
+  ------------
+  ctrl-cmd-(up-arrow) (fold all methods/functions)
+  ctrl-cmd-(down-arrow) (unfold all methods/functions)
+  
+  DEBUG
+  -----
+  cmd-shift-R (show console)
+  cmd-option-ctrl-R (clear console)
+  
+  
+  TEXTMATE LOVERS
+  ---------------
+  shift-cmd-D (like TextMates' cmd-T for finding a file fast)
+  shift-option-cmd-E (full screen view, less noise)
+  ctrl-1 (jumpt to file)
+  ctrl-2 (jumpt to method)
+  cmd-option-<up> (jump to related file)
+  cmd-ctrl-<left> (fold at cursor)
+  cmd-ctrl-<right> (expand at cursor)
+  
+  NOTE
+  ----
+  cmd    = Apple Key
+  option = Alt key 
+  
+  Tobin Harris updated to include shortcuts from:
+  http://cocoasamurai.blogspot.com/2008/02/complete-xcode-keyboard-shortcut-list.html 
+  Thanks to Colin Wheeler :)
+

@@ -1,0 +1,14 @@
+--- 
+shutdown: |
+  Power off the machine now:
+  # shutdown -h now
+  
+  Power off the machine at 3 am:
+  # shutdown -h 03:00
+  
+  Power off the machine in 120 minutes:
+  # shutdown -h +120
+  
+  Cancel the shutdown:
+  # shutdown -c
+

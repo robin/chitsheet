@@ -1,0 +1,104 @@
+--- 
+beyondtheurinal: |-
+  Here are those commands that you need to use a little less frequently but are still indispensable for development using git.  They are based on some of Scott Chacon's gitcasts.
+  
+  
+  Interactive Adding:
+  git add -i
+  (select "patch" to add individual chunks from files)
+  
+  Diff:
+  git diff
+  (between unstaged and index)
+  git diff --cached
+  (between index and repo)
+  git diff HEAD
+  (between last commit and all uncommitted changes)
+  git rev-parse master~3
+  (prints the sha for the great grandparent of master)
+  git diff master~3
+  (shows the difference between master~3 and HEAD)
+  git diff -- (path or file)
+  (just shows changes for the path or file)
+  git diff master~3 master~10
+  (differences between these 2 commits)
+  git diff --stat
+  (shows the changes in a more high level way)
+  git diff --name-status
+  (similar, less detail)
+  git diff --numstat
+  (show how many changes in each file)
+  git diff --name-only
+  (file name only)
+  git diff --unified(3)
+  (display 3 lines of context)
+  git diff ..master > master.patch
+  git apply master.patch
+  (create and apply a patch file)
+  
+  Log
+  git log -3
+  (show last 3 commits)
+  git log --stat (--shortstat)
+  (additional info- what happened, what file) 
+  git log --pretty=oneline(--pretty=short)
+  (clean up output)
+  git log --since="2007-12-01" --until="2007-12-20"
+  (specify date range)
+  git show (sha)
+  (show the change for that commit)
+  git log --(file)
+  (show the commits for one file)
+  git revlist
+  (list out the shas for commits)
+  git blame
+  (show who made edited a file last)
+  
+  Normal Workflow
+  git ls-files 
+  (show all of the files tracked by git)
+  git count-objects
+  (counts the objects in the git repository)
+  It is also mentioned that git add creates the sha and puts the object in the repo, git commit adds a new tree object and a new commit object
+  
+  Setup, Initialization and Cloning
+  Most of the stuff in here is detailed elsewhere, but one nice trick is:
+  git clone (repo) what_to_call_the_new_project
+  
+  Browsing Git Objects
+  git show-refs
+  (shows references)
+  git cat-file -p (sha)
+  (shows a commit object)
+  git cat-file -t (sha)
+  (prints the type of object- commit, tree, blob)
+  git cat-file -s (sha)
+  (prints the size)
+  gitk --since="2007-12-12"
+  (shows commits since a certain point)
+  (can take other options such as a filename to just look at changes to a file)
+  git instaweb
+  (runs a git browser in a web interface)
+  
+  Branching and Merging
+  git branch
+  (show branches)
+  git show-branch
+  (a little more detail on how the branches relate to each other)
+  git checkout
+  (switch branches)
+  git stash
+  (put your changes away)
+  git merge (branch)
+  (pull in the changes from (branch) to the current branch
+  
+  Rebasing
+  git reset
+   (removes files from index)
+  git reset --hard
+   (removes files from index AND undoes local changes)
+  git rebase -i
+  (allows you to modify the commits that you'll be applying with the options below)
+   -pick (normal option)
+   -edit (edit the commit)
+   -squash (combine with commit above)

@@ -1,0 +1,32 @@
+--- 
+git_remote_branch: |
+  grb create branch_name [origin_server]
+  
+  grb delete branch_name [origin_server]
+  
+  grb track branch_name [origin_server]
+  
+  If origin_server is not specified, the name 'origin' is assumed (git's default)
+  
+  All commands also have aliases:
+  create: create, new
+  delete: delete, destroy, kill, remove
+  track: track, follow, grab, fetch
+  
+  ---------------------------------------
+  Yet Another GRB [http://github.com/jinzhu/grb]
+  
+  == USAGE:
+    * rename `branch1` to `branch2`
+      $ grb mv   [branch1] [branch2] [--explain]
+    * rename current branch to `branch`
+      $ grb mv branch [--explain]
+    * delete branch `branch`,default current_branch
+      $ grb rm [branch] [--explain]
+    * pull branch `branch`,default current_branch
+      $ grb pull [branch] [--explain]
+    * push branch `branch`, default current_branch
+      $ grb push [branch] [--explain]
+    * create new branch `branch`
+      $ grb new [branch] [--explain]
+

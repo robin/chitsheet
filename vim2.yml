@@ -1,0 +1,33 @@
+--- 
+vim2: |-
+  ### vim cheat sheet                    ###
+  ### http://jmcpherson.org/editing.html ###
+  
+  Cursor Motion:
+  fx  Move cursor forward to next occurrence of the character x.
+      ; will repeat the last f command given.
+  tx  Same as above but moves the cursor to the right of character x.
+  Fx  Backward to next occurrence of character x on current line.
+  w   Forward by one word.
+  b   Backward by a word.
+  O   Beginning of line.
+  ^   First character on current line.
+  $   End of line.
+  )   Forward to next sentence.
+  (   Backward by a sentence.
+  
+  C-f Forward by screenful of text.
+  C-b Backward by screenful of text.
+  G     End of file.
+  numG  To line 'num'.
+  gg    Beginning of file.
+  H     Top of screen.
+  M     Middle of screen.
+  L     Bottom of screen.
+  *     Read string under cursor and go to next place it appears.
+  #     Same as above, except previous.
+  /text Search for text.  'n' executes search again.
+  ?text Same as above, but backwards.
+  ma    Mark with bookmark 'a'.
+  `a    Go to bookmark 'a'.
+  `.    Goto line last edited.

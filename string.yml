@@ -8,6 +8,38 @@ string: |-
     %q<single>       %Q(double)    
                      %{double}     
   
+  Heredoc:
+  
+  Following a << you can specify a string or an identifier to terminate the string literal, and all lines following the current line up to the terminator are the value of the string. If the terminator is quoted, the type of quotes determines the type of the line-oriented string literal. Notice there must be no space between << and the terminator.
+  
+  If the - placed before the delimiter, then all leading whitespcae characters (tabs or spaces) are stripped from input lines and the line containing delimiter. This allows here-documents within scripts to be indented in a natural fashion.
+  
+  print <<EOF
+  The price is #{$Price}.
+  EOF
+  
+  print <<"EOF";			# same as above
+  The price is #{$Price}.
+  EOF
+  
+  print <<`EOC`			# execute commands
+  echo hi there
+  echo lo there
+  EOC
+  
+  print <<"foo", <<"bar"	# you can stack them
+  I said foo.
+  foo
+  I said bar.
+  bar
+  
+  myfunc(<<"THIS", 23, <<'THAT')
+  Here's a line
+  or two.
+  THIS
+  and here's another.
+  THAT
+  
   Escapes (double-quote):
   
   |----+-----+---------------------+------+-----|

@@ -1,0 +1,23 @@
+--- 
+sinatra: |-
+  A basic Sinatra app
+  
+    require 'rubygems'
+    require 'sinatra'
+  
+    get '/' do
+      erb :index                  # renders ./views/index.erb
+    end
+  
+  Default directories
+  
+    /views
+    /public
+  
+  With Haml
+  
+    require 'haml'
+  
+    get '/' do
+      haml :index
+    end

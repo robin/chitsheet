@@ -1,5 +1,5 @@
 --- 
-ruby::mode_strings: |-
+ruby_mode_strings: |-
   Mode |  Meaning
   -----+--------------------------------------------------------
   "r"  |  Read-only, starts at beginning of file  (default mode).

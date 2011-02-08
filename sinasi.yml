@@ -1,0 +1,26 @@
+--- 
+sinasi: |
+  
+  Sinasi SproutCore Minor Mode for Emacs:
+    GitHub: https://github.com/emk/sinasi
+  
+  key             binding
+  ---             -------
+  
+  C-c             Prefix Command
+  
+  C-c ,           Prefix Command
+  
+  C-c , c         sinasi-clean-tests
+  C-c , f         Prefix Command
+  
+  C-c , f a       sinasi-find-core
+  C-c , f c       sinasi-find-controller
+  C-c , f f       sinasi-find-fixture
+  C-c , f i       sinasi-find-main
+  C-c , f m       sinasi-find-model
+  C-c , f p       sinasi-find-main-page
+  C-c , f s       sinasi-find-stylesheet
+  C-c , f t       sinasi-find-test
+  C-c , f v       sinasi-find-view
+

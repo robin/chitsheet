@@ -5,6 +5,8 @@ tar: |-
   
   To extract, first change to the location you want the files (ie. create the outermost directory of the archive and then cd to it) and then:
   $ zcat /some/path/filename.tgz | tar xvf -
+  or
+  $ tar zxvf /some/path/filename.tgz
   
   Create an Archive (long tags)
   $ tar --create --verbose --preserve \
@@ -14,7 +16,7 @@ tar: |-
   $ tar -cjvf test.tar.bz home/
   
   Extract an archive (with decompression)
-  $ tar -xvvzf myfile.tar.gz
+  $ tar -xvzf myfile.tar.gz
   
   Some common arguments
   $ tar -j (--bzip)

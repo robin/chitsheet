@@ -1,0 +1,365 @@
+--- 
+ed: ".---------------------------------------------------------------------.\r\n\
+  |                                                                     |\r\n\
+  |                      The Original UNIX Text Editor                  |\r\n\
+  |                             Ed Cheat Sheet                          |\r\n\
+  |                                                                     |\r\n\
+  '---------------------------------------------------------------------'\r\n\
+  | Peteris Krumins (peter@catonmat.net), 2007.08.22                    |\r\n\
+  | http://www.catonmat.net  -  good coders code, great reuse           |\r\n\
+  '---------------------------------------------------------------------'\r\n\
+  \r\n ====================== Line Addressing Summary ======================\r\n\
+  \r\n\
+  .----------------.----------------------------------------------------.\r\n\
+  |                |                                                    |\r\n\
+  | Address Symbol | Description                                        |\r\n\
+  |                |                                                    |\r\n\
+  '----------------+----------------------------------------------------'\r\n\
+  | .              | The current line (address) in the buffer.          |\r\n\
+  '----------------+----------------------------------------------------'\r\n\
+  | $              | The last line in the buffer.                       |\r\n\
+  '----------------+----------------------------------------------------'\r\n\
+  | n              | The nth, line in the buffer where n is a number    |\r\n\
+  |                | in the range [0,$].                                |\r\n\
+  '----------------+----------------------------------------------------'\r\n\
+  | $              | The last line in the buffer.                       |\r\n\
+  '----------------+----------------------------------------------------'\r\n\
+  | -              | The previous line. This is equivalent to -1 and    |\r\n\
+  | ^              | may be repeated with cumulative effect.            |\r\n\
+  '----------------+----------------------------------------------------'\r\n\
+  | -n             | The nth previous line, where n is a non-negative   |\r\n\
+  | ^n             | number.                                            |\r\n\
+  '----------------+----------------------------------------------------'\r\n\
+  | +              | The next line. This is equivalent to +1 and may    |\r\n\
+  |                | be repeated with cumulative effect.                |\r\n\
+  '----------------+----------------------------------------------------'\r\n\
+  | +n             | The nth next line, where n is a non-negative       |\r\n\
+  | whitespace n   | number.                                            |\r\n\
+  |                | Whitespace followed by a number n is interpreted   |\r\n\
+  |                | as +n.                                             |\r\n\
+  '----------------+----------------------------------------------------'\r\n\
+  | ,              | The first through last lines in the buffer.        |\r\n\
+  | %              | This is equivalent to the address range 1,$.       |\r\n\
+  '----------------+----------------------------------------------------'\r\n\
+  | ;              | The current through last lines in the buffer.      |\r\n\
+  |                | This is equivalent to the address range .,$.       |\r\n\
+  '----------------+----------------------------------------------------'\r\n\
+  | /re/           | The next line containing the regular               |\r\n\
+  |                | expression re.                                     |\r\n\
+  |                | The search wraps to the beginning of the buffer    |\r\n\
+  |                | and continues down to the current line, if         |\r\n\
+  |                | necessary.                                         |\r\n\
+  |                | // repeats the last search.                        |\r\n\
+  '----------------+----------------------------------------------------'\r\n\
+  | ?re?           | The previous line containing the regular           |\r\n\
+  |                | expression re.                                     |\r\n\
+  |                | The search wraps to the end of the buffer and      |\r\n\
+  |                | continues up to the current line, if necessary.    |\r\n\
+  |                | ?? repeats the last search.                        |\r\n\
+  '----------------+----------------------------------------------------'\r\n\
+  | 'lc            | The line previously marked by a `k' (mark)         |\r\n\
+  |                | command, where lc is a lower case letter.          |\r\n\
+  '----------------'----------------------------------------------------'\r\n\
+  \r\n\
+  Each address in a comma-delimited range is interpreted relative\r\n\
+  to the current address.\r\n\
+  In a semicolon-delimited range, the 1st address is used to set\r\n\
+  the current address, and the 2nd address is interpreted\r\n\
+  relative to the first.\r\n\
+  \r\n\
+  \r\n ========================== Command Summary ==========================\r\n\
+  \r\n\
+  .-------------------------.-------------------------------------------.\r\n\
+  |                         |                                           |\r\n\
+  | Command                 | Description                               |\r\n\
+  |                         |                                           |\r\n\
+  '-------------------------+-------------------------------------------'\r\n\
+  | (.)a                    | Appends text to the buffer after the      |\r\n\
+  |                         | addressed line, which may be theaddress   |\r\n\
+  |                         | 0 (zero). Text is entered in input mode.  |\r\n\
+  |                         | The current address is set to last line   |\r\n\
+  |                         | entered.                                  |\r\n\
+  '-------------------------+-------------------------------------------'\r\n\
+  | (.,.)c                  | Changes lines in the buffer. The          |\r\n\
+  |                         | addressed lines are deleted from the      |\r\n\
+  |                         | buffer, and text is appended in their     |\r\n\
+  |                         | place.                                    |\r\n\
+  |                         | Text is entered in input mode. The        |\r\n\
+  |                         | current address is set to last line       |\r\n\
+  |                         | entered.                                  |\r\n\
+  '-------------------------+-------------------------------------------'\r\n\
+  | (.,.)d                  | Deletes the addressed lines from the      |\r\n\
+  |                         | buffer. If there is a line after the      |\r\n\
+  |                         | deleted range, then the current address   |\r\n\
+  |                         | is set to this line. Otherwise the        |\r\n\
+  |                         | current address is set to the line before |\r\n\
+  |                         | the deleted range.                        |\r\n\
+  '-------------------------+-------------------------------------------'\r\n\
+  | e file                  | Edits file, and sets the default          |\r\n\
+  |                         | filename. If file is not specified, then  |\r\n\
+  |                         | the default filename is used. Any lines   |\r\n\
+  |                         | in the buffer are deleted before the new  |\r\n\
+  |                         | file is read.  The current address is set |\r\n\
+  |                         | to the last line read.                    |\r\n\
+  '-------------------------+-------------------------------------------'\r\n\
+  | e !command              | Edits the standard output of  `!command', |\r\n\
+  |                         | (see !command below). The default         |\r\n\
+  |                         | filename is unchanged. Any lines in the   |\r\n\
+  |                         | buffer are deleted before the output of   |\r\n\
+  |                         | command is read. The current address is   |\r\n\
+  |                         | set to the last line read.                |\r\n\
+  '-------------------------+-------------------------------------------'\r\n\
+  | E file                  | Edits file unconditionally. This is       |\r\n\
+  |                         | similar to the e command, except that     |\r\n\
+  |                         | unwritten changes are discarded without   |\r\n\
+  |                         | warning. The current address is set to    |\r\n\
+  |                         | the last line read.                       |\r\n\
+  '-------------------------+-------------------------------------------'\r\n\
+  | f file                  | Sets the default filename to file. If     |\r\n\
+  |                         | file is not specified, then the default   |\r\n\
+  |                         | unescaped filename is printed.            |\r\n\
+  '-------------------------+-------------------------------------------'\r\n\
+  | (1,$)g/re/command-list  | Applies command-list to each of the       |\r\n\
+  |                         | addressed lines matching a regular        |\r\n\
+  |                         | expression re. The current address is set |\r\n\
+  |                         | to the line currently matched before      |\r\n\
+  |                         | command-list is executed. At the end of   |\r\n\
+  |                         | the `g' command, the current address is   |\r\n\
+  |                         | set to the last line affected by          |\r\n\
+  |                         | command-list.                             |\r\n\
+  |                         |                                           |\r\n\
+  |                         | Each command in command-list must be on a |\r\n\
+  |                         | separate line, and every line except for  |\r\n\
+  |                         | the last must be terminated by a          |\r\n\
+  |                         | back\xC2\xADslash (\\). Any commands are allowed, |\r\n\
+  |                         | except for `g', `G', `v', and `V'.        |\r\n\
+  |                         | A newline alone in command-list is        |\r\n\
+  |                         | equivalent to a `p' command.              |\r\n\
+  '-------------------------+-------------------------------------------'\r\n\
+  | (1,$)G/re/              | Interactively edits the addressed lines   |\r\n\
+  |                         | matching a regular expression re. For     |\r\n\
+  |                         | each matching line, the line is printed,  |\r\n\
+  |                         | the current address is set, and the user  |\r\n\
+  |                         | is prompted to enter a command-list.      |\r\n\
+  |                         | At the end of the `G' command, the        |\r\n\
+  |                         | current address is set to the last line   |\r\n\
+  |                         | affected by (the last) command-list.      |\r\n\
+  |                         |                                           |\r\n\
+  |                         | The format of command-list is the same as |\r\n\
+  |                         | that of the `g' command. A newline alone  |\r\n\
+  |                         | acts as a null command list. A single `&' |\r\n\
+  |                         | repeats the last non-null command list.   |\r\n\
+  '-------------------------+-------------------------------------------'\r\n\
+  | H                       | Toggles the printing of error             |\r\n\
+  |                         | explanations. By default, explanations    |\r\n\
+  |                         | are not printed. It is recommended that   |\r\n\
+  |                         | ed scripts begin with this command to aid |\r\n\
+  |                         | in debugging.                             |\r\n\
+  '-------------------------+-------------------------------------------'\r\n\
+  | h                       | Prints an explanation of the last error.  |\r\n\
+  '-------------------------+-------------------------------------------'\r\n\
+  | (.)i                    | Inserts text in the buffer before the     |\r\n\
+  |                         | current line. Text is entered in input    |\r\n\
+  |                         | mode. The current address is set to the   |\r\n\
+  |                         | last line entered.                        |\r\n\
+  '-------------------------+-------------------------------------------'\r\n\
+  | (.,.+1)j                | Joins the addressed lines. The addressed  |\r\n\
+  |                         | lines are deleted from the buffer and     |\r\n\
+  |                         | replaced by a single line containing      |\r\n\
+  |                         | their joined text. The current address is |\r\n\
+  |                         | set to the resultant line.                |\r\n\
+  '-------------------------+-------------------------------------------'\r\n\
+  | (.)klc                  | Marks a line with a lower case letter lc. |\r\n\
+  |                         | The line can then be addressed as 'lc     |\r\n\
+  |                         | (i.e., a single quote followed by lc) in  |\r\n\
+  |                         | subsequent commands. The mark is not      |\r\n\
+  |                         | cleared until the line is deleted or      |\r\n\
+  |                         | otherwise modified.                       |\r\n\
+  '-------------------------+-------------------------------------------'\r\n\
+  | (.,.)l                  | Prints the addressed lines unambiguously. |\r\n\
+  |                         | If invoked from a terminal, ed pauses at  |\r\n\
+  |                         | the end of each page until a newline is   |\r\n\
+  |                         | entered. The current address is set to    |\r\n\
+  |                         | the last line printed.                    |\r\n\
+  '-------------------------+-------------------------------------------'\r\n\
+  | (.,.)m(.)               | Moves lines in the buffer. The addressed  |\r\n\
+  |                         | lines are moved to after the right-hand   |\r\n\
+  |                         | destination address, which may be the     |\r\n\
+  |                         | address 0 (zero). The current address is  |\r\n\
+  |                         | set to the last line moved.               |\r\n\
+  '-------------------------+-------------------------------------------'\r\n\
+  | (.,.)n                  | Prints the addressed lines along with     |\r\n\
+  |                         | their line nums. The curr. addr is set to |\r\n\
+  |                         | the last line printed                     |\r\n\
+  '-------------------------+-------------------------------------------'\r\n\
+  | (.,.)p                  | Prints the addressed lines. If invoked    |\r\n\
+  |                         | from a terminal, ed pauses at the end of  |\r\n\
+  |                         | each page until a newline is entered.     |\r\n\
+  |                         | The current address is set to the last    |\r\n\
+  |                         | line printed.                             |\r\n\
+  '-------------------------+-------------------------------------------'\r\n\
+  | P                       | Toggles the command prompt on and off.    |\r\n\
+  |                         | Unless a prompt was specified by with     |\r\n\
+  |                         | command-line option -p string, the        |\r\n\
+  |                         | command prompt is by default turned off.  |\r\n\
+  '-------------------------+-------------------------------------------'\r\n\
+  | q                       | Quits ed.                                 |\r\n\
+  '-------------------------+-------------------------------------------'\r\n\
+  | Q                       | Quits ed unconditionally. This is similar |\r\n\
+  |                         | to the q command, except that unwritten   |\r\n\
+  |                         | changes are discarded without warning.    |\r\n\
+  '-------------------------+-------------------------------------------'\r\n\
+  | ($)r file               | Reads file to after the addressed line.   |\r\n\
+  |                         | If file is not specified, then the        |\r\n\
+  |                         | default filename is used. If there was no |\r\n\
+  |                         | default filename prior to the command,    |\r\n\
+  |                         | then the default filename is set to file. |\r\n\
+  |                         | Otherwise, the default filename is        |\r\n\
+  |                         | unchanged. The current address is set to  |\r\n\
+  |                         | the last line read.                       |\r\n\
+  '-------------------------+-------------------------------------------'\r\n\
+  | ($)r !command           | Reads to after the addressed line the     |\r\n\
+  |                         | standard output of `!command',            |\r\n\
+  |                         | (see the !command below). The default     |\r\n\
+  |                         | filename is unchanged. The current        |\r\n\
+  |                         | address is set to the last line read.     |\r\n\
+  '-------------------------+-------------------------------------------'\r\n\
+  | (.,.)s/re/replacement/  | Replaces text in the addressed lines      |\r\n\
+  | (.,.)s/re/replacement/g | matching a regular expression re with     |\r\n\
+  | (.,.)s/re/replacement/n | replacement. By default, only the first   |\r\n\
+  |                         | match in each line is replaced.           |\r\n\
+  |                         | If the `g' (global) suffix is given, then |\r\n\
+  |                         | every match to be replaced.               |\r\n\
+  |                         | The `n' suffix, where n is a positive     |\r\n\
+  |                         | number, causes only the n-th match to be  |\r\n\
+  |                         | replaced. It is an error if no            |\r\n\
+  |                         | substitutions are performed on any        |\r\n\
+  |                         | of the addressed lines. The current       |\r\n\
+  |                         | address is set the last line affected.    |\r\n\
+  |                         |                                           |\r\n\
+  |                         | re and replacement may be delimited by    |\r\n\
+  |                         | any character other than space and        |\r\n\
+  |                         | newline (see the `s' command below).      |\r\n\
+  |                         | If one or two of the last delimiters is   |\r\n\
+  |                         | omitted, then the last line affected is   |\r\n\
+  |                         | printed as though the print suffix `p'    |\r\n\
+  |                         | were specified.                           |\r\n\
+  |                         |                                           |\r\n\
+  |                         | An unescaped `&' in replacement is        |\r\n\
+  |                         | replaced by the currently matched text.   |\r\n\
+  |                         | The character sequence `\\m', where m is a |\r\n\
+  |                         | number in the range [1,9], is replaced by |\r\n\
+  |                         | the m-th backreference expression of the  |\r\n\
+  |                         | matched text. If replacement consists of  |\r\n\
+  |                         | a single `%', then replacement from the   |\r\n\
+  |                         | last substitution is used. Newlines may   |\r\n\
+  |                         | be embedded in replacement if they are    |\r\n\
+  |                         | escaped with a backslash (\\).             |\r\n\
+  '-------------------------+-------------------------------------------'\r\n\
+  | (.,.)s                  | Repeats the last substitution. This form  |\r\n\
+  |                         | of the `s' command accepts a count suffix |\r\n\
+  |                         | `n', or any combination of the characters |\r\n\
+  |                         | `r', `g', and `p'.                        |\r\n\
+  |                         | If a count suffix `n' is given, then only |\r\n\
+  |                         | the n-th match is replaced.               |\r\n\
+  |                         | The `r' suffix causes the regular         |\r\n\
+  |                         | expression of the last search to be used  |\r\n\
+  |                         | instead of that of the last substitution. |\r\n\
+  |                         | The `g' suffix toggles the global suffix  |\r\n\
+  |                         | of the last substitution.                 |\r\n\
+  |                         | The `p' suffix toggles the print suffix   |\r\n\
+  |                         | of the last substitution. The current     |\r\n\
+  |                         | address is set to the last line affected. |\r\n\
+  '-------------------------+-------------------------------------------'\r\n\
+  | (.,.)t(.)               | Copies (i.e., transfers) the addressed    |\r\n\
+  |                         | lines to after the right-hand destination |\r\n\
+  |                         | address, which may be the address         |\r\n\
+  |                         | 0 (zero). The current address is set to   |\r\n\
+  |                         | the last line copied.                     |\r\n\
+  '-------------------------+-------------------------------------------'\r\n\
+  | u                       | Undoes the last command and restores the  |\r\n\
+  |                         | current address to what it was before the |\r\n\
+  |                         | command.  The global commands `g', `G',   |\r\n\
+  |                         | `v', and `V' are treated as a single      |\r\n\
+  |                         | command by undo. `u' is its own inverse.  |\r\n\
+  '-------------------------+-------------------------------------------'\r\n\
+  | (1,$)v/re/command-list  | Applies command-list to each of the       |\r\n\
+  |                         | addressed lines not matching a regular    |\r\n\
+  |                         | expression re. This is similar to the     |\r\n\
+  |                         | `g' command.                              |\r\n\
+  '-------------------------+-------------------------------------------'\r\n\
+  | (1,$)V/re/              | Interactively edits the addressed lines   |\r\n\
+  |                         | not matching a regular expression re.     |\r\n\
+  |                         | This is similar to the `G' command.       |\r\n\
+  '-------------------------+-------------------------------------------'\r\n\
+  | (1,$)w file             | Writes the addressed lines to file. Any   |\r\n\
+  |                         | previous contents of file is lost without |\r\n\
+  |                         | warning. If there is no default filename, |\r\n\
+  |                         | then the default filename is set to file, |\r\n\
+  |                         | otherwise it is unchanged. If no filename |\r\n\
+  |                         | is specified, then the default filename   |\r\n\
+  |                         | is used. The current address is unchanged.|\r\n\
+  '-------------------------+-------------------------------------------'\r\n\
+  | (1,$)wq file            | Writes the addressed lines to file, and   |\r\n\
+  |                         | then executes a `q' command.              |\r\n\
+  '-------------------------+-------------------------------------------'\r\n\
+  | (1,$)w !command         | Writes the addressed lines to the         |\r\n\
+  |                         | standard input of `!command', (see the    |\r\n\
+  |                         | !command below).                          |\r\n\
+  |                         | The defaultfilename and current address   |\r\n\
+  |                         | are unchanged.                            |\r\n\
+  '-------------------------+-------------------------------------------'\r\n\
+  | (1,$)W file             | Appends the addressed lines to the end of |\r\n\
+  |                         | file. This is similar to the `w' command, |\r\n\
+  |                         | expect that the previous contents of file |\r\n\
+  |                         | is not clobbered. The current address is  |\r\n\
+  |                         | unchanged.                                |\r\n\
+  '-------------------------+-------------------------------------------'\r\n\
+  | (.)x                    | Copies (puts) the contents of the cut     |\r\n\
+  |                         | buffer to after the addressed line.       |\r\n\
+  |                         | The current address is set to the last    |\r\n\
+  |                         | line copied.                              |\r\n\
+  '-------------------------+-------------------------------------------'\r\n\
+  | (.,.)y                  | Copies (yanks) the addressed lines to the |\r\n\
+  |                         | cut buffer. The cut buffer is overwritten |\r\n\
+  |                         | by subsequent `y', `s', `j', `d', or `c'  |\r\n\
+  |                         | commands. The current address is          |\r\n\
+  |                         | unchanged.                                |\r\n\
+  '-------------------------+-------------------------------------------'\r\n\
+  | (.+1)zn                 | Scrolls n lines at a time starting at     |\r\n\
+  |                         | addressed line. If n is not specified,    |\r\n\
+  |                         | then the current window size is used.     |\r\n\
+  |                         | The current address is set to the last    |\r\n\
+  |                         | line printed.                             |\r\n\
+  '-------------------------+-------------------------------------------'\r\n\
+  | !command                | Executes command via sh(1). If the first  |\r\n\
+  |                         | character of command is `!', then it is   |\r\n\
+  |                         | replaced by text of the previous          |\r\n\
+  |                         | `!command'. ed does not process command   |\r\n\
+  |                         | for backslash (\\) escapes. However, an    |\r\n\
+  |                         | unescaped `%' is replaced by the default  |\r\n\
+  |                         | filename. When the shell returns from     |\r\n\
+  |                         | execution, a `!' is printed to the        |\r\n\
+  |                         | standard output. The current line is      |\r\n\
+  |                         | unchanged.                                |\r\n\
+  '-------------------------+-------------------------------------------'\r\n\
+  | (.,.)#                  | Begins a comment; the rest of the line,   |\r\n\
+  |                         | up to a newline, is ignored. If a line    |\r\n\
+  |                         | address followed by a semicolon is given, |\r\n\
+  |                         | then the current address is set to that   |\r\n\
+  |                         | address. Otherwise, the current address   |\r\n\
+  |                         | is unchanged.                             |\r\n\
+  '-------------------------+-------------------------------------------'\r\n\
+  | ($)=                    | Prints the line number of the addressed   |\r\n\
+  |                         | line.                                     |\r\n\
+  '-------------------------+-------------------------------------------'\r\n\
+  | (.+1)newline            | Prints the addressed line, and sets the   |\r\n\
+  |                         | current address to that line.             |\r\n\
+  '-------------------------'-------------------------------------------'\r\n\
+  \r\n =====================================================================\r\n\
+  \r\n\
+  .---------------------------------------------------------------------.\r\n\
+  | Peteris Krumins (peter@catonmat.net), 2007.08.22                    |\r\n\
+  | http://www.catonmat.net  -  good coders code, great reuse           |\r\n\
+  '---------------------------------------------------------------------'\r\n\
+  \r\n"

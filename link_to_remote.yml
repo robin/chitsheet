@@ -9,4 +9,4 @@ link_to_remote: "link_to_remote(name, options = {}, html_options = {})\r\n\
   You can also specify a hash for options[:update] to allow for easy redirection of output to an other DOM element if a server-side error occurs:\r\n\
   \r\n\
   Example:\r\n\
-  \r\n  link_to_remote \"Delete this post\",\r\n    :url => { :action => \"destroy\", :id => post.id },\r\n    :update => { :success => \"posts\", :failure => \"error\" }\r\n"
+  \r\n  link_to_remote \"Delete this post\",\r\n    :url => { :action => \"destroy\", :id => post.id },\r\n    :update => { :success => \"posts\", :failure => \"error\" }"

@@ -1,0 +1,12 @@
+--- 
+helm: |-
+  Open tickets:
+  - th   = high prio
+  - tm   = medium prio
+  - tl   = low prio
+  - todo = all
+  
+  Create ticket:
+  - lhc   = create
+  - lh    = info
+  - claim = assign to self

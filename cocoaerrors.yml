@@ -1,0 +1,18 @@
+--- 
+cocoaerrors: |-
+  Cocoa error codes related to validation.
+  
+  NSManagedObjectValidationError                   = 1550,
+  NSValidationMultipleErrorsError                  = 1560,
+  NSValidationMissingMandatoryPropertyError        = 1570,
+  NSValidationRelationshipLacksMinimumCountError   = 1580,
+  NSValidationRelationshipExceedsMaximumCountError = 1590,
+  NSValidationRelationshipDeniedDeleteError        = 1600,
+  NSValidationNumberTooLargeError                  = 1610,
+  NSValidationNumberTooSmallError                  = 1620,
+  NSValidationDateTooLateError                     = 1630,
+  NSValidationDateTooSoonError                     = 1640,
+  NSValidationInvalidDateError                     = 1650,
+  NSValidationStringTooLongError                   = 1660,
+  NSValidationStringTooShortError                  = 1670,
+  NSValidationStringPatternMatchingError           = 1680,

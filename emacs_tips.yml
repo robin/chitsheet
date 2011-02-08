@@ -12,6 +12,12 @@ emacs_tips: |-
   
   Okay, this has nothing to do with your .emacs file, but I have to put it in here. Just because your .emacs file should load quickly doesn't imply that you should quit and restart all the time. Figure it out!
   
+  === comments
+  
+  It may be also useful to prevent C-x C-c to close your emacs if you use to misstype it. Add
+  (setq confirm-kill-emacs 'yes-or-no-p)
+  To your ~/.emacs and you will be asked to confirm your exit
+  
   
   --- Tip #2: (require 'cl) -----------------------------------------------------
   
@@ -77,6 +83,21 @@ emacs_tips: |-
   (setq custom-file "~/.emacs-custom.el")
   (load custom-file 'noerror)
   
+  --- Tip #8: Move autosaves and backups to one place (from http://snarfed.org/space/gnu%20emacs%20backup%20files) ---------------------------
+  
+  ;; Put autosave files (ie #foo#) in one place, *not*
+  ;; scattered all over the file system!
+  (defvar autosave-dir
+   (concat "/tmp/emacs_autosaves/" (user-login-name) "/"))
+  (make-directory autosave-dir t)
+  (setq auto-save-file-name-transforms `(("\\(?:[^/]*/\\)*\\(.*\\)" ,(concat autosave-dir "\\1") t)))
+  
+  ;; Put backup files (ie foo~) in one place too. (The backup-directory-alist
+  ;; list contains regexp=>directory mappings; filenames matching a regexp are
+  ;; backed up in the corresponding directory. Emacs will mkdir it if necessary.)
+  (defvar backup-dir (concat "/tmp/emacs_backups/" (user-login-name) "/"))
+  (setq backup-directory-alist (list (cons "." backup-dir)))
+  
   === comments
   
   Well, LOADs and REQUIREs are often slow (and often accomplish nothing, since there are usually autoloads for "standard" functionality nowadays anyway) and also a source of errors. For example, I run Emacs on 5 different machines, and they don't all have the same libraries on them (I'm talking about the things that aren't part of the Emacs 22 distribution, of course). Using a combination of EVAL-AFTER-LOAD and AUTOLOAD instead of using LOAD means that unless I actually try to use features that aren't available on a particular machine, I won't get an error loading the library unless I actually try to use the feature.
@@ -93,3 +114,11 @@ emacs_tips: |-
   -------------------------------------------------------------------------------
   SOURCE: http://a-nickels-worth.blogspot.com/2007/11/effective-emacs.html
   -------------------------------------------------------------------------------
+  
+  --- Tip #9: Byte Compile Configs ----------------------------------------------
+  
+  Loading many Emacs Lisp files on boot will be even faster if you run the compilation command against your Emacs directory.
+  
+  (defun byte-recompile-home ()
+    (interactive)
+    (byte-recompile-directory "~/.emacs.d" 0))

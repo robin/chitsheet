@@ -1,5 +1,5 @@
 --- 
-greader: |
+greader: |-
   For Google RSS Reader (http://www.google.com/reader/)
   
       * j/k: next/previous item
@@ -24,5 +24,3 @@ greader: |
       * g then s: go to starred items
       * g then t: open tag selector
       * g then u: open subscription selector
-  
-

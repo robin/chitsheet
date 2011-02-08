@@ -21,4 +21,4 @@ selenium_on_rails: "See: http://www.openqa.org/selenium-on-rails/\r\n\
   PARTIAL test cases:\r\n  filename has to start with an underscore (#_login.rsel)\r\n\
   \r\n |includePartial|login|name=John Doe|password=eoD nhoJ|\r\n\
   \r\n include_partial 'login', :name => 'Jane Doe', :password => 'Jane Doe'.reverse\r\n\
-  \r\n <%= render :partial => 'login', :locals => {:name = 'Joe Schmo', :password => 'Joe Schmo'.reverse} %>\r\n"
+  \r\n <%= render :partial => 'login', :locals => {:name = 'Joe Schmo', :password => 'Joe Schmo'.reverse} %>"

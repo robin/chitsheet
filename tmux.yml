@@ -1,0 +1,23 @@
+--- 
+tmux: |-
+  tmux -- terminal multiplexer
+  
+  $ tmux at
+  (short for "tmux attach")
+  
+  $ tmux ls
+  (what is running?)
+  
+  $ tmux -L somesessionname at
+  (attach to some named session (for sharing sessions))
+  
+  C-b = Ctrl-b
+  
+  C-b c -- create new window
+  C-b d -- detach the current client
+  C-b n -- next window
+  C-b & -- kill current window
+  
+  C-b [ -- copy mode
+  
+  C-b ? -- key bindings list

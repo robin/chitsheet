@@ -1,0 +1,10 @@
+--- 
+triforce: " \xE2\x96\xB2\r\n\
+  \xE2\x96\xB2 \xE2\x96\xB2\r\n\
+  \r\n\
+  How to Triforce\r\n\
+  \r\n\
+  The correct method of triforcing requires use of non-breaking space characters:\r\n\
+  Windows: [alt-255] [alt-255] [alt-30] [enter] [alt 30] [alt 255] [alt 30]\r\n\
+  Mac: [option-space] + [option-space] + [option-J] + [enter] + [option-J] + [option-space] + [option-J]\r\n\
+  Linux : [Ctrl+Shift+U + a0] [Ctrl+Shift+U + a0] [Ctrl+Shift+U + 25b2] [Enter] [Ctrl+Shift+U + 25b2] [Ctrl+Shift+U + a0] [Ctrl+Shift+U + 25b2] (thx dumuh)"

@@ -1,0 +1,11 @@
+--- 
+mod_rewrite: |-
+  # Redirect to example.com -> www.example.com
+  RewriteEngine on
+  RewriteCond %{HTTP_HOST} ^example.com$
+  RewriteRule ^(.*)$ http://www.example.com$1 [R=301,L]
+  
+  # Redirect www.example.com -> example.com
+  RewriteEngine on
+  RewriteCond %{HTTP_HOST} ^www.example.com$
+  RewriteRule ^(.*)$ http://example.com$1 [R=301,L]

@@ -52,8 +52,8 @@ ruby1line: |-
       $  ruby -pe 'gsub(/^\s+/, "").gsub(/\s+$/, $/)' < file.txt
   
   # insert 5 blank spaces at the beginning of each line (ie. page offset)
-      $  ruby -pe 'gsub(/%/, "   ")' < file.txt
-      FAILS! $  ruby -pe 'gsub(/%/, 5.times{putc " "})' < file.txt
+      $  ruby -pe 'gsub(/^/, " "*5)' < file.txt
+      FAILS! $  ruby -pe 'gsub(/^/, 5.times{putc " "})' < file.txt
   
   # align all text flush right on a 79-column width
       $  ruby -ne 'printf("%79s", $_)' < file.txt

@@ -1,0 +1,23 @@
+--- 
+ruby_arrays: |-
+  pop - Returns the last element in the array and deletes that element.
+  
+  push - Appends its argument to the end of the array.
+  
+  shift - Returns the first element of the array, deletes that 
+          element, and shifts all other elements down one 
+          location to fill its empty spot.
+  
+  unshift - Shifts all elements of the array up one, and places its 
+          argument at the beginning of the array.
+  
+  each - iterates through the array
+  
+  to get a slice of an array 
+    my_array[5..7]
+  
+  to delete a slice in an array
+    my_array[2,2] = ["foo","bar"]
+  
+  to replace foo and bar with tic, tac, toe
+    my_array[2,2] = ["tic","tac","toe"]

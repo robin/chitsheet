@@ -1,0 +1,25 @@
+--- 
+symfony_freeze: |
+  Deploying Symfony 1.4 project
+  
+  In your config/ProjectConfiguration.class.php change the require_once statement for sfCoreAutoload class. Make it search for symfony in lib/vendor/symfony:
+  
+  require_once dirname(__FILE__) . '/../lib/vendor/symfony/lib/autoload/sfCoreAutoload.class.php';
+  
+  Now you can do two things:
+  
+      * Copy whole symfony lib into lib/vendor/symfony dir. This way you always have symfony with your project. Drawback is you have to copy it while sending files to the server.
+      * Create lib/vendor/symfony symbolic link pointing to your symfony lib. Advantage is you don't have to copy whole framework all the time. Drawback is you still have to put symfony in the same location on dev and production servers. However, symbolic link might be relative to the project (i.e. one level up).
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+                                               dp <dot> patel <at> gmail <dot> com
+                                                           Deven Patel
+

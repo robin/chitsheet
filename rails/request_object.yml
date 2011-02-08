@@ -1,5 +1,5 @@
 --- 
-rails::request_object: |-
+rails_request_object: |-
   Methods
     - accepts
     - content_type

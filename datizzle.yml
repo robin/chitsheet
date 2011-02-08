@@ -1,0 +1,33 @@
+--- 
+datizzle: |-
+  %weekday.abbr%      - %a - The abbreviated weekday name (``Sun'')
+  %weekday%           - %A - The  full  weekday  name (``Sunday'')
+  %month.abbr%        - %b - The abbreviated month name (``Jan'')
+  %month%             - %B - The  full  month  name (``January'')
+  %datetime%          - %c - The preferred local date and time representation
+  %month.day%         - %d - Day of the month (01..31)
+  %hour.24%           - %H - Hour of the day, 24-hour clock (00..23)
+  %hour.12%           - %I - Hour of the day, 12-hour clock (01..12)
+  %hour%              - %I - Hour of the day, 12-hour clock (01..12)
+  %year.day%          - %j - Day of the year (001..366)
+  %year.month%        - %m - Month of the year (01..12)
+  %minute%            - %M - Minute of the hour (00..59)
+  %ampm%              - %p - Meridian indicator (``am''  or  ``pm'')
+  %AMPM%              - %P - Meridian indicator ("AM" or "PM")
+  %second%            - %S - Second of the minute (00..60)
+  %year.week%         - %U - Week  number  of the current year,
+                              starting with the first Sunday as the first
+                              day of the first week (00..53)
+  %year.week.sunday%  - %U - Week number of the current year,
+                              starting with the first Sunday as the first
+                              day of the first week (00..53)
+  %year.week.monday%  - %W - Week  number  of the current year,
+                              starting with the first Monday as the first
+                              day of the first week (00..53)
+  %weekday.number%    - %w - Day of the week (Sunday is 0, 0..6)
+  %date%              - %x - Preferred representation for the date alone, no time
+  %time%              - %X - Preferred representation for the time alone, no date
+  %year.abbr%         - %y - Year without a century (00..99)
+  %year%              - %Y - Year with century
+  %timezone%          - %Z - Time zone name
+  %percent%           - %% - Literal ``%'' character

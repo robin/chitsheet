@@ -1,34 +1,34 @@
 --- 
 enumerable: |-
   Ruby Enumerable Mixin  (* require 'enumerator')
-  all? {|obj| }    Returns true if EVERY obj returns true from block
-  any? {|obj| }    Returns true if ANY obj returns true from block
-  collect {|obj| } Alias for map
-  detect(ifnone=nil) {|obj| }  alias for find
+  all? {|obj| }      Returns true if EVERY obj returns true from block
+  any? {|obj| }      Returns true if ANY obj returns true from block
+  collect {|obj| }   Alias for map
+  detect(ifnone=nil) {|obj| }  Alias for find
   * each_cons(n) {}  Iterates over arrays of n consecutive elements (overlap)
   * each_slice(n) {} Iterates over slices of n elements (no overlap)
   each_with_index {|obj, index| ... }
-  entries          Returns an Array of all objects, alias for to_a
+  entries            Returns an Array of all objects, alias for to_a
   * enum_cons(n)     Enumerable::Enumerator.new(self, :each_cons, n)
   * enum_slice(n)    Enumerable::Enumerator.new(self, :each_slice, n)
   * enum_with_index  Enumerable::Enumerator.new(self, :each_with_index)
   find(ifnone=nil) {|obj| }  Returns first obj for which block is true
-  find_all {|obj|} Returns an Array of all objects for which block is true
-  grep(pattern) {} Returns an Array of / iterates over objects that === pattern
-  include?(obj)    True if any member == obj
+  find_all {|obj|}   Returns an Array of all objects for which block is true
+  grep(pattern) {}   Returns an Array of / iterates over objects that === pattern
+  include?(obj)      True if any member == obj
   inject(initial) {|mem, obj| } Runs block on each obj, with last result in mem
   inject {|mem, obj| }          Like above but first element used for initial
-  map {|obj| }     Returns new array with results of running block on each
-  max              Returns largest element; elements must be Comparable
-  max {|a,b| }     Returns largest element; block should return a <=> b
-  member?          Alias for include?
-  min              Like max but returns smallest
-  partition {|obj|} Returns [[objects block was true], [objects it was false]]
-  reject {|obj| }  Returns array of elements for which block was false
-  select           Alias for find_all
-  sort		 Returns array of elements sorted; elements must be Comparable
-  sort {|a,b| }	 Returns elements sorted, block should return a <=> b
-  sort_by {|obj| } Returns elements sorted according to keys produced by block
-  to_a             Returns an Array of all objects, alias for entries
-  to_set           Creates a Set from elements, must require "set"
-  zip(args, ...)   Merges elements with corresponding elements from each arg
+  map {|obj| }       Returns new array with results of running block on each
+  max                Returns largest element; elements must be Comparable
+  max {|a,b| }       Returns largest element; block should return a <=> b
+  member?            Alias for include?
+  min                Like max but returns smallest
+  partition {|obj|}  Returns [[objects block was true], [objects it was false]]
+  reject {|obj| }    Returns array of elements for which block was false
+  select             Alias for find_all
+  sort		   Returns array of elements sorted; elements must be Comparable
+  sort {|a,b| }	   Returns elements sorted, block should return a <=> b
+  sort_by {|obj| }   Returns elements sorted according to keys produced by block
+  to_a               Returns an Array of all objects, alias for entries
+  to_set             Creates a Set from elements, must require "set"
+  zip(args, ...)     Merges elements with corresponding elements from each arg

@@ -1,5 +1,5 @@
 --- 
-benchmark: |
+benchmark: |-
   require 'benchmark'
   
   n = 50000
@@ -8,8 +8,3 @@ benchmark: |
     x.report("times:") { n.times do   ; a = "1"; end }
     x.report("upto:")  { 1.upto(n) do ; a = "1"; end }
   end
-  
-  Benchmark.measure('test'){
-    for i in 1..n; a = "1"; end
-  }.format("%10.6u %10.6y %10.6t %10.6r %n\n")
-

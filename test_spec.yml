@@ -1,5 +1,5 @@
 --- 
-test_spec: |
+test_spec: |-
   http://chneukirchen.org/blog/archive/2007/01/announcing-test-spec-0-3-a-bdd-interface-for-test-unit.html
   
   http://weblog.techno-weenie.net/2006/11/24/test-spec-kicks-simply_bdds-ass
@@ -28,4 +28,3 @@ test_spec: |
     a.should.predicate (works like assert a.predicate?)
     a.should.be operator (where operator is <, <=, >, >=, or ===)
     should.output, to check what is printed
-

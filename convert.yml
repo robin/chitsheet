@@ -1,0 +1,29 @@
+--- 
+convert: |-
+  = IMAGEMAGICK
+  
+  Working with images, PDFs and the command line
+  
+  # convert from one format to another
+  
+  convert image.gif image.jpg
+  
+  # convert specific PDF page to image
+  
+  convert -thumbnail x300 test.pdf[0] test.png
+  
+  # create thumbnails for all pages in PDF document
+  
+  convert -thumbnail x300 test.pdf test.png
+  
+  # as above, controlling the width, having height suited
+  
+  convert -thumbnail 400 test.pdf test.png
+  
+  # crop an image from the bottom corner
+  
+  convert -crop '595x711-0+1309' image.jpg output.jpg
+  
+  # make a looping animated gif
+  
+  convert -delay 20 -loop 0 image*.jpg image.gif

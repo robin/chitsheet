@@ -1,0 +1,6 @@
+--- 
+ecb: |-
+  Directories: Ctrl-c . g d
+  Methods: Ctrl-c . g m
+  Sources: Ctrl-c . g s
+  History: Ctrl-c . g h

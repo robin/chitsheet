@@ -1,0 +1,25 @@
+--- 
+sshkeys: |-
+  LOCAL: 
+  -----  
+  Create key:
+  $ ssh-keygen -t dsa
+  
+  Copy your ssh keys to clipboard:
+  $ cat ~/.ssh/id_rsa.pub | pbcopy  
+    [rescue: skip the "| pbcopy" and just ctrl-C your key it]
+  
+  REMOTE:
+  ------
+  
+  Create key files (substitute in your editor):
+  mkdir ~/.ssh
+  emacs ~/.ssh/authorized_keys
+    [now paste the key. save. exit.]
+  chmod 700 ~/.ssh
+  chmod 600 ~/.ssh/authorized_keys
+  
+  SCP:
+  ----
+  [instead of the paste, you can...]
+  scp ~/.ssh/id_rsa.pub username@ftp.yourdomain.com:.ssh/authorized_keys

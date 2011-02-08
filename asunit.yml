@@ -1,5 +1,5 @@
 --- 
-asunit: |
+asunit: |-
   //// AsUnit Assertions ////
   
   // Asserts that a condition is true
@@ -27,5 +27,4 @@ asunit: |
     assertNotSame( message:String, object1:*, object2:* )
   
   // Fails a test with the given message
-  fail( message:String ) 
-
+  fail( message:String )

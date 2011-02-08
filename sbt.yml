@@ -1,0 +1,26 @@
+--- 
+sbt: |-
+  (simple build tool)
+  
+    actions        - list available actions
+    update         - resolves+updates all external dependencies
+    compile        - compile project
+    package        - create .jar files
+    doc            - generate scaladoc
+    publish-local  - publish to ~/.ivy2/local
+    test           - compiles and runs test
+    clean
+    clean-plugins  - delete project plugin cache (useful for dev)
+    clean-lib      - delete managed libs (managed_lib)
+    clean-cache    - Deletes the cache of downloaded artifacts
+    console        - Starts the Scala interpreter with a classpath including
+                     the compiled sources, all jars in the lib directory, and
+                     managed libraries.
+    console-quick  - directly runs console, no other actions first
+    console-project- console with everything
+    projects       - list all projects defined in project
+    'project name' - invoke next command with project name
+    ~ <action>     - executes specified action  whenever source files change
+    + <action>     - executes specified action for all scala versions
+    ++<ver> <act>  - executes specified action for specified version
+    debug <action> - runs action with debug logging

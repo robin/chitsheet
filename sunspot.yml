@@ -1,0 +1,28 @@
+--- 
+sunspot: |-
+  Usage: sunspot-solr <command> <options> -- <application options>
+  
+  * where <command> is one of:
+    start         start an instance of the application
+    stop          stop all instances of the application
+    restart       stop all instances and restart them afterwards
+    run           start the application and stay on top
+    zap           set the application to a stopped state
+  
+  * and where <options> may contain several of the following:
+  
+      -t, --ontop                      Stay on top (does not daemonize)
+      -f, --force                      Force operation
+  Common options:
+      -h, --help                       Show this message
+          --version                    Show version
+  
+  Usage: sunspot-solr start [options]
+      -p, --port=PORT                  Port on which to run Solr (default 8983)
+      -d, --data-directory=DIRECTORY   Solr data directory
+      -s, --solr-home=HOME             Solr home directory (should contain conf/ directory)
+          --pid-dir=PID_DIR            Directory for pid files
+      -l, --log-level=LOG_LEVEL        Solr logging level
+          --log-file=LOG_FILE          Path to Solr log file
+          --max-memory=MEMORY          Specify the maximum size of the memory allocation pool
+          --min-memory=MEMORY          Specify the initial size of the memory allocation pool

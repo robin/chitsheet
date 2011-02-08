@@ -1,0 +1,55 @@
+--- 
+ec2: |-
+  ------------------------------------------------------------------------------
+  Command Group            Long (Prefix: ec2-)         Short (prefix: ec2)
+  ------------------------------------------------------------------------------
+  AMIs                     bundle-image                  
+                           bundle-vol                    
+                           upload-bundle                 
+                           download-bundle               
+                           unbundle                      
+                           delete-bundle                 
+  Images                   register                      reg
+                           deregister                    dereg
+                           describe-images               dim
+  Instances                run-instances                 run
+                           terminate-instances           kill
+                           confirm-product-instances     cpi
+                           describe-instances            din
+  Image Attributes         modify-image-attribute        matt
+                           reset-image-attribute         ratt
+                           describe-image-attribute      datt
+  Key Pairs                add-keypair                   addkey
+                           describe-keypairs             dkey
+                           delete-keypair                delkey
+                           fingerprint-key               fp
+  Availability Zones       describe-availability-zones   daz
+  EBS                      create-volume                 addvol
+                           describe-volumes              dvol
+                           delete-volume                 delvol
+                           attach-volume                 attvol
+                           detach-volume                 detvol
+                           create-snapshot               addsnap
+                           describe-snapshot             dsnap
+                           delete-snapshot               delsnap
+  Security Groups          add-group                     addgrp
+                           delete-group                  delgrp
+                           describe-group                dgrp
+                           authorize                     auth
+                           revoke                        revoke
+  IP Addresses             allocate-address              allocaddr
+                           describe-addresses            daddr
+                           release-address               reladdr
+                           associate-address             assocaddr
+                           disassociate-address          disaddr
+  Other                    get-console-output            gcons
+  ------------------------------------------------------------------------------
+  
+  Run a command with --help for more information.
+  
+  # Resources
+  
+  * PDF Quick Reference
+    http://s3.amazonaws.com/awsdocs/EC2/2008-05-05/ec2-qrc-2008-05-05.pdf
+  * EC2 Technical Documentation index
+    http://developer.amazonwebservices.com/connect/kbcategory.jspa?categoryID=87

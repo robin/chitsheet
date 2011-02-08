@@ -1,0 +1,2 @@
+--- 
+a2ps_page_size: a2ps --columns=1  -R -B  -MA4 q -o q.ps

@@ -1,0 +1,21 @@
+--- 
+sen_test_assertions: |-
+  # SenTest standard assertion macros
+  # copied from SenTestCase.h
+  
+  STAssertNil(a1, description, ...)
+  STAssertNotNil(a1, description, ...)
+  STAssertTrue(expression, description, ...)
+  STAssertFalse(expression, description, ...)
+  STAssertEqualObjects(a1, a2, description, ...)
+  STAssertEquals(a1, a2, description, ...)
+  STAssertEqualsWithAccuracy(left, right, accuracy, description, ...)
+  STAssertThrows(expression, description, ...)
+  STAssertThrowsSpecific(expression, specificException, description, ...)
+  STAssertThrowsSpecificNamed(expr, specificException, aName, description, ...)
+  STAssertNoThrow(expression, description, ...)
+  STAssertNoThrowSpecific(expression, specificException, description, ...)
+  STAssertNoThrowSpecificNamed(expr, specificException, aName, description, ...)
+  STFail(description, ...)
+  STAssertTrueNoThrow(expression, description, ...)
+  STAssertFalseNoThrow(expression, description, ...)

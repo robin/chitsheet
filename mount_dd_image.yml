@@ -1,0 +1,2 @@
+--- 
+mount_dd_image: loop partition-image.dd /mnt

@@ -1,0 +1,11 @@
+--- 
+linux_nic: |-
+  for BUSID in $(/sbin/lspci | awk '{ IGNORECASE=1 } /net/ { print $1 }'); do /sbin/lspci -s $BUSID -m; /sbin/lspci -s $BUSID -n; done
+  
+  #00:19.0 "Ethernet controller" "Intel Corporation" "82566DM-2 Gigabit Network Connection" -r02 "Dell" "OptiPlex 755"
+  #00:19.0 0200: 8086:10bd (rev 02)
+  #               |    |
+  # grep these in command below, beware of case - fedora seems to have upper case letters in modules.alias
+  # grep -i as some may contain a letter
+  
+  grep -i 8086 /lib/modules/*/modules.alias | gawk 'BEGIN{IGNORECASE=1} /10BD/ { print $3 }'

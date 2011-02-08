@@ -1,0 +1,6 @@
+--- 
+sshfs: |
+  Mounts a remote directory locally through ssh:
+  
+  $ sshfs remoteserver:/home/user/my_dir my_local_mountpoint
+

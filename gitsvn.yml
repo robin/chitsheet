@@ -18,7 +18,10 @@ gitsvn: |-
           git-svn dcommit
   # Append svn:ignore settings to the default git exclude file:
           git-svn show-ignore >> .git/info/exclude
-  
+  # Some useful aliases
+          spull = svn rebase
+          spush = svn dcommit
+          sfetch = svn fetch
   
   
   http://www.kernel.org/pub/software/scm/git/docs/git-svn.html

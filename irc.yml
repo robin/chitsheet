@@ -1,0 +1,18 @@
+--- 
+irc: |-
+  Basic Commands
+  
+  Command            Description                       Example
+  /join              Join a channel                    /join #channel
+  /part              Leave a channel                   /part #channel
+  /leave             Alias of /part                    /leave #channel
+  /quit message      Quit IRC. Messgae is optional     /quit Catch ya!
+  /msg nick message  Send a private message to a user  /msg dude hello there
+  /query nick        Open a window for private chat    /query dude
+  /nick newnick      Change your nick                  /nick dudeatwork
+  /me action         Express an action                 /me waves to guymandood
+  /away messesage    Tell others you are away          /away Lunch break
+  /away              Cancel your away message          /away
+  /list              List all channels                 /list
+  /invite nick       Invite a user to a channnel       /invite guy #channel
+  /ignore nick       Ignore messages from a nick       /ignore pita

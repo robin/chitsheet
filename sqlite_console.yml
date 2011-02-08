@@ -1,0 +1,13 @@
+--- 
+sqlite_console: |
+  Some useful tips for the sqlite3 console:
+  
+  .help
+    Show concise help.
+  .dump
+    Output the whole database as SQL.
+  
+  For more readable select output, try:
+  .header on
+  .mode column
+

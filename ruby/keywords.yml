@@ -1,5 +1,5 @@
 --- 
-ruby::keywords: |
+ruby_keywords: |-
   Reserved Keywords in Ruby
   -------------------------
   
@@ -41,4 +41,3 @@ ruby::keywords: |
     when
     while
     yield
-

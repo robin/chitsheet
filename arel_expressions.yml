@@ -1,0 +1,11 @@
+--- 
+arel_expressions: |-
+  Expressions
+  
+  count(distinct = false)
+  sum
+  maximum
+  minimum
+  average
+  asc
+  desc

@@ -1,0 +1,39 @@
+--- 
+sketch: |-
+  ### Cheatsheet for the sketch gem  ###
+  ### http://sketches.rubyforge.org/ ###
+  
+  Check website above for install and setup.
+  
+  Open a new sketch
+  -----
+  sketch
+  
+  Open a new name sketch
+  -----
+  sketch :foo
+  
+  Open a sketch from file
+  -----
+  sketch_from 'path/to/bar.rb'
+  
+  
+  Reopen existing sketch
+  -----
+  sketch 2
+  sketch :foo
+  
+  
+  List all sketches
+  -----
+  sketches
+  
+  
+  Name a sketch
+  -----
+  name_sketch 2, :foo
+  
+  
+  Save a sketch to alternate location
+  -----
+  save_sketch :foo, 'path/to/bar.rb'

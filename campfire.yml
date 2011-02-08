@@ -1,0 +1,8 @@
+--- 
+campfire: |-
+  Play some sound effects:
+  
+  /play rimshot
+  /play trombone
+  /play cricket
+  /play vuvuzela

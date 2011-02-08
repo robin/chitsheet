@@ -1,0 +1,98 @@
+--- 
+erlang: |
+  % Erlang Cheat Sheet
+  
+  % this is a comment
+  -module(cheat_sheet). % These are called "attributes" to your "module"
+  -behavior(behavior_name). % Optional, Includes A Standard "Behavior"
+  -export([data_types/1]).
+  
+  -record(stuff,{a,b,c}).
+  
+  % Here are various data types, expressed as multiple clauses of a function.
+  % When the function is called with a certain atom, it returns the example list.
+  data_types(atoms) ->
+    [
+      lower_cased_words_like_this,
+      'escaped values with single quotes',
+      'Even Works For Upper Case When Escaped'
+    ];
+  data_types(lists) ->
+    [
+      [1,2,3],
+      [a,b,c],
+      "strings are technically lists of characters"
+    ];
+  data_types(numbers) ->
+    [
+      1, % arbitrarily sized integer
+      2,
+      5.0, % floating point
+      3.14159, 
+      16#deadbeef, % hexadecimal
+      8#077, % octal
+      2#001101, % binary
+      $E,$r,$l,$a,$n,$g,$!,$\n % Numeric values for the characters "Erlang!\n"
+    ];
+  data_types(binaries) ->
+    [
+      <<1:4>>, % a 4-bit bit-string
+      <<"some string as a binary">>, % a full binary, created from this string
+      <<1,2,3>>, % a full binary, created from these integers
+      <<16#deadbeef:32/unsigned-integer-bigendian>>,
+    ];
+  data_types(tuples) ->
+    [
+      {a,b,1,2}, % Some random stuff
+      {size,45,gigabytes}, % a lot of capacity
+      {size,36,'DD'}, % also a lot of capacity
+      #stuff{a=1,b=foo,c="bar"}, % records are just tuples in disguise
+      {stuff,1,foo,"bar"}, % the above record as a raw tuple
+    ];
+  data_types(exotic) ->
+    [
+      fun (X,Y,Z) -> % an anonymous function
+        this_is_a_function
+      end,
+      fun lists:foreach/2, % an external function
+      self(), % returns a process ID
+      make_ref() % returns a reference
+    ].
+  
+  control_structures(A,B,C) ->
+    Check0 = if % note, these clauses are guards, not full expressions
+      A > 5 -> bigger_than_5;
+      A < 0 -> negative;
+      B > C -> stuff;
+      true -> default_value
+    end,
+    Check1 = case {check1,A,B+C} of % the extra atom helps locate match failures
+      {check1,1,2} -> stuff;
+      {check1,2,X} when X > 5 -> other_stuff;
+      {check1,3,Y} ->
+        case {subcheck,Y} of % the extra atom helps locate match failures
+          {subcheck,0} -> zero;
+          {subcheck,_} -> default_value
+        end;
+      _ -> default_value
+    end,
+    Check2 = try A / B of % Note, the case-like matching part is optional
+      1 -> one_times; % exceptions are not caught here, only in the expression
+      2 -> two_times;
+      3 -> three_times;
+      X when X < 0 -> fractional;
+      X when X > 3 -> a_bunch;
+      _ -> default_value
+    catch
+      error:bad_arith -> division_by_zero;
+      error:_ -> some_other_error
+    end,
+    ok.
+  
+  % TODO: Pattern Matches
+  % TODO: Standard Behaviors
+  % TODO: Messaging and Receiving
+  % TODO: Tail-Recursion
+  % TODO: Macros
+  % TODO: List Comprehensions
+

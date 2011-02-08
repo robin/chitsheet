@@ -1,0 +1,54 @@
+--- 
+hash: |-
+  ==
+  []
+  []
+  []=
+  clear    deletes all
+  default    default value for hash
+  delete(key)    deletes key from hash
+  delete(key) {|key|}    deletes key, executes block if key not found
+  delete_if {|key, value|}    deletes key-value pairs for which block returns true
+  each
+  each_key
+  each_pair
+  each_value
+  empty?
+  fetch(key)     returns value for key, raises IndexError if key not found
+  fetch(key) {|key|}    returns value for key, executes block if key not found
+  has_key?
+  has_value?
+  include?
+  index   returns key for given value
+  indexes
+  indices
+  initialize_copy
+  inspect
+  invert
+  key?
+  keys
+  length
+  member?
+  merge
+  merge!
+  new
+  pretty_print
+  pretty_print_cycle
+  rehash   rebuilds hash based on current state
+  reject   same as delete_if, but works on copy of hash
+  reject!  same as delete_if, but returns nil if nothing matched
+  replace(other_hash)  replaces contents of hash with other_hash
+  select
+  shift   removes pair from hash and returns it as [key,value]
+  size
+  sort
+  store    alternate element assignment
+  to_a
+  to_hash
+  to_s
+  to_yaml
+  update
+  value?
+  values
+  values_at(key, ...) returns an array of values associated with given keys
+  yaml_initialize

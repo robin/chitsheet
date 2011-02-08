@@ -1,0 +1,24 @@
+--- 
+assert_difference: |-
+  assert_difference is a nice clean assertion for your testing suite.
+  
+  To use:
+  
+    assert_difference 'Model.count' do
+      # some action (probably create) that will increase Model.count by 1
+    end
+  
+    assert_difference 'Model.count', 23 do
+      # some action that will increase Model.count by 23
+    end
+  
+    assert_difference 'Model.count', -1 do
+      # something to decrease Model.count, probably a destroy call
+    end
+  
+  
+  
+    You can even assert_difference of more than 1 value ala 
+      assert_difference ['Model.count', 'var_affected_by_same_action'] do 
+        #....
+      end

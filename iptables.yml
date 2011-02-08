@@ -1,0 +1,37 @@
+--- 
+iptables: |-
+  Snagged from 'http://www.unixnewbie.org/iptables-cheat-sheet/'
+  
+  View all current iptables rules:
+  $ iptables -L -nv
+   
+  View all INPUT rules:
+  $ iptables -L INPUT -nv
+   
+  block an IP address using iptables:
+  $ iptables -I INPUT -s "201.128.33.200" -j DROP
+   
+  To block a range of IP addresses:
+  $ iptables -I INPUT -s "201.128.33.0/24" -j DROP
+   
+  How to unblock an IP address:
+  $ iptables -D INPUT -s "201.128.33.200" -j DROP
+   
+  How to block all connections to a port:
+  To block port 25:
+  $ iptables -A INPUT -p tcp --dport 25 -j DROP
+  $ iptables -A INPUT -p udp --dport 25 -j DROP
+   
+  How to un-block:
+  To enable port 25:
+  $ iptables -A INPUT -p tcp --dport 25 -j ACCEPT
+  $ iptables -A INPUT -p udp --dport 25 -j ACCEPT 
+   
+  Save a copy of the current rules 
+  $ iptables-save > ~/saved.rules
+  
+  Restore a copy of some rules
+  $ iptables-restore < ~/saved.rules
+  
+  To save all rules so that they are not lost in case of a server reboot:
+  $ /etc/init.d/iptables save

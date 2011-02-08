@@ -10,7 +10,7 @@ bash: |-
   
     ^foo^bar - Replace 'foo' in last command with 'bar', print the result, then run. ('mysqladmni -uroot', run '^ni^in', results in 'mysqladmin -uroot')
   
-    {a,b,c} passes words to the command, substituting a, b, and c sequentially (`cp file{.bk}` runs `cp file file.bk`)
+    {a,b,c} passes words to the command, substituting a, b, and c sequentially (`cp file{,.bk}` runs `cp file file.bk`)
   
     Ctrl + a - Jump to the start of the line
     Ctrl + b - Move back a char
@@ -28,6 +28,7 @@ bash: |-
     Ctrl + xx - Move between EOL and current cursor position
     Ctrl + x @ - Show possible hostname completions
     Ctrl + z - Suspend/ Stop the command
+    Ctrl + x; Ctrl + e - Edit line into your favorite editor
   
     Alt + < - Move to the first line in the history
     Alt + > - Move to the last line in the history

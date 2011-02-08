@@ -8,7 +8,8 @@ exceptions: |-
      SyntaxError
    SignalException
      Interrupt
-   StandardError
+       Timeout::Error    # require 'timeout' for Timeout::Error
+   StandardError         # caught by rescue if no type is specified
      ArgumentError
      IOError
        EOFError
@@ -21,6 +22,7 @@ exceptions: |-
      RegexpError
      RuntimeError
      SecurityError
+     SocketError
      SystemCallError
      SystemStackError
      ThreadError

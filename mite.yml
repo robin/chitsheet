@@ -1,0 +1,14 @@
+--- 
+mite: |-
+  start                         - re-start the current tracker
+  stop, pause, lunch            - stop the current tracker
+  
+  today, yesterday, this_week, last_week, this_month, last_month
+                                - show report
+  
+  open                          - your mite site
+  help                          - open help in browser
+  rebuild-cache                 - re-download project and service names
+  
+  source:  http://github.com/Overbryd/mite.cmd
+  service: http://mite.yo.lk/

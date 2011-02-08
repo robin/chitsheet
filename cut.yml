@@ -17,4 +17,4 @@ cut: "Prints selected parts of lines (of a text file), or, in other words, remov
   \r\n\
   \t-x \t\t\t\t\t\t# cut from line 1 to \xE2\x80\x9Cx\xE2\x80\x9D\r\n\
   \tx- \t\t\t\t\t\t# cut from \xE2\x80\x9Cx\xE2\x80\x9D to the end.\r\n\
-  \tcut -5, 20-, 8 file2.txt\r\n"
+  \tcut -5, 20-, 8 file2.txt"

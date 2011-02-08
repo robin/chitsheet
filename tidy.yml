@@ -1,0 +1,83 @@
+--- 
+tidy: |-
+  Tidy Ruby Gem
+   Tidy: http://tidy.sourceforge.net/
+   Tidy-Ruby: http://rubyforge.org/projects/tidy/
+  
+  If you're experiencing a Segmentation Fault (Rails app could not start)
+  see http://github.com/FireRabbit/tidy/tree
+  
+  List of Tidy-Ruby Options
+  ===========================================
+   See http://tidy.sourceforge.net/docs/quickref.html
+  
+   libtidy is the backend of this gem. 
+   Just replace hyphens with underscores.
+  
+   For example, 
+     show-warnings will be show_warnings
+     show-body-only will be show_body_only
+     etc
+  
+  
+  Installation 
+  ===========================================
+  # Do not use gem install tidy. It is outdated and buggy
+  # if you've done so already, do gem uninstall tidy and 
+  # follow the directions below
+  
+  $ git clone git://github.com/FireRabbit/tidy.git
+  $ cd tidy/
+  $ sudo ruby setup.rb
+  
+  
+  Rails app? make Tidy a dependency environment.rb
+  ===========================================
+   Rails::Initializer.run do |config| 
+     ...
+     config.gem "tidy"
+   end
+  
+   To install the gem on another machine, 
+   run rake gems:install
+  
+  
+  Usage & Examples
+  ===========================================
+   require 'tidy'
+  
+  # This might be required if your app is crashing. 
+  # This is only available in the forked tidy. 
+  # see Installation above
+  Tidy.fresh_tidy_version = true 
+  
+   Tidy.path = '/usr/lib/tidylib.so'
+   html = '<html><title>title</title>Body</html>'
+  
+   Tidy.open(:show_warnings=>true) do |tidy|
+      puts tidy.options.show_warnings # returns True
+      xml = tidy.clean(html) # See note below
+  
+      puts tidy.errors # array
+      puts tidy.diagnostics # array
+      puts xml
+    end
+  
+  
+   Note: The code above will add a DOCTYPE, html, head, body tags where appropriate, if they do
+    not exist.
+  
+   If you would like to check and clean an HTML SNIPPET, use these options: 
+  
+      opts = {
+        :show_warnings => true,
+        :show_body_only => true,
+        :doctype => 'omit',
+        :indent => true, # optional 
+      }
+  
+      Tidy.open(opts) do |tidy|
+        puts tidy.clean(html)
+        diagnostics = tidy.diagnostics 
+        errors = tidy.errors 
+      end

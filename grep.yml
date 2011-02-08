@@ -31,3 +31,43 @@ grep: |-
   -l:   list only file names containing matching lines
   -n:   precede each line with the line number where it was found
   -v:   display all lines NOT matching pattern
+  -C:   Display NUM lines of context either side of matches
+  -e pattern: 
+        Search for a pattern. Can use multiple times on a line
+  -r:   Search recursively from the current or specificed directory
+    --include=pattern:
+        Only search in file names matching pattern
+    --exclude=pattern:
+        Do not search in file names matching pattern
+  
+  Examples
+  ========
+  
+  Recursive search, multiple patterns:
+  
+  $ grep -r --include=*.rb -e "TagsHelper" -e "tags_helper" .
+  ./app/models/foo.rb:  include TagsHelper
+  ./app/models/bar.rb:  include TagsHelper
+  ./vendor/plugins/acts_as_taggable_on_steroids/lib/tags_helper.rb:module TagsHelper
+  ./vendor/plugins/acts_as_taggable_on_steroids/test/abstract_unit.rb:require_dependency File.dirname(__FILE__) + '/../lib/tags_helper'
+  ./vendor/plugins/acts_as_taggable_on_steroids/test/tags_helper_test.rb:class TagsHelperTest < Test::Unit::TestCase
+  ./vendor/plugins/acts_as_taggable_on_steroids/test/tags_helper_test.rb:  include TagsHelper
+  
+  # Count the number of functions in all JS files
+  grep -c function *.js
+  
+  # Print lines that DO NOT have "function"
+  grep -v function *.js
+  
+  # List processes that match "pidgin" (non-Windows)
+  #+ Use [] around the first letter to omit the 'grep' process.
+  ps -ef | grep [p]idgin
+  
+  # Print a list of: function <function-name> and sort it
+  grep -Eho "^\s*function \w+" *.js | sort
+  
+  # Print filenames, line #s, and lines that start with "(white space)function"
+  grep -EHn "^\s*(function \w+|\w+ \= function)" *.js
+  
+  # Print only duplicate function names
+  grep -hEo "^\s*function \w+" *.js | sort | uniq -d

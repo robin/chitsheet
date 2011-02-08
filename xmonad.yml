@@ -1,6 +1,6 @@
 --- 
 xmonad: |-
-  mod-shift-return      launch xterm
+  mod-shift-return      launch a term
   mod-p 	              launch dmenu
   mod-space 	      cycle through available layout algorithms
   mod-c 	              kill a client window
@@ -18,3 +18,4 @@ xmonad: |-
   mod-1 .. 9 	      move to workspace ("virtual desktop"/"window group") number 'n'
   mod-shift- 1 .. 9     move current client to workspace number 'n'
   mod- w,e,r            move to Xinerama screens 1, 2 or 3.
+  mod-r                 launch gmrun

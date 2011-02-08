@@ -1,0 +1,16 @@
+--- 
+sendmail: "sendmail\r\n\
+  ============\r\n\
+  \r\n\
+  Test Sendmail\r\n\
+  $: echo \"Hello there\" | /usr/sbin/sendmail example@gmail.com\r\n\
+  \r\n\
+  \r\n\
+  Show the queue\r\n\
+  $: sendmail -bp\r\n\
+  /var/spool/mqueue is empty\r\n\
+  \t\tTotal requests: 0\r\n\
+  \r\n\
+  \r\n\
+  Flush the queue\r\n\
+  $: sendmail -q "

@@ -1,0 +1,101 @@
+--- 
+rails_plugin_creation_detailed_example: |-
+  You should be able to use this as a template for any custom plugin.
+  
+  Generate the initial plugin stuff:
+  > script/generate plugin acts_as_foo
+  > script/generate  controller worker
+  > cd vendor/plugins/acts_as_foo/
+  
+  Edit the following files like so:
+  
+  ----- vendor/plugins/acts_as_foo/init.rb
+  require 'acts_as_foo.rb'
+  
+  ----- vendor/plugins/acts_as_foo/lib/acts_as_foo.rb 
+  module Foo 
+    def self.included(base)
+      base.extend ClassMethods
+      base.class_eval do
+        include InstanceMethods
+      end
+    end
+    module ClassMethods
+      def acts_as_foo(params)
+        class_eval <<-STUFF
+          def bar 
+  	  '#{params[:bar]}!'
+          end
+        STUFF
+      end
+    end
+    module InstanceMethods
+      def a_fubar
+        'fubar called...'
+      end
+    end
+  end
+  
+  ---- app/controllers/worker_controller.rb 
+  include Foo
+  class WorkerController < ApplicationController
+    class MyFoo 
+      acts_as_foo :bar => 'This is bar from foo -- go figure!'
+    end
+    def index
+      f = MyFoo.new
+      logger.info("\n\n---f.bar: " + f.bar) # sanity check ;)
+      render(:text => "WorkerController. f.bar outputs: #{f.bar}") # something in the browser.
+      logger.info("\n\n---a_fubar: " + a_fubar) # tests calling the instance method directly
+    end
+  end
+  
+  
+  ------
+  Usage:
+  ------
+  > ruby script/server
+  http://localhost:3000/worker
+  
+  In the log file or server console output:
+  Processing WorkerController#index (for 127.0.0.1 at 2009-07-29 14:50:35) [GET]
+  ---f.bar: This is bar from foo -- go figure!!
+  ---a_fubar: fubar called...
+  
+  == TESTING: A test should be included with your plugin so here we go!
+  
+  --/vendor/plugins/acts_as_foo/test/acts_as_foo_test.rb
+  require 'test/unit'
+  require File.expand_path(
+  	    File.join(File.dirname(__FILE__), '../../../../config/environment')
+  	)
+  
+  include Foo
+  
+  class MyFoo 
+    acts_as_foo :bar => 'Hello'
+  end
+  
+  class ActsAsFooTest < Test::Unit::TestCase
+    def setup
+      @f = MyFoo.new
+    end
+  
+    def test_bar_returns_Hello
+      assert_equal @f.bar, 'Hello!' # remember it had an exclamation mark in there ;)
+    end
+  
+    def test_a_fubar
+      assert_equal @f.a_fubar, 'fubar called...'
+    end
+  end
+  
+  ------
+  Usage:
+  ------
+  Now from the test directory run:
+  > rake test
+  Started
+  ..
+  Finished in 0.000518 seconds.
+  2 tests, 2 assertions, 0 failures, 0 errors

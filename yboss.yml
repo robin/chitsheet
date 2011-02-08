@@ -1,0 +1,43 @@
+--- 
+yboss: "YAHOO BOSS API\n\
+  ==============\n\n\
+  URL:\n\
+  ----\n\
+  http://boss.yahooapis.com/ysearch/{vertical}/v1/{query}?appid=xyz[&param1=val1&param2=val2&etc]\n\n\
+  VERTICAL OPTIONS:\n\
+  -----------------\n\
+  - web, news, images \n\n\
+  PARAMETERS:\n\
+  -----------\n\
+  start     - Ordinal position of first result. First position is 0. Default sets start to 0.\n\
+  count     - Total number of results to return. Maximum value is 50. Default sets count to 10.\n\
+  lang      - Specifies the language search product to query. See \xE2\x80\x9CSupported Regions and Languages\n            for Web and News Search\xE2\x80\x9D. Default sets lang to \"en\". Must be used in parallel with region.\n\
+  region    - Specifies which regional (country) search product to query. See \xE2\x80\x9CSupported Regions \n            and Languages for Web and News Search\xE2\x80\x9D. Default sets region to \"us\". Must be used in parallel with lang.\n\
+  format    - The data format of the response. Value can be set to either \"xml\" or \"json\". Default sets format to \"json\".\n\
+  callback  - The name of the callback function to wrap the result. Parameter is valid only if \n            format is set to \"json\". No default value exists.\n\
+  sites     - Restrict BOSS search results to a set of pre-defined sites. Multiple sites must be comma separated. \n            Example: (sites=abc.com,cnn.com). The Images service does not yet support multiple sites. \n            Note: This argument can use a single site parameter.\n\
+  view      - Introducing View! Retrieve additional search data provided by the respective BOSS service. \n            In the current version only view=keyterms is offered via the BOSS Web Search service. \n            More views for more BOSS services coming soon.\n            \n       \n\
+  OPTIONAL PARAMS:\n\
+  ----------------\n\
+  filter    - Filter out adult or hate content.\n\
+  type      - Specifies document formats (pdf, msoffice,etc).\n\
+  view      - view=keyterms will retrieve related words and phrases for each search result.          \n\n\
+  PARAM OPTIONS:\n\
+  --------------\n\
+  Filter options:\n\
+  - porn\n\
+  - hate\n\n\
+  Type options:\n\
+  - msoffice,ppt,html,text, \n\
+  - pdf (Adobe Portable Document Format)\n\
+  - xl (Microsoft Excel: xls, xla, xl)\n\
+  - msword (Microsoft Word)\n\
+  - ppt (Microsoft Power Point)\n\n\
+  Type Group:\n\
+  - msoffice: xl, msword, ppt\n\
+  - nonhtml: text, pdf, xl, msword, ppt\n\n\
+  RESPONSE:\n\
+  ---------\n\n\
+  == XML\n\n\
+  <ysearchresponse responsecode=\"200\">\n  <nextpage><![CDATA[/ysearch/web/v1/foo?appid={yourBOSSappid}&format=xml&start=10]]></nextpage>\n  <resultset_web count=\"10\" start=\"0\" totalhits=\"29440998\" deephits=\"881000000\">\n    <result>\n      <abstract><![CDATA[World <b>soccer</b> coverage\n                from ESPN, including Premiership, Serie A, La Liga, and Major League\n                <b>Soccer</b>. Get news headlines, live scores, stats, and\n                tournament information.]]></abstract>\n      <date>2008/06/08</date>\n      <dispurl><![CDATA[www.<b>soccernet.com</b>]]></dispurl>\n      <clickurl>http://us.lrd.yahoo.com/_ylc=X3oDMTFkNXVldGJyBGFwcGlkA2Jvc3NkZW1vBHBvcwMwBHNlcnZpY2UDWVNlYXJjaARzcmNwdmlkAw--\n                /SIG=10u3e8260/**http%3A//www.soccernet.com/</clickurl>\n      <size>94650</size>\n      <title>ESPN Soccernet</title>\n      <url>http://www.soccernet.com/</url>\n    </result>\n  </resultset_web>\n\
+  </ysearchresponse>"

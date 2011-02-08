@@ -1,0 +1,27 @@
+--- 
+il_screen: |-
+  #alba/nbil/home
+  $ ssh il@thinlinc.imm.dtu.dk
+  
+  #Start screen session. -S gives it a name
+  $ screen -S thinlinc
+  
+  #start pine
+  $ pine
+  
+  #Next you wnt to do somthing else, wget etc...  You need to create another screen window by pressing special key combination. 
+  Press CTRL + a followed by c key (first hit CTRL+a, releases both keys and press c). 
+  As soon as you hit 'c' you will get new shell prompt at console. 
+  $ wget...
+  
+  
+  #switch between these two tasks
+  * Switching between windows is the specialty of screen utility.  To switch between pine and wget window (or session) 
+  
+          CTRL+a followed by n key (first hit CTRL+a, releases both keys and press n).
+  
+  * To list all windows use the command 
+         CTRL+a followed by " key (first hit CTRL+a, releases both keys and press " ).
+  
+  * To switch to window by number use the command 
+         CTRL+a followed by ' (first hit CTRL+a, releases both keys and press ' it will prompt for window number).

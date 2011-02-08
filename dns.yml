@@ -1,0 +1,65 @@
+--- 
+dns: |
+  The job of dns is to translate hostnames and domain names to ip addresses.  There are a number of dns entry types:
+  
+  A     :translates a hostname to an ip address
+  AAAA  :translates a hostname to an IPv6 address
+  AXFR  :a meta type used by clients to request a full transfer of all dns entries for a particular domain
+  CNAME :translates a hostname to another hostname
+  HINFO :describes the hardware running a particular host, not often used
+  NS    :tells the dns client to use a particular nameserver
+  MX    :tells the dns client the hostname of the mailserver to use when sending mail
+  PTR   :used for mapping an ip address to a hostname (rdns)
+  RP    :describes the person responsible for a domain, subdomain or hostname
+  SOA   :sets global parameters for a domain including dns servers, hostmaster contact details and TTL
+  SRV   :describes hostnames to use for special services like SIP and XMPP
+  TXT   :used for setting notes, often used for SPF records
+  WKS   :used for describing well known services that the hostname runs, not often used or supported
+  
+  In Bind zonefiles you may use all of the above except AXFR, which is used only by clients to request a full transfer of the entire zone.
+  
+  The root domain is generally described as '@' but can also be left blank in zonefiles.  Subdomains will be described as just the subdomain part with the domain being added automatically when resolved.  When referrering to external domain names (ie. CNAMEs, MX records and NS records for hosts on other domains) you should end the domain name with a '.' to denote it is a fully qualified domain name.
+  
+  A root domain name may not point to a CNAME, it must use A (or AAAA) records.  The use of CNAMEs should be limited as they add an extra dns lookup every time they are used.
+  
+  Examples
+  
+  www IN A 10.5.1.2; maps the 'www' hostname to the ip address 10.5.1.2
+  
+  www IN AAAA fe80::250:56ff:fec0 ; as above but for an IPv6 address
+  
+  @ IN A 10.5.1.2; maps the root of the domain to 10.5.1.2, note that this must be an A record and not a CNAME.
+  
+  webmail IN CNAME mail ; maps the webmail hostname to the mail hostname, the dns client now needs to look up the IP address of the mail hostname.
+  
+  webmail IN CNAME mail.example.com. ; as above but maps to an external hostname. Notice the final period to denote a fully qualified domain name.
+  
+  mail IN HINFO VAX-11/780   UNIX; the mail server is running Unix on a VAX server, we probably don't want to tell people this
+  
+  @ IN MX 10 mail ; the mailserver for this domain is 'mail' (which must have an A record listed)
+  
+  @ IN MX 20 backupmail ; 'backupmail' is another server responsible for mail for this domain, but has a lower priority than the above mail server and thus should be tried second. 'backupmail' must also have an A record listed.
+  
+  @ IN NS ns1 ; the ns1 nameserver is responsible for this domain
+  
+  dev IN ns ns1.example.org; Don't ask me for anything related to the dev subdomain, ask ns1.example.org instead.
+  
+  _sip._tcp.example.com. 86400 IN SRV 10 60 5060 bigbox.example.com. ; bigbox.example.com is responsible for handling sip connections on this domain.
+  
+  @ IN TXT "v=spf1 a mx ?all" ; An SPF record for the domain, used to help with spam filtering
+  
+  @ IN SOA ns1.example.com. ns2.example.com. (
+    201101141308 ; Serial number of this file (typically based on date)
+    604800 ; Refresh time
+    86400 ; Retry time
+    2419200 ; Expire time
+    604800 ; Negative Cache TTL
+  )
+  
+  The above zone file is completely made up and invalid, but does give some nice examples.  It would typically be loaded by Bind from named.conf.local using:
+  
+  zone "example.com" {
+  type master;
+  file "/etc/bind/db.example.com";
+  }
+

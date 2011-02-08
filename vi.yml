@@ -1,6 +1,44 @@
 --- 
-vi: "u undo\r\n\
-  d delete line\r\n\
+vi: "Primary Commands\r\n\
+  d  delete\r\n\
+  y  copy\r\n\
+  c  change\r\n\
+  r  replace\r\n\
+  p  paste\r\n\
+  u  undo\r\n\
+  a  append\r\n\
+  o  new line\r\n\
+  x  delete char\r\n\
+  control-R  redo\r\n\
+  \r\n\
+  Edit\r\n\
+  dd dw d4j  delete line, delete word, delete 5 lines\r\n\
+  yy yw  copy line, copy word\r\n\
+  p  paste a line\r\n\
+  :s/a/b/  replace a with b\r\n\
+  \r\n\
+  Navigation\r\n\
+  h j k l  left, down, up right, one character/line at a time\r\n\
+  w b e  next word, back word, end of word\r\n\
+  W B E  same, but ignores punctuation\r\n\
+  gg  beginning of file\r\n\
+  G  end of File\r\n\
+  0  first column in a line\r\n\
+  ^  beginning of line\r\n\
+  $  end of line\r\n\
+  /  enter a string, searches for string\r\n\
+  control-U  page up\r\n\
+  control-B  page down\r\n\
+  100G - goto line 1000\r\n\
+  \r\n\
+  Modes\r\n\
+  Escape  command mode\r\n\
+  i  insert mode\r\n\
+  v  visual mode\r\n\
+  V  visual (line) mode\r\n\
+  \r\n\
+  File\r\n\
+  :u undo\r\n\
   :q quit\r\n\
   :q! force quit\r\n\
   :wq write, quit\r\n\

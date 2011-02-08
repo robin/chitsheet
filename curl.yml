@@ -1,19 +1,83 @@
 --- 
 curl: |-
-  Command line internet/network loader tool and ajax test tool.  Read the contents of a URL, dump the results to the stdout.  Basic USE:
+  curl - transfer a URL
   
-  curl [options] [URL...]
+  Synopsis:
   
-  To see if a site is alive, just get the headers: curl --head www.yahoo.com
+    curl [options] [URL...]
+  
+  
+  Command line internet/network loader tool and ajax test tool. Read the contents of a URL, dump the results to the stdout.
+  
+  
+  To return the entire page to stdout:
+  
+    curl www.google.com
+  
+  
+  To simulate wget by downloading a file at a specific web address, use the -O flag:
+  
+    curl -O www.example.com/img.gif
+  
+  
+  To see if a site is alive, just get the headers (--head or -I):
+  
+    curl --head www.yahoo.com
   
   A live response returns status, cookies, content length, etc.
   
-  To send custom headers (anything you want!) use: curl --header "User-Agent: something-special" google.com
   
-  To return the entire page: curl www.google.com
+  To send custom headers (anything you want!) use (--header or -H):
+  
+    curl --header "User-Agent: something-special" example.com
+    curl -H "Accept-Encoding: gzip, deflate" example.com
+  
+  
+  To retrieve data with POST:
+  
+    curl -d "name1=a;name" www.google.com
+  
+  
+  To simulate a form post:
+  
+    curl -F "variable=value;variable2=value2" http://localhost:3000/your/url
+  
+  
+  This is helpful to get specific javascript back:
+  
+    curl -H "Accept: application/json" -i -X GET  http://localhost:3000/projects/3
+  
+  
+  Delete via rest (or set other http methods with the -X flag):
+  
+    curl -X DELETE http://localhost:3000/projects/1
+  
+  
+  Authenticate with username and password (http-basic if not specified otherwise):
+  
+    curl -u user:password http://example.com/whatever
+  
+  
+  Save cookies to a file:
+  
+    curl -c cookies.txt \
+         -F "username=meepo" -F "password=curiass" \
+         http://example.com/login
+  
+  ... and pass the saved cookies back to the server:
+  
+    curl -b cookies.txt http://example.com/action
+  
+  Alternatively you can pass in cookies as key value pairs:
+  
+    curl -b key=value http://example.com/action
+  
+  Or using the custom header option:
+  
+    curl -H 'Cookie: key=value' http://example.com/action
+  
   
   The view the man page:  curl --manual | less
   
-  To retrieve data with POST: curl -d "name=dpw" www.google.com
   
   Related programs: wget

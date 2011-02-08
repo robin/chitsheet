@@ -1,0 +1,46 @@
+--- 
+acl9: |-
+  ROLE MODEL
+  
+    class Role < ActiveRecord::Base
+      acts_as_authorization_role
+    end
+  
+    create_table "roles", :force => true do |t|
+      t.string   :name,              :limit => 40
+      t.string   :authorizable_type, :limit => 40
+      t.integer  :authorizable_id
+      t.timestamps
+    end
+  
+  THE SUBJECT
+  
+    class User << ActiveRecord::Base
+      acts_as_authorization_subject, :association_name => :roles
+    end
+  
+    user.has_role!(:admin)
+    user.has_role!(:admin, post)
+    user.has_role?(:admin)
+    user.has_role?(:admin, post)
+    user.has_no_role!(:admin)
+    user.has_no_roles!
+  
+  THE OBJECT
+  
+    class Post < ActiveRecord::Base
+      acts_as_authorization_object
+    end
+  
+    post.users # assuming your subject is User
+  
+  IN CONTROLLER
+  
+    class PostController < ApplicationController
+      access_control do                                                        
+        allow all # allow all roles access to this controller
+      end                                                                      
+    end
+  
+    allow :admin
+    allow :all, :except => [:edit, :delete]

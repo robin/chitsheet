@@ -1,0 +1,63 @@
+--- 
+blueprint: "Blueprint Cheat Sheet \n\
+  =====================\n\
+  (based on http://blueprintcss.org/media/BlueprintV0.8byGJMS.pdf)\n\n\
+  STYLESHEET LINK\n\
+  ---------------\n\
+  Download the latest version from\n\
+  http://code.google.com/p/blueprintcss/ and add these lines into the\n\
+  <head> of your page. Check that your href path is correct.\n\n  <link rel=\"stylesheet\" href=\"blueprint/screen.css\" type=\"text/css\" \n        media=\"screen, projection\" />\n  <link rel=\"stylesheet\" href=\"blueprint/print.css\" type=\"text/css\" \n        media=\"print\" />\n  <!--[if IE]>\n  <link rel=\"stylesheet\" href=\"blueprint/ie.css\" type=\"text/css\" \n        media=\"screen, projection\" />\n  <![endif]-->\n\n\n\
+  USAGE\n\
+  -----\n\
+  div.span-x implies a column (.column can still be used). Remember to\n\
+  use \xE2\x80\x9Clast\xE2\x80\x9D for the last column of the row to avoid it jumping to the\n\
+  next row. Columns can be nested inside one another.\n\n  <body>\n    <div class=\"container\">\n      <div class=\"span-16\xE2\x80\x9D>\n        <p>Column 1</p>\n      </div>\n      <div class=\"span-8 last\">\n        <p>Column 2</p> </div>\n      </div>\n  </body>\n\n\n\
+  RESET (defined in reset.css)\n\
+  ----------------------------\n\
+  Blueprint CSS resets all browsers\xE2\x80\x99 default elements to: \n\n  - margin, padding, border: 0 \n  - font-size: 100% \n  - font-weight: normal \n  - other font values: inherit \n  - image borders: 0\n\n\
+  Tables still need \xE2\x80\x9Ccellspacing=\xE2\x80\x9C0\xE2\x80\x9D in the mark- up though.\n\n\n\
+  GRID (defined in grid.css)\n\
+  --------------------------\n\
+  If you need more or fewer columns use this formula to find the new total width:\n\
+  total width = (columns *40) - 10\n\n  950px (24 columns)\n  750px (19 columns)\n  790px (20 columns) \n  830px (21 columns)\n  870px (22 columns) \n  910px (23 columns)\n\n\n\
+  GRID CLASSES\n\
+  ------------\n  .append-x      Add these to a column to add empty columns to the right; x = 1-23.\n  .append-bottom Add a 1.5em gutter below an element.\n  div.border     Shows a border on the right hand side of a column.\n  .box           Creates a padded box inside a column. (padding: 1.5em; margin-bottom: 1.5em;).\n  .clear         Regular clearing, apply to column that should drop below previous ones.\n  .clearfix      Clearing floats without extra markup. (See http://tinyurl.com/dh352)\n  div.colborder  Shows a border with more whitespace, spans one column.\n  .column        Use with .span-x classes to create combinations of columns in the layout.\n  .container     A container should group all your columns; use on <div>.\n  .last          The last column in a row needs this class.\n  .prepend-x     Add these to a column to add empty columns to the left; x = 1-23.\n  .prepend-top   Add a 1.5em gutter above an element.\n  .pull-x        Use these classes on an element to pull it into the previous column; x = 1-24.\n  .push-x        Use these classes on an element to push it into the next column; x = 1-24.\n  .showgrid      Use this on any div.span / container to see the grid as a background image.\n  hr.space       Use this to create a (white) horizontal rule across a column; also use <hr />.\n  .span-x        Use these classes to set the width of a column; x = 1-24; usually used on a div element. Can now also be used on input, textarea and select elements.\n\n\n\
+  SPAN CLASSES\n\
+  ------------\n\
+  Use these classes to set the width of a column\n  span-1    span-13\n  span-2    span-14\n  span-3    span-15\n  span-4    span-16\n  span-5    span-17\n  span-6    span-18\n  span-7    span-19\n  span-8    span-20\n  span-9    span-21\n  span-10   span-22\n  span-11   span-23\n\n\n\
+  APPEND CLASSES\n\
+  --------------\n\
+  Add these to a column to add empty columns to the right.\n  append-1    append-13\n  append-2    append-14\n  append-3    append-15\n  append-4    append-16\n  append-5    append-17\n  append-6    append-18\n  append-7    append-19\n  append-8    append-20\n  append-9    append-21\n  append-10   append-22\n  append-11   append-23\n  append-12    \n\n\n\
+  PREPEND CLASSES\n\
+  --------------\n\
+  Add these to a column to add empty columns to the right.\n  prepend-1   prepend-13\n  prepend-2   prepend-14\n  prepend-3   prepend-15\n  prepend-4   prepend-16\n  prepend-5   prepend-17\n  prepend-6   prepend-18\n  prepend-7   prepend-19\n  prepend-8   prepend-20\n  prepend-9   prepend-21\n  prepend-10  prepend-22\n  prepend-11  prepend-23\n  prepend-12  \n\n\n\
+  VERTICAL CLASSES\n\
+  ----------------\n\
+  Use these classes on an element to add vertical space.\n  prepend-top\n  append-bottom  \n\n\n\
+  PUSH/PULL CLASSES\n\
+  -----------------\n\
+  Use these classes on an element to push it right into the next column,\n\
+  or pull it left into the previous column.\n  push-1  up to ... push-24\n  pull-1  up to ... pull-24\n\n\n\
+  TYPOGRAPHY\n\
+  ---------- \n\
+  typographic.css sets up some sensible default typography. The\n\
+  font-size percentage is of 16px (0.75 * 16px = 12 px). Line-heights\n\
+  and vertical margins are automatically calculated from this in ems.\n\n\
+  The base line-height is 18px (1.5ems). This means that every element,\n\
+  from line-heights to images have a height that is a multiple of 18 (or\n\
+  1.5 if you use ems).\n\n\
+  Color is #222 (dark grey); font-family is \xE2\x80\x9CHelvetica Neue\xE2\x80\x9D,\n\
+  \xE2\x80\x9CHelvetica\xE2\x80\x9D, \xE2\x80\x9CArial\xE2\x80\x9D, sans-serif; Also defines tables, lists and\n\
+  misc. classes.\n\n\n\
+  TYPOGRAPHY CLASSES (defined in typography.css)\n\
+  ----------------------------------------------\n\
+  Other typographic elements are also defined in this file.\n\n  .small      0.8em; line 1.875\n  .large      1.2em; line 2.5\n  .hide       display: none\n  .quiet      color 666 (grey)\n  .loud       color 000 (black)\n  .highlight  bg ff0 (yellow)\n  .added      bg 060 (green)\n  .removed    bg 900 (red)\n  .first      mL 0; pL 0\n  .last\t      mR 0; pR 0\n  .top        mT 0; pT 0\n  .bottom     mB 0; pB 0\n\n\n\
+  IMAGE CLASSES (defined in typography.css)\n\
+  -----------------------------------------\n  .left   float: left; m 1.5 1.5 1.5 0 em\n  .right  float: right; m: 1.5 0 1.5 1.5 em\n\n\n\
+  FORMS (defined in forms.css)\n\
+  ----------------------------\n  .error      red framed box\n  .notice     yellow framed box\n  .success    green framed box\n  input.text  width:300px padding:5px\n  input.title font-size:1.5em\n  textarea    width:390px height:250px\n  select      width:200px\n  label       bold\n  fieldset    p 1.4em; margin:0 0 1.5 0 em; border\n  legend      font-size 1.2em\n\n\n\
+  IE FIXES\n\
+  --------\n\
+  ie.css contains every hack for Internet Explorer.\n\n  IE all    Fix margin bugs\n            Line height on sub/sup\n            Fix padding on fieldset\n  IE 5      Centre layout\n  IE 6      Fix legend bug\n  IE 6 & 7  Fix <ol> numbers\n            Fix <hr/> margins\n  IE 7      Fix <code> wrap\n\n\n\
+  BOOKMARKLET TO TOGGLE GRID\n\
+  --------------------------\n  javascript:void($('.container').toggleClass('showgrid'));"

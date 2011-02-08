@@ -1,0 +1,160 @@
+--- 
+chrome: "===========================================\r\n\
+  Mac shortcuts\r\n\
+  ===========================================\r\n\
+  \r\n\
+  ===========================================\r\n\
+  Tab and window shortcuts\r\n\
+  ===========================================\r\n\
+  \r\n\
+  \xE2\x8C\x98-N\r\n\
+  Opens a new window.\r\n\
+  \r\n\
+  \xE2\x8C\x98-T\r\n\
+  Opens a new tab.\r\n\
+  \r\n\
+  \xE2\x8C\x98-Shift-N\r\n\
+  Opens a new window in incognito mode.\r\n\
+  \r\n\
+  \xE2\x8C\x98-B\r\n\
+  Toggles the bookmarks bar on and off.\r\n\
+  \r\n\
+  Press \xE2\x8C\x98-O, then select file.\r\n\
+  Opens a file from your computer in Google Chrome.\r\n\
+  \r\n\
+  Press \xE2\x8C\x98 and click a link. Or click a link with your middle mouse button (or mousewheel).\r\n\
+  Opens the link in a new tab in the background .\r\n\
+  \r\n\
+  Press \xE2\x8C\x98-Shift and click a link. Or press Shift and click a link with your middle mouse button (or mousewheel).\r\n\
+  Opens the link in a new tab and switches to the newly opened tab.\r\n\
+  \r\n\
+  Press Shift and click a link.\r\n\
+  Opens the link in a new window.\r\n\
+  \r\n\
+  \xE2\x8C\x98-Shift-T\r\n\
+  Reopens the last tab you've closed. Google Chrome remembers the last 10 tabs you've closed.\r\n\
+  \r\n\
+  Drag a tab out of the tab strip.\r\n\
+  Opens the tab in a new window.\r\n\
+  \r\n\
+  Drag a tab out of the tab strip and into an existing window.\r\n\
+  Opens the tab in the existing window.\r\n\
+  \r\n\
+  Ctrl-Tab\r\n\
+  Switches to the next tab.\r\n\
+  \r\n\
+  Ctrl-Shift-Tab\r\n\
+  Switches to the previous tab.\r\n\
+  \r\n\
+  \xE2\x8C\x98-Q\r\n\
+  Closes Google Chrome.\r\n\
+  \r\n\
+  \xE2\x8C\x98-W\r\n\
+  Closes the current tab or pop-up.\r\n\
+  \r\n\
+  Click and hold either the Back or Forward arrow in the browser toolbar.\r\n\
+  Displays your browsing history in the tab.\r\n\
+  \r\n\
+  Delete\r\n\
+  Goes to the previous page in your browsing history for the tab.\r\n\
+  \r\n\
+  Shift-Delete\r\n\
+  Goes to the next page in your browsing history for the tab.\r\n\
+  \r\n\
+  Press Shift while clicking the + button in the top left corner of the window.\r\n\
+  Maximizes the window.\r\n\
+  \r\n\
+  Double-click the blank area on the tab strip.\r\n\
+  Minimizes the window.\r\n\
+  \r\n\
+  ===========================================\r\n\
+  Address bar shortcuts\r\n\
+  ===========================================\r\n\
+  \r\n\
+  Use the following shortcuts in the address bar:\r\n\
+  \r\n\
+  Type a search term, then press Enter.\r\n\
+  Performs a search using your default search engine.\r\n\
+  \r\n\
+  Type a search engine keyword, press Space, type a search term, and press Enter.\r\n\
+  Performs a search using the search engine associated with the keyword.\r\n\
+  \r\n\
+  Begin typing a search engine URL, press Tab when prompted, type a search term, and press Enter.\r\n\
+  Performs a search using the search engine associated with the URL.\r\n\
+  \r\n\
+  Ctrl+Enter\r\n\
+  Adds www. and .com to your input in the address bar and open the resulting URL.\r\n\
+  \r\n\
+  Type a URL, then press \xE2\x8C\x98-Enter.\r\n\
+  Opens the URL in a new background tab.\r\n\
+  \r\n\
+  \xE2\x8C\x98-L\r\n\
+  Highlights the URL.\r\n\
+  \r\n\
+  \xE2\x8C\x98-Option-F\r\n\
+  Places a '?' in the address bar. Type a search term after the question mark to perform a search using your default search engine.\r\n\
+  \r\n\
+  Press Option and the left arrow together.\r\n\
+  Moves your cursor to the preceding key term in the address bar\r\n\
+  \r\n\
+  Press Option and the right arrow together.\r\n\
+  Moves your cursor to the next key term in the address bar\r\n\
+  \r\n\
+  Press Shift-Option and the left arrow together.\r\n\
+  Highlights the preceding key term in the address bar\r\n\
+  \r\n\
+  Press Shift-Option and the right arrow together.\r\n\
+  Highlights the next key term in the address bar\r\n\
+  \r\n\
+  \xE2\x8C\x98-Delete\r\n\
+  Deletes the key term that precedes your cursor in the address bar\r\n\
+  \r\n\
+  Press Page Up or Page Down in the addess bar menu.\r\n\
+  Selects the previous or next entry in the menu.\r\n\
+  \r\n\
+  ===========================================\r\n\
+  Webpage shortcuts\r\n\
+  ===========================================\r\n\
+  \r\n\
+  \xE2\x8C\x98-P\r\n\
+  Prints your current page.\r\n\
+  \r\n\
+  \xE2\x8C\x98-S\r\n\
+  Saves your current page.\r\n\
+  \r\n\
+  \xE2\x8C\x98-R\r\n\
+  Reloads your current page.\r\n\
+  \r\n\
+  \xE2\x8C\x98-F\r\n\
+  Opens the find bar.\r\n\
+  \r\n\
+  \xE2\x8C\x98-G\r\n\
+  Finds the next match for your input in the find bar.\r\n\
+  \r\n\
+  \xE2\x8C\x98-Shift-G or Shift-Enter\r\n\
+  Finds the previous match for your input in the find bar.\r\n\
+  \r\n\
+  Press Option and click a link.\r\n\
+  Downloads the target of the link.\r\n\
+  \r\n\
+  Drag a link to bookmarks bar\r\n\
+  Bookmarks the link.\r\n\
+  \r\n\
+  \xE2\x8C\x98-D\r\n\
+  Bookmarks your current webpage.\r\n\
+  \r\n\
+  Space bar\r\n\
+  Scrolls down the web page.\r\n\
+  \r\n\
+  ===========================================\r\n\
+  Text shortcuts\r\n\
+  ===========================================\r\n\
+  \r\n\
+  \xE2\x8C\x98-C\r\n\
+  Copies highlighted content to the clipboard.\r\n\
+  \r\n\
+  \xE2\x8C\x98-V\r\n\
+  Pastes content from the clipboard.\r\n\
+  \r\n\
+  \xE2\x8C\x98-X or Shift-Delete\r\n\
+  Deletes the highlighted content and copies it to the clipboard.\r\n"

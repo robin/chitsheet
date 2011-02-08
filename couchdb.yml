@@ -1,0 +1,9 @@
+--- 
+couchdb: |-
+  Server:
+    
+    url(default port)
+      http://localhost:5984
+  
+    create a database
+      curl -X PUT http://localhost:5984/db_name

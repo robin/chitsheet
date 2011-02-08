@@ -1,0 +1,2 @@
+--- 
+convert_odt_pdf: unoconv -f pdf test.odt

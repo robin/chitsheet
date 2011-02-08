@@ -1,0 +1,14 @@
+--- 
+kernel_update: |-
+  apt-get install build-essential bin86 kernel-package libqt3-headers libqt3-mt-dev wget libncurses5 libncurses5-dev
+  cd /usr/src
+  wget -c http://kernel.org/pub/linux/kernel/v2.6/linux-2.6.29.tar.bz2 && tar -xvjf linux-2.6.29.tar.bz2
+  rm -rf linux && ln -s /usr/src/linux-2.6.29 linux && cd /usr/src/linux
+  wget -c http://www.kernel.org/pub/linux/kernel/v2.6/patch-2.6.29.1.bz2
+  bzcat patch-2.6.29.1.bz2| patch -p1
+  cp /boot/config-$(uname -r) .config && yes "" | make oldconfig
+  make xconfig
+  make-kpkg clean
+  CONCURRENCY_LEVEL=3 make-kpkg --initrd --revision=386 kernel_image 
+  kernel_headers modules_image
+  cd .. && dpkg -i linux*2.6.29*.deb

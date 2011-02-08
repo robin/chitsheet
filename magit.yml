@@ -1,0 +1,125 @@
+--- 
+magit: |-
+  Starting
+  -------
+  
+  M-x magit-status
+  
+  Status Buffer
+  -------------
+  
+  l   show history buffer starting from head
+  L   show history buffer starting from a specified point
+  
+  b   check out a different branch
+  B   create and check out a new branch
+  d   compare working tree with specified branch
+  
+  m   manual merge
+  M   automatic merge
+  
+  R   rebase / continue to rebase
+  
+  F   pull
+  P   push
+  p   show a buffer with push/pull command transcript
+  
+  g   refresh
+  s   add a file to the staging area
+  i   ignore a file
+  
+  S   move all hunks of all diffs into the staging area
+  U   unstage all hunks
+  
+  In a hunk
+  
+  s   stage hunk
+  u   unstage hunk
+  
+  c   pop up a buffer to write the change description
+      C-c C-c to commit the staged changes
+  
+  History Buffer
+  --------------
+  
+  RET show more info about the commit
+  l   use commit as starting point of the history buffer
+  v   revert selected commit in working tree and staging area
+  P   apply current commit in the normal way
+  C   switch your current working tree to the commit
+  .   mark current commit
+  =   diff marked commit and current commit
+  x   soft reset to current commit
+  X   hard reset to current commit
+  
+   COMPLETE KEY BINDINGS                                                                                                                                                                                                                        
+  
+    --------------------------------------------                                                                                                                                                                                                 
+  
+    TAB     magit-toggle-section                                                                                                                                                                                                                 
+    RET     magit-visit-item                                                                                                                                                                                                                     
+    C-w     magit-copy-item-as-kill                                                                                                                                                                                                              
+    SPC     magit-show-item-or-scroll-up                                                                                                                                                                                                         
+    $       magit-display-process                                                                                                                                                                                                                
+    .       magit-mark-item                                                                                                                                                                                                                      
+    1       magit-jump-to-untracked                                                                                                                                                                                                              
+    2       magit-jump-to-unstaged                                                                                                                                                                                                               
+    3       magit-jump-to-staged                                                                                                                                                                                                                 
+    4       magit-jump-to-unpushed                                                                                                                                                                                                               
+    =       magit-diff-with-mark                                                                                                                                                                                                                 
+    ?       magit-describe-item                                                                                                                                                                                                                  
+    A       magit-cherry-pick-item                                                                                                                                                                                                               
+    B       magit-create-branch                                                                                                                                                                                                                  
+    C       magit-add-log                                                                                                                                                                                                                        
+    D       magit-diff                                                                                                                                                                                                                           
+    E       magit-interactive-rebase                                                                                                                                                                                                             
+    F       magit-pull                                                                                                                                                                                                                           
+    G       magit-refresh-all                                                                                                                                                                                                                    
+    H       magit-reflog                                                                                                                                                                                                                         
+    I       magit-ignore-item-locally                                                                                                                                                                                                            
+    L       magit-log                                                                                                                                                                                                                            
+    M       magit-automatic-merge                                                                                                                                                                                                                
+    N       Prefix Command                                                                                                                                                                                                                       
+    P       magit-push                                                                                                                                                                                                                           
+    R       magit-rebase-step                                                                                                                                                                                                                    
+    S       magit-stage-all                                                                                                                                                                                                                      
+    T       magit-annotated-tag                                                                                                                                                                                                                  
+    U       magit-unstage-all                                                                                                                                                                                                                    
+    V       magit-show-branches                                                                                                                                                                                                                  
+    X       magit-reset-working-tree                                                                                                                                                                                                             
+    a       magit-apply-item                                                                                                                                                                                                                     
+    b       magit-checkout                                                                                                                                                                                                                       
+    c       magit-log-edit                                                                                                                                                                                                                       
+    d       magit-diff-working-tree                                                                                                                                                                                                              
+    f       magit-remote-update                                                                                                                                                                                                                  
+    g       magit-refresh                                                                                                                                                                                                                        
+    h       magit-reflog-head                                                                                                                                                                                                                    
+    i       magit-ignore-item                                                                                                                                                                                                                    
+    k       magit-discard-item                                                                                                                                                                                                                   
+    l       magit-log-head                                                                                                                                                                                                                       
+    m       magit-manual-merge                                                                                                                                                                                                                   
+    n       magit-goto-next-section                                                                                                                                                                                                              
+    p       magit-goto-previous-section                                                                                                                                                                                                          
+    q       quit-window                                                                                                                                                                                                                          
+    r       Prefix Command                                                                                                                                                                                                                       
+    s       magit-stage-item                                                                                                                                                                                                                     
+    t       magit-tag                                                                                                                                                                                                                            
+    u       magit-unstage-item                                                                                                                                                                                                                   
+    v       magit-revert-item                                                                                                                                                                                                                    
+    w       magit-wazzup                                                                                                                                                                                                                         
+    x       magit-reset-head                                                                                                                                                                                                                     
+    z       magit-stash                                                                                                                                                                                                                          
+    DEL     magit-show-item-or-scroll-down                                                                                                                                                                                                       
+  
+    <backtab>       magit-expand-collapse-section                                                                                                                                                                                                
+    <remap>         Prefix Command                                                                                                                                                                                                               
+  
+    N c             magit-svn-dcommit                                                                                                                                                                                                            
+    N r             magit-svn-rebase                                                                                                                                                                                                             
+  
+    r *             magit-rewrite-set-unused                                                                                                                                                                                                     
+    r .             magit-rewrite-set-used                                                                                                                                                                                                       
+    r a             magit-rewrite-abort                                                                                                                                                                                                          
+    r f             magit-rewrite-finish                                                                                                                                                                                                         
+    r s             magit-rewrite-start                                                                                                                                                                                                          
+    r t             magit-rewrite-stop

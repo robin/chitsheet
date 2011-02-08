@@ -1,0 +1,13 @@
+--- 
+nmap: |-
+  nmap
+      Network exploration tool and security / port scanner
+      
+      -- basic scan
+      nmap -O target.host.com
+  
+      -- multiple hosts
+      nmap -O host1.target.com host2.target.com
+  
+     -- whats on the network?
+     nmap -sP 10.0.0.0/24
